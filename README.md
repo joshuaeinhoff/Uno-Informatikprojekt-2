@@ -11,6 +11,7 @@ Informatikprojekt 2 von Sarah, Teresa und Joshua
 - in jedem Tempel gibt es ein kleines Rätsel und einen Tempelboss
 - Jeder Boss muss im Uno-Kampf besiegt werden 
 - je weiter der Spieler in der Geschichte kommt desto schwieriger werden die Rätsel und Kämpfe
+- Wer den letzten Tempel (Feuertempel) bezwingt kriegt eine festgelegte Menge 5Coins als Belohnung
 
 ![Tempelelementsymbol](https://github.com/joshuaeinhoff/Uno-Informatikprojekt-2/blob/main/img/Avater%20Tempel%20Symbole.jpg)
 
