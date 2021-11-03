@@ -1,0 +1,142 @@
+{
+	"name": "::dir",
+	"id": "rgurlg",
+	"user": "f6592be009aeffa6cfff48a4794872c2",
+	"programmingLanguage": "JAVA",
+	"mainClass": "",
+	"libraries": [],
+	"javadocVisibilityType": 2,
+	"useComfortJavadoc": true,
+	"features": [
+		{
+			"feature": "gamification.feature.Hints",
+			"value": []
+		}
+	],
+	"layout": [
+		{
+			"content": [
+				{
+					"type": "document",
+					"path": "::dir\\Spiel.java",
+					"active": true,
+					"cursor": {
+						"line": 24,
+						"ch": 38
+					}
+				},
+				{
+					"type": "document",
+					"path": "::dir\\Tempel.java"
+				},
+				{
+					"type": "document",
+					"path": "::dir\\UnoKartenspiel.java"
+				},
+				{
+					"type": "document",
+					"path": "::dir\\UnoKartenStapel.java"
+				},
+				{
+					"type": "document",
+					"path": "::dir\\UnoKarte.java"
+				},
+				{
+					"type": "document",
+					"path": "::dir\\Spieler.java"
+				}
+			],
+			"type": 1,
+			"active": true
+		},
+		{
+			"type": 2
+		}
+	],
+	"workspace": {
+		"split2_left": {
+			"visibility": [
+				true,
+				true
+			],
+			"dimension": [
+				20,
+				80
+			]
+		},
+		"split2_bottom": {
+			"visibility": [
+				true,
+				true
+			],
+			"dimension": [
+				80,
+				20
+			]
+		},
+		"split2_right": {
+			"visibility": [
+				false,
+				true
+			],
+			"dimension": [
+				80,
+				20
+			]
+		},
+		"split3_explorer": {
+			"visibility": [
+				true,
+				true,
+				true
+			],
+			"dimension": [
+				60,
+				20,
+				20
+			]
+		}
+	},
+	"classMap": [
+		{
+			"name": "Spiel",
+			"path": "::dir\\Spiel.java",
+			"id": "satjop",
+			"isGenerated": false
+		},
+		{
+			"name": "Tempel",
+			"path": "::dir\\Tempel.java",
+			"id": "aszeoy",
+			"isGenerated": false
+		},
+		{
+			"name": "UnoKartenspiel",
+			"path": "::dir\\UnoKartenspiel.java",
+			"id": "uva18n",
+			"isGenerated": false
+		},
+		{
+			"name": "UnoKartenStapel",
+			"path": "::dir\\UnoKartenStapel.java",
+			"id": "x913fm",
+			"isGenerated": false
+		},
+		{
+			"name": "UnoKarte",
+			"path": "::dir\\UnoKarte.java",
+			"id": "qnmue2",
+			"isGenerated": false
+		},
+		{
+			"name": "Spieler",
+			"path": "::dir\\Spieler.java",
+			"id": "dboj3f",
+			"isGenerated": false
+		}
+	],
+	"flowMap": [],
+	"linkMap": [],
+	"activities": "U2FsdGVkX1/2h+qZd5Ln6hIJgMsCQpN+eRi+UGe3wFA=",
+	"lastSaveDate": "2021-11-03T19:49:28.819Z"
+}
