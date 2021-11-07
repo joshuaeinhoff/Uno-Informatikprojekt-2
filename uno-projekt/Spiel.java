@@ -15,6 +15,7 @@ class Spiel {
     // private Quizz ...
     private UnoKartenspiel uno;
     
+    // spiel brauch glaube ich keinen Konstruktor
     // Konstruktor -> Spiel erzeugen...
     public Spiel() {
     
@@ -24,10 +25,18 @@ class Spiel {
         erdeTempel = new Tempel("gruen", 3); 
         feuerTempel = new Tempel("rot", 4);
         
-        // Spieler
+        // Spieler ist abstrakt also: Held,KI etc.
         // KartenStapel
         
         
+    }
+
+    /**
+     * main
+     * @param args
+     */
+    public static void main(String[] args){
+
     }
 	
 }
