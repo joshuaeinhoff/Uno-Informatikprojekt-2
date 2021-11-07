@@ -7,7 +7,8 @@ class UnoKartenStapel {
     private UnoKarte[] karten;
     private int anzahlUnoKarten;
     
-    // Konstruktor -> Erzeugt einen Array mit 108 Karten
+    // Konstruktor -> Erzeugt einen Array mit 108 Karten 
+    // bis jetzt nur einen Array der Platz für 108 Karten hat
     private UnoKartenStapel() {
         karten = new UnoKarte[108];
     }
