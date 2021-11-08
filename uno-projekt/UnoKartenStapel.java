@@ -46,4 +46,7 @@ class UnoKartenStapel {
         return temp;
     }
     
+    public void fuelleKartendeck(UnoKartenStapel stapel){
+        //code
+    }
 }
