@@ -1,29 +1,17 @@
 # Fragen
 
+# Anmerkungen
+
+- Auswählen ob Spieler OOP1 oder OOP2 ist
+- min. 5 Fragen pro OOP1/2 und pro Temple -> 40 Fragen
+
 ## Story
-Zu entscheiden:
-- was genau ist zu retten?
-- Reihenfolge der Tempel und Schwierigkeitsgrad bzw. Stufe
+- Schatzsuche
+- Reihenfolge der Tempel: Wasser, Luft, Erde, Feuer
 
-## Quizze
-- OOP-Themen für die Quizze und das Tutorial auswählen und genau definieren
-- Fragen-Pool pro Tempel?
-
-## Uno
-- Uno-Spiel an die Story anpassen (Lebensenergie usw.)
-
-## konkrete Umsetzung
-- Klasse Spieler: Wie viele KIs?
-- Klasse Quizz: ?
-- Klasse Spiel: braucht keinen Konstruktor?
+## Umsetzung
+- Klasse Spieler: 2 (random und mit Strategie)
+- Klasse Spiel: entweder Konstruktor oder in der Main-Methode
 - Klasse Tempel: IV Farbe, Stufe(?), quizzfrage(?) oder am besten Fragepool
 - Klasse UnoKartenspiel: private int ersterSpieler; oder boolean ?
-- generell: Namen von IV und IM
-- Klasse QuizzFrage
-- Klasse Fragenpool: generisch?
-- Klasse FragenSteuerung: IV fragenpoolOOP1, fragenpoolOOP2
-
-## Dokumentation
-- eine Doku pro Gruppe oder pro Mitglieder?
-
-# Anmerkungen
+- generell: Namen von IV und IM müssen noch besprochen werden
