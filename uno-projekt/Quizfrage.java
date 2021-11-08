@@ -1,10 +1,10 @@
 /**
  *
  */
-public class Quizfrage implements Comparable<Quizfrage> {
+public class Quizfrage {
 
     // Eigenschaften
-    private String frageID; // kann sein OOP-Tempel-Nummer -> 1-2-01
+    private int frageID;
     private String frage;
     private String richtigeAntwort;
     private String falscheAntwort1;
@@ -19,7 +19,7 @@ public class Quizfrage implements Comparable<Quizfrage> {
      * @param falscheAntwort1
      * @param falscheAntwort2
      */
-    public Quizfrage(String frageID, String frage, String richtigeAntwort, String falscheAntwort1, String falscheAntwort2) {
+    public Quizfrage(int frageID, String frage, String richtigeAntwort, String falscheAntwort1, String falscheAntwort2) {
         this.frageID = frageID;
         this.frage = frage;
         this.richtigeAntwort = richtigeAntwort;
@@ -27,28 +27,4 @@ public class Quizfrage implements Comparable<Quizfrage> {
         this.falscheAntwort2 = falscheAntwort2;
     }
 
-    public String getFrageID() {
-        return frageID;
-    }
-
-    public String getFrage() {
-        return frage;
-    }
-
-    public String getRichtigeAntwort() {
-        return richtigeAntwort;
-    }
-
-    public String getFalscheAntwort1() {
-        return falscheAntwort1;
-    }
-
-    public String getFalscheAntwort2() {
-        return falscheAntwort2;
-    }
-
-    @Override
-    public int compareTo(Quizfrage o) {
-        return this.frageID.compareTo(o.frageID);
-    }
 }
