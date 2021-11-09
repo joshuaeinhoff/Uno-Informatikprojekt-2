@@ -1,6 +1,6 @@
 /*
 *
 */
-class FarbKarte extends UnoKarte{
+class FarbKarte extends Karte{
     //...
 }

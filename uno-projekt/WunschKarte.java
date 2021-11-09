@@ -1,3 +1,3 @@
-public class WunschKarte extends UnoKarte{
+public class WunschKarte extends Karte{
     
 }

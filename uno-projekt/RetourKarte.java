@@ -1,3 +1,3 @@
-public class RetourKarte extends UnoKarte{
+public class RetourKarte extends Karte{
     
 }

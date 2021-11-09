@@ -1,3 +1,3 @@
-public class PlusZweiKarte extends UnoKarte{
+public class PlusZweiKarte extends Karte{
     
 }

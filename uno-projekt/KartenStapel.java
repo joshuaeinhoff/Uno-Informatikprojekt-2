@@ -38,7 +38,7 @@ class KartenStapel {
         return temp;
     }
     
-    public void fuelleKartendeck(UnoKartenStapel stapel){
+    public void fuelleKartendeck(KartenStapel stapel){
         //code
     }
 }
