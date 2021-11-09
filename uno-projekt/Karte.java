@@ -16,5 +16,6 @@ abstract class Karte {
 
     boolean isPlayable(){
         //...
+        return false;
     }
 }
