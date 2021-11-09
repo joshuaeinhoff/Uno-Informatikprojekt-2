@@ -1,6 +1,14 @@
 /**
  * 
  */
-class UnoKarte {
+abstract class UnoKarte {
 	
+
+
+
+    private void setzeAussehen(){
+        //asdklfj
+    }
+
+
 }

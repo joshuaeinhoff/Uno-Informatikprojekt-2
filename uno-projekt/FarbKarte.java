@@ -1,0 +1,6 @@
+/*
+*
+*/
+class FarbKarte extends UnoKarte{
+    //...
+}

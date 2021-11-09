@@ -39,4 +39,12 @@ import java.util.*;
         //fügt die aus dem Stapel gezogene Karte der Hand hinzu
         hand.add(kartenStapel.karteZiehen());
     }
+
+    /*
+    public UnoKarte karteSpielen(){
+        
+        hand.remove(karte);
+        return karte;
+    }
+    */
 }
