@@ -1,31 +1,54 @@
+import java.util.*;
 /**
  * 
  */
 class Tempel {
 
-    // Eigenschaften: Farbe bzw. Element, Schwierigkeitsgrad bzw. Stufe (1-4)
+    // Eigenschaften
     private String farbe;
-    private int stufe; //Stufe? - für die Schwierigkeit im Tempel oder für den Fortschritt im Tempel?
-    private String quizfrage; //Quizfrage als Variable die beim erzeugen gesetzt wird?
-                              /*
-                              * Ist es vielleicht sinnvoll einen Fragenpool pro Temple zu haben, dass es
-                              * einen höheren Ansporn zum erneuten spielen gibt?
-                              */
-    
-    // Konstruktor -> Tempel einer bestimmten Farbe wird erzeugt
-    public Tempel(String farbe, int stufe) {
+    private HashMap<Integer,Quizfrage> fragenpoolOOP1;
+    private HashMap<Integer,Quizfrage> fragenpoolOOP2;
+    private Kartenspiel kartenspiel;
+
+    /**
+     * Konstruktor zum Erzeugen einer Instanz der Klasse Tempel
+     * @param farbe
+     */
+    public Tempel(String farbe) {
         this.farbe = farbe;
-        this.stufe = stufe;
+        this.kartenspiel = new Kartenspiel();
     }
-    
+
+    public HashMap<Integer, Quizfrage> getFragenpoolOOP1() {
+        return fragenpoolOOP1;
+    }
+
+    public HashMap<Integer, Quizfrage> getFragenpoolOOP2() {
+        return fragenpoolOOP2;
+    }
+
     // Rätsel -> Quizz
-    public void betreten() {
-        // -> Quizz
+    public void betreten(Spieler spieler, int niveau) {
+        // while keine richtige Antwort
+            Random rand = new Random(); //instance of random class
+            int random = rand.nextInt(5);
+            if(niveau == 1) {
+                // Select question from fragenpoolOOP1
+            } else {
+                // Select question from fragenpoolOOP2
+            }
+
+
+
     }
     
     // Boss -> Uno Spiel
-    public void finalBoss() {
+    public void monsterKaempfen() {
         // -> UNO
+        // unoKartenspiel -> spielen
+
+
+
     }
     
 	

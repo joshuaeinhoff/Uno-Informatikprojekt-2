@@ -1,7 +1,7 @@
 /**
  * 
  */
-class UnoKartenspiel {
+class Kartenspiel {
 
     // Eigenschaften: Kartenstapel
     private UnoKartenStapel kartenStapel;
@@ -13,8 +13,9 @@ class UnoKartenspiel {
     private UnoKarte aktuelleKarte;
     
     // Konstruktor
-    public UnoKartenspiel() {
-        this.kartenStapel = UnoKartenStapel.kartenStapelErzeugen();
+    public Kartenspiel() {
+        this.kartenStapel = new KartenStapel();
+        
     }
 
     private void karteSpielen(Spieler _spieler){
