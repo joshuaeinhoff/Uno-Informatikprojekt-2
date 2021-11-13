@@ -21,7 +21,8 @@ class Spiel {
         Tempel erdeTempel = new Tempel("gruen");
         Tempel feuerTempel = new Tempel("rot");
 
-        /* Tempel 1 */
+
+        /* Tempel 1: Wasser-Tempel */
 
         // Quizfragen zu OOP2 vom Tempel 1 manuell erzeugen
         int index_t1_oop2 = 0;
@@ -35,20 +36,20 @@ class Spiel {
         Quizfrage qf8_t1_oop2 = new Quizfrage("Besitzen die Knoten eine Referenz zum Elternelement?", "a) Ja", "b) Nein", "", 'b');
 
         // Quizfragen zu OOP2 vom Tempel 1 in Fragenpool vom Tempel 1 speichern
-        wasserTempel.getFragenpoolOOP1().put(++index_t1_oop2,qf1_t1_oop2);
-        wasserTempel.getFragenpoolOOP1().put(++index_t1_oop2,qf1_t1_oop2);
-        wasserTempel.getFragenpoolOOP1().put(++index_t1_oop2,qf2_t1_oop2);
-        wasserTempel.getFragenpoolOOP1().put(++index_t1_oop2,qf3_t1_oop2);
-        wasserTempel.getFragenpoolOOP1().put(++index_t1_oop2,qf4_t1_oop2);
-        wasserTempel.getFragenpoolOOP1().put(++index_t1_oop2,qf5_t1_oop2);
-        wasserTempel.getFragenpoolOOP1().put(++index_t1_oop2,qf6_t1_oop2);
-        wasserTempel.getFragenpoolOOP1().put(++index_t1_oop2,qf7_t1_oop2);
-        wasserTempel.getFragenpoolOOP1().put(++index_t1_oop2,qf8_t1_oop2);
+        wasserTempel.getFragenpoolOOP2().put(++index_t1_oop2,qf1_t1_oop2);
+        wasserTempel.getFragenpoolOOP2().put(++index_t1_oop2,qf1_t1_oop2);
+        wasserTempel.getFragenpoolOOP2().put(++index_t1_oop2,qf2_t1_oop2);
+        wasserTempel.getFragenpoolOOP2().put(++index_t1_oop2,qf3_t1_oop2);
+        wasserTempel.getFragenpoolOOP2().put(++index_t1_oop2,qf4_t1_oop2);
+        wasserTempel.getFragenpoolOOP2().put(++index_t1_oop2,qf5_t1_oop2);
+        wasserTempel.getFragenpoolOOP2().put(++index_t1_oop2,qf6_t1_oop2);
+        wasserTempel.getFragenpoolOOP2().put(++index_t1_oop2,qf7_t1_oop2);
+        wasserTempel.getFragenpoolOOP2().put(++index_t1_oop2,qf8_t1_oop2);
 
 
         // Pruefen, dass die Daten richtig gespeichert wurden
         /*
-        for(Map.Entry<Integer,Quizfrage> entry : wasserTempel.getFragenpool_oop1().entrySet()) {
+        for(Map.Entry<Integer,Quizfrage> entry : wasserTempel.getFragenpoolOOP2().entrySet()) {
             System.out.print(entry.getKey() + ": ");
             System.out.println(entry.getValue().getFrage());
             for(String antwort : entry.getValue().getAntwortsmoeglichkeiten()) {
