@@ -4,27 +4,47 @@
 public class Quizfrage {
 
     // Eigenschaften
-    private int frageID;
     private String frage;
-    private String richtigeAntwort;
-    private String falscheAntwort1;
-    private String falscheAntwort2;
+    private String[] antwortsmoeglichkeiten;
+    private char richtigeAntwort;
+
+    public String getFrage() {
+        return frage;
+    }
+
+    public String[] getAntwortsmoeglichkeiten() {
+        return antwortsmoeglichkeiten;
+    }
+
+    public char getRichtigeAntwort() {
+        return richtigeAntwort;
+    }
 
     /**
-     * Konstruktor zum Erzeugen einer Instanz der Klasse QuizzFrage
-     *
-     * @param frageID
+     * Konstruktor 1
      * @param frage
+     * @param antwortsmoeglichkeiten
      * @param richtigeAntwort
-     * @param falscheAntwort1
-     * @param falscheAntwort2
      */
-    public Quizfrage(int frageID, String frage, String richtigeAntwort, String falscheAntwort1, String falscheAntwort2) {
-        this.frageID = frageID;
+    public Quizfrage(String frage, String[] antwortsmoeglichkeiten, char richtigeAntwort) {
         this.frage = frage;
+        this.antwortsmoeglichkeiten = antwortsmoeglichkeiten;
         this.richtigeAntwort = richtigeAntwort;
-        this.falscheAntwort1 = falscheAntwort1;
-        this.falscheAntwort2 = falscheAntwort2;
     }
+
+    /**
+     * Konstruktor 2
+     * @param frage
+     * @param antwort1
+     * @param antwort2
+     * @param antwort3
+     * @param richtigeAntwort
+     */
+    public Quizfrage(String frage, String antwort1, String antwort2, String antwort3, char richtigeAntwort) {
+        this.frage = frage;
+        this.antwortsmoeglichkeiten = new String[] { antwort1, antwort2, antwort3 };
+        this.richtigeAntwort = richtigeAntwort;
+    }
+    
 
 }
