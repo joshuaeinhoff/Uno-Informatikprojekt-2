@@ -109,10 +109,16 @@ class Spiel {
 
 
 
-        /* Spielablauf */
+        
 
         Spieler held = new Held();
-        wasserTempel.betreten(held, niveau);
+
+
+        /* Spielablauf */
+
+        // Anfang
+        wasserTempel.quizLoesen(spielNiveau);
+        
     }
 	
 }
