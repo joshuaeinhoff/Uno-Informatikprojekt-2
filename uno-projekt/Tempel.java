@@ -6,8 +6,8 @@ class Tempel {
 
     // Eigenschaften
     private String farbe;
-    private HashMap<Integer,Quizfrage> fragenpoolOOP1;
-    private HashMap<Integer,Quizfrage> fragenpoolOOP2;
+    private Map<Integer,Quizfrage> fragenpoolOOP1;
+    private Map<Integer,Quizfrage> fragenpoolOOP2;
     private Kartenspiel kartenspiel;
 
     /**
@@ -16,17 +16,20 @@ class Tempel {
      */
     public Tempel(String farbe) {
         this.farbe = farbe;
+        this.fragenpoolOOP1 = new TreeMap<>();
+        this.fragenpoolOOP2 = new TreeMap<>();
         this.kartenspiel = new Kartenspiel();
     }
 
-    public HashMap<Integer, Quizfrage> getFragenpoolOOP1() {
+    public Map<Integer, Quizfrage> getFragenpoolOOP1() {
         return fragenpoolOOP1;
     }
 
-    public HashMap<Integer, Quizfrage> getFragenpoolOOP2() {
+    public Map<Integer, Quizfrage> getFragenpoolOOP2() {
         return fragenpoolOOP2;
     }
 
+    
     // Rätsel -> Quizz
     public void betreten(Spieler spieler, int niveau) {
         // while keine richtige Antwort
