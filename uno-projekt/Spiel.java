@@ -9,7 +9,7 @@ class Spiel {
      */
     public static void main(String[] args){
 
-        /* Spielkonzept */
+        /* Spielvorbereitung */
 
         System.out.println("Wählen Sie bitte OOP1 oder OOP2"); // weiter...
         int niveau = 1;
@@ -36,28 +36,21 @@ class Spiel {
         Quizfrage qf8_t1_oop2 = new Quizfrage("Besitzen die Knoten eine Referenz zum Elternelement?", "a) Ja", "b) Nein", "", 'b');
 
         // Quizfragen zu OOP2 vom Tempel 1 in Fragenpool vom Tempel 1 speichern
-        wasserTempel.getFragenpoolOOP2().put(++index_t1_oop2,qf1_t1_oop2);
-        wasserTempel.getFragenpoolOOP2().put(++index_t1_oop2,qf1_t1_oop2);
-        wasserTempel.getFragenpoolOOP2().put(++index_t1_oop2,qf2_t1_oop2);
-        wasserTempel.getFragenpoolOOP2().put(++index_t1_oop2,qf3_t1_oop2);
-        wasserTempel.getFragenpoolOOP2().put(++index_t1_oop2,qf4_t1_oop2);
-        wasserTempel.getFragenpoolOOP2().put(++index_t1_oop2,qf5_t1_oop2);
-        wasserTempel.getFragenpoolOOP2().put(++index_t1_oop2,qf6_t1_oop2);
-        wasserTempel.getFragenpoolOOP2().put(++index_t1_oop2,qf7_t1_oop2);
-        wasserTempel.getFragenpoolOOP2().put(++index_t1_oop2,qf8_t1_oop2);
+        wasserTempel.setFragenpoolOOP2(new Quizfrage[]{ qf1_t1_oop2, qf2_t1_oop2, qf3_t1_oop2, qf4_t1_oop2, qf5_t1_oop2, qf6_t1_oop2, qf7_t1_oop2, qf8_t1_oop2 });
+
 
 
         // Pruefen, dass die Daten richtig gespeichert wurden
         /*
-        for(Map.Entry<Integer,Quizfrage> entry : wasserTempel.getFragenpoolOOP2().entrySet()) {
-            System.out.print(entry.getKey() + ": ");
-            System.out.println(entry.getValue().getFrage());
-            for(String antwort : entry.getValue().getAntwortsmoeglichkeiten()) {
-                System.out.println("antwort: " + antwort);
+        for(Quizfrage qf : wasserTempel.getFragenpoolOOP2()) {
+            System.out.println("Frage: " + qf.getFrage());
+            for(String antwort : qf.getAntwortsmoeglichkeiten()) {
+                System.out.println("Antwort: " + antwort);
             }
-            System.out.println("richtig: " + entry.getValue().getRichtigeAntwort());
+            System.out.println("Richtige Antwort: " + qf.getRichtigeAntwort());
         }
-        */
+
+         */
 
 
 

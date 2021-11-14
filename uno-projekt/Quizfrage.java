@@ -20,20 +20,9 @@ public class Quizfrage {
         return richtigeAntwort;
     }
 
+    
     /**
      * Konstruktor 1
-     * @param frage
-     * @param antwortsmoeglichkeiten
-     * @param richtigeAntwort
-     */
-    public Quizfrage(String frage, String[] antwortsmoeglichkeiten, char richtigeAntwort) {
-        this.frage = frage;
-        this.antwortsmoeglichkeiten = antwortsmoeglichkeiten;
-        this.richtigeAntwort = richtigeAntwort;
-    }
-
-    /**
-     * Konstruktor 2
      * @param frage
      * @param antwort1
      * @param antwort2
@@ -44,6 +33,18 @@ public class Quizfrage {
         this.frage = frage;
         this.antwortsmoeglichkeiten = new String[] { antwort1, antwort2, antwort3 };
         this.richtigeAntwort = richtigeAntwort;
+    }
+
+    /**
+     * Konstruktor 2
+     * @param datensatz
+     */
+    public Quizfrage(String datensatz) {
+        // Datensatz nach Semikolon teilen
+        String[] strings = datensatz.split(";");
+        frage = strings[0];
+        antwortsmoeglichkeiten = new String[]{ strings[1], strings[2], strings[3] };
+        richtigeAntwort = strings[4].charAt(0);
     }
     
 
