@@ -24,7 +24,13 @@ class Spiel {
 
         /* Tempel 1: Wasser-Tempel */
 
-        // Quizfragen zu OOP2 vom Tempel 1 manuell erzeugen
+        // Quizfragen zu OOP1 vom Tempel 1 erzeugen
+        // ...
+
+        // Quizfragen zu OOP1 vom Tempel 1 in Fragenpool vom Tempel 1 speichern
+        // ...
+
+        // Quizfragen zu OOP2 vom Tempel 1 erzeugen
         int index_t1_oop2 = 0;
         Quizfrage qf1_t1_oop2 = new Quizfrage("In einer Liste stehen miteinander verkettete…", "a) Nutzlasten", "b) Knoten", "c) abstrakte Datentypen", 'b');
         Quizfrage qf2_t1_oop2 = new Quizfrage("Wie viele Elemente umfasst die Suche in einer Liste der Länge n?", "a) n", "b) n/2", "c) log(n)", 'c');
@@ -39,18 +45,67 @@ class Spiel {
         wasserTempel.setFragenpoolOOP2(new Quizfrage[]{ qf1_t1_oop2, qf2_t1_oop2, qf3_t1_oop2, qf4_t1_oop2, qf5_t1_oop2, qf6_t1_oop2, qf7_t1_oop2, qf8_t1_oop2 });
 
 
+        /* Tempel 2: Luft-Tempel */
 
-        // Pruefen, dass die Daten richtig gespeichert wurden
-        /*
-        for(Quizfrage qf : wasserTempel.getFragenpoolOOP2()) {
-            System.out.println("Frage: " + qf.getFrage());
-            for(String antwort : qf.getAntwortsmoeglichkeiten()) {
-                System.out.println("Antwort: " + antwort);
-            }
-            System.out.println("Richtige Antwort: " + qf.getRichtigeAntwort());
-        }
+        // Quizfragen zu OOP1 vom Tempel 2 erzeugen
 
-         */
+        // Quizfragen zu OOP1 vom Tempel 2 in Fragenpool vom Tempel 2 speichern
+
+
+        // Quizfragen zu OOP2 vom Tempel 2 erzeugen
+        Quizfrage qf1_t2_oop2 = new Quizfrage("Wie werden die Knoten beim Traversieren im Post-Order betrachtet?","a) Links – Wurzel – Rechts","b) Links – Rechts – Wurzel","c) Wurzel – Links – Rechts",'b');
+        Quizfrage qf2_t2_oop2 = new Quizfrage("Welche Klasse muss die Methode compareTo() implementieren","a) GenCompBaum-Klasse","b) Knoten-Klasse","c) Nutzlast-Klasse",'c');
+        Quizfrage qf3_t2_oop2 = new Quizfrage("Wie viele Fälle muss man beim Löschen eines Knotens aus dem Binärbaum beachten?","a) Drei","b) Zweieinhalb","c) Zwei",'a');
+        Quizfrage qf4_t2_oop2 = new Quizfrage("Wie wird der Speicher von nicht mehr verwendeten Objekten in Java freigegeben?","a) Manuell","b) Durch eine Garbage Collector","",'b');
+        Quizfrage qf5_t2_oop2 = new Quizfrage("Ein Upper Typebound lässt sich mit … definieren.","a) implements","b) extends","c) type",'b');
+        Quizfrage qf6_t2_oop2 = new Quizfrage("Welcher der folgenden Typen ist nicht iterierbar?","a) Set","b) Map","c) List",'b');
+        Quizfrage qf7_t2_oop2 = new Quizfrage("Wie lassen sich mehrere formale Typ-Parameter anführen?","a) Durch Komma separiert","b) Durch & separiert","c) Durch den <>-Operator",'a');
+        Quizfrage qf8_t2_oop2 = new Quizfrage("Wie lassen sich mehrere formale Upper Typebounds anführen?","a) Durch Komma separiert","b) Durch & separiert","c) Durch den <>-Operator",'b');
+
+        // Quizfragen zu OOP2 vom Tempel 2 in Fragenpool vom Tempel 2 speichern
+        luftTempel.setFragenpoolOOP2(new Quizfrage[]{ qf1_t2_oop2, qf2_t2_oop2, qf3_t2_oop2, qf4_t2_oop2, qf5_t2_oop2, qf6_t2_oop2, qf7_t2_oop2, qf8_t2_oop2 });
+
+
+        /* Tempel 3: Erde-Tempel */
+
+        // Quizfragen zu OOP1 vom Tempel 3 erzeugen
+
+        // Quizfragen zu OOP1 vom Tempel 3 in Fragenpool vom Tempel 3 speichern
+
+
+        // Quizfragen zu OOP2 vom Tempel 3 erzeugen
+        Quizfrage qf1_t3_oop2 = new Quizfrage("Das Löschen von Typ-Informationen für die Laufzeit in Java heißt…","a) Type inference","b) Type removal","c) Type erasure",'c');
+        Quizfrage qf2_t3_oop2 = new Quizfrage("Das Symbol <?> steht für…","a) Wildcard","b) Raw type","c) Diamond-Operator",'a');
+        Quizfrage qf3_t3_oop2 = new Quizfrage("Welche Exceptions müssen im Programm nicht angemeldet werden?","a) IOExceptions","b) RuntimeExceptions","c) InterruptedExceptions",'b');
+        Quizfrage qf4_t3_oop2 = new Quizfrage("Wann wird der finally-Block ausgeführt?","a) Wenn Exceptions geworfen sind","b) Wenn keine Exceptions geworfen sind","c) Immer",'c');
+        Quizfrage qf5_t3_oop2 = new Quizfrage("Was ist die Funktion von Filter-Klassen?","a) Daten werden aus einer Datei gelesen bzw. in eine Datei geschrieben.","b) Daten werden in einem Pufferspeicher gesammelt.","c) Daten werden in Methoden modifiziert.",'c');
+        Quizfrage qf6_t3_oop2 = new Quizfrage("Was gibt der Aufruf von read(buf,off,len) zurück?","a) Die Größe des Buffers","b) Die Anzahl der gelesenen Zeichen","c) 1, 0 oder -1",'b');
+        Quizfrage qf7_t3_oop2 = new Quizfrage("Wie wird ein Datenstrom geöffnet und initialisiert?","a) im Constructor","b) mit open()","c) mit read() oder write()",'a');
+
+        // Quizfragen zu OOP2 vom Tempel 3 in Fragenpool vom Tempel 3 speichern
+        erdeTempel.setFragenpoolOOP2(new Quizfrage[]{ qf1_t3_oop2, qf2_t3_oop2, qf3_t3_oop2, qf4_t3_oop2, qf5_t3_oop2, qf6_t3_oop2, qf7_t3_oop2 });
+
+        
+        /* Tempel 4: Feuer-Tempel */
+
+        // Quizfragen zu OOP1 vom Tempel 4 erzeugen
+
+        // Quizfragen zu OOP1 vom Tempel 4 in Fragenpool vom Tempel 4 speichern
+
+
+        // Quizfragen zu OOP2 vom Tempel 4 erzeugen
+        Quizfrage qf1_t4_oop2 = new Quizfrage("… sind eigenständige Programme mit eigenen Ressourcen","a) Threads","b) Prozesse","",'b');
+        Quizfrage qf2_t4_oop2 = new Quizfrage("Welcher Aufruf erlaubt einen Thread, nebenläufig zu laufen?","a) run()","b) open()","c) start()",'c');
+        Quizfrage qf3_t4_oop2 = new Quizfrage("Welcher Aufruf wird bevorzugt, um den Zustand des Flags abzufragen?","a) interrupted()","b) isInterrupted()","c) interrupt()",'a');
+        Quizfrage qf4_t4_oop2 = new Quizfrage("Wie können Code-Blöcke bzw. Methoden als nicht unterbrechbar markiert werden?","a) mit synchronize","b) mit synchronized","c) mit synchronise",'b');
+        Quizfrage qf5_t4_oop2 = new Quizfrage("Welche Kategorien von Entwurfsmustern bestehen je nach Zweck?","a) Struktur-, Klassen- und Verhaltensmuster","b) Erzeugungs-, Struktur- und Verhaltensmuster","c) Objekt- und Klassenmuster",'b');
+        Quizfrage qf6_t4_oop2 = new Quizfrage("Welche Kategorien von Entwurfsmustern bestehen je nach Wirkungsbereich?","a) Struktur-, Klassen- und Verhaltensmuster","b) Erzeugungs-, Struktur- und Verhaltensmuster","c) Objekt- und Klassenmuster",'c');
+        Quizfrage qf7_t4_oop2 = new Quizfrage("Zu welchen Kategorien gehört ein Singleton?","a) Erzeugungs- und Objektmuster","b) Struktur- und Objektmuster","c) Verhaltens- und Klassenmuster",'a');
+
+        // Quizfragen zu OOP2 vom Tempel 4 in Fragenpool vom Tempel 4 speichern
+        feuerTempel.setFragenpoolOOP2(new Quizfrage[]{ qf1_t4_oop2, qf2_t4_oop2, qf3_t4_oop2, qf4_t4_oop2, qf5_t4_oop2, qf6_t4_oop2, qf7_t4_oop2 });
+
+        
 
 
 
