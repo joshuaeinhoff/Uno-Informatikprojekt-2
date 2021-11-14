@@ -1,0 +1,8 @@
+Wie werden die Knoten beim Traversieren im Post-Order betrachtet?;a) Links – Wurzel – Rechts;b) Links – Rechts – Wurzel;c) Wurzel – Links – Rechts;b
+Welche Klasse muss die Methode compareTo() implementieren;a) GenCompBaum-Klasse;b) Knoten-Klasse;c) Nutzlast-Klasse;c
+Wie viele Fälle muss man beim Löschen eines Knotens aus dem Binärbaum beachten?;a) Drei;b) Zweieinhalb;c) Zwei;a
+Wie wird der Speicher von nicht mehr verwendeten Objekten in Java freigegeben?;a) Manuell;b) Durch eine Garbage Collector;;b
+Ein Upper Typebound lässt sich mit … definieren.;a) implements;b) extends;c) type;b
+Welcher der folgenden Typen ist nicht iterierbar?;a) Set;b) Map;c) List;b
+Wie lassen sich mehrere formale Typ-Parameter anführen?;a) Durch Komma separiert;b) Durch & separiert;c) Durch den <>-Operator;a
+Wie lassen sich mehrere formale Upper Typebounds anführen?;a) Durch Komma separiert;b) Durch & separiert;c) Durch den <>-Operator;b

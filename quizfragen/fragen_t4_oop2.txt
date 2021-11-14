@@ -1,0 +1,15 @@
+… sind eigenständige Programme mit eigenen Ressourcen;a) Threads;b) Prozesse;b
+Welcher Aufruf erlaubt einen Thread, nebenläufig zu laufen?;a) run();b) open();c) start();c
+Welcher Aufruf wird bevorzugt, um den Zustand des Flags abzufragen?;a) interrupted();b) isInterrupted();c) interrupt();a
+Wie können Code-Blöcke bzw. Methoden als nicht unterbrechbar markiert werden?;a) mit synchronize;b) mit synchronized;c) mit synchronise;b
+Welche Kategorien von Entwurfsmustern bestehen je nach Zweck?;a) Struktur-, Klassen- und Verhaltensmuster;b) Erzeugungs-, Struktur- und Verhaltensmuster;c) Objekt- und Klassenmuster;b
+Welche Kategorien von Entwurfsmustern bestehen je nach Wirkungsbereich?;a) Struktur-, Klassen- und Verhaltensmuster;b) Erzeugungs-, Struktur- und Verhaltensmuster;c) Objekt- und Klassenmuster;c
+Zu welchen Kategorien gehört ein Singleton?;a) Erzeugungs- und Objektmuster;b) Struktur- und Objektmuster;c) Verhaltens- und Klassenmuster;a
+
+
+
+
+
+
+
+

@@ -5,4 +5,4 @@ Wie kann eine Liste in beide Richtungen iteriert werden?;a) Mit einem ListIterat
 Wird es über die einzelnen Nutzlasten einer Liste iteriert?;a) Nein;b) Ja;;a
 Welcher Aufruf gibt die nächste Nutzlast zurück?;a) hasNext();b) next();c) next.next();b
 Wie viele Nachfolger kann ein Knoten in einem Binärbaum haben?;a) Zwei;b) Keine;c) a und b sind richtig;c
-Besitzen die Knoten eine Referenz zum Elternelement?;a) Ja;b) Nein;;b;
+Besitzen die Knoten eine Referenz zum Elternelement?;a) Ja;b) Nein;;b
