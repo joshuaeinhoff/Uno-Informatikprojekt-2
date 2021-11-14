@@ -1,7 +1,7 @@
 /**
  *  Klasse Spiel 
  */
-class Spiel {
+public class Spiel {
     
     /**
      * main
@@ -105,9 +105,6 @@ class Spiel {
         // Quizfragen zu OOP2 vom Tempel 4 in Fragenpool vom Tempel 4 speichern
         feuerTempel.setFragenpoolOOP2(new Quizfrage[]{ qf1_t4_oop2, qf2_t4_oop2, qf3_t4_oop2, qf4_t4_oop2, qf5_t4_oop2, qf6_t4_oop2, qf7_t4_oop2 });
 
-        
-
-
 
         
 
@@ -116,8 +113,21 @@ class Spiel {
 
         /* Spielablauf */
 
-        // Anfang
-        wasserTempel.quizLoesen(spielNiveau);
+        // 1. Tempel: Wasser
+        wasserTempel.tempelBetreten(spielNiveau);
+        // Monster bekämpfen
+
+        // 2. Tempel
+        luftTempel.tempelBetreten(spielNiveau);
+        // Monster bekämpfen
+
+        // 3. Tempel
+        erdeTempel.tempelBetreten(spielNiveau);
+        // Monster bekämpfen
+
+        // 4. Tempel
+        feuerTempel.tempelBetreten(spielNiveau);
+        // Monster bekämpfen
         
     }
 	

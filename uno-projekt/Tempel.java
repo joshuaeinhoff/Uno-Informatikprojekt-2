@@ -2,7 +2,7 @@ import java.util.*;
 /**
  * 
  */
-class Tempel {
+public class Tempel {
 
     // Eigenschaften
     private String farbe;
@@ -37,10 +37,24 @@ class Tempel {
 
     
     /**
-     * Prozedur zum Quizlösen
+     * Prozedur zum Fragenpool auswählen
      * @param niveau
      */
-    public void quizLoesen(int niveau) {
+    public void tempelBetreten(int niveau) {
+        // Niveau 1 für OOP1, 2 für OOP2
+        if(niveau == 1)
+            quizLoesen(fragenpoolOOP1);
+        else
+            quizLoesen(fragenpoolOOP2);
+
+    }
+
+
+    /**
+     * Prozedur zum Quizlösen
+     * @param fragenpool
+     */
+    public void quizLoesen(Quizfrage[] fragenpool) {
 
         boolean isRichtig = false;
         Random rand = new Random();
@@ -51,58 +65,33 @@ class Tempel {
         String eingabe = null;
 
         try {
-
-            if(niveau == 1) {
-                // Select question from fragenpoolOOP1
-                System.out.println("Solltest du den Tempel betreten möchten, musst du deine Weisheit zeigen, indem du ein Rätsel löst." + "\n");
-
-                while(!isRichtig) {
-                    zufallIndex = rand.nextInt(fragenpoolOOP1.length);
-                    System.out.println("Rätsel: " + fragenpoolOOP1[zufallIndex].getFrage());
-                    for(String antworte : fragenpoolOOP1[zufallIndex].getAntwortsmoeglichkeiten()) {
-                        if(antworte.compareTo("") != 0)
-                            System.out.println(antworte);
-                    }
-                    System.out.print("Gib den Buchstaben der richtigen Antwort ein: ");
-                    eingabe = reader.readLine();
-                    if(eingabe.charAt(0) == fragenpoolOOP1[zufallIndex].getRichtigeAntwort()) {
-                        System.out.println("Richtig!" + "\n");
-                        isRichtig = true;
-                    } else {
-                        System.out.println("Falsch!" + "\n");
-                        // Lebenspunkte abziehen
-                    }
+            // Select question from fragenpool
+            System.out.println("Solltest du den Tempel betreten möchten, musst du deine Weisheit zeigen, indem du ein Rätsel löst." + "\n");
+            // Solange keine richtige Frage beantwortet
+            while(!isRichtig) {
+                zufallIndex = rand.nextInt(fragenpool.length);
+                System.out.println("Rätsel: " + fragenpool[zufallIndex].getFrage());
+                for(String antworte : fragenpool[zufallIndex].getAntwortsmoeglichkeiten()) {
+                    if(antworte.compareTo("") != 0)
+                        System.out.println(antworte);
                 }
-
-            } else {
-                // Select question from fragenpoolOOP2
-                System.out.println("Solltest du den Tempel betreten möchten, musst du deine Weisheit zeigen, indem du ein Rätsel löst." + "\n");
-
-                while(!isRichtig) {
-                    zufallIndex = rand.nextInt(fragenpoolOOP2.length);
-                    System.out.println("Rätsel: " + fragenpoolOOP2[zufallIndex].getFrage());
-                    for(String antworte : fragenpoolOOP2[zufallIndex].getAntwortsmoeglichkeiten()) {
-                        if(antworte.compareTo("") != 0)
-                            System.out.println(antworte);
-                    }
-                    System.out.print("Gib den Buchstaben der richtigen Antwort ein: ");
-                    eingabe = reader.readLine();
-                    if(eingabe.charAt(0) == fragenpoolOOP2[zufallIndex].getRichtigeAntwort()) {
-                        System.out.println("Richtig!" + "\n");
-                        isRichtig = true;
-                    } else {
-                        System.out.println("Falsch!" + "\n");
-                        // Lebenspunkte abziehen
-                    }
+                System.out.print("Gib den Buchstaben der richtigen Antwort ein: ");
+                eingabe = reader.readLine();
+                if(eingabe.charAt(0) == fragenpool[zufallIndex].getRichtigeAntwort()) {
+                    System.out.println("Richtig!" + "\n");
+                    isRichtig = true;
+                } else {
+                    System.out.println("Falsch!" + "\n");
+                    // Lebenspunkte abziehen
+                    //...
                 }
-
             }
-
         } catch (IOException ioe) {
             System.out.println("Stream-Fehler: " + ioe.getMessage());
         }
 
     }
+
     
     // Boss -> Uno Spiel
     public void monsterKaempfen() {
