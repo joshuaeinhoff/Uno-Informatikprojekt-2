@@ -1,5 +1,5 @@
 import java.io.*;
-
+import java.util.*;
 /**
  *
  */
@@ -14,10 +14,10 @@ public class Spiel2 {
         // if OOP2 ausgewählt -> niveau = 2
 
         // Tempel erzeugen
-        Tempel wasserTempel = new Tempel("blau");
-        Tempel luftTempel = new Tempel("gelb");
-        Tempel erdeTempel = new Tempel("gruen");
-        Tempel feuerTempel = new Tempel("rot");
+        Tempel2 wasserTempel = new Tempel2("blau");
+        Tempel2 luftTempel = new Tempel2("gelb");
+        Tempel2 erdeTempel = new Tempel2("gruen");
+        Tempel2 feuerTempel = new Tempel2("rot");
 
 
         /* Tempel 1: Wasser-Tempel */
