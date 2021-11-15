@@ -1,0 +1,5 @@
+Was ist der Default-Datentyp für ganze Zahlenwerte?;a) int;b) short;c) byte;a
+Was gibt die EXCLUSIV-ODER-Operation aus, wenn beide Operanden true sind?;a) true;b) false;b
+Welche Datentypen passen zueinander?;a) Zahlen und Wahrheitswerte;b) Alle Datentypen, bei denen der Wertebereich passt;c) Alle Zahlen-Datentypen;b
+Variablennamen...;a) beginnen immer mit Kleinbuchstaben;b) sind reservierte Wörter;c) beginnen mit einer Ziffer;a
+Worauf bezieht sich eine Referenz im Speicher?;a) eine Operation;b) eine Adresse;c) eine Zeichenkette;b
