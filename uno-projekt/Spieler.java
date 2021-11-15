@@ -8,7 +8,11 @@ import java.util.*;
     //Jeder Spieler hat eine gewisse Anzahl an Karten auf der Hand, die hier in einem Array gespeichert werden.
     //Liste ist vielleicht doch ein wenig besser, da der Spieler immer unterschiedlich viele Karten auf der Hand
     //hat - muss dann immer ein neues Array gemacht werden? z. B. 10 Karten auf der Hand
-	private ArrayList<Karte> hand;
+
+	private ArrayList<Karte> hand; //OOP2
+
+    //private Karte[] hand; //OOP1?
+
     //Jeder Spieler hat Lebensenergie die durch Kämpfe reduziert werden kann
     private int lebensenergie;
     
@@ -18,8 +22,9 @@ import java.util.*;
      * @param _lebensenergie - int wird am Anfang z. B. für den menschlichen Spieler auf 100 gesetz
      */
     public Spieler(int _lebensenergie){
-        hand = new ArrayList<>();
+        hand = new ArrayList<>(); //OOP2
         lebensenergie = _lebensenergie;
+        //hand = new Karte[20]; //OOP1?
     }
 
     /**
@@ -40,11 +45,20 @@ import java.util.*;
         hand.add(kartenStapel.karteZiehen());
     }
 
-    /*
-    public UnoKarte karteSpielen(){
-        
-        hand.remove(karte);
-        return karte;
+
+    
+    public Karte karteSpielen(Karte geclickteKarte){
+        Karte temp = geclickteKarte;
+        hand.remove(geclickteKarte);
+        return temp;
     }
-    */
+    
+    /**
+     * get methoden sind eigentlich eher doof aber muss erstmal so 
+     * @param index
+     * @return
+     */
+    public Karte getKarte(int index){
+        return hand.get(index);
+    }
 }

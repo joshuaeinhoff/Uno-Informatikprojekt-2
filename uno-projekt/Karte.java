@@ -18,4 +18,9 @@ abstract class Karte {
         //...
         return false;
     }
+
+    public void clickAuf(){
+        //code..
+    }
+
 }

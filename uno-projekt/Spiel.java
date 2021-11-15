@@ -106,7 +106,6 @@ public class Spiel {
         feuerTempel.setFragenpoolOOP2(new Quizfrage[]{ qf1_t4_oop2, qf2_t4_oop2, qf3_t4_oop2, qf4_t4_oop2, qf5_t4_oop2, qf6_t4_oop2, qf7_t4_oop2 });
 
 
-        
 
         Spieler held = new Held();
 
