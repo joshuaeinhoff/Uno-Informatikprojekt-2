@@ -4,5 +4,5 @@
  * Hier könnte man vllt auch den UnoKnopf einbauen k.p. ist nur so eine Idee
  */
 public class GUI {
-    //code
+    //code...
 }
