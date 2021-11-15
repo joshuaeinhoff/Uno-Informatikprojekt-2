@@ -2,3 +2,4 @@ Was für eine Art Schleife ist die while-Schleife?;a) eine fußgesteuerte-Schlei
 Aus welchen steuernden Elementen besteht eine for-Schleife?;a) Definition, Abbruch-Bedingung, Weitermach-Bedingung;b)	Initialisierung, Abbruch-Bedingung, Weitermach-Bedingung;c) Initialisierung, Weitermach-Bedingung, Weitermach-Anweisung;c
 Was sind Arrays?;a) primitive Datentypen;b) Referenz-Datentypen;c) Zeichenketten;b
 Was benutzt man, wenn man aus einem Array etwas lesen möchte?;a) do-while-Schleife;b) eine if-Anweisung;c) for-each-Schleife;c
+Welchen Datentypen besitzt eine Prozedur?;a) void;b) String;c) float;a
