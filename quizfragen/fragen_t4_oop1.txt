@@ -1,0 +1,5 @@
+Bei Vererbung...;a) werden nur spezielle Eigenschaften der Superklasse geerbt;b) werden immer alle Eigenschaften der Superklasse geerbt;c) werden immer alle Eigenschaften der Subklasse geerbt;b
+Eine (Sub)Klasse kann...;a) von mehreren Superklassen erben;b) von mindestens einer Superklasse erben;c) von genau einer Superklasse erben;c
+Ein Constrctor...;a) hat den Rückgabetyp void;b) wird nach new aufgerufen;c) kann nicht überladen werden;b
+Welcher Access Modifier macht eine Eigenschaft sichtbar innerhalb der Klasse und in allen Subklassen?;a) protected;b) private;c) public;a
+Was versteht man unter Polymorphismus?;a) zur Laufzeit wird immer die passende Methode gefunden und aufgerufen;b) zur Compilezeit wird immer die passende Methode gefunden und aufgerufen;a
