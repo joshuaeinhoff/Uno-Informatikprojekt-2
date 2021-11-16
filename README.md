@@ -23,3 +23,8 @@ Informatikprojekt 2 von Sarah, Teresa und Joshua
 ### Story
 - Kleine Story der Spielwelt
 - Der Spieler bzw. die Spielerin ist die Hauptfigur eines Abenteuers, in dem er/sie Aufgaben in vier verschiedenen Tempel erledigen muss. Das ist der einzige Weg, die Welt zu retten. 
+
+
+## Klassendiagramm
+
+![Klassendiagramm](TempleCardsKlassendiagramm.drawio.png)
