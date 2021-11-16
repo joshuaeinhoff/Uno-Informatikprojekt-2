@@ -25,13 +25,16 @@ public class Spiel {
         /* Tempel 1: Wasser-Tempel */
 
         // Quizfragen zu OOP1 vom Tempel 1 erzeugen
-        // ...
+        Quizfrage qf1_t1_oop1 = new Quizfrage("");
+        Quizfrage qf2_t1_oop1 = new Quizfrage("");
+        Quizfrage qf3_t1_oop1 = new Quizfrage("");
+        Quizfrage qf4_t1_oop1 = new Quizfrage("");
+        Quizfrage qf5_t1_oop1 = new Quizfrage("");
 
         // Quizfragen zu OOP1 vom Tempel 1 in Fragenpool vom Tempel 1 speichern
-        // ...
+        wasserTempel.setFragenpoolOOP2(new Quizfrage[]{ qf1_t1_oop1, qf2_t1_oop1, qf3_t1_oop1, qf4_t1_oop1, qf5_t1_oop1 });
 
         // Quizfragen zu OOP2 vom Tempel 1 erzeugen
-        int index_t1_oop2 = 0;
         Quizfrage qf1_t1_oop2 = new Quizfrage("In einer Liste stehen miteinander verkettete…", "a) Nutzlasten", "b) Knoten", "c) abstrakte Datentypen", 'b');
         Quizfrage qf2_t1_oop2 = new Quizfrage("Wie viele Elemente umfasst die Suche in einer Liste der Länge n?", "a) n", "b) n/2", "c) log(n)", 'c');
         Quizfrage qf3_t1_oop2 = new Quizfrage("Welchen Sichtbarzeitbegriff muss die Klasse Knoten beinhalten?", "a) public", "b) protected", "c) private", 'c');
@@ -48,9 +51,14 @@ public class Spiel {
         /* Tempel 2: Luft-Tempel */
 
         // Quizfragen zu OOP1 vom Tempel 2 erzeugen
+        Quizfrage qf1_t2_oop1 = new Quizfrage("");
+        Quizfrage qf2_t2_oop1 = new Quizfrage("");
+        Quizfrage qf3_t2_oop1 = new Quizfrage("");
+        Quizfrage qf4_t2_oop1 = new Quizfrage("");
+        Quizfrage qf5_t2_oop1 = new Quizfrage("");
 
         // Quizfragen zu OOP1 vom Tempel 2 in Fragenpool vom Tempel 2 speichern
-
+        luftTempel.setFragenpoolOOP2(new Quizfrage[]{ qf1_t2_oop1, qf2_t2_oop1, qf3_t2_oop1, qf4_t2_oop1, qf5_t2_oop1 });
 
         // Quizfragen zu OOP2 vom Tempel 2 erzeugen
         Quizfrage qf1_t2_oop2 = new Quizfrage("Wie werden die Knoten beim Traversieren im Post-Order betrachtet?","a) Links – Wurzel – Rechts","b) Links – Rechts – Wurzel","c) Wurzel – Links – Rechts",'b');
@@ -69,9 +77,14 @@ public class Spiel {
         /* Tempel 3: Erde-Tempel */
 
         // Quizfragen zu OOP1 vom Tempel 3 erzeugen
+        Quizfrage qf1_t3_oop1 = new Quizfrage("");
+        Quizfrage qf2_t3_oop1 = new Quizfrage("");
+        Quizfrage qf3_t3_oop1 = new Quizfrage("");
+        Quizfrage qf4_t3_oop1 = new Quizfrage("");
+        Quizfrage qf5_t3_oop1 = new Quizfrage("");
 
         // Quizfragen zu OOP1 vom Tempel 3 in Fragenpool vom Tempel 3 speichern
-
+        erdeTempel.setFragenpoolOOP2(new Quizfrage[]{ qf1_t3_oop1, qf2_t3_oop1, qf3_t3_oop1, qf4_t3_oop1, qf5_t3_oop1 });
 
         // Quizfragen zu OOP2 vom Tempel 3 erzeugen
         Quizfrage qf1_t3_oop2 = new Quizfrage("Das Löschen von Typ-Informationen für die Laufzeit in Java heißt…","a) Type inference","b) Type removal","c) Type erasure",'c');
@@ -89,9 +102,14 @@ public class Spiel {
         /* Tempel 4: Feuer-Tempel */
 
         // Quizfragen zu OOP1 vom Tempel 4 erzeugen
+        Quizfrage qf1_t4_oop1 = new Quizfrage("");
+        Quizfrage qf2_t4_oop1 = new Quizfrage("");
+        Quizfrage qf3_t4_oop1 = new Quizfrage("");
+        Quizfrage qf4_t4_oop1 = new Quizfrage("");
+        Quizfrage qf5_t4_oop1 = new Quizfrage("");
 
         // Quizfragen zu OOP1 vom Tempel 4 in Fragenpool vom Tempel 4 speichern
-
+        feuerTempel.setFragenpoolOOP2(new Quizfrage[]{ qf1_t4_oop1, qf2_t4_oop1, qf3_t4_oop1, qf4_t4_oop1, qf5_t4_oop1 });
 
         // Quizfragen zu OOP2 vom Tempel 4 erzeugen
         Quizfrage qf1_t4_oop2 = new Quizfrage("… sind eigenständige Programme mit eigenen Ressourcen","a) Threads","b) Prozesse","",'b');
