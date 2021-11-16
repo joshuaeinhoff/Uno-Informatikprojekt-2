@@ -25,11 +25,11 @@ public class Spiel {
         /* Tempel 1: Wasser-Tempel */
 
         // Quizfragen zu OOP1 vom Tempel 1 erzeugen
-        Quizfrage qf1_t1_oop1 = new Quizfrage("");
-        Quizfrage qf2_t1_oop1 = new Quizfrage("");
-        Quizfrage qf3_t1_oop1 = new Quizfrage("");
-        Quizfrage qf4_t1_oop1 = new Quizfrage("");
-        Quizfrage qf5_t1_oop1 = new Quizfrage("");
+        Quizfrage qf1_t1_oop1 = new Quizfrage("Was ist der Default-Datentyp für ganze Zahlenwerte?", "a) int", "b) short", "c) byte", 'a');
+        Quizfrage qf2_t1_oop1 = new Quizfrage("Was gibt die EXCLUSIV-ODER-Operation aus, wenn beide Operanden true sind?", "a) true", "b) false", 'b');
+        Quizfrage qf3_t1_oop1 = new Quizfrage("Welche Datentypen passen zueinander?", "a) Zahlen und Wahrheitswerte", "b) Alle Datentypen, bei denen der Wertebereich passt", "c) Alle Zahlen-Datentypen", 'b');
+        Quizfrage qf4_t1_oop1 = new Quizfrage("Variablennamen...", "a) beginnen immer mit Kleinbuchstaben", "b) sind reservierte Wörter", "c) beginnen mit einer Ziffer", 'a');
+        Quizfrage qf5_t1_oop1 = new Quizfrage("Worauf bezieht sich eine Referenz im Speicher?", "a) eine Operation", "b) eine Adresse", "c) eine Zeichenkette", 'b');
 
         // Quizfragen zu OOP1 vom Tempel 1 in Fragenpool vom Tempel 1 speichern
         wasserTempel.setFragenpoolOOP2(new Quizfrage[]{ qf1_t1_oop1, qf2_t1_oop1, qf3_t1_oop1, qf4_t1_oop1, qf5_t1_oop1 });
