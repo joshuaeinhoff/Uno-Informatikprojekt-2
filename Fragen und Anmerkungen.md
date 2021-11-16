@@ -4,6 +4,7 @@
 
 - Auswählen ob Spieler OOP1 oder OOP2 ist
 - min. 5 Fragen pro OOP1/2 und pro Temple -> 40 Fragen
+- Quizfragenpool als eigene Klasse
 
 ## Story
 - Schatzsuche
