@@ -21,6 +21,8 @@ public class KIZufall extends Spieler{
         }else{
             karteZiehen(kartenStapel);
             karteSpielen(aktuelleKarte, kartenStapel);
+            //Karte die gezogen wird darf noch gelegt werden sonst ende des Zugs
+            
         }
         return null;
     }
