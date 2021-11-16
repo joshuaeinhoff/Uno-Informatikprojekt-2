@@ -7,4 +7,4 @@ public class KIZufall extends Spieler{
     public Karte karteSpielen(){
         return 
     }
-}
+}//end of KIZufall

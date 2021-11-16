@@ -61,4 +61,4 @@ public class Spiel {
         
     }
 	
-}
+}//end of Spiel

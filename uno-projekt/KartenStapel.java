@@ -33,7 +33,7 @@ class KartenStapel {
     public void updateKartenAnzahl(){
 
         //anzahlKarten = this.karten.size(); //OOP2
-        
+
         anzahlKarten = this.karten.length;
 
     }
@@ -56,4 +56,4 @@ class KartenStapel {
             karten[i] = new Karte();
         }
     }
-}
+}//end of KartenStapel

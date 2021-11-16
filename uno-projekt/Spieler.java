@@ -61,4 +61,4 @@ import java.util.*;
     public Karte getKarte(int index){
         return hand.get(index);
     }
-}
+}//end of Spieler

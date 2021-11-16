@@ -23,4 +23,4 @@ abstract class Karte {
         //code..
     }
 
-}
+}//end of Karte
