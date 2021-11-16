@@ -51,11 +51,11 @@ public class Spiel {
         /* Tempel 2: Luft-Tempel */
 
         // Quizfragen zu OOP1 vom Tempel 2 erzeugen
-        Quizfrage qf1_t2_oop1 = new Quizfrage("");
-        Quizfrage qf2_t2_oop1 = new Quizfrage("");
-        Quizfrage qf3_t2_oop1 = new Quizfrage("");
-        Quizfrage qf4_t2_oop1 = new Quizfrage("");
-        Quizfrage qf5_t2_oop1 = new Quizfrage("");
+        Quizfrage qf1_t2_oop1 = new Quizfrage("Was für eine Art Schleife ist die while-Schleife?", "a) eine fußgesteuerte-Schleife", "b) eine kopfgesteuerte-Schleife",'b');
+        Quizfrage qf2_t2_oop1 = new Quizfrage("Aus welchen steuernden Elementen besteht eine for-Schleife?", "a) Definition, Abbruch-Bedingung, Weitermach-Bedingung", "b) Initialisierung, Abbruch-Bedingung, Weitermach-Bedingung", "c) Initialisierung, Weitermach-Bedingung, Weitermach-Anweisung", 'c');
+        Quizfrage qf3_t2_oop1 = new Quizfrage("Was sind Arrays?", "a) primitive Datentypen", "b) Referenz-Datentypen", "c) Zeichenketten", 'b');
+        Quizfrage qf4_t2_oop1 = new Quizfrage("Was benutzt man, wenn man aus einem Array etwas lesen möchte?", "a) do-while-Schleife", "b) eine if-Anweisung", "c) for-each-Schleife", 'c');
+        Quizfrage qf5_t2_oop1 = new Quizfrage("Welchen Datentypen besitzt eine Prozedur?", "a) void", "b) String", "c) float", 'a');
 
         // Quizfragen zu OOP1 vom Tempel 2 in Fragenpool vom Tempel 2 speichern
         luftTempel.setFragenpoolOOP2(new Quizfrage[]{ qf1_t2_oop1, qf2_t2_oop1, qf3_t2_oop1, qf4_t2_oop1, qf5_t2_oop1 });
@@ -77,11 +77,12 @@ public class Spiel {
         /* Tempel 3: Erde-Tempel */
 
         // Quizfragen zu OOP1 vom Tempel 3 erzeugen
-        Quizfrage qf1_t3_oop1 = new Quizfrage("");
-        Quizfrage qf2_t3_oop1 = new Quizfrage("");
-        Quizfrage qf3_t3_oop1 = new Quizfrage("");
-        Quizfrage qf4_t3_oop1 = new Quizfrage("");
-        Quizfrage qf5_t3_oop1 = new Quizfrage("");
+        Quizfrage qf1_t3_oop1 = new Quizfrage("Was drückt der Name einer Prozedur aus?", "a) eine Aussage", "b) einen Befehl", "c) ein Ergebnis", 'b');
+        Quizfrage qf2_t3_oop1 = new Quizfrage("Welchen Datentypen besitzt eine Prozedur?", "a) void", "b) String", "c) float", 'a');
+        Quizfrage qf3_t3_oop1 = new Quizfrage("Was drückt eine Funktion aus?", "a) was getan wird", "b) was das Ergebnis ist", 'b');
+        Quizfrage qf4_t3_oop1 = new Quizfrage("Was ist ein Objekt?", "a) ein Refernz-Datentyp", "b) eine Instanz einer Klasse", "c) eine Einheit aus Funktionen und Prozeduren", 'b');
+        Quizfrage qf5_t3_oop1 = new Quizfrage("Welche Aussage stimmt?", "a) Eine Klasse ist in sich selbst gekapselt", "b) Eine Methode ist in sich selbst gekapselt", "c) Ein Objekt ist in sich selbst gekapselt",'c';
+");
 
         // Quizfragen zu OOP1 vom Tempel 3 in Fragenpool vom Tempel 3 speichern
         erdeTempel.setFragenpoolOOP2(new Quizfrage[]{ qf1_t3_oop1, qf2_t3_oop1, qf3_t3_oop1, qf4_t3_oop1, qf5_t3_oop1 });
@@ -102,11 +103,12 @@ public class Spiel {
         /* Tempel 4: Feuer-Tempel */
 
         // Quizfragen zu OOP1 vom Tempel 4 erzeugen
-        Quizfrage qf1_t4_oop1 = new Quizfrage("");
-        Quizfrage qf2_t4_oop1 = new Quizfrage("");
-        Quizfrage qf3_t4_oop1 = new Quizfrage("");
-        Quizfrage qf4_t4_oop1 = new Quizfrage("");
-        Quizfrage qf5_t4_oop1 = new Quizfrage("");
+        Quizfrage qf1_t4_oop1 = new Quizfrage("Bei Vererbung...", "a) werden nur spezielle Eigenschaften der Superklasse geerbt", "b) werden immer alle Eigenschaften der Superklasse geerbt", "c) werden immer alle Eigenschaften der Subklasse geerbt", 'b');
+        Quizfrage qf2_t4_oop1 = new Quizfrage("Eine (Sub)Klasse kann...", "a) von mehreren Superklassen erben", "b) von mindestens einer Superklasse erben", "c) von genau einer Superklasse erben", 'c');
+        Quizfrage qf3_t4_oop1 = new Quizfrage("Eine Superklasse...", "a) kennt ihre Subklassen", "b) kennt nur die wichtigsten Subklassen", "c) kennt ihre Subklassen nicht", 'c');
+        Quizfrage qf4_t4_oop1 = new Quizfrage("Welcher Access Modifier macht eine Eigenschaft sichtbar innerhalb der Klasse und in allen Subklassen?", "a) protected", "b) private", "c) public", 'a');
+        Quizfrage qf5_t4_oop1 = new Quizfrage("Was versteht man unter Polymorphismus?", "a) zur Laufzeit wird immer die passende Methode gefunden und aufgerufen", "b) zur Compilezeit wird immer die passende Methode gefunden und aufgerufen", 'a');
+");
 
         // Quizfragen zu OOP1 vom Tempel 4 in Fragenpool vom Tempel 4 speichern
         feuerTempel.setFragenpoolOOP2(new Quizfrage[]{ qf1_t4_oop1, qf2_t4_oop1, qf3_t4_oop1, qf4_t4_oop1, qf5_t4_oop1 });
