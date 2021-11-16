@@ -3,9 +3,15 @@
  */
 abstract class Karte {
 
-    private int zeile;
-    private int spalte;
     private String farbe;
+
+    /**
+     * Kann später als Superkonstruktor aufgerufen werden
+     * @param farbe
+     */
+    public Karte(String _farbe){
+        this.farbe = _farbe;
+    }
 	
     void setzeAussehen(){
         //...

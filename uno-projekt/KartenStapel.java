@@ -51,9 +51,25 @@ class KartenStapel {
     }
     
     public void fuelleKartendeck(){
-        for(int i = 0; i < karten.length; i++)
+        //Nur vorläufig
+        for(int i = 0; i < 76; i++)
         {
-            karten[i] = new Karte();
+            karten[i] = new FarbKarte(); // muss später geändert werden da es unteschiedliche Farbkarten gibt
+        }
+        for(int i = 76; i < 84; i++){
+            karten[i] = new AussetzenKarte();
+        }
+        for(int i = 84; i < 92; i++){
+            karten[i] = new RetourKarte();
+        }
+        for(int i = 92; i < 100; i++){
+            karten[i] = new PlusZweiKarte();
+        }
+        for(int i = 100; i < 104; i++){
+            karten[i] = new WunschKarte();
+        }
+        for(int i = 104; i < 108; i++){
+            karten[i] = new PlusVierWunschKarte();
         }
     }
 }//end of KartenStapel
