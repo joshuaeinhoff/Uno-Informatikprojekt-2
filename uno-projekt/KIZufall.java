@@ -4,7 +4,24 @@ public class KIZufall extends Spieler{
         super(_lebensenergie);
     }
 
-    public Karte karteSpielen(){
-        return 
+    /**
+     * Spielt eine zufällige Karten
+     * @return zufällige Karte aus der "Hand" des Computergegners
+     */
+    public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel){
+        int kartenAnzahl = hand.size();
+        if(spielbareKarteVorhanden(aktuelleKarte)){
+            int randomInteger = KartenStapel.getRandomInt(0, kartenAnzahl);
+            Karte temp = hand.get(randomInteger);
+            if(temp.istSpielbar(aktuelleKarte)){
+                return temp;
+            }else{
+                karteSpielen(aktuelleKarte, kartenStapel);
+            }
+        }else{
+            karteZiehen(kartenStapel);
+            karteSpielen(aktuelleKarte, kartenStapel);
+        }
+        return null;
     }
 }//end of KIZufall

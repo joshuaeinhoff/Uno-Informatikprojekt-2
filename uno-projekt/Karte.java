@@ -4,6 +4,7 @@
 abstract class Karte {
 
     private String farbe;
+    private int nummer;
 
     /**
      * Kann später als Superkonstruktor aufgerufen werden
@@ -20,8 +21,15 @@ abstract class Karte {
         //...
     }
 
-    boolean isPlayable(){
-        //...
+    /**
+     * 
+     * @param andereKarte
+     * @return
+     */
+    public boolean istSpielbar(Karte andereKarte){
+        if(this.nummer == andereKarte.nummer || this.farbe == andereKarte.farbe || andereKarte.farbe == "Schwarz"){
+            return true;
+        }
         return false;
     }
 

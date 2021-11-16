@@ -9,12 +9,13 @@ import java.util.*;
     //Liste ist vielleicht doch ein wenig besser, da der Spieler immer unterschiedlich viele Karten auf der Hand
     //hat - muss dann immer ein neues Array gemacht werden? z. B. 10 Karten auf der Hand
 
-	private ArrayList<Karte> hand; //OOP2
+	ArrayList<Karte> hand; //OOP2
+
 
     //private Karte[] hand; //OOP1?
 
     //Jeder Spieler hat Lebensenergie die durch Kämpfe reduziert werden kann
-    private int lebensenergie;
+    int lebensenergie;
     
     /**
      * Konstruktor
@@ -52,6 +53,10 @@ import java.util.*;
         hand.remove(geclickteKarte);
         return temp;
     }
+
+    public int kartenAnzahl(){
+        return hand.size();
+    }
     
     /**
      * get methoden sind eigentlich eher doof aber muss erstmal so 
@@ -61,4 +66,19 @@ import java.util.*;
     public Karte getKarte(int index){
         return hand.get(index);
     }
+
+    /**
+     * ist glaube doch eine doofe Methode muss noch gucken wo ich die hin packe
+     * @param aktuellerSpieler
+     * @return
+     */
+    public boolean spielbareKarteVorhanden(Karte aktuelleKarte){
+        for(int i = 0; i< hand.size(); i++){
+            if(hand.get(i).istSpielbar(aktuelleKarte)){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }//end of Spieler
