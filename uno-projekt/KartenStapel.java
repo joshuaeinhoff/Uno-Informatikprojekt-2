@@ -5,7 +5,9 @@ import java.util.*;
 class KartenStapel {
 
     // Eigenschaften: Uno-Karten und Anzahl der Karten
+
     //private ArrayList<Karte> karten; //OOP2
+
     private Karte[] karten;
     private int anzahlKarten;
     
@@ -29,7 +31,9 @@ class KartenStapel {
     }
     
     public void updateKartenAnzahl(){
+
         //anzahlKarten = this.karten.size(); //OOP2
+        
         anzahlKarten = this.karten.length;
 
     }
