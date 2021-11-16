@@ -2,8 +2,8 @@
 | ------------- | ------------- | ------------- |
 | 09.11.2021 | Spielkonzept, -ablauf und Zeitplan erstellen | alle |
 | 16.11.2021 | Quizfragen und Fragenpool fertigstellen | Sarah, Teresa |
-| 16.11.2021 | Klassendiagramm aktualisieren | Teresa |
-| 16.11.2021 | Spiellogik, KI und Spielfeld erweitern | Joshua |
+|  ^^        | Klassendiagramm aktualisieren | Teresa |
+|  ^^        | Spiellogik, KI und Spielfeld erweitern | Joshua |
 | 23.11.2021 | Uno Spiel sollte möglichst funktionieren  |
 | 30.11.2021 | Visuelle darstellung  |
 | 07.12.2021 | Das Spiel sollte fertig sein  |
