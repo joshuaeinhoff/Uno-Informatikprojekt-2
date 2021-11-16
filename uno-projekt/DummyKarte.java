@@ -3,4 +3,4 @@
  */
 public class DummyKarte extends Karte{
     
-}
+}//end of DummyKarte

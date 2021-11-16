@@ -5,4 +5,4 @@
  */
 public class GUI {
     //code...
-}
+}//end of GUI

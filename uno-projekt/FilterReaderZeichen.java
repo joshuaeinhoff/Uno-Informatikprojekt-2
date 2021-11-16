@@ -35,4 +35,4 @@ public class FilterReaderZeichen extends FilterReader {
         }
     }
     
-}
+}//end of FilterReaderZeichen

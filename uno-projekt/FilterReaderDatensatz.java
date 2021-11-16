@@ -59,4 +59,4 @@ public class FilterReaderDatensatz extends FilterReader {
         return -1;
     }
 
-}
+}//end of FilterReaderDatensatz

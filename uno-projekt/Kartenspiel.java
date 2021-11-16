@@ -23,4 +23,4 @@ class Kartenspiel {
         aktuelleKarte = _spieler.karteSpielen();
     }
 	*/
-}
+}//end of Kartenspiel
