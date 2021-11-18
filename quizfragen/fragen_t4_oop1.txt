@@ -2,4 +2,4 @@ Bei Vererbung...;a) werden nur spezielle Eigenschaften der Superklasse geerbt;b)
 Eine (Sub)Klasse kann...;a) von mehreren Superklassen erben;b) von mindestens einer Superklasse erben;c) von genau einer Superklasse erben;c
 Eine Superklasse...;a) kennt ihre Subklassen;b) kennt nur die wichtigsten Subklassen;c) kennt ihre Subklassen nicht;c
 Welcher Access Modifier macht eine Eigenschaft sichtbar innerhalb der Klasse und in allen Subklassen?;a) protected;b) private;c) public;a
-Was versteht man unter Polymorphismus?;a) zur Laufzeit wird immer die passende Methode gefunden und aufgerufen;b) zur Compilezeit wird immer die passende Methode gefunden und aufgerufen;a
+Was versteht man unter Polymorphismus?;a) zur Laufzeit wird immer die passende Methode gefunden und aufgerufen;b) zur Compilezeit wird immer die passende Methode gefunden und aufgerufen;;a
