@@ -1,6 +1,6 @@
 | Datum  | Aufgabe | Verantwortliche(r) |
 | ------------- | ------------- | ------------- |
-| 09.11.2021 | Spielkonzept, -ablauf und Zeitplan erstellen | alle |
+| 09.11.2021 | Spielkonzept, -ablauf und Zeitplan erstellen | Alle |
 | 16.11.2021 | Quizfragen und Fragenpool fertigstellen | Sarah, Teresa |
 |  | Klassendiagramm aktualisieren | Teresa |
 |  | Spiellogik, KI und Spielfeld erweitern | Joshua |
