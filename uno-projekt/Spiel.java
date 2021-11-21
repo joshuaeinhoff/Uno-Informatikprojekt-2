@@ -48,21 +48,21 @@ public class Spiel {
 
         /* Spielablauf */
 
-//        // 1. Tempel: Wasser
-//        wasserTempel.tempelBetreten(spielNiveau);
-//        // Monster bekämpfen
-//
-//        // 2. Tempel
-//        luftTempel.tempelBetreten(spielNiveau);
-//        // Monster bekämpfen
-//
-//        // 3. Tempel
-//        erdeTempel.tempelBetreten(spielNiveau);
-//        // Monster bekämpfen
-//
-//        // 4. Tempel
-//        feuerTempel.tempelBetreten(spielNiveau);
-//        // Monster bekämpfen
+        // 1. Tempel: Wasser
+        wasserTempel.quizLoesen(spielNiveau);
+        // Monster bekämpfen
+
+        // 2. Tempel
+        luftTempel.quizLoesen(spielNiveau);
+        // Monster bekämpfen
+
+        // 3. Tempel
+        erdeTempel.quizLoesen(spielNiveau);
+        // Monster bekämpfen
+
+        // 4. Tempel
+        feuerTempel.quizLoesen(spielNiveau);
+        // Monster bekämpfen
         
     }
 	
