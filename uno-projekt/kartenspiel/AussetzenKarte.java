@@ -1,3 +1,8 @@
+package kartenspiel;
+
+/**
+ *
+ */
 public class AussetzenKarte extends Karte{
 
     public AussetzenKarte(String _farbe){

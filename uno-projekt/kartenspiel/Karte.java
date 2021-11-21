@@ -1,7 +1,9 @@
+package kartenspiel;
+
 /**
  * 
  */
-abstract class Karte {
+public abstract class Karte {
 
     private String farbe;
     private int nummer;

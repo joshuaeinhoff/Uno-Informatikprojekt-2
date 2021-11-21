@@ -1,3 +1,5 @@
+package quiz;
+
 /**
  * Klasse stellt eine Quizfrage (bzw. Rätsel) im Spiel mit ihren (bzw. seinen) jeweiligen Attributen dar.
  */
@@ -23,6 +25,30 @@ public class Quizfrage {
         else
             this.antwortmoeglichkeiten = new String[] { antwort1, antwort2, antwort3 };
         this.richtigeAntwort = richtigeAntwort;
+    }
+
+        /**
+     * Getter-Methode gibt eine Eigenschaft der Klasse zurück
+     * @return Frage als String
+     */
+    public String getFrage() {
+        return frage;
+    }
+
+    /**
+     * Getter-Methode gibt eine Eigenschaft der Klasse zurück
+     * @return Antwortmöglichkeiten als Array von Strings
+     */
+    public String[] getAntwortmoeglichkeiten() {
+        return antwortmoeglichkeiten;
+    }
+
+    /**
+     * Getter-Methode gibt eine Eigenschaft der Klasse zurück
+     * @return richtige Antwort
+     */
+    public char getRichtigeAntwort() {
+        return richtigeAntwort;
     }
 
 } // Ende von Quizfrage

@@ -1,4 +1,6 @@
+package quiz;
 import java.io.*;
+
 /**
  * Klasse stellt eine Instanz von Quizfragenpool im Spiel mit seinen jeweiligen Attributen dar.
  */
@@ -17,6 +19,7 @@ public class Quizfragenpool {
         this.quizNiveau = quizNiveau;
     }
 
+    
     /**
      * Prozedur zum Füllen eines Quizfragenpools von einem bestimmten Tempel
      * Anruf an die private Funktion 'quizfragenAuslesen' und die private Prozedur 'quizfragenBearbeiten'
@@ -28,6 +31,7 @@ public class Quizfragenpool {
         // und als Parameter der Prozedur übergeben
         quizfragenBearbeiten(datensaetze);
     }
+
 
     /**
      * Private Methode liest, speichert und gibt Datensätze aus einer bestimmten Datei als String-Array zurück
@@ -107,6 +111,7 @@ public class Quizfragenpool {
         return datensaetze;
     }
 
+
     /**
      * Private Prozedur zum Bearbeiten und zum Speichern der gelesenen Datensätze als Quizfragen
      * @param datensaetze - String Array mit gelesenen Daten
@@ -129,5 +134,22 @@ public class Quizfragenpool {
             datenIndex++;
         }
     }
+
+
+    /**
+     * Funktion zum Beantworten der zu einem gegebenen Index im Fragenpool gespeicherten Frage
+     * @param zufallsZahl - gegebener Index
+     * @return true - wenn die Frage richtig beantwortet wird, false - sonst
+     */
+    public boolean quizfrageBeantworten(int zufallsZahl) {
+        // Quizfrage darstellen
+        //GUI.quizDarstellen(quizfragen[zufallsZahl].getFrage(), quizfragen[zufallsZahl].getAntwortmoeglichkeiten(), quizfragen[zufallsZahl].getRichtigeAntwort());
+        // if... geklickte Antwort is richtig
+        return true;
+        // else
+        // return false;
+
+    }
+
 
 } // Ende von Quizfragenpool

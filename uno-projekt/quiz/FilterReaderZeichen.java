@@ -1,4 +1,6 @@
+package quiz;
 import java.io.*;
+
 /**
  * Klasse zum Lesen von einzelnen Zeichen.
  */

@@ -1,7 +1,9 @@
+package kartenspiel;
+
 /**
  * 
  */
-class Kartenspiel {
+public class Kartenspiel {
 
     // Eigenschaften: Kartenstapel
     private KartenStapel kartenStapel;

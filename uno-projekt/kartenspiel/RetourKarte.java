@@ -1,3 +1,8 @@
+package kartenspiel;
+
+/**
+ *
+ */
 public class RetourKarte extends Karte{
 
     public RetourKarte(String _farbe){

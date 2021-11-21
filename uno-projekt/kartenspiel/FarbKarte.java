@@ -1,7 +1,9 @@
+package kartenspiel;
+
 /*
 *
 */
-class FarbKarte extends Karte{
+public class FarbKarte extends Karte{
 
     public FarbKarte(String _farbe){
         super(_farbe);

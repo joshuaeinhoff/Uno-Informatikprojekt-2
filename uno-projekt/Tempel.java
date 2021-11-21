@@ -1,3 +1,7 @@
+import quiz.*;
+import kartenspiel.*;
+import java.util.Random;
+
 /**
  * Klasse stellt eine Instanz von Tempel im Spiel mit seinen jeweiligen Attributen dar.
  */
@@ -17,6 +21,7 @@ public class Tempel {
         this.farbe = farbe;
         this.kartenspiel = new Kartenspiel();
     }
+
 
     /**
      * Funktion gibt eine Instanz von Quizfragenpool für Quizfragen zu OOP zurück
@@ -40,47 +45,31 @@ public class Tempel {
     }
 
 
-
-
-//     --> Nur als Hilfe --> mit der Grafik Konsole
     /**
      * Prozedur zum Quizlösen
-     * @param fragenpool
+     * @param quizNiveau
      */
-    public void quizLoesen(Quizfragenpool fragenpool) {
-//        boolean isRichtig = false;
-//        Random rand = new Random();
-//        int zufallIndex;
-//
-//        BufferedReader reader = new BufferedReader(
-//                                new InputStreamReader(System.in));
-//        String eingabe = null;
-//
-//        try {
-//            // Select question from fragenpool
-//            System.out.println("Solltest du den Tempel betreten möchten, musst du deine Weisheit zeigen, indem du ein Rätsel löst." + "\n");
-//            // Solange keine richtige Frage beantwortet
-//            while(!isRichtig) {
-//                zufallIndex = rand.nextInt(fragenpool.length);
-//                System.out.println("Rätsel: " + fragenpool[zufallIndex].getFrage());
-//                for(String antworte : fragenpool[zufallIndex].getAntwortsmoeglichkeiten()) {
-//                    if(antworte.compareTo("") != 0)
-//                        System.out.println(antworte);
-//                }
-//                System.out.print("Gib den Buchstaben der richtigen Antwort ein: ");
-//                eingabe = reader.readLine();
-//                if(eingabe.charAt(0) == fragenpool[zufallIndex].getRichtigeAntwort()) {
-//                    System.out.println("Richtig!" + "\n");
-//                    isRichtig = true;
-//                } else {
-//                    System.out.println("Falsch!" + "\n");
-//                    // Lebenspunkte abziehen
-//                    //...
-//                }
-//            }
-//        } catch (IOException ioe) {
-//            System.out.println("Stream-Fehler: " + ioe.getMessage());
-//        }
+    public void quizLoesen(int quizNiveau) {
+        //
+        boolean antwortIsRichtig = false;
+        Random rand = new Random();
+        int zufallsZahl;
+
+        // Solange keine richtige Frage beantwortet
+        while(!antwortIsRichtig) {
+            // Nach QuizNiveau Fragenpool zu OOP1 oder OOP2 auswählen
+            if(quizNiveau == 1) {
+                // Zufallsfrage aus Fragenpool zu OOP1 auswählen und als Variable speichern
+                zufallsZahl = rand.nextInt(fragenpoolOOP1.getAnzahlQuizfragen());
+                antwortIsRichtig = fragenpoolOOP1.quizfrageBeantworten(zufallsZahl);
+            } else if(quizNiveau == 2) {
+                // Zufallsfrage aus Fragenpool zu OOP2 auswählen und als Variable speichern
+                zufallsZahl = rand.nextInt(fragenpoolOOP2.getAnzahlQuizfragen());
+                antwortIsRichtig = fragenpoolOOP2.quizfrageBeantworten(zufallsZahl);
+            }
+
+            // Darstellungsmöglichkeiten (Grafik_Konsole) --> GUI
+        }
 
     }
 

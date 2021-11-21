@@ -1,8 +1,10 @@
+package kartenspiel;
 import java.util.*;
+
 /**
  * 
  */
-class KartenStapel {
+public class KartenStapel {
 
     // Eigenschaften: Uno-Karten und Anzahl der Karten
 

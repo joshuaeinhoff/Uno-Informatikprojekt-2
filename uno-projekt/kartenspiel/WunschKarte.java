@@ -1,3 +1,8 @@
+package kartenspiel;
+
+/**
+ *
+ */
 public class WunschKarte extends Karte{
 
     public WunschKarte(String _farbe){
