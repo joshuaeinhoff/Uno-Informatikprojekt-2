@@ -9,13 +9,14 @@ import java.util.*;
     //Liste ist vielleicht doch ein wenig besser, da der Spieler immer unterschiedlich viele Karten auf der Hand
     //hat - muss dann immer ein neues Array gemacht werden? z. B. 10 Karten auf der Hand
 
-	ArrayList<Karte> hand; //OOP2
+	//ArrayList<Karte> hand; //OOP2
 
 
-    //private Karte[] hand; //OOP1?
+    // Hand des Spielers mit Karten die max. 20 Karten beinhalten darf
+    protected Karte[] hand; 
 
     //Jeder Spieler hat Lebensenergie die durch Kämpfe reduziert werden kann
-    int lebensenergie;
+    protected int lebensenergie;
     
     /**
      * Konstruktor
@@ -23,9 +24,9 @@ import java.util.*;
      * @param _lebensenergie - int wird am Anfang z. B. für den menschlichen Spieler auf 100 gesetz
      */
     public Spieler(int _lebensenergie){
-        hand = new ArrayList<>(); //OOP2
+        //hand = new ArrayList<>(); //OOP2
         lebensenergie = _lebensenergie;
-        //hand = new Karte[20]; //OOP1?
+        hand = new Karte[20]; 
     }
 
     /**
@@ -41,17 +42,29 @@ import java.util.*;
     /**
      * Methode zum ziehen der Karten
      */
-    public void karteZiehen(KartenStapel kartenStapel){
+    public void karteZiehen(KartenStapel kartenstapel){
+        //OOP2
+        //hand.get(kartenstapel.karteZiehen());
         //fügt die aus dem Stapel gezogene Karte der Hand hinzu
-        hand.add(kartenStapel.karteZiehen());
+        for(int i = 0; 0<hand.length; i++){
+            if(hand[i] == null){
+                hand[i] = kartenstapel.karteZiehen();
+                return;
+            }else{
+                System.out.println("Hand ist voll!");
+            }
+        }
     }
 
 
     
     public Karte karteSpielen(Karte geclickteKarte){
+       /*
         Karte temp = geclickteKarte;
         hand.remove(geclickteKarte);
         return temp;
+        */
+        
     }
 
     public int kartenAnzahl(){
