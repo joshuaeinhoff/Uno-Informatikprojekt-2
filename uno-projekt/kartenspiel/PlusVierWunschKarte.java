@@ -6,8 +6,8 @@ package kartenspiel;
 public class PlusVierWunschKarte extends Karte{
     
     // Superkonstruktor
-    public PlusVierWunschKarte(String _farbe){
-        super(_farbe);
+    public PlusVierWunschKarte(String _farbe, int _id){
+        super(_farbe, _id);
     }
 
     public boolean istPlusZweiKarte(){

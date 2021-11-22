@@ -7,8 +7,8 @@ package kartenspiel;
  */
 public class PlusZweiKarte extends Karte{
     
-    public PlusZweiKarte(String _farbe){
-        super(_farbe);
+    public PlusZweiKarte(String _farbe, int _id){
+        super(_farbe, _id);
     }
 
     public boolean istPlusZweiKarte(){

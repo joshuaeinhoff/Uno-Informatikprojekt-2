@@ -6,8 +6,8 @@ package kartenspiel;
  */
 public class AussetzenKarte extends Karte{
 
-    public AussetzenKarte(String _farbe, int id){
-        super(_farbe, id);
+    public AussetzenKarte(String _farbe, int _id){
+        super(_farbe, _id);
     }
 
     /**
