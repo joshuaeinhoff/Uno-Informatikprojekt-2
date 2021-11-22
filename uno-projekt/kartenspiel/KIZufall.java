@@ -1,8 +1,4 @@
-import kartenspiel.*;
-
-/**
- *
- */
+package kartenspiel;
 public class KIZufall extends Spieler{
     
     KIZufall(int _lebensenergie){
