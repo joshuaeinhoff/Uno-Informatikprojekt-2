@@ -32,7 +32,7 @@ public class Spielfeld {
         
         //Gegener Karten setzen
         for(int x = 0; x < spielfeld[0].length; x++){
-            spielfeld[0][x] = new DummyKarte();
+            spielfeld[0][x] = new DummyKarte("Grau");
         }
 
         //Random Starterkarte die übergeben wird

@@ -1,3 +1,4 @@
+package kartenspiel;
 public class KISchlau extends Spieler{
     
 

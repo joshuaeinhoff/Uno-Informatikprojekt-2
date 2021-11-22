@@ -1,11 +1,11 @@
-import kartenspiel.*;
+package kartenspiel;
 import java.util.*;
 
 /**
  * Abstrakte Superklasse für den menschlichen Spieler und die SpielerKIs(Schwierigkeiten)
  */
 
- abstract class Spieler {
+ public abstract class Spieler {
 
     //Jeder Spieler hat eine gewisse Anzahl an Karten auf der Hand, die hier in einem Array gespeichert werden.
     //Liste ist vielleicht doch ein wenig besser, da der Spieler immer unterschiedlich viele Karten auf der Hand
