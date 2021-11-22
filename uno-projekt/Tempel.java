@@ -1,93 +1,74 @@
-import java.util.*;
+import quiz.*;
+import kartenspiel.*;
+import java.util.Random;
+
 /**
- * 
+ * Klasse stellt eine Instanz von Tempel im Spiel mit seinen jeweiligen Attributen dar.
  */
 public class Tempel {
 
-    // Eigenschaften
+    // Eigenschaften einer Instanz von Tempel
     private String farbe;
-    private Quizfrage[] fragenpoolOOP1;
-    private Quizfrage[] fragenpoolOOP2;
+    private Quizfragenpool fragenpoolOOP1;
+    private Quizfragenpool fragenpoolOOP2;
     private Kartenspiel kartenspiel;
 
     /**
      * Konstruktor zum Erzeugen einer Instanz der Klasse Tempel
-     * @param farbe
+     * @param farbe - Farbe des Tempels (blau für Wasser, gelb für Luft, grün für Erde, rot für Feuer)
      */
     public Tempel(String farbe) {
         this.farbe = farbe;
         this.kartenspiel = new Kartenspiel();
     }
 
-    public Quizfrage[] getFragenpoolOOP1() {
-        return fragenpoolOOP1;
-    }
 
-    public Quizfrage[] getFragenpoolOOP2() {
-        return fragenpoolOOP2;
-    }
-
-    public void setFragenpoolOOP1(Quizfrage[] fragenpoolOOP1) {
-        this.fragenpoolOOP1 = fragenpoolOOP1;
-    }
-
-    public void setFragenpoolOOP2(Quizfrage[] fragenpoolOOP2) {
-        this.fragenpoolOOP2 = fragenpoolOOP2;
-    }
-
-    
     /**
-     * Prozedur zum Fragenpool auswählen
-     * @param niveau
+     * Funktion gibt eine Instanz von Quizfragenpool für Quizfragen zu OOP zurück
+     * @param quizNiveau - Niveau der Quizfragen (1 für OOP1, 2 für OOP2)
+     * @return eine Instanz von Quizfragenpool
      */
-    public void tempelBetreten(int niveau) {
-        // Niveau 1 für OOP1, 2 für OOP2
-        if(niveau == 1)
-            quizLoesen(fragenpoolOOP1);
-        else
-            quizLoesen(fragenpoolOOP2);
-
+    public Quizfragenpool quizfragenpoolErzeugen(char tempelBuchstabe, int quizNiveau) {
+        // Quizniveau 1 bezieht sich auf OOP1, Quizniveau 2 auf OOP2; keine andere Zahl ist möglich
+        if(quizNiveau == 1) {
+            fragenpoolOOP1 = new Quizfragenpool(1);
+            fragenpoolOOP1.quizfragenpoolFuellen(tempelBuchstabe);
+            return fragenpoolOOP1;
+        } else if(quizNiveau == 2) {
+            fragenpoolOOP2 = new Quizfragenpool(2);
+            fragenpoolOOP2.quizfragenpoolFuellen(tempelBuchstabe);
+            return fragenpoolOOP2;
+        } else {
+            System.out.println("Kein richtiges Niveau ausgewählt");
+            return null;
+        }
     }
 
 
     /**
      * Prozedur zum Quizlösen
-     * @param fragenpool
+     * @param quizNiveau
      */
-    public void quizLoesen(Quizfrage[] fragenpool) {
-
-        boolean isRichtig = false;
+    public void quizLoesen(int quizNiveau) {
+        //
+        boolean antwortIsRichtig = false;
         Random rand = new Random();
-        int zufallIndex;
+        int zufallsZahl;
 
-        BufferedReader reader = new BufferedReader(
-                                new InputStreamReader(System.in));
-        String eingabe = null;
-
-        try {
-            // Select question from fragenpool
-            System.out.println("Solltest du den Tempel betreten möchten, musst du deine Weisheit zeigen, indem du ein Rätsel löst." + "\n");
-            // Solange keine richtige Frage beantwortet
-            while(!isRichtig) {
-                zufallIndex = rand.nextInt(fragenpool.length);
-                System.out.println("Rätsel: " + fragenpool[zufallIndex].getFrage());
-                for(String antworte : fragenpool[zufallIndex].getAntwortsmoeglichkeiten()) {
-                    if(antworte.compareTo("") != 0)
-                        System.out.println(antworte);
-                }
-                System.out.print("Gib den Buchstaben der richtigen Antwort ein: ");
-                eingabe = reader.readLine();
-                if(eingabe.charAt(0) == fragenpool[zufallIndex].getRichtigeAntwort()) {
-                    System.out.println("Richtig!" + "\n");
-                    isRichtig = true;
-                } else {
-                    System.out.println("Falsch!" + "\n");
-                    // Lebenspunkte abziehen
-                    //...
-                }
+        // Solange keine richtige Frage beantwortet
+        while(!antwortIsRichtig) {
+            // Nach QuizNiveau Fragenpool zu OOP1 oder OOP2 auswählen
+            if(quizNiveau == 1) {
+                // Zufallsfrage aus Fragenpool zu OOP1 auswählen und als Variable speichern
+                zufallsZahl = rand.nextInt(fragenpoolOOP1.getAnzahlQuizfragen());
+                antwortIsRichtig = fragenpoolOOP1.quizfrageBeantworten(zufallsZahl);
+            } else if(quizNiveau == 2) {
+                // Zufallsfrage aus Fragenpool zu OOP2 auswählen und als Variable speichern
+                zufallsZahl = rand.nextInt(fragenpoolOOP2.getAnzahlQuizfragen());
+                antwortIsRichtig = fragenpoolOOP2.quizfrageBeantworten(zufallsZahl);
             }
-        } catch (IOException ioe) {
-            System.out.println("Stream-Fehler: " + ioe.getMessage());
+
+            // Darstellungsmöglichkeiten (Grafik_Konsole) --> GUI
         }
 
     }
@@ -97,10 +78,6 @@ public class Tempel {
     public void monsterKaempfen() {
         // -> UNO
         // unoKartenspiel -> spielen
-
-
-
     }
-    
-	
-}//end of Tempel
+
+} // Ende von Tempel

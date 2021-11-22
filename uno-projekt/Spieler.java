@@ -1,4 +1,6 @@
+import kartenspiel.*;
 import java.util.*;
+
 /**
  * Abstrakte Superklasse für den menschlichen Spieler und die SpielerKIs(Schwierigkeiten)
  */

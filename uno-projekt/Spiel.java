@@ -1,10 +1,12 @@
+import quiz.*;
+
 /**
- *  Klasse Spiel 
+ *  Klasse Spiel
  */
 public class Spiel {
     
     /**
-     * main
+     * Main-Methode
      * @param args
      */
     public static void main(String[] args){
@@ -15,27 +17,30 @@ public class Spiel {
         int spielNiveau = 1;
         // if OOP2 ausgewählt -> niveau = 2
 
-        // Tempel erzeugen
+        // Wasser-Tempel, Luft-Tempel, Erde-Tempel und Feuer-Tempel erzeugen
         Tempel wasserTempel = new Tempel("blau");
         Tempel luftTempel = new Tempel("gelb");
         Tempel erdeTempel = new Tempel("gruen");
         Tempel feuerTempel = new Tempel("rot");
 
-        //Fragenpool erstellen
-        
-        Quizfrage.wasserTempelOOP1Fragen(wasserTempel);
-        Quizfrage.wasserTempelOOP2Fragen(wasserTempel);
+        // Quizfragenpool zu OOP1 im Wasser-Tempel erzeugen
+        Quizfragenpool qfp_wt_oop1 = wasserTempel.quizfragenpoolErzeugen('w', 1);
+        // Quizfragenpool zu OOP2 im Wasser-Tempel erzeugen
+        Quizfragenpool qfp_wt_oop2 = wasserTempel.quizfragenpoolErzeugen('w', 2);
+        // Quizfragenpool zu OOP1 im Wasser-Tempel erzeugen
+        Quizfragenpool qfp_lt_oop1 = luftTempel.quizfragenpoolErzeugen('l', 1);
+        // Quizfragenpool zu OOP2 im Wasser-Tempel erzeugen
+        Quizfragenpool qfp_lt_oop2 = luftTempel.quizfragenpoolErzeugen('l', 2);
+        // Quizfragenpool zu OOP1 im Wasser-Tempel erzeugen
+        Quizfragenpool qfp_et_oop1 = erdeTempel.quizfragenpoolErzeugen('e', 1);
+        // Quizfragenpool zu OOP2 im Wasser-Tempel erzeugen
+        Quizfragenpool qfp_et_oop2 = erdeTempel.quizfragenpoolErzeugen('e', 2);
+        // Quizfragenpool zu OOP1 im Wasser-Tempel erzeugen
+        Quizfragenpool qfp_ft_oop1 = feuerTempel.quizfragenpoolErzeugen('f', 1);
+        // Quizfragenpool zu OOP2 im Wasser-Tempel erzeugen
+        Quizfragenpool qfp_ft_oop2 = feuerTempel.quizfragenpoolErzeugen('f', 2);
 
-      
-        Quizfrage.luftTempelOOP1Fragen(luftTempel);
-        Quizfrage.luftTempelOOP2Fragen(luftTempel);
 
-        Quizfrage.erdeTempelOOP1Fragen(erdeTempel);
-        Quizfrage.erdeTempelOOP2Fragen(erdeTempel);
-        
-        
-        Quizfrage.feuerTempelOOP1Fragen(feuerTempel);
-        Quizfrage.feuerTempelOOP2Fragen(feuerTempel);
 
 
         Spieler held = new Held();
@@ -44,21 +49,21 @@ public class Spiel {
         /* Spielablauf */
 
         // 1. Tempel: Wasser
-        wasserTempel.tempelBetreten(spielNiveau);
+        wasserTempel.quizLoesen(spielNiveau);
         // Monster bekämpfen
 
         // 2. Tempel
-        luftTempel.tempelBetreten(spielNiveau);
+        luftTempel.quizLoesen(spielNiveau);
         // Monster bekämpfen
 
         // 3. Tempel
-        erdeTempel.tempelBetreten(spielNiveau);
+        erdeTempel.quizLoesen(spielNiveau);
         // Monster bekämpfen
 
         // 4. Tempel
-        feuerTempel.tempelBetreten(spielNiveau);
+        feuerTempel.quizLoesen(spielNiveau);
         // Monster bekämpfen
         
     }
 	
-}//end of Spiel
+} // Ende von Spiel
