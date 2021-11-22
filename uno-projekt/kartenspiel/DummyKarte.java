@@ -5,8 +5,8 @@ package kartenspiel;
  */
 public class DummyKarte extends Karte{
 
-    public DummyKarte(String _farbe){
-        super(_farbe);
+    public DummyKarte(String _farbe, int _id){
+        super(_farbe, _id);
     }
     
     public boolean istPlusZweiKarte(){

@@ -2,7 +2,7 @@ package kartenspiel;
 import java.util.*;
 
 /**
- * 
+ * Kartenstapel enthält alle Uno-Karten. Das sind insgesamt 108 Karten.
  */
 public class KartenStapel {
 
@@ -32,6 +32,9 @@ public class KartenStapel {
         return random.nextInt(max - min) + min;
     }
     
+    /**
+     * Aktualisiert die Anzahl der Karten im Kartenstapel
+     */
     public void updateKartenAnzahl(){
 
         //anzahlKarten = this.karten.size(); //OOP2
