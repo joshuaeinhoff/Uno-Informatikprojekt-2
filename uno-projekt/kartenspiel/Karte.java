@@ -6,8 +6,8 @@ package kartenspiel;
  */
 public abstract class Karte {
 
-    private String farbe;
-    private int id;
+    public String farbe;
+    public int id;
 
     String[] unoFarben = {"rot", "blau", "gelb", "gruen", "schwarz"};
 
