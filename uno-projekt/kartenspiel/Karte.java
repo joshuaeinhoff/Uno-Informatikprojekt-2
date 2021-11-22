@@ -23,7 +23,8 @@ public abstract class Karte {
         //...
     }
 
-    /**
+    /** Prüft, ob eine Karte richtig abgelegt wurde, d.h. ob Nummer und/oder Farbe mit der Karte auf dem Kartenstapel
+     * übereinstimmt
      * 
      * @param andereKarte
      * @return
