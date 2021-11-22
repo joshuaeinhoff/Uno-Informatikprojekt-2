@@ -7,7 +7,7 @@ package kartenspiel;
 public abstract class Karte {
 
     private String farbe;
-    private int nummer;
+    private int id;
 
     String[] unoFarben = {"rot", "blau", "gelb", "gruen", "schwarz"};
 
@@ -15,9 +15,9 @@ public abstract class Karte {
      * Kann später als Superkonstruktor aufgerufen werden
      * @param farbe
      */
-    public Karte(String _farbe, int _nummer) {
+    public Karte(String _farbe, int _id) {
         this.farbe = _farbe;
-        this.nummer = _nummer;
+        this.id = _id;
     }
 	
     /** Aussehen der Karte setzen mit einer zufälligen Farbe */
@@ -58,14 +58,14 @@ public abstract class Karte {
 
     /**
      * Prüft, ob eine Karte korrekt abgelegt wurde. 
-     * Dies ist der Fall, wenn die Nummer und/oder Farbe der abgelegten Karte mit der Karte auf dem Kartenstapel übereinstimmt
+     * Dies ist der Fall, wenn die Id und/oder Farbe der abgelegten Karte mit der Karte auf dem Kartenstapel übereinstimmt
      * oder wenn die abgelegte Karte die Farbe schwarz hat.
      * 
      * @param andereKarte
      * @return
      */
     public boolean istSpielbar(Karte andereKarte){
-        if(this.nummer == andereKarte.nummer || this.farbe == andereKarte.farbe || andereKarte.farbe == "schwarz"){
+        if(this.id == andereKarte.id || this.farbe == andereKarte.farbe || andereKarte.farbe == "schwarz"){
             return true;
         }
         return false;
