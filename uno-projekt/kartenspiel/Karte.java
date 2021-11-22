@@ -24,7 +24,9 @@ public abstract class Karte {
     }
 
     /**
-     * 
+     * Prüft, ob eine Karte korrekt abgelegt wurde. 
+     * Dies ist der Fall, wenn die Nummer und/oder Farbe der abgelegten Karte mit der Karte auf dem Kartenstapel übereinstimmt
+     * oder wenn die abgelegte Karte die Farbe schwarz hat.
      * @param andereKarte
      * @return
      */
