@@ -9,21 +9,39 @@ public class KIZufall extends Spieler{
      * Spielt eine zufällige Karten
      * @return zufällige Karte aus der "Hand" des Computergegners
      */
-    public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel){
-        int kartenAnzahl = hand.size();
-        if(spielbareKarteVorhanden(aktuelleKarte)){
-            int randomInteger = KartenStapel.getRandomInt(0, kartenAnzahl);
-            Karte temp = hand.get(randomInteger);
-            if(temp.istSpielbar(aktuelleKarte)){
-                return temp;
+    public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel,boolean karteGezogen){
+        int kartenAnzahl = hand.length;
+        if(karteGezogen != true){
+            if(spielbareKarteVorhanden(aktuelleKarte)){
+                int randomInteger = KartenStapel.getRandomInt(0, kartenAnzahl);
+                Karte temp = hand[randomInteger];
+                if(temp.istSpielbar(aktuelleKarte)){
+                    return temp;
+                }else{
+                    karteSpielen(aktuelleKarte, kartenStapel,false);
+                }
             }else{
-                karteSpielen(aktuelleKarte, kartenStapel);
+                //keine Karte auf der Hand die gezogen werden kann
+                karteZiehen(kartenStapel);
+                //karteSpielen aufgerufen
+                karteSpielen(aktuelleKarte, kartenStapel,true);
             }
         }else{
-            karteZiehen(kartenStapel);
-            karteSpielen(aktuelleKarte, kartenStapel);
-            //Karte die gezogen wird darf noch gelegt werden sonst ende des Zugs
-            
+            //gezogene Karte ist spielbar
+            if(spielbareKarteVorhanden(aktuelleKarte)){
+                //suchvorgang nach der Karte
+                int randomInteger = KartenStapel.getRandomInt(0, kartenAnzahl);
+                Karte temp = hand[randomInteger];
+                if(temp.istSpielbar(aktuelleKarte)){
+                    return temp;
+                }else{
+                    karteSpielen(aktuelleKarte, kartenStapel,true);
+                }
+            }else{
+                //gezogene Karte ist nicht spielbar
+                return null;
+                //ende des Zuges
+            }
         }
         return null;
     }

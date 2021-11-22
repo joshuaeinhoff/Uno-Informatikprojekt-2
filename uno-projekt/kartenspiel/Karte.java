@@ -75,4 +75,13 @@ public abstract class Karte {
         //code..
     }
 
+    public abstract boolean istPlusZweiKarte();
+    public abstract boolean istFarbKarte();
+    public abstract boolean istPlusVierWunschKarte();
+    public abstract boolean istWunschKarte();
+    public abstract boolean istAussetzenKarte();
+    public abstract boolean istRetourKarte();
+    public abstract boolean istDummyKarte();
+
+
 }//end of Karte
