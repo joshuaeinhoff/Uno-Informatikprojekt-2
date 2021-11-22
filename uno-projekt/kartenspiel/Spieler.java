@@ -1,5 +1,4 @@
 package kartenspiel;
-import java.util.*;
 
 /**
  * Abstrakte Superklasse für den menschlichen Spieler und die SpielerKIs(Schwierigkeiten)
@@ -60,18 +59,8 @@ import java.util.*;
 
 
     
-    public Karte karteSpielen(Karte geclickteKarte){
-       /*
-        Karte temp = geclickteKarte;
-        hand.remove(geclickteKarte);
-        return temp;
-        */
-        
-    }
+    public abstract Karte karteSpielen(Karte aktuelleKarte, KartenStapel karten, boolean karteGezogen);
 
-    public int kartenAnzahl(){
-        return hand.size();
-    }
     
     /**
      * get methoden sind eigentlich eher doof aber muss erstmal so 
@@ -79,7 +68,7 @@ import java.util.*;
      * @return
      */
     public Karte getKarte(int index){
-        return hand.get(index);
+        return hand[index];
     }
 
     /**
@@ -88,8 +77,8 @@ import java.util.*;
      * @return
      */
     public boolean spielbareKarteVorhanden(Karte aktuelleKarte){
-        for(int i = 0; i< hand.size(); i++){
-            if(hand.get(i).istSpielbar(aktuelleKarte)){
+        for(int i = 0; i< hand.length; i++){
+            if(hand[i].istSpielbar(aktuelleKarte)){
                 return true;
             }
         }
