@@ -21,7 +21,6 @@ package kartenspiel;
     
     /**
      * Konstruktor
-     * setzt die Arraygröße "hand" am Anfang auf 7
      * @param _lebensenergie - int wird am Anfang z. B. für den menschlichen Spieler auf 100 gesetz
      */
     public Spieler(int _lebensenergie){
