@@ -8,6 +8,7 @@ public class Kartenspiel {
     // Eigenschaften: Kartenstapel
     private KartenStapel kartenStapel;
     private String[] spielstand; // Spielstand?
+    private Spielfeld spielfeld;
     // oder Map<K,V> -> Spieler, Punkte
     private int ersterSpieler; // z.B. 0 ist KI, 1 ist Spieler || verstehe ich nicht.. ^_^ Warum als int?
 
@@ -16,8 +17,9 @@ public class Kartenspiel {
     private Karte aktuelleKarte;
     
     // Konstruktor
-    public Kartenspiel() {
+    public Kartenspiel(int spielfeldGroesseY, int spielfeldGroesseX) {
         this.kartenStapel = new KartenStapel();
+        this.spielfeld = new Spielfeld(spielfeldGroesseY,spielfeldGroesseX);
         
     }
 

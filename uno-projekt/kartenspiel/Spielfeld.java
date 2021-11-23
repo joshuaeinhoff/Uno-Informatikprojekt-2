@@ -7,6 +7,11 @@ public class Spielfeld {
 
     private Karte[][] spielfeld;
 
+    /**
+     * Konstruktor der KLasse Spielfeld
+     * @param y - Spielfeld größe in Y Richtung
+     * @param x - Spielfeld größe in X Richtung
+     */
     public Spielfeld(int y, int x){
         spielfeld = new Karte[y][x];
     }
@@ -32,7 +37,7 @@ public class Spielfeld {
         
         //Gegener Karten setzen
         for(int x = 0; x < spielfeld[0].length; x++){
-            spielfeld[0][x] = new DummyKarte("Grau");
+            //spielfeld[0][x] = new DummyKarte("Grau");
         }
 
         //Random Starterkarte die übergeben wird
