@@ -22,25 +22,10 @@ public class RetourKarte extends Karte{
         return false;
     }
 
-    public boolean istPlusZweiKarte(){
-        return false;
-    }
-    public boolean istFarbKarte(){
-        return false;
-    }
-    public boolean istPlusVierWunschKarte(){
-        return false;
-    }
-    public boolean istWunschKarte(){
-        return false;
-    }
-    public boolean istAussetzenKarte(){
-        return false;
-    }
-    public boolean istRetourKarte(){
-        return true;
-    }
-    public boolean istDummyKarte(){
+    public boolean istWelcheKarte(String kartenart){
+        if(kartenart.equals("Retour")){
+            return true;
+        }
         return false;
     }
     

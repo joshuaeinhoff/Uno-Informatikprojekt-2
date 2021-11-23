@@ -10,25 +10,11 @@ public class PlusVierWunschKarte extends Karte{
         super(_farbe, _id);
     }
 
-    public boolean istPlusZweiKarte(){
-        return false;
-    }
-    public boolean istFarbKarte(){
-        return false;
-    }
-    public boolean istPlusVierWunschKarte(){
-        return true;
-    }
-    public boolean istWunschKarte(){
-        return false;
-    }
-    public boolean istAussetzenKarte(){
-        return false;
-    }
-    public boolean istRetourKarte(){
-        return false;
-    }
-    public boolean istDummyKarte(){
+
+    public boolean istWelcheKarte(String kartenart){
+        if(kartenart.equals("PlusVierWunsch")){
+            return true;
+        }
         return false;
     }
     

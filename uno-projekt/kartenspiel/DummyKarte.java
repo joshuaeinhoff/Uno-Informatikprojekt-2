@@ -9,27 +9,14 @@ public class DummyKarte extends Karte{
         super(_farbe, _id);
     }
     
-    public boolean istPlusZweiKarte(){
-        return false;
-    }
-    public boolean istFarbKarte(){
-        return false;
-    }
-    public boolean istPlusVierWunschKarte(){
-        return false;
-    }
-    public boolean istWunschKarte(){
-        return false;
-    }
-    public boolean istAussetzenKarte(){
-        return false;
-    }
-    public boolean istRetourKarte(){
-        return false;
-    }
-    public boolean istDummyKarte(){
-        return true;
-    }
     
+    
+    public boolean istWelcheKarte(String kartenart){
+        if(kartenart.equals("Dummy")){
+            return true;
+        }
+        return false;
+    }
+
 
 }//end of DummyKarte

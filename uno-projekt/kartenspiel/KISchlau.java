@@ -36,7 +36,7 @@ public class KISchlau extends Spieler{
 
     public boolean existiertPlusZwei(Karte aktuelleKarte){
         for(int i = 0; i < hand.length;i++){
-            if(hand[i].istPlusZweiKarte()&&hand[i].istSpielbar(aktuelleKarte)){
+            if(hand[i].istWelcheKarte("PlusZwei")&&hand[i].istSpielbar(aktuelleKarte)){
                 return true;
             }
         }
@@ -45,7 +45,7 @@ public class KISchlau extends Spieler{
 
     public boolean existiertAussetzen(Karte aktuelleKarte){
         for(int i = 0; i < hand.length;i++){
-            if(hand[i].istAussetzenKarte()&&hand[i].istSpielbar(aktuelleKarte)){
+            if(hand[i].istWelcheKarte("Aussetzen")&&hand[i].istSpielbar(aktuelleKarte)){
                 return true;
             }
         }
@@ -54,7 +54,7 @@ public class KISchlau extends Spieler{
 
     public boolean existiertWunschKarte(Karte aktuelleKarte){
         for(int i = 0; i < hand.length;i++){
-            if(hand[i].istWunschKarte()&&hand[i].istSpielbar(aktuelleKarte)){
+            if(hand[i].istWelcheKarte("Wunsch")&&hand[i].istSpielbar(aktuelleKarte)){
                 return true;
             }
         }
@@ -63,7 +63,7 @@ public class KISchlau extends Spieler{
 
     public boolean existiertPlusVierWunschKarte(Karte aktuelleKarte){
         for(int i = 0; i < hand.length;i++){
-            if(hand[i].istPlusVierWunschKarte()&&hand[i].istSpielbar(aktuelleKarte)){
+            if(hand[i].istWelcheKarte("PlusVierWunsch")&&hand[i].istSpielbar(aktuelleKarte)){
                 return true;
             }
         }
@@ -72,7 +72,7 @@ public class KISchlau extends Spieler{
 
     public boolean existiertRetourKarte(Karte aktuelleKarte){
         for(int i = 0; i < hand.length;i++){
-            if(hand[i].istRetourKarte()&&hand[i].istSpielbar(aktuelleKarte)){
+            if(hand[i].istWelcheKarte("Retour")&&hand[i].istSpielbar(aktuelleKarte)){
                 return true;
             }
         }
@@ -81,7 +81,7 @@ public class KISchlau extends Spieler{
 
     public boolean existiertFarbKarte(Karte aktuelleKarte){
         for(int i = 0; i < hand.length;i++){
-            if(hand[i].istFarbKarte()&&hand[i].istSpielbar(aktuelleKarte)){
+            if(hand[i].istWelcheKarte("Farb")&&hand[i].istSpielbar(aktuelleKarte)){
                 return true;
             }
         }
@@ -90,7 +90,7 @@ public class KISchlau extends Spieler{
 
     public Karte findPlusZwei(Karte aktuelleKarte){
         for(int i = 0; i < hand.length; i++){
-            if(hand[i].istPlusZweiKarte()&&hand[i].istSpielbar(aktuelleKarte)){
+            if(hand[i].istWelcheKarte("PlusZwei")&&hand[i].istSpielbar(aktuelleKarte)){
                 return hand[i];
             }
         }
@@ -98,7 +98,7 @@ public class KISchlau extends Spieler{
     }
     public Karte findAussetzenKarte(Karte aktuelleKarte){
         for(int i = 0; i < hand.length; i++){
-            if(hand[i].istAussetzenKarte()&&hand[i].istSpielbar(aktuelleKarte)){
+            if(hand[i].istWelcheKarte("Aussetzen")&&hand[i].istSpielbar(aktuelleKarte)){
                 return hand[i];
             }
         }
@@ -107,7 +107,7 @@ public class KISchlau extends Spieler{
 
     public Karte findRetourKarte(Karte aktuelleKarte){
         for(int i = 0; i < hand.length; i++){
-            if(hand[i].istRetourKarte()&&hand[i].istSpielbar(aktuelleKarte)){
+            if(hand[i].istWelcheKarte("Retour")&hand[i].istSpielbar(aktuelleKarte)){
                 return hand[i];
             }
         }
@@ -116,7 +116,7 @@ public class KISchlau extends Spieler{
 
     public Karte findFarbKarte(Karte aktuelleKarte){
         for(int i = 0; i < hand.length; i++){
-            if(hand[i].istFarbKarte()&&hand[i].istSpielbar(aktuelleKarte)){
+            if(hand[i].istWelcheKarte("Farb")&&hand[i].istSpielbar(aktuelleKarte)){
                 return hand[i];
             }
         }
@@ -124,7 +124,7 @@ public class KISchlau extends Spieler{
     }
     public Karte findPlusVierWunschKarte(Karte aktuelleKarte){
         for(int i = 0; i < hand.length; i++){
-            if(hand[i].istPlusVierWunschKarte()&&hand[i].istSpielbar(aktuelleKarte)){
+            if(hand[i].istWelcheKarte("PlusVierWunsch")&&hand[i].istSpielbar(aktuelleKarte)){
                 return hand[i];
             }
         }
@@ -133,7 +133,7 @@ public class KISchlau extends Spieler{
 
     public Karte findWunschKarte(Karte aktuelleKarte){
         for(int i = 0; i < hand.length; i++){
-            if(hand[i].istWunschKarte()&&hand[i].istSpielbar(aktuelleKarte)){
+            if(hand[i].istWelcheKarte("Wunsch")&&hand[i].istSpielbar(aktuelleKarte)){
                 return hand[i];
             }
         }

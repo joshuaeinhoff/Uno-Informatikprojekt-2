@@ -22,26 +22,12 @@ public class AussetzenKarte extends Karte{
         return false;
     }
 
-    public boolean istPlusZweiKarte(){
-        return false;
-    }
-    public boolean istFarbKarte(){
-        return false;
-    }
-    public boolean istPlusVierWunschKarte(){
-        return false;
-    }
-    public boolean istWunschKarte(){
-        return false;
-    }
-    public boolean istAussetzenKarte(){
-        return true;
-    }
-    public boolean istRetourKarte(){
-        return false;
-    }
-    public boolean istDummyKarte(){
-        return false;
-    }
     
+    public boolean istWelcheKarte(String kartenart){
+        if(kartenart.equals("Aussetzen")){
+            return true;
+        }
+        return false;
+    }
+
 }//end of AussetzenKarte
