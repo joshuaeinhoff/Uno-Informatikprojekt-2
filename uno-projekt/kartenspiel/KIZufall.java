@@ -11,38 +11,23 @@ public class KIZufall extends Spieler{
      */
     public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel,boolean karteGezogen){
         int kartenAnzahl = hand.length;
-        if(karteGezogen != true){
-            if(spielbareKarteVorhanden(aktuelleKarte)){
-                int randomInteger = KartenStapel.getRandomInt(0, kartenAnzahl);
-                Karte temp = hand[randomInteger];
-                if(temp.istSpielbar(aktuelleKarte)){
-                    return temp;
-                }else{
-                    karteSpielen(aktuelleKarte, kartenStapel,false);
-                }
+        if(spielbareKarteVorhanden(aktuelleKarte)){
+            int randomInteger = KartenStapel.getRandomInt(0, kartenAnzahl);
+            Karte temp = hand[randomInteger];
+            if(temp.istSpielbar(aktuelleKarte)){
+                return temp;
             }else{
-                //keine Karte auf der Hand die gezogen werden kann
-                karteZiehen(kartenStapel);
-                //karteSpielen aufgerufen
-                karteSpielen(aktuelleKarte, kartenStapel,true);
+                karteSpielen(aktuelleKarte, kartenStapel,false);
             }
+        }else if(karteGezogen != true){
+            //keine Karte auf der Hand die gezogen werden kann
+            karteZiehen(kartenStapel);
+            //karteSpielen aufgerufen
+            karteSpielen(aktuelleKarte, kartenStapel,true);
         }else{
-            //gezogene Karte ist spielbar
-            if(spielbareKarteVorhanden(aktuelleKarte)){
-                //suchvorgang nach der Karte
-                int randomInteger = KartenStapel.getRandomInt(0, kartenAnzahl);
-                Karte temp = hand[randomInteger];
-                if(temp.istSpielbar(aktuelleKarte)){
-                    return temp;
-                }else{
-                    karteSpielen(aktuelleKarte, kartenStapel,true);
-                }
-            }else{
-                //gezogene Karte ist nicht spielbar
-                return null;
-                //ende des Zuges
-            }
-        }
+            return null;
+        }   
         return null;
     }
+
 }//end of KIZufall

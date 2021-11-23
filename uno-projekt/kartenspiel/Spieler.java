@@ -85,4 +85,12 @@ package kartenspiel;
         return false;
     }
 
+    /**
+     * Methode zum reduzieren der Lebensenergie
+     * @param schaden - int Schaden der abgezogen werden soll
+     */
+    public void schadenZufuegen(int schaden){
+        lebensenergie = lebensenergie-schaden;
+    }
+
 }//end of Spieler
