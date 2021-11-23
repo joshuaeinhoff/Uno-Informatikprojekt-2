@@ -76,8 +76,7 @@ public class Tempel {
     
     // Boss -> Uno Spiel
     public void monsterKaempfen() {
-        // -> UNO
-        // unoKartenspiel -> spielen
+        kartenspiel.spielen();
     }
 
 } // Ende von Tempel

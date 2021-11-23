@@ -25,6 +25,9 @@ public class Kartenspiel {
 
     // wenn die karteSpielen methode null zurück gibt ende der Spielzug des Spielers
     
+    public void spielen(){
+        //...
+    }
     
     /*
     private void karteSpielen(Spieler _spieler){

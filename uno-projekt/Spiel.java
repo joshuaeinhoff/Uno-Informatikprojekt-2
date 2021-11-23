@@ -43,7 +43,7 @@ public class Spiel {
 
 
 
-        Spieler held = new Held();
+        //Spieler held = new Held();
 
 
         /* Spielablauf */
