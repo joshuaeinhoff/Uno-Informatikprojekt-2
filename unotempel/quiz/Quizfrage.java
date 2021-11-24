@@ -1,4 +1,4 @@
-package quiz;
+package unotempel.quiz;
 
 /**
  * Klasse stellt eine Quizfrage (bzw. Rätsel) im Spiel mit ihren (bzw. seinen) jeweiligen Attributen dar.
@@ -27,7 +27,7 @@ public class Quizfrage {
         this.richtigeAntwort = richtigeAntwort;
     }
 
-        /**
+     /**
      * Getter-Methode gibt eine Eigenschaft der Klasse zurück
      * @return Frage als String
      */

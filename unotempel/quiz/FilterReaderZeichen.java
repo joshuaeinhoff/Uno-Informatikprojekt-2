@@ -1,4 +1,5 @@
-package quiz;
+package unotempel.quiz;
+
 import java.io.*;
 
 /**

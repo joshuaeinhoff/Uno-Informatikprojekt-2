@@ -1,3 +1,5 @@
+package unotempel;
+
 /**
  * Vielleicht ist es sinnvoll eine Klasse zu erstellen die allgemeine Dinge anzeigt wie zum Beispiel Lebensenergie
  * in welchem Tempel man sich befindet 
@@ -46,6 +48,20 @@ public class GUI {
         // if geklickte Antwort == richtigeAntwort...
 
 
+
+    }
+
+    /**
+     * Die vier Farben zur Auswahl werden angezeigt: Blau, gelb, grün, rot
+     */
+    public static String farbeAuswaehlen() {
+        // Farbe auswählen
+        Rechteck rechteckBlau = new Rechteck(10, 10, 50, 50, Grafik.BLUE, Grafik.BLACK, 1, "blauWählen");
+        Rechteck rechteckGelb = new Rechteck(60, 10, 50, 50, Grafik.YELLOW, Grafik.BLACK, 1, "gelbWählen");
+        Rechteck rechteckGruen = new Rechteck(10, 60, 50, 50, Grafik.GREEN, Grafik.BLACK, 1, "grünWählen");
+        Rechteck rechteckRot = new Rechteck(60, 60, 50, 50, Grafik.RED, Grafik.BLACK, 1, "rotWählen");
+        // Reaktion
+        return Konsole.eingabeString();
 
     }
 

@@ -1,5 +1,7 @@
-import quiz.*;
-import kartenspiel.*;
+package unotempel;
+
+import unotempel.quiz.Quizfragenpool;
+import unotempel.kartenspiel.Kartenspiel;
 import java.util.Random;
 
 /**
@@ -19,7 +21,6 @@ public class Tempel {
      */
     public Tempel(String farbe) {
         this.farbe = farbe;
-        this.kartenspiel = new Kartenspiel();
     }
 
 
@@ -73,6 +74,14 @@ public class Tempel {
 
     }
 
+    /**
+     *
+     * @param y - Spielfeld größe in Y Richtung
+     * @param x - Spielfeld größe in X Richtung
+     */
+    public void kartenspielErzeugen(int y, int x) {
+        this.kartenspiel = new Kartenspiel(y, x);
+    }
     
     // Boss -> Uno Spiel
     public void monsterKaempfen() {

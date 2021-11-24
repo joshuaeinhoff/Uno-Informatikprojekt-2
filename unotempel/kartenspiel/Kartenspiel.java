@@ -10,7 +10,7 @@ public class Kartenspiel {
     private String[] spielstand; // Spielstand?
     private Spielfeld spielfeld;
     // oder Map<K,V> -> Spieler, Punkte
-    private int ersterSpieler; // z.B. 0 ist KI, 1 ist Spieler || verstehe ich nicht.. ^_^ Warum als int?
+    private int naechsterSpieler; // 0 ist KI, 1 ist Held
 
 
     //Karte die zuletzt gespielt wurde
@@ -22,6 +22,14 @@ public class Kartenspiel {
         this.spielfeld = new Spielfeld(spielfeldGroesseY,spielfeldGroesseX);
         
     }
+
+    /**
+     * Prozedur zum zufällig Auswählen des ersten Spielers
+     */
+    public void setzeErsterSpieler() {
+        naechsterSpieler = (int) Math.round(Math.random());
+    }
+
 
     // wenn die karteSpielen methode null zurück gibt ende der Spielzug des Spielers
     

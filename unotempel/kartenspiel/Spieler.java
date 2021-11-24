@@ -1,9 +1,8 @@
-package kartenspiel;
+package unotempel.kartenspiel;
 
 /**
  * Abstrakte Superklasse für den menschlichen Spieler und die SpielerKIs(Schwierigkeiten)
  */
-
  public abstract class Spieler {
 
     //Jeder Spieler hat eine gewisse Anzahl an Karten auf der Hand, die hier in einem Array gespeichert werden.

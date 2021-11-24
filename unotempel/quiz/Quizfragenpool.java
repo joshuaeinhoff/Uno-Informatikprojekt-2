@@ -1,4 +1,5 @@
-package quiz;
+package unotempel.quiz;
+
 import java.io.*;
 
 /**
@@ -11,6 +12,7 @@ public class Quizfragenpool {
     private Quizfrage[] quizfragen;
     private int anzahlQuizfragen;
 
+    
     /**
      * Konstruktor erzeugt eine Instanz von Quizfragenpool dem folgenden Attribut:
      * @param quizNiveau - Niveau der Quizfragen (1 für OOP1, 2 für OOP2)
@@ -19,7 +21,16 @@ public class Quizfragenpool {
         this.quizNiveau = quizNiveau;
     }
 
-    
+
+    /**
+     * Getter-Funktion gibt die Anzahl von Quizfragen zurück
+     * @return Anzahl von Quizfragen im Quizfragenpool
+     */
+    public int getAnzahlQuizfragen() {
+        return anzahlQuizfragen;
+    }
+
+
     /**
      * Prozedur zum Füllen eines Quizfragenpools von einem bestimmten Tempel
      * Anruf an die private Funktion 'quizfragenAuslesen' und die private Prozedur 'quizfragenBearbeiten'

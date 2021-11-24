@@ -1,5 +1,7 @@
-import quiz.*;
+package unotempel;
 
+import quiz.*;
+import kartenspiel.*;
 /**
  *  Klasse Spiel
  */
@@ -14,6 +16,7 @@ public class Spiel {
         /* Spielvorbereitung */
 
         System.out.println("Wählen Sie bitte OOP1 oder OOP2"); // weiter...
+        // Grafik_Konsole
         int spielNiveau = 1;
         // if OOP2 ausgewählt -> niveau = 2
 
@@ -41,6 +44,11 @@ public class Spiel {
         Quizfragenpool qfp_ft_oop2 = feuerTempel.quizfragenpoolErzeugen('f', 2);
 
 
+        // Bsp
+        wasserTempel.kartenspielErzeugen(60,80);
+        luftTempel.kartenspielErzeugen(60,80);
+        erdeTempel.kartenspielErzeugen(60,80);
+        feuerTempel.kartenspielErzeugen(60,80);
 
 
         //Spieler held = new Held();

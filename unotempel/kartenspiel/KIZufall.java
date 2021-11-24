@@ -1,4 +1,8 @@
-package kartenspiel;
+package unotempel.kartenspiel;
+
+/**
+ * 
+ */
 public class KIZufall extends Spieler{
     
     KIZufall(int _lebensenergie){

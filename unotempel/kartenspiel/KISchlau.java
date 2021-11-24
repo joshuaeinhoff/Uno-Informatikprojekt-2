@@ -1,4 +1,8 @@
-package kartenspiel;
+package unotempel.kartenspiel;
+
+/**
+ * 
+ */
 public class KISchlau extends Spieler{
     
 

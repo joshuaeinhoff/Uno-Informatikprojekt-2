@@ -1,4 +1,4 @@
-package kartenspiel;
+package unotempel.kartenspiel;
 
 /**
  * Bei dieser Karte ändert sich die Spielrichtung. Wenn diese Karte zu Beginn des Spiels gezogen wird, muss der Spieler, der 
@@ -6,9 +6,14 @@ package kartenspiel;
  */
 public class RetourKarte extends Karte{
 
-    public RetourKarte(String _farbe, int _id){
-        super(_farbe, _id);
+    /**
+     * Konstruktor mit default-Wert: Nummer 11
+     * @param _farbe
+     */
+    public RetourKarte(String _farbe){
+        super(_farbe, 11);
     }
+
 
     /**
      * Prüft, ob die Karte gelegt werden darf.
@@ -16,17 +21,32 @@ public class RetourKarte extends Karte{
      */
     public boolean istSpielbar(Karte andereKarte){
         // die Retourkarte bekommt eine bestimmte id und ist somit einfacher zu identifizieren 
-        if(this.farbe == andereKarte.farbe || this.id == andereKarte.id){
+        if(this.farbe == andereKarte.farbe || this.nummer == andereKarte.nummer){
             return true;
         }
         return false;
     }
 
+    /**
+     *
+     * @param kartenart
+     * @return
+     */
     public boolean istWelcheKarte(String kartenart){
         if(kartenart.equals("Retour")){
             return true;
         }
         return false;
+    }
+
+    
+    /**
+     * Prozedur zum Durchführen der Aktion einer speziellen Karte
+     */
+    @Override
+    public void aktionDurchfuehren() {
+        // Nächster Spieler überspringen
+        
     }
     
     

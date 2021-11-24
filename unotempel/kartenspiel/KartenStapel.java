@@ -1,4 +1,5 @@
-package kartenspiel;
+package unotempel.kartenspiel;
+
 import java.util.*;
 
 /**
@@ -12,8 +13,14 @@ public class KartenStapel {
 
     private Karte[] karten;
     private int anzahlKarten;
+
+    private String farben[] = { "blau", "gelb", "grün", "rot" };
+
     
-    // Konstruktor -> Erzeugt einen Array mit 108 Karten 
+
+    /**
+     * Konstruktor erzeugt einen Array mit 108 Karten 
+     */
     public KartenStapel() {
         //karten = new ArrayList<>(); //OOP2
         karten = new Karte[108];
@@ -43,6 +50,11 @@ public class KartenStapel {
 
     }
     
+
+    /**
+     * 
+     * @return
+     */
     public Karte karteZiehen(){
         /*
         int randKartenPosition = getRandomInt(0,anzahlKarten);
@@ -55,26 +67,45 @@ public class KartenStapel {
         return karten[randomKartenPosition];
     }
     
-    public void fuelleKartendeck(){
-        //Nur vorläufig
-        for(int i = 0; i < 76; i++)
-        {
-            //karten[i] = new FarbKarte(); // muss später geändert werden da es unteschiedliche Farbkarten gibt
+
+    /**
+     * Prozedur zum Füllen eines KartenStapels
+     */
+    public void fuelleKartenStapel(){
+        // index 
+        int farbeIndex = 0;
+        // 4x Farbkarten von 0 bis 9 erzeugen
+        for(int i = 0; i < 40; i++) {
+            karten[i] = new FarbKarte(farben[farbeIndex%4],i/4);
         }
+        // 4x Farbkarten von 1 bis 9 erzeugen
+        for(int i = 40; i < 76; i++) {
+            karten[i] = new FarbKarte(farben[farbeIndex%4],((i/4)%10)+1);
+        }
+        // 2x AussetzenKarten jeder Farbe erzeugen
         for(int i = 76; i < 84; i++){
-            //karten[i] = new AussetzenKarte();
+            karten[i] = new AussetzenKarte(farben[farbeIndex%4]);
+            farbeIndex++;
         }
+        // 2x RetourKarten jeder Farbe erzeugen
         for(int i = 84; i < 92; i++){
-            //karten[i] = new RetourKarte();
+            karten[i] = new RetourKarte(farben[farbeIndex%4]);
+            farbeIndex++;
         }
+        // 2x PlusZweiKarten jeder Farbe erzeugen
         for(int i = 92; i < 100; i++){
-            //karten[i] = new PlusZweiKarte();
+            karten[i] = new PlusZweiKarte(farben[farbeIndex%4]);
+            farbeIndex++;
         }
+        // 4x WunschKarten erzeugen
         for(int i = 100; i < 104; i++){
-            //karten[i] = new WunschKarte();
+            karten[i] = new WunschKarte();
         }
+        // 4x PlusVierWunschKarten erzeugen
         for(int i = 104; i < 108; i++){
-            //karten[i] = new PlusVierWunschKarte();
+            karten[i] = new PlusVierWunschKarte();
         }
+
     }
+
 }//end of KartenStapel
