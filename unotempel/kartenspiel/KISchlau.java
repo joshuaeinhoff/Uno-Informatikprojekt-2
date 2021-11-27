@@ -31,11 +31,11 @@ public class KISchlau extends Spieler{
             return findWunschKarte(aktuelleKarte);
         } else if(karteGezogen != true){
             karteZiehen(kartenStapel);
-            karteSpielen(aktuelleKarte, kartenStapel, true);
+            return karteSpielen(aktuelleKarte, kartenStapel, true);
         }else{
             return null;
         }
-        return null;
+        
     }
 
     public boolean existiertPlusZwei(Karte aktuelleKarte){

@@ -1,4 +1,5 @@
-package kartenspiel;
+package unotempel.kartenspiel;
+
 /** 
 *
 */

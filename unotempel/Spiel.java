@@ -1,7 +1,8 @@
 package unotempel;
 
-import quiz.*;
-import kartenspiel.*;
+import unotempel.quiz.*;
+import unotempel.kartenspiel.*;
+
 /**
  *  Klasse Spiel
  */
@@ -51,26 +52,26 @@ public class Spiel {
         feuerTempel.kartenspielErzeugen(60,80);
 
 
-        //Spieler held = new Held();
+        Spieler held = new Held();
 
 
         /* Spielablauf */
 
         // 1. Tempel: Wasser
         wasserTempel.quizLoesen(spielNiveau);
-        // Monster bekämpfen
+        wasserTempel.monsterKaempfen(held);
 
         // 2. Tempel
         luftTempel.quizLoesen(spielNiveau);
-        // Monster bekämpfen
+        luftTempel.monsterKaempfen(held);
 
         // 3. Tempel
         erdeTempel.quizLoesen(spielNiveau);
-        // Monster bekämpfen
+        erdeTempel.monsterKaempfen(held);
 
         // 4. Tempel
         feuerTempel.quizLoesen(spielNiveau);
-        // Monster bekämpfen
+        feuerTempel.monsterKaempfen(held);
         
     }
 	

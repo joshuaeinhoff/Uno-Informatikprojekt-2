@@ -74,8 +74,9 @@ public class Tempel {
 
     }
 
+
     /**
-     *
+     * Prozedur zum Erzeugen eines Kartenspiels
      * @param y - Spielfeld größe in Y Richtung
      * @param x - Spielfeld größe in X Richtung
      */
@@ -83,8 +84,32 @@ public class Tempel {
         this.kartenspiel = new Kartenspiel(y, x);
     }
     
-    // Boss -> Uno Spiel
-    public void monsterKaempfen() {
+
+    /**
+     * Prozedur zum Kämpfen des Monsters im Tempel
+     * @param sp
+     */
+    public void monsterKaempfen(Spieler sp) {
+        // Fallunterscheidung: Nach dem Tempel-Niveau fragen
+        switch(farbe) {
+            case "blau":
+                // Kartenspiel vorbereiten
+                kartenspiel.spielVorbereiten(sp, 1);
+                break;
+            case "gelb":
+                // Kartenspiel vorbereiten
+                kartenspiel.spielVorbereiten(sp, 2);
+                break;
+            case "gruen":
+                // Kartenspiel vorbereiten
+                kartenspiel.spielVorbereiten(sp, 3);
+                break;
+            case "rot":
+                // Kartenspiel vorbereiten
+                kartenspiel.spielVorbereiten(sp, 4);
+                break;
+        }
+        // Spielen
         kartenspiel.spielen();
     }
 
