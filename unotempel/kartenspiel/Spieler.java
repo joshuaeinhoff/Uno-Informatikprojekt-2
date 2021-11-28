@@ -45,7 +45,7 @@ package unotempel.kartenspiel;
         //OOP2
         //hand.get(kartenstapel.karteZiehen());
         //fügt die aus dem Stapel gezogene Karte der Hand hinzu
-        for(int i = 0; 0<hand.length; i++){
+        for(int i = 0; i < hand.length; i++){
             if(hand[i] == null){
                 hand[i] = kartenstapel.karteZiehen();
                 return;
@@ -90,5 +90,25 @@ package unotempel.kartenspiel;
     public void schadenZufuegen(int schaden){
         lebensenergie = lebensenergie-schaden;
     }
+
+
+    /**
+     * Funktion gibt die Anzahl der Karten in der Hand des Spielers zurück
+     * @return int - Anzahl von Karten
+     */
+    public int anzahlKarte() {
+        // Zähler auf 0 setzen
+        int zaehler = 0;
+        // Durch die Karten in der Hand iterieren
+        for(Karte karte : hand) {
+            // Wenn die Karte nicht null ist, d.h. noch eine Karte vorhanden ist
+            if(karte != null)
+                // Zähler inkrementieren
+                zaehler++;
+        }
+        // Anzahl der Karten zurückgeben
+        return zaehler;
+    }
+    
 
 }//end of Spieler

@@ -130,7 +130,7 @@ public class Kartenspiel {
      */
     public void spielen(){
         // Während einer der Spieler noch Karten hat
-        while(spieler[0].hand.length != 0 && spieler[1].hand.length != 0) {
+        while(spieler[0].anzahlKarte() > 0 && spieler[1].anzahlKarte() > 0) {
             // Spieler spielt seinem Zug, indem er eine Karte zum Ablegen aus seiner Hand nimmt
             Karte karte = spieler[naechsterSpieler].karteSpielen(aktuelleKarte, kartenStapel, false);
             // Nächster Spieler ist dran (modulo 2, da nur 2 Spieler)
@@ -141,11 +141,23 @@ public class Kartenspiel {
             // Zug ist zu Ende
 
             // noch zu machen
-            
+            if(spieler[0].anzahlKarte() == 1) {
+                GUI.unoKlicken();
+                // sonst bekommt er noch Karten jede X Sekunden
+            }
+            if(spieler[1].anzahlKarte() == 1) {
+                // warten X sekunden
+                // wird UNO gerufen
+            }
 
         }
 
         // Spiel ist zu Ende
+        if(spieler[0].anzahlKarte() == 0) {
+            System.out.println("Held hat gewonnen!");
+        } else if(spieler[1].anzahlKarte() == 0) {
+            System.out.println("Monster hat gewonnen...");
+        }
     }
 
     
