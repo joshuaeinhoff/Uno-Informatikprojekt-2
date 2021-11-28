@@ -34,20 +34,21 @@ package unotempel.kartenspiel;
      */
     public void ersteHand(KartenStapel kartenStapel){
         for(int i = 0; i < 7; i++){
-            karteZiehen(kartenStapel);
+            // Karte aus Stapel ziehen, aktuelle Karte ist null am Spielanfang
+            karteZiehen(kartenStapel, null);
         }
     }
 
     /**
      * Methode zum ziehen der Karten
      */
-    public void karteZiehen(KartenStapel kartenstapel){
+    public void karteZiehen(KartenStapel kartenstapel, Karte aktuelleKarte){
         //OOP2
         //hand.get(kartenstapel.karteZiehen());
         //fügt die aus dem Stapel gezogene Karte der Hand hinzu
         for(int i = 0; i < hand.length; i++){
             if(hand[i] == null){
-                hand[i] = kartenstapel.karteZiehen();
+                hand[i] = kartenstapel.karteZiehen(aktuelleKarte);
                 return;
             }else{
                 System.out.println("Hand ist voll!");
@@ -71,17 +72,18 @@ package unotempel.kartenspiel;
 
     /**
      * ist glaube doch eine doofe Methode muss noch gucken wo ich die hin packe
-     * @param aktuellerSpieler
-     * @return
+     * @param aktuelleKarte - Aktuelle Karte im Spiel
+     * @return true - falls spielbare Karte auf der Hand vorhanden ist, false - sonst
      */
     public boolean spielbareKarteVorhanden(Karte aktuelleKarte){
-        for(int i = 0; i< hand.length; i++){
+        for(int i = 0; i < hand.length; i++){
             if(hand[i].istSpielbar(aktuelleKarte)){
                 return true;
             }
         }
         return false;
     }
+
 
     /**
      * Methode zum reduzieren der Lebensenergie
@@ -96,7 +98,7 @@ package unotempel.kartenspiel;
      * Funktion gibt die Anzahl der Karten in der Hand des Spielers zurück
      * @return int - Anzahl von Karten
      */
-    public int anzahlKarte() {
+    public int anzahlKarteHand() {
         // Zähler auf 0 setzen
         int zaehler = 0;
         // Über die Karten in der Hand iterieren
@@ -109,6 +111,7 @@ package unotempel.kartenspiel;
         // Anzahl der Karten zurückgeben
         return zaehler;
     }
-    
+
+
 
 }//end of Spieler

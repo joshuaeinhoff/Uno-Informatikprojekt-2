@@ -14,7 +14,7 @@ public class Quizfragenpool {
 
     
     /**
-     * Konstruktor erzeugt eine Instanz von Quizfragenpool dem folgenden Attribut:
+     * Konstruktor erzeugt eine Instanz von Quizfragenpool mit dem folgenden Attribut:
      * @param quizNiveau - Niveau der Quizfragen (1 für OOP1, 2 für OOP2)
      */
     public Quizfragenpool(int quizNiveau) {
@@ -23,10 +23,10 @@ public class Quizfragenpool {
 
 
     /**
-     * Getter-Funktion gibt die Anzahl von Quizfragen zurück
+     * Funktion gibt die Anzahl von Quizfragen zurück
      * @return Anzahl von Quizfragen im Quizfragenpool
      */
-    public int getAnzahlQuizfragen() {
+    public int anzahlQuizfragen() {
         return anzahlQuizfragen;
     }
 
@@ -152,12 +152,13 @@ public class Quizfragenpool {
      * @param zufallsZahl - gegebener Index
      * @return true - wenn die Frage richtig beantwortet wird, false - sonst
      */
-    public boolean quizfrageBeantworten(int zufallsZahl) {
+    public boolean quizfrageBeantwortet(int zufallsZahl) {
         // Quizfrage darstellen
         //GUI.quizDarstellen(quizfragen[zufallsZahl].getFrage(), quizfragen[zufallsZahl].getAntwortmoeglichkeiten(), quizfragen[zufallsZahl].getRichtigeAntwort());
         // if... geklickte Antwort is richtig
         return true;
         // else
+
         // return false;
 
     }

@@ -1,15 +1,26 @@
 package unotempel.kartenspiel;
 
 /**
- * 
+ * Klasse KIZufall stellt einen komplizierten KI-Gegner dar
  */
 public class KISchlau extends Spieler{
-    
 
+    /**
+     * Konstruktor ruft Superkonstruktor auf
+     * @param _lebensenergie - Lebensenergie des Monsters
+     */
     KISchlau(int _lebensenergie){
         super(_lebensenergie);
     }
 
+
+    /**
+     * Funktion zum Spielen einer Karte
+     * @param aktuelleKarte - Aktuelle Karte im Spiel
+     * @param kartenStapel - KartenStapel
+     * @param karteGezogen - Karte wird schon gezogen
+     * @return Karte zum Spielen
+     */
     public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel, boolean karteGezogen){
         //ist AussetzenKarte spielbar?ist RetourKarte spielbar?
         //ist 2+ Spielbar?
@@ -29,13 +40,12 @@ public class KISchlau extends Spieler{
             return findPlusVierWunschKarte(aktuelleKarte);
         }else if(existiertWunschKarte(aktuelleKarte)){
             return findWunschKarte(aktuelleKarte);
-        } else if(karteGezogen != true){
+        } else if(!karteGezogen){
             karteZiehen(kartenStapel, aktuelleKarte);
             return karteSpielen(aktuelleKarte, kartenStapel, true);
         }else{
             return null;
         }
-        
     }
 
     public boolean existiertPlusZwei(Karte aktuelleKarte){
@@ -145,4 +155,4 @@ public class KISchlau extends Spieler{
     }
 
 
-}//end of KISchlau
+} // Ende von KISchlau
