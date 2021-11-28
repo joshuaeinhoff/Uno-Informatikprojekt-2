@@ -6,22 +6,59 @@ package unotempel.kartenspiel;
  */
 public abstract class Karte {
 
-    // Eigenschaften: Eine Karte hat eine bestimmte Farbe und einer Nummer
+    // Eigenschaften: Eine Karte hat eine bestimmte Farbe und eine Nummer
     public String farbe;
     public int nummer;
 
-//    String[] unoFarben = {"rot", "blau", "gelb", "gruen", "schwarz"};
 
     /**
-     * Kann später als Superkonstruktor aufgerufen werden
-     * @param farbe
+     * Superkonstruktor für alle Subklassen
+     * @param farbe - Farbe der Karte
+     * @param nummer - Nummer der Karte
      */
-    public Karte(String _farbe, int nummer) {
-        this.farbe = _farbe;
+    public Karte(String farbe, int nummer) {
+        this.farbe = farbe;
         this.nummer = nummer;
     }
-	
 
+
+    /**
+     * Funktion prüft, ob eine Karte korrekt abgelegt werden kann.
+     * Dies ist der Fall, wenn die Nummer und/oder Farbe der abgelegten Karte mit der Karte auf dem Kartenstapel übereinstimmt
+     * (oder wenn die abgelegte Karte die Farbe schwarz hat) -> das kann nicht passieren da vorher eine Farbe ausgewählt werden muss
+     * @param aktuelleKarte - Aktuelle Karte im Spiel
+     * @return true - falls die Karte gespielt werden kann, false - sonst
+     */
+    public boolean istSpielbar(Karte aktuelleKarte){
+        if(this.nummer == aktuelleKarte.nummer || this.farbe.equals(aktuelleKarte.farbe) || aktuelleKarte.farbe.equals("schwarz")){ // ich glaube die 3. Bedingung kann nie passieren
+            return true;
+        }
+        return false;
+    }
+
+
+    /**
+     * Funktion gibt zurück, ob die Karte eine bestimmte Karte ist
+     * @param kartenart - Art der Karte
+     * @return true - falls die KartenArt passt, false - sonst
+     */
+    public abstract boolean istWelcheKarte(String kartenart);
+
+
+    /**
+     * Funktion zum Durchführen der Aktion einer speziellen Karte
+     * @return int - Code für die Aktion
+     */
+    public abstract int aktionDurchfuehren();
+
+
+    public void clickAuf(){
+        //code..
+    }
+
+
+//    String[] unoFarben = {"rot", "blau", "gelb", "gruen", "schwarz"};
+//
 //    /** Aussehen der Karte setzen mit einer zufälligen Farbe */
 //    void setzeAussehen(String _farbe) {
 //        // wenn "zufall" als Farbe angegeben wird, soll die Methode zufallsFarbe aufgerufen werden
@@ -59,28 +96,5 @@ public abstract class Karte {
 //    }
 
 
-    /**
-     * Prüft, ob eine Karte korrekt abgelegt wurde. 
-     * Dies ist der Fall, wenn die Id und/oder Farbe der abgelegten Karte mit der Karte auf dem Kartenstapel übereinstimmt
-     * oder wenn die abgelegte Karte die Farbe schwarz hat.
-     * 
-     * @param andereKarte
-     * @return
-     */
-    public boolean istSpielbar(Karte andereKarte){
-        if(this.nummer == andereKarte.nummer || this.farbe == andereKarte.farbe || andereKarte.farbe == "schwarz"){
-            return true;
-        }
-        return false;
-    }
 
-    public void clickAuf(){
-        //code..
-    }
-
-    public abstract boolean istWelcheKarte(String kartenart);
-
-    public abstract void aktionDurchfuehren();
-
-
-}//end of Karte
+} // Ende von Karte

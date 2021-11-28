@@ -1,8 +1,8 @@
 package unotempel.kartenspiel;
 
 /**
- * Nachdem ein Spieler diese Karte gelegt hat, wird der Gegenspieler „übersprungen“ und derjenige, der die Karte gelegt hat, darf nochmal legen. 
- * Wenn diese Karte zu Beginn des Spiels gezogen wird, dann muss derjenige, der anfängt, aussetzen und der Gegenspieler darf beginnen.   
+ * Nachdem ein Spieler diese Karte gelegt hat, wird der Gegenspieler „übersprungen“ und derjenige, der die Karte gelegt hat, darf nochmal legen.
+ * Wenn diese Karte zu Beginn des Spiels gezogen wird, dann muss derjenige, der anfängt, aussetzen und der Gegenspieler darf beginnen.
  */
 public class AussetzenKarte extends Karte {
 
@@ -14,36 +14,26 @@ public class AussetzenKarte extends Karte {
         super(farbe, 10);
     }
 
-    /**
-     * Prüft, ob die Karte abgelegt werden kann. 
-     * -> Die Karte kann nur auf eine andere mit entsprechender Farbe oder eine andere AussetzenKarte gelegt werden. 
-     */
-    public boolean istSpielbar(Karte andereKarte){
-        // die Aussetzenkarte bekommt eine bestimmte id und ist somit einfacher zu identifizieren 
-        if(this.farbe == andereKarte.farbe || this.nummer == andereKarte.nummer){
-            return true;
-        }
-        return false;
-    }
 
     /**
-     *
-     * @param kartenart
-     * @return
+     * Funktion gibt zurück, ob die Karte eine AussetzenKarte ist
+     * @param kartenart - Art der Karte
+     * @return true - falls die KartenArt passt, false - sonst
      */
     public boolean istWelcheKarte(String kartenart){
-        if(kartenart.equals("Aussetzen")){
-            return true;
-        }
-        return false;
+        return kartenart.equals("Aussetzen");
     }
+
 
     /**
-     * Prozedur zum Durchführen der Aktion einer speziellen Karte
+     * Funktion zum Durchführen der Aktion einer speziellen Karte
+     * @return int - Code für die Aktion
      */
     @Override
-    public void aktionDurchfuehren() {
-        // Nächster Spieler überspringen
+    public int aktionDurchfuehren() {
+        // Code 1: Nächster Spieler überspringen
+        return 1;
     }
 
+    
 } // End von AussetzenKarte

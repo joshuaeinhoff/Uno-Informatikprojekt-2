@@ -11,28 +11,27 @@ public class DummyKarte extends Karte{
     public DummyKarte(){
         super("keine", -1);
     }
-    
+
 
     /**
-     *
-     * @param kartenart
-     * @return
+     * Funktion gibt zurück, ob die Karte eine DummyKarte ist
+     * @param kartenart - Art der Karte
+     * @return true - falls die KartenArt passt, false - sonst
      */
     public boolean istWelcheKarte(String kartenart){
-        if(kartenart.equals("Dummy")){
-            return true;
-        }
-        return false;
+        return kartenart.equals("Dummy");
     }
 
 
     /**
-     * Diese Prozedur soll nichts machen, da DummyKarten keine spezielle Aktion durchführen
+     * Funktion zum Durchführen der Aktion einer speziellen Karte
+     * @return int - Code für die Aktion
      */
     @Override
-    public void aktionDurchfuehren() {
-        // Nichts machen
+    public int aktionDurchfuehren() {
+        // Code 0: Nichts machen
+        return 0;
     }
 
 
-}//end of DummyKarte
+} // Ende von DummyKarte

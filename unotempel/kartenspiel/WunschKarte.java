@@ -1,11 +1,9 @@
 package unotempel.kartenspiel;
 
-import unotempel.GUI;
-
 /**
  * Der Spieler, der diese Karte legt, entscheidet welche Farbe als nächstes gelegt werden soll. WunschKarten kann man immer legen, 
- * das heißt man muss nicht auf die Farbe der vorherigen Karte achten. Wenn eine WunschKarte zu Beginn des Spiels gezogen wird, 
- * entscheidet der Spieler, der anfangen darf, welche Farbe als nächstes gelegt werden soll.
+ * das heißt man muss nicht auf die Farbe der vorherigen Karte achten. Wenn eine WunschKarte zu Beginn des Spiels gezogen wird,
+ * entscheidet der Spieler, der anfangen darf, welche Farbe als nächstes gelegt werden soll.
  */
 public class WunschKarte extends Karte{
 
@@ -15,38 +13,36 @@ public class WunschKarte extends Karte{
     public WunschKarte(){
         super("schwarz", 13);
     }
-    
+
+
     /**
-     *
-     * @param kartenart
-     * @return
+     * Konstruktor zum Erzeugen einer Wunschkarte mit einer bestimmten Farbe
+     * @param neueFarbe - Neue Farbe (nur nachdem eine WunschKarte gespielt wird)
+     */
+    public WunschKarte(String neueFarbe) {
+        super(neueFarbe, 13);
+    }
+
+
+    /**
+     * Funktion gibt zurück, ob die Karte eine WunschKarte ist
+     * @param kartenart - Art der Karte
+     * @return true - falls die KartenArt passt, false - sonst
      */
     public boolean istWelcheKarte(String kartenart){
-        if(kartenart.equals("")){
-            return true;
-        }
-        return false;
+        return kartenart.equals("Wunsch");
     }
 
 
     /**
-     * Prozedur zum Durchführen der Aktion einer speziellen Karte
+     * Funktion zum Durchführen der Aktion einer speziellen Karte
+     * @return int - Code für die Aktion
      */
     @Override
-    public void aktionDurchfuehren() {
-        // Mithilfe der Grafik_Konsole eine neue Farbe auswählen
-        String neueFarbe = GUI.farbeAuswaehlen();
-        // noch überlegen
-        setzeFarbe(farbe);
+    public int aktionDurchfuehren() {
+        // Code 3: Eine neue Farbe auswählen
+        return 3;
     }
 
-    /**
-     * Prozedur zum Setzen der ausgewählten Farbe
-     * @param farbe
-     */
-    private void setzeFarbe(String farbe) {
-        this.farbe = farbe;
-    }
-    
-    
-}//end of WunschKarte
+
+} // Ende von WunschKarte

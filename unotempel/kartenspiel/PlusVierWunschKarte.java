@@ -1,7 +1,5 @@
 package unotempel.kartenspiel;
 
-import unotempel.GUI;
-
 /** Der Spieler, der diese Karte legt, entscheidet welche Farbe als nächstes gelegt werden soll.
  * Zudem muss der Gegenspieler vier Karten von dem Kartenstapel ziehen.
  */
@@ -14,38 +12,35 @@ public class PlusVierWunschKarte extends Karte{
         super("schwarz", 14);
     }
 
+
     /**
-     *
-     * @param kartenart
-     * @return
+     * Konstruktor zum Erzeugen einer PlusVierWunschKarte mit einer bestimmten Farbe
+     * @param neueFarbe - Neue Farbe (nur nachdem eine PlusVierWunschKarte gespielt wird)
+     */
+    public PlusVierWunschKarte(String neueFarbe){
+        super(neueFarbe, 14);
+    }
+
+
+    /**
+     * Funktion gibt zurück, ob die Karte eine PlusVierWunschKarte ist
+     * @param kartenart - Art der Karte
+     * @return true - falls die KartenArt passt, false - sonst
      */
     public boolean istWelcheKarte(String kartenart){
-        if(kartenart.equals("PlusVierWunsch")){
-            return true;
-        }
-        return false;
+        return kartenart.equals("PlusVierWunsch");
     }
 
 
     /**
-     * Prozedur zum Durchführen der Aktion einer speziellen Karte
+     * Funktion zum Durchführen der Aktion einer speziellen Karte
+     * @return int - Code für die Aktion
      */
     @Override
-    public void aktionDurchfuehren() {
-        // Mithilfe der Grafik_Konsole eine neue Farbe auswählen
-        String neueFarbe = GUI.farbeAuswaehlen();
-        // noch überlegen
-        setzeFarbe(farbe);
-        // 4 Karte Ziehen
+    public int aktionDurchfuehren() {
+        // Code 4: Vier Karte Ziehen
+        return 4;
     }
 
-    /**
-     * Prozedur zum Setzen der ausgewählten Farbe
-     * @param farbe
-     */
-    private void setzeFarbe(String farbe) {
-        this.farbe = farbe;
-    }
     
-    
-}//end of PlusVierWunschKarte
+} // Ende von PlusVierWunschKarte
