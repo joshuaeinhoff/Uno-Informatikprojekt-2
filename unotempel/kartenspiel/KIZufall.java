@@ -25,7 +25,7 @@ public class KIZufall extends Spieler{
             }
         }else if(karteGezogen != true){
             //keine Karte auf der Hand die gezogen werden kann
-            karteZiehen(kartenStapel);
+            karteZiehen(kartenStapel, aktuelleKarte);
             //karteSpielen aufgerufen
             karteSpielen(aktuelleKarte, kartenStapel,true);
         }else{

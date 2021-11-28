@@ -30,7 +30,7 @@ public class KISchlau extends Spieler{
         }else if(existiertWunschKarte(aktuelleKarte)){
             return findWunschKarte(aktuelleKarte);
         } else if(karteGezogen != true){
-            karteZiehen(kartenStapel);
+            karteZiehen(kartenStapel, aktuelleKarte);
             return karteSpielen(aktuelleKarte, kartenStapel, true);
         }else{
             return null;

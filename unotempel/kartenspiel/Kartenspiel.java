@@ -50,6 +50,7 @@ public class Kartenspiel {
     private void setzeAktuelleKarte(Karte karte) {
         // Aktuelle Karte im Spiel durch neue Karte ersetzen
         aktuelleKarte = karte;
+        kartenStapel.setzeKarteAblageStapel(aktuelleKarte);
         // Funktion aufrufen, die einen int-Wert mit dem Code zurückgibt
         int code = aktuelleKarte.aktionDurchfuehren();
         // Fallunterscheidung für Code
@@ -63,7 +64,7 @@ public class Kartenspiel {
             case 2:
                 // Nächster Spieler zieht 2 Karten
                 for(int i = 0; i < 2; i++) {
-                    spieler[naechsterSpieler].karteZiehen(kartenStapel);
+                    spieler[naechsterSpieler].karteZiehen(kartenStapel, aktuelleKarte);
                 }
             case 3:
                 // Neue Farbe auswählen
@@ -73,7 +74,7 @@ public class Kartenspiel {
                 farbeAuswaehlen();
                 // Nächster Spieler zieht 4 Karten
                 for(int i = 0; i < 4; i++) {
-                    spieler[naechsterSpieler].karteZiehen(kartenStapel);
+                    spieler[naechsterSpieler].karteZiehen(kartenStapel, aktuelleKarte);
                 }
 
         }
