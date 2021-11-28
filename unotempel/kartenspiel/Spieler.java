@@ -99,7 +99,7 @@ package unotempel.kartenspiel;
     public int anzahlKarte() {
         // Zähler auf 0 setzen
         int zaehler = 0;
-        // Durch die Karten in der Hand iterieren
+        // Über die Karten in der Hand iterieren
         for(Karte karte : hand) {
             // Wenn die Karte nicht null ist, d.h. noch eine Karte vorhanden ist
             if(karte != null)
