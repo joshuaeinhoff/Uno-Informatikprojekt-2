@@ -27,4 +27,4 @@ Informatikprojekt 2 von Sarah, Teresa und Joshua
 
 ## Klassendiagramm
 
-![Klassendiagramm](TempleCardsKlassendiagramm.drawio.png)
+![Klassendiagramm](img/TempleCardsKlassendiagrammAlsSVG.svg)
