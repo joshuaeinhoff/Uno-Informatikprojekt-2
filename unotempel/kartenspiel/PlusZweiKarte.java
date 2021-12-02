@@ -36,5 +36,4 @@ public class PlusZweiKarte extends Karte{
         return 2;
     }
 
-
 } // Ende von PlusZweiKarte

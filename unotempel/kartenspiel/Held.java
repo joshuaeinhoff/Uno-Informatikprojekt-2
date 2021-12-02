@@ -23,4 +23,4 @@ public class Held extends Spieler {
         return null;
     }
 
-}//end of Held
+} // Ende von Held

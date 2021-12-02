@@ -49,4 +49,4 @@ public class Spielfeld {
 
     }
     
-}//end of Spielfeld
+} // Ende von Spielfeld

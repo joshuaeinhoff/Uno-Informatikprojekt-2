@@ -18,6 +18,7 @@ public class Spiel {
 
         System.out.println("Wählen Sie bitte OOP1 oder OOP2"); // weiter...
         // Grafik_Konsole
+        GrafikKonsole.clearGrafik();
         int spielNiveau = 1;
         // if OOP2 ausgewählt -> niveau = 2
 

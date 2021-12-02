@@ -71,8 +71,7 @@ public class GUI {
      * @return
      */
     public static String unoKlicken() {
-        Button unoButton = new Button(..., "uno");
+        //Button unoButton = new Button(..., "uno");
     }
-
 
 } // Ende von GUI

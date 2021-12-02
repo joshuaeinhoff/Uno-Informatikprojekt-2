@@ -34,6 +34,5 @@ public class AussetzenKarte extends Karte {
         // Code 1: Nächster Spieler überspringen
         return 1;
     }
-
     
 } // End von AussetzenKarte

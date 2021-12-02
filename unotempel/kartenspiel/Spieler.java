@@ -112,6 +112,4 @@ package unotempel.kartenspiel;
         return zaehler;
     }
 
-
-
-}//end of Spieler
+} // Ende von Spieler

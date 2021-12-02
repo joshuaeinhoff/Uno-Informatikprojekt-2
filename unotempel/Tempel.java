@@ -1,7 +1,7 @@
 package unotempel;
 
-import unotempel.quiz.Quizfragenpool;
-import unotempel.kartenspiel.Kartenspiel;
+import unotempel.quiz.*;
+import unotempel.kartenspiel.*;
 import java.util.Random;
 
 /**
@@ -61,12 +61,12 @@ public class Tempel {
             // Nach QuizNiveau Fragenpool zu OOP1 oder OOP2 auswählen
             if(quizNiveau == 1) {
                 // Zufallsfrage aus Fragenpool zu OOP1 auswählen und als Variable speichern
-                zufallsZahl = rand.nextInt(fragenpoolOOP1.getAnzahlQuizfragen());
-                antwortIsRichtig = fragenpoolOOP1.quizfrageBeantworten(zufallsZahl);
+                zufallsZahl = rand.nextInt(fragenpoolOOP1.anzahlQuizfragen());
+                antwortIsRichtig = fragenpoolOOP1.quizfrageBeantwortet(zufallsZahl);
             } else if(quizNiveau == 2) {
                 // Zufallsfrage aus Fragenpool zu OOP2 auswählen und als Variable speichern
-                zufallsZahl = rand.nextInt(fragenpoolOOP2.getAnzahlQuizfragen());
-                antwortIsRichtig = fragenpoolOOP2.quizfrageBeantworten(zufallsZahl);
+                zufallsZahl = rand.nextInt(fragenpoolOOP2.anzahlQuizfragen());
+                antwortIsRichtig = fragenpoolOOP2.quizfrageBeantwortet(zufallsZahl);
             }
 
             // Darstellungsmöglichkeiten (Grafik_Konsole) --> GUI

@@ -35,5 +35,4 @@ public class RetourKarte extends Karte{
         return 1;
     }
     
-    
 } // Ende von RetourKarte

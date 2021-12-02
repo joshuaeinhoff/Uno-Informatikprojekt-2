@@ -35,5 +35,4 @@ public class FarbKarte extends Karte{
         return 0;
     }
 
-
 } // Ende von FarbKarte

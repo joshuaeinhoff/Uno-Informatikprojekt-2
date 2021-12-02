@@ -41,6 +41,5 @@ public class PlusVierWunschKarte extends Karte{
         // Code 4: Vier Karte Ziehen
         return 4;
     }
-
     
 } // Ende von PlusVierWunschKarte

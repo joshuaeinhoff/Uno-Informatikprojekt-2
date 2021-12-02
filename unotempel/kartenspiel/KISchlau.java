@@ -154,5 +154,4 @@ public class KISchlau extends Spieler{
         return null;
     }
 
-
 } // Ende von KISchlau

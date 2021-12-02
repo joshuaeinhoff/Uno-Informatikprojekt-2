@@ -202,6 +202,5 @@ public class KartenStapel {
         }
 
     }
-    
 
 } // Ende von KartenStapel

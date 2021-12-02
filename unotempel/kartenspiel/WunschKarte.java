@@ -44,5 +44,4 @@ public class WunschKarte extends Karte{
         return 3;
     }
 
-
 } // Ende von WunschKarte
