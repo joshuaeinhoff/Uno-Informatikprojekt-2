@@ -33,18 +33,18 @@ public class Spielfeld {
      * @param player - Held damit die Karten die auf der Hand sind angzeigt werden können
      * @param aktuelleKarte - zufällige Karte die am Anfang vom Spiel generiert wird
      */
-    public void ersteFuelleSpielfeld(Spieler player, Karte aktuelleKarte){
+    public void ersteFuelleSpielfeld(Spieler menschlichSpieler, Spieler spielerKI,Karte aktuelleKarte){
         
         //Gegener Karten setzen
         for(int x = 0; x < spielfeld[0].length; x++){
-            //spielfeld[0][x] = new DummyKarte("Grau");
+            spielfeld[0][x] = new DummyKarte();
         }
 
         //Random Starterkarte die übergeben wird
         spielfeld[4][4] = aktuelleKarte;
 
         for(int x = 0; x < spielfeld[6].length; x++){
-            spielfeld[6][x] = player.getKarte(x);
+            spielfeld[6][x] = menschlichSpieler.getKarte(x);
         }
 
     }
