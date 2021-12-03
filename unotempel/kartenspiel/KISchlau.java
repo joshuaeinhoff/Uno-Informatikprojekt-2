@@ -22,24 +22,18 @@ public class KISchlau extends Spieler{
      * @return Karte zum Spielen
      */
     public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel, boolean karteGezogen){
-        //ist AussetzenKarte spielbar?ist RetourKarte spielbar?
-        //ist 2+ Spielbar?
-        //ist Farbkarte Spielbar?
-        //+4 Wunschkarte Spielbar?
-        //Wunschkarte Spielbar?
-        //sonst karte ziehen
-        if(existiertAussetzen(aktuelleKarte)){
-            return findAussetzenKarte(aktuelleKarte);
-        }else if(existiertRetourKarte(aktuelleKarte)){
-            return findRetourKarte(aktuelleKarte);
-        }else if(existiertPlusZwei(aktuelleKarte)){
-            return findPlusZwei(aktuelleKarte);
-        }else if(existiertFarbKarte(aktuelleKarte)){
-            return findFarbKarte(aktuelleKarte);
-        }else if(existiertPlusVierWunschKarte(aktuelleKarte)){
-            return findPlusVierWunschKarte(aktuelleKarte);
-        }else if(existiertWunschKarte(aktuelleKarte)){
-            return findWunschKarte(aktuelleKarte);
+        if(existiertKarte(aktuelleKarte,"Aussetzen")){  
+            return findKarte(aktuelleKarte,"Aussetzen");
+        }else if(existiertKarte(aktuelleKarte, "Retour")){
+            return findKarte(aktuelleKarte,"Retour");
+        }else if(existiertKarte(aktuelleKarte,"PlusZwei")){
+            return findKarte(aktuelleKarte,"PlusZwei");
+        }else if(existiertKarte(aktuelleKarte,"Farb")){
+            return findKarte(aktuelleKarte,"Farb");
+        }else if(existiertKarte(aktuelleKarte,"PlusVierWunsch")){
+            return findKarte(aktuelleKarte,"PlusVierWunsch");
+        }else if(existiertKarte(aktuelleKarte,"Wunsch")){
+            return findKarte(aktuelleKarte,"Wunsch");
         } else if(!karteGezogen){
             karteZiehen(kartenStapel, aktuelleKarte);
             return karteSpielen(aktuelleKarte, kartenStapel, true);
@@ -48,106 +42,31 @@ public class KISchlau extends Spieler{
         }
     }
 
-    public boolean existiertPlusZwei(Karte aktuelleKarte){
+
+    /**
+     * Durchläuft die Hand und überprüft ob eine spielbare Karte einer bestimmt Art existiert
+     * @param aktuelleKarte - Karte mit der verglichen wird, ob die Karte spielbar ist
+     * @param kartenArt - String um die Art der Karte zu identifizieren ("PlusZwei","Aussetzen","Wunsch","PlusVierWunsch","Retour","Farb")
+     * @return - boolean True: Spielbare Karte in der Hand | False: Keine spielbare Karte dieser Art auf der Hand
+     */
+    public boolean existiertKarte(Karte aktuelleKarte, String kartenArt){
         for(int i = 0; i < hand.length;i++){
-            if(hand[i].istWelcheKarte("PlusZwei")&&hand[i].istSpielbar(aktuelleKarte)){
+            if(hand[i].istWelcheKarte(kartenArt)&&hand[i].istSpielbar(aktuelleKarte)){
                 return true;
             }
         }
         return false;
     }
 
-    public boolean existiertAussetzen(Karte aktuelleKarte){
-        for(int i = 0; i < hand.length;i++){
-            if(hand[i].istWelcheKarte("Aussetzen")&&hand[i].istSpielbar(aktuelleKarte)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean existiertWunschKarte(Karte aktuelleKarte){
-        for(int i = 0; i < hand.length;i++){
-            if(hand[i].istWelcheKarte("Wunsch")&&hand[i].istSpielbar(aktuelleKarte)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean existiertPlusVierWunschKarte(Karte aktuelleKarte){
-        for(int i = 0; i < hand.length;i++){
-            if(hand[i].istWelcheKarte("PlusVierWunsch")&&hand[i].istSpielbar(aktuelleKarte)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean existiertRetourKarte(Karte aktuelleKarte){
-        for(int i = 0; i < hand.length;i++){
-            if(hand[i].istWelcheKarte("Retour")&&hand[i].istSpielbar(aktuelleKarte)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean existiertFarbKarte(Karte aktuelleKarte){
-        for(int i = 0; i < hand.length;i++){
-            if(hand[i].istWelcheKarte("Farb")&&hand[i].istSpielbar(aktuelleKarte)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public Karte findPlusZwei(Karte aktuelleKarte){
+    /**
+     * Durchläuft die Hand und findet eine spielbare Karte einer bestimmten Art
+     * @param aktuelleKarte - Karte mir der verglichen wird, ob die karte spielbar ist
+     * @param kartenArt - String um die Art der Karte zu identifiezieren ("PlusZwei","Aussetzen","Wunsch","PlusVierWunsch","Retour","Farb")
+     * @return - Karte: passende Karte | Null: falls doch keine Karte gefunden wird... dürfte eigentlich nicht passieren
+     */
+    public Karte findKarte(Karte aktuelleKarte,String kartenArt){
         for(int i = 0; i < hand.length; i++){
-            if(hand[i].istWelcheKarte("PlusZwei")&&hand[i].istSpielbar(aktuelleKarte)){
-                return hand[i];
-            }
-        }
-        return null;
-    }
-    public Karte findAussetzenKarte(Karte aktuelleKarte){
-        for(int i = 0; i < hand.length; i++){
-            if(hand[i].istWelcheKarte("Aussetzen")&&hand[i].istSpielbar(aktuelleKarte)){
-                return hand[i];
-            }
-        }
-        return null;
-    }
-
-    public Karte findRetourKarte(Karte aktuelleKarte){
-        for(int i = 0; i < hand.length; i++){
-            if(hand[i].istWelcheKarte("Retour")&hand[i].istSpielbar(aktuelleKarte)){
-                return hand[i];
-            }
-        }
-        return null;
-    }
-
-    public Karte findFarbKarte(Karte aktuelleKarte){
-        for(int i = 0; i < hand.length; i++){
-            if(hand[i].istWelcheKarte("Farb")&&hand[i].istSpielbar(aktuelleKarte)){
-                return hand[i];
-            }
-        }
-        return null;
-    }
-    public Karte findPlusVierWunschKarte(Karte aktuelleKarte){
-        for(int i = 0; i < hand.length; i++){
-            if(hand[i].istWelcheKarte("PlusVierWunsch")&&hand[i].istSpielbar(aktuelleKarte)){
-                return hand[i];
-            }
-        }
-        return null;
-    }
-
-    public Karte findWunschKarte(Karte aktuelleKarte){
-        for(int i = 0; i < hand.length; i++){
-            if(hand[i].istWelcheKarte("Wunsch")&&hand[i].istSpielbar(aktuelleKarte)){
+            if(hand[i].istWelcheKarte(kartenArt)&&hand[i].istSpielbar(aktuelleKarte)){
                 return hand[i];
             }
         }
