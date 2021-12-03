@@ -29,15 +29,15 @@ public class Tempel {
      * @param quizNiveau - Niveau der Quizfragen (1 für OOP1, 2 für OOP2)
      * @return eine Instanz von Quizfragenpool
      */
-    public Quizfragenpool quizfragenpoolErzeugen(char tempelBuchstabe, int quizNiveau) {
+    public Quizfragenpool quizfragenpoolErzeugen(int quizNiveau) {
         // Quizniveau 1 bezieht sich auf OOP1, Quizniveau 2 auf OOP2; keine andere Zahl ist möglich
         if(quizNiveau == 1) {
             fragenpoolOOP1 = new Quizfragenpool(1);
-            fragenpoolOOP1.quizfragenpoolFuellen(tempelBuchstabe);
+            fragenpoolOOP1.quizfragenpoolFuellen(this.farbe);
             return fragenpoolOOP1;
         } else if(quizNiveau == 2) {
             fragenpoolOOP2 = new Quizfragenpool(2);
-            fragenpoolOOP2.quizfragenpoolFuellen(tempelBuchstabe);
+            fragenpoolOOP2.quizfragenpoolFuellen(this.farbe);
             return fragenpoolOOP2;
         } else {
             System.out.println("Kein richtiges Niveau ausgewählt");
