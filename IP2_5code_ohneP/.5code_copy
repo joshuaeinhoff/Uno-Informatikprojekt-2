@@ -37,7 +37,12 @@
 				},
 				{
 					"type": "document",
-					"path": "::dir\\GUI.java"
+					"path": "::dir\\GUI.java",
+					"active": true,
+					"cursor": {
+						"line": 50,
+						"ch": 41
+					}
 				},
 				{
 					"type": "document",
@@ -53,12 +58,11 @@
 				},
 				{
 					"type": "document",
-					"path": "::dir\\Spielfeld.java",
-					"active": true,
-					"cursor": {
-						"line": 51,
-						"ch": 10
-					}
+					"path": "::dir\\Spielfeld.java"
+				},
+				{
+					"type": "document",
+					"path": "::dir\\KartenDesign.java"
 				}
 			],
 			"type": 1,
@@ -85,8 +89,8 @@
 				true
 			],
 			"dimension": [
-				49.71198478666356,
-				50.28801521333644
+				47.28149668697651,
+				52.71850331302349
 			]
 		},
 		"split2_right": {
@@ -261,6 +265,6 @@
 		}
 	],
 	"flowMap": [],
-	"activities": "U2FsdGVkX1/TzFNne/XpOatQbw83o8BFIqHfZk3gIYc=",
-	"lastSaveDate": "2021-12-05T13:36:19.874Z"
+	"activities": "U2FsdGVkX1/S/c+ySDxsSA/SGfLsXmSc4zSXvf+MRSw=",
+	"lastSaveDate": "2021-12-05T18:59:01.788Z"
 }

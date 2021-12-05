@@ -29,8 +29,8 @@ public class GUI {
 	* Prozedur zur Darstellung der OOP1 Option
     */
     public static void optionEinsGrafischErzeugen() {
-    	Rechteck rechteckOOP1 = new Rechteck(50, 50, 200, 100, Grafik.GREEN, Grafik.BLACK, 2, 20, "oop1");
-    	Text textOOP1 = new Text(40+50, 2+50, "OOP1", Grafik.BLACK, 50, "oop1");
+    	Rechteck rechteckOOP1 = new Rechteck(50, 50, 200, 100, Grafik.GREEN, Grafik.BLACK, 1, 20, "oop1");
+    	Text textOOP1 = new Text(50+50, 10+50, "OOP1", Grafik.BLACK, 40, "oop1");
     }
     
     
@@ -38,8 +38,8 @@ public class GUI {
 	* Prozedur zur Darstellung der OOP2 Option
     */
     public static void optionZweiGrafischErzeugen() { 
-        Rechteck rechteckOOP2 = new Rechteck(300, 50, 200, 100, Grafik.BLUE, Grafik.BLACK, 2, 20, "oop2");
-    	Text textOOP2 = new Text(40+300, 2+50, "OOP2", Grafik.BLACK, 50, "oop2");
+        Rechteck rechteckOOP2 = new Rechteck(300, 50, 200, 100, Grafik.BLUE, Grafik.BLACK, 1, 20, "oop2");
+    	Text textOOP2 = new Text(50+300, 10+50, "OOP2", Grafik.BLACK, 40, "oop2");
     }
     
     
@@ -47,7 +47,7 @@ public class GUI {
 	* Prozedur zur Darstellung der OOP1 Auswahl
     */
     public static void optionEinsGrafischAuswaehlen() {
-    	Rechteck rechteckOOP1 = new Rechteck(50, 50, 200, 100, Grafik.GREEN, Grafik.YELLOW, 3, 20, "oop1");
+    	Rechteck rechteckOOP1 = new Rechteck(50, 50, 200, 100, Grafik.GREEN, Grafik.YELLOW, 2, 20, "oop1");
         Text textOOP1 = new Text(40+50, 2+50, "OOP1", Grafik.YELLOW, 50, "oop1");
     }
     
@@ -56,7 +56,7 @@ public class GUI {
 	* Prozedur zur Darstellung der OOP2 Auswahl
     */
     public static void optionZweiGrafischAuswaehlen() {
-    	Rechteck rechteckOOP2 = new Rechteck(300, 50, 200, 100, Grafik.BLUE, Grafik.YELLOW, 3, 20, "oop2");
+    	Rechteck rechteckOOP2 = new Rechteck(300, 50, 200, 100, Grafik.BLUE, Grafik.YELLOW, 2, 20, "oop2");
     	Text textOOP2 = new Text(40+300, 2+50, "OOP2", Grafik.YELLOW, 50, "oop2");
     }
     
