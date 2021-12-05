@@ -194,7 +194,7 @@ public class GUI {
         int groesseY = y*45;
         int groesseX = x*73;
         // Spielfeld leer darstellen    
-    	Rechteck spielfeldRechteck = new Rechteck(0, 0, groesseX, groesseY, farbeGruenSpielfeld, Grafik.BLACK, 1, "");
+    	Rechteck spielfeldRechteck = new Rechteck(0, 0, groesseX + 60, groesseY, farbeGruenSpielfeld, Grafik.BLACK, 1, "");
         
         // Leere Plätze für die Karten erzeugen
     	for(int i = 10; i < groesseY-100; i = i + 320) {
@@ -206,6 +206,9 @@ public class GUI {
         // Platz für gespielte Karten und den Kartenstapel
         KartenDesign.leereKarte(groesseX/2 - 50, groesseY/2 - 50);
         KartenDesign.stapelDarstellen(groesseX/2 + 50, groesseY/2 - 50);
+        
+        // Buttons zum Zeigen der Karten oben oder unten
+        linkenRechtsButtonsErzeugen();
         // Uno-Button erzeugen
         unoButtonErzeugen();
                 
@@ -240,7 +243,16 @@ public class GUI {
     public static void unoButtonErzeugen() {
     	int groesseX = 730;
         int groesseY = 450;
-    	Button unoButton = new Button(groesseX + 50, groesseY/2 + 120, 130, 70, Grafik.GREY, "UNO", Grafik.WHITE, 30, 5, "");
+    	Button unoButton = new Button(groesseX + 50 + 30, groesseY/2 + 120, 130, 70, Grafik.GREY, "UNO", Grafik.WHITE, 30, 5, "");
+    }
+    
+    
+    public static void linkenRechtsButtonsErzeugen() {
+    	int groesseX = 730;
+        int groesseY = 450;
+    	Button obenButton = new Button(groesseX + 10, groesseY/2 + 120, 30, 30, Grafik.WHITE, "<", Grafik.BLACK, 30, 5, "links");
+        Button untenButton = new Button(groesseX + 10, groesseY/2 + 160, 30, 30, Grafik.WHITE, ">", Grafik.BLACK, 30, 5, "rechts");
+    	
     }
 
 
@@ -259,6 +271,9 @@ public class GUI {
         // Reaktion zurückgeben
         return Konsole.eingabeString();
     }
+    
+    
+    
 
 
     /**

@@ -134,7 +134,9 @@ class KartenDesign {
     public static void stapelDarstellen(int positionX, int positionY) {
     	Rechteck grafikRechteckMitRundung =
         new Rechteck(positionX, positionY, 50, 100, farbeSchwarz, farbeWeiss, 2, 10, "callback");
-        Text unoStapelText = new Text(positionX, positionY, "UNO", farbeWeiss, 20,"karteZiehen");
+        Text uStapelText = new Text(positionX+20, positionY+10, "U", farbeWeiss, 20,"karteZiehen");
+        Text nStapelText = new Text(positionX+20, positionY+30, "N", farbeWeiss, 20,"karteZiehen");
+    	Text oStapelText = new Text(positionX+20, positionY+50, "O", farbeWeiss, 20,"karteZiehen");
     }
     
     
