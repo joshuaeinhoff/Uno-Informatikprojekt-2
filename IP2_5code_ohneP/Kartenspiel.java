@@ -52,7 +52,6 @@ public class Kartenspiel {
         // Spielfeld erstellen, erstmal leer dann mit Karten
         spielfeld.ersteFuelleSpielfeld(spieler[0].hand, spieler[1].hand, null);
         
-        
         // Erste Karte auf das Spielfeld legen und ggf. Aktion durchführen
         setzeAktuelleKarte(kartenStapel.karteZiehen(aktuelleKarte));
         
