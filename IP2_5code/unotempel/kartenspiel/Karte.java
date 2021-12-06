@@ -55,5 +55,13 @@ public abstract class Karte {
     public void clickAuf(){
         //code..
     }
+    
+    public String getFarbe(){
+    	return farbe;
+    }
+    
+    public int getNummer(){
+    	return nummer;
+    }
 
 } // Ende von Karte

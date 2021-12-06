@@ -269,7 +269,62 @@ public class GUI {
         // Es wäre besser, wenn man wissen könnte, welche Karten genau auf dem Spielfeld sind.
         
         
+        
+        
             
+    }
+    
+    /**
+    * Prozedur zum Darstellen einer Karte
+    */
+    public static void karteDarstellen(Karte uebergebeneKarte, int y, int x){
+    
+    	if(uebergebeneKarte != null){
+        
+        	if(uebergebeneKarte.istWelcheKarte("Farb")){
+				KartenDesign.farbKarte(x,y,uebergebeneKarte.getFarbe(),Integer.toString(uebergebeneKarte.getNummer()));
+        	}
+            
+        	if(uebergebeneKarte.istWelcheKarte("Wunsch")){
+        		KartenDesign.wunschKarte(x,y);
+        	}
+        	if(uebergebeneKarte.istWelcheKarte("PlusVierWunsch")){
+        		KartenDesign.plusVierWunschKarte(x,y);
+        	}
+        	if(uebergebeneKarte.istWelcheKarte("PlusZwei")){
+        		KartenDesign.plusZweiKarte(x,y,uebergebeneKarte.getFarbe());
+        	}
+        	if(uebergebeneKarte.istWelcheKarte("Aussetzen")){
+        		KartenDesign.aussetzenKarte(x,y,uebergebeneKarte.getFarbe());
+        	}
+       	 	if(uebergebeneKarte.istWelcheKarte("Retour")){
+       	 		KartenDesign.retourKarte(x,y,uebergebeneKarte.getFarbe());
+        	}
+        	if(uebergebeneKarte.istWelcheKarte("Dummy")){
+        		KartenDesign.dummyKarte(x,y);
+      	  	}
+        }else{
+        	KartenDesign.leereKarte(x,y);
+        }
+            
+	}
+    
+    public static void darstellungSpielfeldTest(int x ,int y){
+    
+    	int rand = 5;
+    
+    	// Spielfeld leer als Rechteck darstellen    
+    	Rechteck spielfeldRechteck = new Rechteck(rand, rand, x+rand, y+rand, farbeGruenSpielfeld, Grafik.BLACK, 1, "");
+        
+        KartenDesign.stapelDarstellen(x/2 + 50, y/2 - 50);
+        
+        // Buttons zum Zeigen der Karten oben oder unten
+        linksRechtsButtonsErzeugen(x,y);
+        // Uno-Button erzeugen
+        unoButtonErzeugen(x,y);
+                
+    	
+        
     }
     
 
@@ -303,10 +358,6 @@ public class GUI {
         return Konsole.eingabeString();
     }
     
-    
-    public static void karteDarstellen(String kartenart, int x, int y) {
-    
-    }
     
     
     

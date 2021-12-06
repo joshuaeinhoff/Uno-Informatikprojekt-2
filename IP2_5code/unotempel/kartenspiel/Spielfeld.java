@@ -57,8 +57,48 @@ public class Spielfeld {
         // Spielfeld erstmal leer darstellen
         GUI.spielfeldLeerDarstellen(spielfeld, groesseX, groesseY);
         // Spielfeld mit Karten füllen
-        GUI.spielfeldDarstellen(spielfeld, groesseX, groesseY);
+        //GUI.spielfeldDarstellen(spielfeld, groesseX, groesseY);
 
+    }
+    
+    public void aktuallisiereSpielfeld(Spieler kartenMenschlicherSpieler, Spieler kartenSpielerKI, Karte aktuelleKarte){
+    
+    GUI.darstellungSpielfeldTest(groesseX,groesseY);
+    
+    int gegnerKartenKoordinateX = 15;
+    int gegnerKartenKoordinateY = 15;
+    int kartenBreite = 60;
+    
+    int heldKartenKoordinateX = 15;
+    int heldKartenKoordinateY = 345;
+    	
+        for(int x = 0; x < 10; x++){ // spielfeld[0].length ?
+        	if(x < kartenSpielerKI.anzahlKarteHand()){
+            	spielfeld[0][x] = new DummyKarte();
+                GUI.karteDarstellen(spielfeld[0][x],gegnerKartenKoordinateY,gegnerKartenKoordinateX+x*kartenBreite);
+                System.out.println("Debug: Render Karte: "+x);
+            }else{
+            	System.out.println("Debug: Render Karte: "+x);
+            	GUI.karteDarstellen(spielfeld[0][x],gegnerKartenKoordinateY,gegnerKartenKoordinateX+x*kartenBreite);
+            }
+        }//end of for loop
+        
+        spielfeld[2][2] = aktuelleKarte;
+        GUI.karteDarstellen(aktuelleKarte, groesseY/2 - 50, groesseX/2 - 50);
+        
+        
+        for(int x = 0; x < 10; x++){
+        	if(x < kartenMenschlicherSpieler.anzahlKarteHand()){
+            	spielfeld[4][x] = kartenMenschlicherSpieler.getKarte(x);
+				GUI.karteDarstellen(spielfeld[0][x],heldKartenKoordinateY,heldKartenKoordinateX+x*kartenBreite);
+                System.out.println("Debug: Render Karte: "+x);
+            }else{
+				GUI.karteDarstellen(spielfeld[0][x],heldKartenKoordinateY,heldKartenKoordinateX+x*kartenBreite);
+                System.out.println("Debug: Render Karte: "+x);
+            }
+        }
+        
+        
     }
     
 } // Ende von Spielfeld

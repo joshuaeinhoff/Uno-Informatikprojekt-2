@@ -126,10 +126,11 @@ public class Kartenspiel {
         spieler[naechsterSpieler].ersteHand(kartenStapel);
         spieler[(naechsterSpieler+1)%2].ersteHand(kartenStapel);
         // Spielfeld erstellen, erstmal leer dann mit Karten
-        spielfeld.ersteFuelleSpielfeld(spieler[0].hand, spieler[1].hand, null);
+        //spielfeld.ersteFuelleSpielfeld(spieler[0].hand, spieler[1].hand, null);
         
         // Erste Karte auf das Spielfeld legen und ggf. Aktion durchführen
         setzeAktuelleKarte(kartenStapel.karteZiehen(aktuelleKarte));
+        spielfeld.aktuallisiereSpielfeld(spieler[0], spieler[1], this.aktuelleKarte);
     }
 
 
@@ -166,8 +167,11 @@ public class Kartenspiel {
         // Spiel ist zu Ende, falls einer der Spieler keine Karte mehr hat
         if(spieler[0].anzahlKarteHand() == 0) {
             System.out.println("Held hat gewonnen!");
+            //zeiht Schaden von der Lebensenergie des gegners ab
+            //spieler[1].schadenZufuegen(spieler[1].anzahlKartenHand()*10);
         } else if(spieler[1].anzahlKarteHand() == 0) {
             System.out.println("Monster hat gewonnen...");
+            //spieler[0].schadenZufuegen(spieler[1].anzahlKartenHand()*4);
         } else {
             System.out.println("Fehler");
         }
