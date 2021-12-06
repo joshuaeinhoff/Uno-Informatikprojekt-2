@@ -1,0 +1,7 @@
+Das Löschen von Typ-Informationen für die Laufzeit in Java heißt…;a) Type inference;b) Type removal;c) Type erasure;c
+Das Symbol <?> steht für…;a) Wildcard;b) Raw type;c) Diamond-Operator;a
+Welche Exceptions müssen im Programm nicht angemeldet werden?;a) IOExceptions;b) RuntimeExceptions;c) InterruptedExceptions;b
+Wann wird der finally-Block ausgeführt?;a) Wenn Exceptions geworfen sind;b) Wenn keine Exceptions geworfen sind;c) Immer;c
+Was ist die Funktion von Filter-Klassen?;a) Daten werden aus einer Datei gelesen bzw. in eine Datei geschrieben.;b) Daten werden in einem Pufferspeicher gesammelt.;c) Daten werden in Methoden modifiziert.;c
+Was gibt der Aufruf von read(buf,off,len) zurück?;a) Die Größe des Buffers;b) Die Anzahl der gelesenen Zeichen;c) 1, 0 oder -1;b
+Wie wird ein Datenstrom geöffnet und initialisiert?;a) im Constructor;b) mit open();c) mit read() oder write();a
