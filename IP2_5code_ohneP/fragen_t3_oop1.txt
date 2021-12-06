@@ -1,5 +1,0 @@
-Was drückt der Name einer Prozedur aus?;a) eine Aussage;b) einen Befehl;c) ein Ergebnis;b
-Welchen Datentypen besitzt eine Prozedur?;a) void;b) String;c) float;a
-Was drückt eine Funktion aus?;a) was getan wird;b) was das Ergebnis ist;;b
-Was ist ein Objekt?;a) ein Refernz-Datentyp;b) eine Instanz einer Klasse;c) eine Einheit aus Funktionen und Prozeduren;b
-Welche Aussage stimmt?;a) Eine Klasse ist in sich selbst gekapselt;b) Eine Methode ist in sich selbst gekapselt;c) Ein Objekt ist in sich selbst gekapselt;c
