@@ -45,6 +45,8 @@ public class Spielfeld {
         for(int x = 0; x < 7; x++){ // spielfeld[0].length ?
             spielfeld[0][x] = new DummyKarte();
         }
+        
+        
 
         // Random Starterkarte die übergeben wird
         spielfeld[2][2] = aktuelleKarte;
@@ -55,7 +57,7 @@ public class Spielfeld {
         // Spielfeld erstmal leer darstellen
         GUI.spielfeldLeerDarstellen(spielfeld, groesseX, groesseY);
         // Spielfeld mit Karten füllen
-        //GUI.spielfeldDarstellen(this, spielfeld.length, spielfeld[0].length);
+        GUI.spielfeldDarstellen(spielfeld, groesseX, groesseY);
 
     }
     

@@ -132,20 +132,22 @@ public class GUI {
         return Character.getNumericValue(spielNiveau.charAt(3));
     }
     
+
     
-    /**
-    *
+    /****************** Tempel ******************/
+
+	/**
+    * Funktion für die Darstellung der Tempel gibt die Zahl des ausgewählten Tempels zurück
     */
     public static int tempelSymbolZeigen() {
     	Rechteck wasserTempel = new Rechteck(groesseX/2-330, groesseY/2-75, 150, 150, Grafik.BLUE, Grafik.BLACK, 1, 10, "1");
         Rechteck luftTempel = new Rechteck(groesseX/2-160, groesseY/2-75, 150, 150, Grafik.YELLOW, Grafik.BLACK, 1, 10, "2");
         Rechteck erdeTempel = new Rechteck(groesseX/2+10, groesseY/2-75, 150, 150, Grafik.GREEN, Grafik.BLACK, 1, 10, "3");
         Rechteck feuerTempel = new Rechteck(groesseX/2+180, groesseY/2-75, 150, 150, Grafik.RED, Grafik.BLACK, 1, 10, "4");
+        // Auswahl zurückgeben
         return Konsole.eingabeZahl();
     }
-    
-    
-    /****************** Tempel ******************/
+
 
 	/**
 	* Prozedur zur Darstellung des Begrüßungsnachricht in jedem Tempel
@@ -160,7 +162,6 @@ public class GUI {
         	// Button grafisch darauf klicken (ist momentan nicht wichtig)
         	goButtonGrafischKlicken();
         }
-    
     }
 
 	/****************** Quiz ******************/
@@ -219,9 +220,10 @@ public class GUI {
     */
     public static void spielfeldLeerDarstellen(Karte[][] spielfeld, int x, int y) {
      
+    	// Rand
      	int rand = 5;
      
-        // Spielfeld leer darstellen    
+        // Spielfeld leer als Rechteck darstellen    
     	Rechteck spielfeldRechteck = new Rechteck(0+rand, 0+rand, x+rand, y+rand, farbeGruenSpielfeld, Grafik.BLACK, 1, "");
         
         // Leere Plätze für die Karten erzeugen
@@ -250,18 +252,24 @@ public class GUI {
     /**
     * Prozedur zum Darstellen des Spielfelds, ausgefühlt mit Karten
     */
-    public static void spielfeldDarstellen(Spielfeld spielfeld, int y, int x) {
+    public static void spielfeldDarstellen(Karte[][] spielfeld, int y, int x) {
     
-    // noch zu machen
-    
-    /*
-    	for(int i = 0, i < y; i++) {
-        	for(int j = 0; j < x; j++) {
-            	
-            }
-    	}
-    */    
-    
+    	// Nicht optimal...
+    	int rand = 5;
+        // noch zu machen
+        int zaehler = 0;
+        // Gegner Karten darstellen
+        for(int j = 10+rand; j < x; j = j + 60) {
+        	KartenDesign.dummyKarte(j, 15);
+            zaehler++;
+            if(zaehler == 7)
+            	break;
+        }
+        
+        // Es wäre besser, wenn man wissen könnte, welche Karten genau auf dem Spielfeld sind.
+        
+        
+            
     }
     
 
@@ -269,14 +277,13 @@ public class GUI {
 	* Prozedur zur Darstellung des Buttons, noch nicht bereit darauf geklickt zu werden
     */
     public static void unoButtonErzeugen(int x, int y) {
-    	Button unoButton = new Button(x+40, y/2 + 130, 130, 70, Grafik.GREY, "UNO", Grafik.WHITE, 30, 5, "");
+    	Button unoButton = new Button(x+40, y/2 + 135, 130, 70, Grafik.GREY, "UNO", Grafik.WHITE, 30, 5, "");
     }
     
     
     public static void linksRechtsButtonsErzeugen(int x, int y) {
-    	Button obenButton = new Button(x-45, y/2 + 130, 30, 30, Grafik.WHITE, "<", Grafik.BLACK, 30, 5, "links");
-        Button untenButton = new Button(x-45, y/2 + 170, 30, 30, Grafik.WHITE, ">", Grafik.BLACK, 30, 5, "rechts");
-    	
+    	Button linksButton = new Button(x-45, y/2 + 135, 30, 30, Grafik.WHITE, "<", Grafik.BLACK, 30, 5, "links");
+        Button rechtsButton = new Button(x-45, y/2 + 175, 30, 30, Grafik.WHITE, ">", Grafik.BLACK, 30, 5, "rechts");
     }
 
 
@@ -284,16 +291,21 @@ public class GUI {
      * Die vier Farben zur Auswahl werden angezeigt: Blau, gelb, grün, rot
      */
     public static String farbeAuswaehlen() {
-    	int groesseX = 730;
+    	int groesseX = 660;
         int groesseY = 450;
         // Farbe auswählen
-        Rechteck rechteckFarbAuswahl = new Rechteck(groesseX + 50, groesseY/2 - 100, 130, 130, Grafik.WHITE, Grafik.BLACK, 1, 10, "");
-        Rechteck rechteckBlau = new Rechteck(groesseX + 60, groesseY/2 - 90, 50, 50, Grafik.BLUE, Grafik.BLACK, 1, 10, "blauWählen");
-        Rechteck rechteckGelb = new Rechteck(groesseX + 120, groesseY/2 - 90, 50, 50, Grafik.YELLOW, Grafik.BLACK, 1, 10, "gelbWählen");
-        Rechteck rechteckGruen = new Rechteck(groesseX + 60, groesseY/2 - 30, 50, 50, Grafik.GREEN, Grafik.BLACK, 1, 10, "grünWählen");
-        Rechteck rechteckRot = new Rechteck(groesseX + 120, groesseY/2 - 30, 50, 50, Grafik.RED, Grafik.BLACK, 1, 10, "rotWählen");
+        Rechteck rechteckFarbAuswahl = new Rechteck(groesseX + 40, groesseY/2 - 100, 130, 130, Grafik.WHITE, Grafik.BLACK, 1, 10, "");
+        Rechteck rechteckBlau = new Rechteck(groesseX + 50, groesseY/2 - 90, 50, 50, Grafik.BLUE, Grafik.BLACK, 1, 10, "blauWählen");
+        Rechteck rechteckGelb = new Rechteck(groesseX + 110, groesseY/2 - 90, 50, 50, Grafik.YELLOW, Grafik.BLACK, 1, 10, "gelbWählen");
+        Rechteck rechteckGruen = new Rechteck(groesseX + 50, groesseY/2 - 30, 50, 50, Grafik.GREEN, Grafik.BLACK, 1, 10, "grünWählen");
+        Rechteck rechteckRot = new Rechteck(groesseX + 110, groesseY/2 - 30, 50, 50, Grafik.RED, Grafik.BLACK, 1, 10, "rotWählen");
         // Reaktion zurückgeben
         return Konsole.eingabeString();
+    }
+    
+    
+    public static void karteDarstellen(String kartenart, int x, int y) {
+    
     }
     
     

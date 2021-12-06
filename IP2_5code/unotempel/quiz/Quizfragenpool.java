@@ -169,8 +169,9 @@ public class Quizfragenpool {
         Quizfrage quizfrage = new Quizfrage("frage", "ant1", "ant2", "ant3", 'b');
         //System.out.println(quizfrage.getAntwortmoeglichkeiten().length);
     	char ausgewaehlteAntwort = GUI.quizDarstellen(quizfrage.getFrage(), quizfrage.getAntwortmoeglichkeiten());
+        
         // Quizfrage darstellen
-        //char ausgewaehlteAntwort = GUI.quizDarstellen(quizfragen[zufallsZahl].getFrage(), quizfragen[zufallsZahl].getAntwortmoeglichkeiten(), quizfragen[zufallsZahl].getRichtigeAntwort());
+        //char ausgewaehlteAntwort = GUI.quizDarstellen(quizfragen[zufallsZahl].getFrage(), quizfragen[zufallsZahl].getAntwortmoeglichkeiten());
         
         // Bedingung überprüft, ob die ausgewählte Antwort richtig ist
         if(ausgewaehlteAntwort == quizfrage.getRichtigeAntwort())

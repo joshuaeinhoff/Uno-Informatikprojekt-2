@@ -64,6 +64,8 @@ public class Spiel {
 		// Held bzw. Spieler erzeugen
         Spieler held = new Held();
 
+		
+
 
         /* ------------ Spielablauf ------------ */
 
@@ -71,6 +73,7 @@ public class Spiel {
         
         // 1. Tempel: Wasser
         System.out.println("Als erstes musst du den Wasser-Tempel besuchen.");
+        
         // Solange den Tempel-Wasser nicht ausgewählt wird
         while(naechsterTempel != 1) {
         	naechsterTempel = GUI.tempelSymbolZeigen();
@@ -90,7 +93,9 @@ public class Spiel {
         
 
         // 2. Tempel: Luft
+        System.out.println("Als erstes musst du den Luft-Tempel besuchen.");
         
+        // Solange den Luft-Wasser nicht ausgewählt wird
         while(naechsterTempel != 2) {
         	naechsterTempel = GUI.tempelSymbolZeigen();
         }
@@ -99,7 +104,9 @@ public class Spiel {
         luftTempel.monsterKaempfen(held);
 
         // 3. Tempel: Erde
+        System.out.println("Als erstes musst du den Erde-Tempel besuchen.");
         
+        // Solange den Erde-Wasser nicht ausgewählt wird
         while(naechsterTempel != 3) {
         	naechsterTempel = GUI.tempelSymbolZeigen();
         }
@@ -108,7 +115,9 @@ public class Spiel {
         erdeTempel.monsterKaempfen(held);
 
         // 4. Tempel: Feuer
+        System.out.println("Als erstes musst du den Feuer-Tempel besuchen.");
         
+        // Solange den Feuer-Wasser nicht ausgewählt wird
         while(naechsterTempel != 4) {
         	naechsterTempel = GUI.tempelSymbolZeigen();
         }
