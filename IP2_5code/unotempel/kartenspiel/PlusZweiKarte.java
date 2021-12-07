@@ -35,5 +35,9 @@ public class PlusZweiKarte extends Karte{
         // Code 2: Zwei Karte ziehen
         return 2;
     }
+    
+    public String toString(){
+    	return "PlusZweiKarte " + this.farbe;
+    }
 
 } // Ende von PlusZweiKarte

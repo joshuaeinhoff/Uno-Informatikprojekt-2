@@ -1,6 +1,7 @@
 package unotempel.kartenspiel;
 
 import unotempel.GUI;
+import unotempel.konsole.*;
 
 /**
  *
@@ -11,6 +12,8 @@ public class Spielfeld {
     // Größe des Spielfelds
     private int groesseX;
    	private int groesseY;
+    
+    private static int shiftInt = 0;
 
     /**
      * Konstruktor erzeugt ein Spielfeld mit Platz für 5x10 Karten
@@ -87,16 +90,40 @@ public class Spielfeld {
         GUI.karteDarstellen(aktuelleKarte, groesseY/2 - 50, groesseX/2 - 50);
         
         
-        for(int x = 0; x < 10; x++){
-        	if(x < kartenMenschlicherSpieler.anzahlKarteHand()){
-            	spielfeld[4][x] = kartenMenschlicherSpieler.getKarte(x);
-				GUI.karteDarstellen(spielfeld[0][x],heldKartenKoordinateY,heldKartenKoordinateX+x*kartenBreite);
-                System.out.println("Debug: Render Karte: "+x);
+        for(int i = 0; i < 10; i++){
+        	if(i < kartenMenschlicherSpieler.anzahlKarteHand()){
+            	spielfeld[4][i] = kartenMenschlicherSpieler.getKarte(i);
+                System.out.println(spielfeld[4][i].toString());
+				GUI.karteDarstellen(spielfeld[4][i],heldKartenKoordinateY,heldKartenKoordinateX+i*kartenBreite);
             }else{
-				GUI.karteDarstellen(spielfeld[0][x],heldKartenKoordinateY,heldKartenKoordinateX+x*kartenBreite);
-                System.out.println("Debug: Render Karte: "+x);
+				GUI.karteDarstellen(spielfeld[4][i],heldKartenKoordinateY,heldKartenKoordinateX+i*kartenBreite);
+                System.out.println("Debug: Render Karte: "+i);
             }
         }
+    }//end of aktuali
+    
+    
+    public void sichtbareKarten(){
+    	
+        if(Konsole.eingabeString().equals("rechts")&& shiftInt < 20){
+        	shiftInt++;
+        }
+        if(Konsole.eingabeString().equals("links") && shiftInt > 0){
+        	shiftInt--;
+        }
+        
+    }
+    
+    public void spielfeldErneuern(Spieler held, Spieler computerGegener, Karte aktuelleKarte){
+    
+    	int gegnerKartenKoordinateX = 15;
+    	int gegnerKartenKoordinateY = 15;
+        
+    	int kartenBreite = 60;
+    
+    	int heldKartenKoordinateX = 15;
+    	int heldKartenKoordinateY = 345;
+        
         
         
     }

@@ -7,8 +7,8 @@ package unotempel.kartenspiel;
 public abstract class Karte {
 
     // Eigenschaften: Eine Karte hat eine bestimmte Farbe und eine Nummer
-    public String farbe;
-    public int nummer;
+    protected String farbe;
+    protected int nummer;
 
 
     /**
@@ -63,5 +63,7 @@ public abstract class Karte {
     public int getNummer(){
     	return nummer;
     }
+    
+    public abstract String toString();
 
 } // Ende von Karte

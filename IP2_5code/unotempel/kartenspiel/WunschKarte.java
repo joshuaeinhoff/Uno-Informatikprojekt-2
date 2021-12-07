@@ -43,5 +43,9 @@ public class WunschKarte extends Karte{
         // Code 3: Eine neue Farbe auswählen
         return 3;
     }
+    
+    public String toString(){
+    	return "WunschKarte";
+    }
 
 } // Ende von WunschKarte

@@ -282,7 +282,7 @@ public class GUI {
     	if(uebergebeneKarte != null){
         
         	if(uebergebeneKarte.istWelcheKarte("Farb")){
-				KartenDesign.farbKarte(x,y,uebergebeneKarte.getFarbe(),Integer.toString(uebergebeneKarte.getNummer()));
+				KartenDesign.farbKarte(x,y,GUI.setKartenFarbe(uebergebeneKarte.getFarbe()),Integer.toString(uebergebeneKarte.getNummer()));
         	}
             
         	if(uebergebeneKarte.istWelcheKarte("Wunsch")){
@@ -292,13 +292,13 @@ public class GUI {
         		KartenDesign.plusVierWunschKarte(x,y);
         	}
         	if(uebergebeneKarte.istWelcheKarte("PlusZwei")){
-        		KartenDesign.plusZweiKarte(x,y,uebergebeneKarte.getFarbe());
+        		KartenDesign.plusZweiKarte(x,y,GUI.setKartenFarbe(uebergebeneKarte.getFarbe()));
         	}
         	if(uebergebeneKarte.istWelcheKarte("Aussetzen")){
-        		KartenDesign.aussetzenKarte(x,y,uebergebeneKarte.getFarbe());
+        		KartenDesign.aussetzenKarte(x,y,GUI.setKartenFarbe(uebergebeneKarte.getFarbe()));
         	}
        	 	if(uebergebeneKarte.istWelcheKarte("Retour")){
-       	 		KartenDesign.retourKarte(x,y,uebergebeneKarte.getFarbe());
+       	 		KartenDesign.retourKarte(x,y,GUI.setKartenFarbe(uebergebeneKarte.getFarbe()));
         	}
         	if(uebergebeneKarte.istWelcheKarte("Dummy")){
         		KartenDesign.dummyKarte(x,y);
@@ -327,6 +327,23 @@ public class GUI {
         
     }
     
+    public static String setKartenFarbe(String farbe){
+		
+        switch(farbe){
+        
+        	case "blau":
+            	return KartenDesign.farbeBlau;
+            case "gelb":
+            	return KartenDesign.farbeGelb;
+            case "grün":
+            	return KartenDesign.farbeGruen;
+            case "rot":
+            	return KartenDesign.farbeRot;
+        
+        }
+        return null;
+    }
+    
 
 	/**
 	* Prozedur zur Darstellung des Buttons, noch nicht bereit darauf geklickt zu werden
@@ -339,6 +356,7 @@ public class GUI {
     public static void linksRechtsButtonsErzeugen(int x, int y) {
     	Button linksButton = new Button(x-45, y/2 + 135, 30, 30, Grafik.WHITE, "<", Grafik.BLACK, 30, 5, "links");
         Button rechtsButton = new Button(x-45, y/2 + 175, 30, 30, Grafik.WHITE, ">", Grafik.BLACK, 30, 5, "rechts");
+        
     }
 
 

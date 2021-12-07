@@ -34,5 +34,9 @@ public class FarbKarte extends Karte{
         // Code 0: Nichts machen
         return 0;
     }
+    
+    public String toString(){
+    	return "FarbKarte in der Farbe "+this.farbe+" und der Nummer "+this.nummer;
+    }
 
 } // Ende von FarbKarte
