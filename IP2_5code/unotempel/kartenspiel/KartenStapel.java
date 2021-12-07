@@ -43,11 +43,13 @@ public class KartenStapel {
         // 4x Farbkarten von 0 bis 9 erzeugen
         for (int i = 0; i < 40; i++) {
             karten[i] = new FarbKarte(farben[farbeIndex % 4], i / 4);
+            farbeIndex++;
             vorhandeneKarten[i] = true;
         }
         // 4x Farbkarten von 1 bis 9 erzeugen
         for (int i = 40; i < 76; i++) {
             karten[i] = new FarbKarte(farben[farbeIndex % 4], ((i / 4) % 10) + 1);
+            farbeIndex++;
             vorhandeneKarten[i] = true;
         }
         // 2x AussetzenKarten jeder Farbe erzeugen
