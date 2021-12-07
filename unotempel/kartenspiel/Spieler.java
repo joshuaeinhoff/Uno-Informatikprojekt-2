@@ -1,5 +1,7 @@
 package unotempel.kartenspiel;
 
+
+
 /**
  * Abstrakte Superklasse für den menschlichen Spieler und die SpielerKIs(Schwierigkeiten)
  */
@@ -37,23 +39,28 @@ package unotempel.kartenspiel;
             // Karte aus Stapel ziehen, aktuelle Karte ist null am Spielanfang
             karteZiehen(kartenStapel, null);
         }
+        System.out.println("Erste Hand des Spielers erzeugt \n(angenommen echte Karten abgezogen)");
     }
+
 
     /**
      * Methode zum ziehen der Karten
      */
-    public void karteZiehen(KartenStapel kartenstapel, Karte aktuelleKarte){
+    public void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte){
         //OOP2
-        //hand.get(kartenstapel.karteZiehen());
-        //fügt die aus dem Stapel gezogene Karte der Hand hinzu
+        //hand.get(kartenStapel.karteZiehen());
+        
+        // Solange der Spieler noch Platz für Karten in der Hand hat, d.h. die Hand ist nicht voll
         for(int i = 0; i < hand.length; i++){
+        	// Bedingung überprüft, ob die Karte in der Hand null ist, d.h. keine echte Karte an dieser Stelle
             if(hand[i] == null){
-                hand[i] = kartenstapel.karteZiehen(aktuelleKarte);
+            	// Gezogene Karte aus dem Stapel in der Hand hinzufügen
+                hand[i] = kartenStapel.karteZiehen(aktuelleKarte);
                 return;
-            }else{
-                System.out.println("Hand ist voll!");
             }
         }
+        // Falls die Hand schon voll ist
+        System.out.println("Hand ist voll!");
     }
 
 
@@ -89,8 +96,9 @@ package unotempel.kartenspiel;
      * Methode zum reduzieren der Lebensenergie
      * @param schaden - int Schaden der abgezogen werden soll
      */
-    public void schadenZufuegen(int schaden){
+    public int schadenZufuegen(int schaden){
         lebensenergie = lebensenergie-schaden;
+        return lebensenergie;
     }
 
 

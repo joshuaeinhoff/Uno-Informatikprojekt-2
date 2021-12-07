@@ -32,6 +32,10 @@ public class DummyKarte extends Karte{
         // Code 0: Nichts machen
         return 0;
     }
+    
+    public String toString(){
+     return "DummyKarte";
+    }
 
 
 } // Ende von DummyKarte

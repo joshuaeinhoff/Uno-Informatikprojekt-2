@@ -168,6 +168,8 @@ public class KartenStapel {
         // Vorhandene Karte im KartenStapel zurückgeben
         return karten[randomKartenPosition];
     }
+    
+    
 
 
     /**

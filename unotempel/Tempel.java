@@ -49,29 +49,75 @@ public class Tempel {
     /**
      * Prozedur zum Quizlösen
      * @param quizNiveau
+     * @param spieler
      */
-    public void quizLoesen(int quizNiveau) {
-        //
-        boolean antwortIsRichtig = false;
+    public void quizLoesen(int quizNiveau, Spieler spieler) {
+    
+    	// Einführungsdarstellung des Tempels aufrufen
+        tempelEinfuehrung();
+      	
+        // Rätsel lösen
+        boolean istRichtig = false;
         Random rand = new Random();
         int zufallsZahl;
+        int schaden = 10;
 
-        // Solange keine richtige Frage beantwortet
-        while(!antwortIsRichtig) {
+        // Solange keine richtige Frage beantwortet wird
+        while(!istRichtig) {
             // Nach QuizNiveau Fragenpool zu OOP1 oder OOP2 auswählen
             if(quizNiveau == 1) {
                 // Zufallsfrage aus Fragenpool zu OOP1 auswählen und als Variable speichern
                 zufallsZahl = rand.nextInt(fragenpoolOOP1.anzahlQuizfragen());
-                antwortIsRichtig = fragenpoolOOP1.quizfrageBeantwortet(zufallsZahl);
+                istRichtig = fragenpoolOOP1.quizfrageRichtigBeantwortet(zufallsZahl);
             } else if(quizNiveau == 2) {
                 // Zufallsfrage aus Fragenpool zu OOP2 auswählen und als Variable speichern
                 zufallsZahl = rand.nextInt(fragenpoolOOP2.anzahlQuizfragen());
-                antwortIsRichtig = fragenpoolOOP2.quizfrageBeantwortet(zufallsZahl);
+                istRichtig = fragenpoolOOP2.quizfrageRichtigBeantwortet(zufallsZahl);
             }
-
-            // Darstellungsmöglichkeiten (Grafik_Konsole) --> GUI
+			// Bedingung überprüft, ob die Quizfrage falsch beantwortet wurde
+            if(!istRichtig) {
+                // Nachricht in der Konsole ausgeben
+                System.out.println("Frage falsch beantwortet: \n Held bekommt "+ schaden + " Schadenspunkte \n Probier nochmal!");
+                // Dem Spieler Schaden zufügen
+                int lebensenergie = spieler.schadenZufuegen(schaden);
+                // Lebensenergie des Spielers auf die Konsole ausgeben
+                System.out.println("Lebensenergie: " + lebensenergie);
+                // Bedingung überprüft, ob der Spieler noch Lebensenergie hat
+                if(lebensenergie <= 0) {
+                	// Hat der Spieler keine Lebenspunkte mehr, ist das Spiel zu ende
+                	System.out.println("Game Over \n");
+                    return;
+                }
+            }
         }
-
+        // Nachricht in der Konsole ausgeben
+        System.out.println("Frage richtig beantwortet: Glückwunsch!\n");
+    }
+    
+    
+    /**
+     * Prozedur bereitet die Darstellung zur Einführung in den Tempel vor
+     */
+	private void tempelEinfuehrung() {
+    	// Element als String für den Namen des Tempels erzeugen
+        String element = "";
+        // Fallunterscheidung
+        switch(farbe) {
+        	case "blau":
+            	element = "Wasser";
+                break;
+            case "gelb":
+            	element = "Luft";
+            case "gruen":
+            	element = "Erde";
+            case "rot":
+            	element = "Feuer";
+                break;
+        }
+        // Begrüßungsnachricht für den Held, wenn er versucht, den Tempel zu betreten
+        String begruessungsNachricht[] = {"Solltest du den " + element + "-Tempel betreten möchten,", "musst du deine Weisheit zeigen,", "indem du ein Rätsel löst."};
+        // Aufruf zum Darstellen der Begrüßungsnachricht 
+        GUI.begruessungsnachrichtDarstellen(begruessungsNachricht);
     }
 
 
@@ -80,8 +126,8 @@ public class Tempel {
      * @param y - Spielfeld größe in Y Richtung
      * @param x - Spielfeld größe in X Richtung
      */
-    public void kartenspielErzeugen(int y, int x) {
-        this.kartenspiel = new Kartenspiel(y, x);
+    public void kartenspielErzeugen() {
+        this.kartenspiel = new Kartenspiel();
     }
     
 
@@ -109,8 +155,10 @@ public class Tempel {
                 kartenspiel.spielVorbereiten(sp, 4);
                 break;
         }
+        System.out.println("Kartenspiel ist bereit!");
         // Spielen
-        kartenspiel.spielen();
+        System.out.println("Spielen aufrufen");
+        //kartenspiel.spielen();
     }
 
 } // Ende von Tempel

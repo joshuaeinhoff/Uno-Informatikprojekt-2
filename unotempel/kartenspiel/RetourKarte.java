@@ -35,4 +35,8 @@ public class RetourKarte extends Karte{
         return 1;
     }
     
+    public String toString(){
+    	return "RetourKarte " + this.farbe;
+    }
+    
 } // Ende von RetourKarte

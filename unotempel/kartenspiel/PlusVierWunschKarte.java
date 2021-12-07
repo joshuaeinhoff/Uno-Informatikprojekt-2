@@ -42,4 +42,8 @@ public class PlusVierWunschKarte extends Karte{
         return 4;
     }
     
+    public String toString(){
+        return "PlusVierWunschKarte";
+    }
+    
 } // Ende von PlusVierWunschKarte

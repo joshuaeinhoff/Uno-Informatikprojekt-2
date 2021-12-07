@@ -1,6 +1,7 @@
 package unotempel.quiz;
 
 import java.io.*;
+import unotempel.*;
 
 /**
  * Klasse stellt eine Instanz von Quizfragenpool im Spiel mit seinen jeweiligen Attributen dar.
@@ -88,6 +89,9 @@ public class Quizfragenpool {
                     break;
             }
 
+
+			// FilterReader funktioniert anscheinend nicht ----->
+
             // Kanonische Erzeugung eines FilterReaders zum Lesen aus einer Datei
             FilterReader fr = new FilterReaderDatensatz(
                               new FilterReaderZeichen(
@@ -159,15 +163,20 @@ public class Quizfragenpool {
      * @param zufallsZahl - gegebener Index
      * @return true - wenn die Frage richtig beantwortet wird, false - sonst
      */
-    public boolean quizfrageBeantwortet(int zufallsZahl) {
+    public boolean quizfrageRichtigBeantwortet(int zufallsZahl) {
+   
+    	// Zum Testen, da FilterReader anscheinend nicht funktioniert
+        Quizfrage quizfrage = new Quizfrage("frage", "ant1", "ant2", "ant3", 'b');
+        //System.out.println(quizfrage.getAntwortmoeglichkeiten().length);
+    	char ausgewaehlteAntwort = GUI.quizDarstellen(quizfrage.getFrage(), quizfrage.getAntwortmoeglichkeiten());
+        
         // Quizfrage darstellen
-        //GUI.quizDarstellen(quizfragen[zufallsZahl].getFrage(), quizfragen[zufallsZahl].getAntwortmoeglichkeiten(), quizfragen[zufallsZahl].getRichtigeAntwort());
-        // if... geklickte Antwort is richtig
-        return true;
-        // else
-
-        // return false;
-
+        //char ausgewaehlteAntwort = GUI.quizDarstellen(quizfragen[zufallsZahl].getFrage(), quizfragen[zufallsZahl].getAntwortmoeglichkeiten());
+        
+        // Bedingung überprüft, ob die ausgewählte Antwort richtig ist
+        if(ausgewaehlteAntwort == quizfrage.getRichtigeAntwort())
+        	return true;
+        return false;
     }
 
 
