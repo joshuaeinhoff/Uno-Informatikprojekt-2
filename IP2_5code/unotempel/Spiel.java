@@ -88,43 +88,55 @@ public class Spiel {
         // Monster Kämpfen
         wasserTempel.monsterKaempfen(held);
         
-/*
+
         
         
 
         // 2. Tempel: Luft
-        System.out.println("Als erstes musst du den Luft-Tempel besuchen.");
+        System.out.println("Als nächstes musst du den Luft-Tempel besuchen.");
         
         // Solange den Luft-Wasser nicht ausgewählt wird
         while(naechsterTempel != 2) {
         	naechsterTempel = GUI.tempelSymbolZeigen();
         }
+        GrafikKonsole.clearGrafik();
+        GUI.leererCanvasDarstellen();
         
-        luftTempel.quizLoesen(spielNiveau);
-        luftTempel.monsterKaempfen(held);
+        luftTempel.quizLoesen(spielNiveau,held);
+        GrafikKonsole.clearGrafik();
+        GUI.leererCanvasDarstellen();
+//        luftTempel.monsterKaempfen(held);
 
         // 3. Tempel: Erde
-        System.out.println("Als erstes musst du den Erde-Tempel besuchen.");
+        System.out.println("Als nächstes musst du den Erde-Tempel besuchen.");
         
         // Solange den Erde-Wasser nicht ausgewählt wird
         while(naechsterTempel != 3) {
         	naechsterTempel = GUI.tempelSymbolZeigen();
         }
+        GrafikKonsole.clearGrafik();
+        GUI.leererCanvasDarstellen();
         
-        erdeTempel.quizLoesen(spielNiveau);
-        erdeTempel.monsterKaempfen(held);
+        erdeTempel.quizLoesen(spielNiveau,held);
+        GrafikKonsole.clearGrafik();
+        GUI.leererCanvasDarstellen();
+//        erdeTempel.monsterKaempfen(held);
 
         // 4. Tempel: Feuer
-        System.out.println("Als erstes musst du den Feuer-Tempel besuchen.");
+        System.out.println("Als letztes musst du den Feuer-Tempel besuchen.");
         
         // Solange den Feuer-Wasser nicht ausgewählt wird
         while(naechsterTempel != 4) {
         	naechsterTempel = GUI.tempelSymbolZeigen();
         }
+        GrafikKonsole.clearGrafik();
+        GUI.leererCanvasDarstellen();
         
-        feuerTempel.quizLoesen(spielNiveau);
-        feuerTempel.monsterKaempfen(held);
-*/        
+        feuerTempel.quizLoesen(spielNiveau,held);
+        GrafikKonsole.clearGrafik();
+        GUI.leererCanvasDarstellen();
+//        feuerTempel.monsterKaempfen(held);
+        
     }
 	
 } // Ende von Spiel

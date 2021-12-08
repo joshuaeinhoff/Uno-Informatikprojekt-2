@@ -1,7 +1,7 @@
 package unotempel.quiz;
 
 /**
- * Klasse stellt eine Quizfrage (bzw. Rätsel) im Spiel mit ihren (bzw. seinen) jeweiligen Attributen dar.
+ * Klasse stellt eine Quizfrage (bzw. Rätsel) im Spiel mit den jeweiligen Attributen dar.
  */
 public class Quizfrage {
 
@@ -11,20 +11,29 @@ public class Quizfrage {
     private char richtigeAntwort; // Anfangsbuchstabe der richtigen Antwort: a, b oder c
 
     /**
-     * Konstruktor erzeugt eine Instanz von Quizfrage mit den folgenden Parametern:
+     * Konstruktor für drei Antwortmöglichkeiten, erzeugt eine Instanz von Quizfrage mit den folgenden Parametern:
      * @param frage - Frage
      * @param antwort1 - Antwort a)
      * @param antwort2 - Antwort b)
-     * @param antwort3 - Antwort c) (optional)
+     * @param antwort3 - Antwort c)
      * @param richtigeAntwort - Richtige Antwort
      */
     public Quizfrage(String frage, String antwort1, String antwort2, String antwort3, char richtigeAntwort) {
         this.frage = frage;
-        // Fehler beheben
-        if(antwort3 == null || antwort3.compareTo("") == 0)
-            this.antwortmoeglichkeiten = new String[] { antwort1, antwort2 };
-        else
-            this.antwortmoeglichkeiten = new String[] { antwort1, antwort2, antwort3 };
+        this.antwortmoeglichkeiten = new String[] { antwort1, antwort2, antwort3 };
+        this.richtigeAntwort = richtigeAntwort;
+    }
+    
+    /**
+     * Konstruktor für zwei Antwortmöglichkeiten, erzeugt eine Instanz von Quizfrage mit den folgenden Parametern:
+     * @param frage - Frage
+     * @param antwort1 - Antwort a)
+     * @param antwort2 - Antwort b)
+     * @param richtigeAntwort - Richtige Antwort
+     */
+    public Quizfrage(String frage, String antwort1, String antwort2, char richtigeAntwort) {
+        this.frage = frage;
+        this.antwortmoeglichkeiten = new String[] { antwort1, antwort2 };
         this.richtigeAntwort = richtigeAntwort;
     }
 

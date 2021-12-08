@@ -2,8 +2,9 @@ package unotempel.kartenspiel;
 
 import unotempel.GUI;
 
-/**<br>
- * Klasse<br>
+
+/**<br>
+ * Klasse<br>
  <br>*/
 public class Kartenspiel {
 
@@ -16,10 +17,10 @@ public class Kartenspiel {
     private Karte aktuelleKarte; // Aktuelle Karte im Spiel, auf dem Spielfeld
 
 
-    /**<br>
-     * Konstruktor zum Erzeugen eines Kartenspiels f&uuml;r 2 Spieler<br>
-     * @param spielfeldGroesseY -<br>
-     * @param spielfeldGroesseX -<br>
+    /**<br>
+     * Konstruktor zum Erzeugen eines Kartenspiels f&uuml;r 2 Spieler<br>
+     * @param spielfeldGroesseY -<br>
+     * @param spielfeldGroesseX -<br>
      <br>*/
     public Kartenspiel() {
         this.kartenStapel = new KartenStapel();
@@ -28,24 +29,24 @@ public class Kartenspiel {
     }
 
 
-    /**<br>
-     * Prozedur zum zuf&auml;llig Auswählen des ersten Spielers<br>
-     * Held ist 0, KI ist 1<br>
+    /**<br>
+     * Prozedur zum zuf&auml;llig Auswählen des ersten Spielers<br>
+     * Held ist 0, KI ist 1<br>
      <br>*/
     private void setzeErsterSpieler() {
         naechsterSpieler = (int) Math.round(Math.random());
     }
 
 
-    /**<br>
-     * Prozedur zum Setzen der aktuellen Karte im Spiel und ggf. die Aktion durchf&uuml;hren<br>
-     * Code je Aktion:<br>
-     *  0 -&gt; nichts machen<br>
-     *  1 -&gt; n&auml;chster Spieler &uuml;berspringen<br>
-     *  2 -&gt; 2 Karten ziehen<br>
-     *  3 -&gt; Farbe ausw&auml;hlen<br>
-     *  4 -&gt; Farbe ausw&ouml;hlen und 4 Karten ziehen<br>
-     * @param karte - Karte zum Ablegen<br>
+    /**<br>
+     * Prozedur zum Setzen der aktuellen Karte im Spiel und ggf. die Aktion durchf&uuml;hren<br>
+     * Code je Aktion:<br>
+     *  0 -&gt; nichts machen<br>
+     *  1 -&gt; n&auml;chster Spieler &uuml;berspringen<br>
+     *  2 -&gt; 2 Karten ziehen<br>
+     *  3 -&gt; Farbe ausw&auml;hlen<br>
+     *  4 -&gt; Farbe ausw&ouml;hlen und 4 Karten ziehen<br>
+     * @param karte - Karte zum Ablegen<br>
      <br>*/
     private void setzeAktuelleKarte(Karte karte) {
         // Aktuelle Karte im Spiel durch neue Karte ersetzen
@@ -85,9 +86,9 @@ public class Kartenspiel {
     }
 
 
-    /**<br>
-     * Prozedur zum Ausw&auml;hlen einer neuen Farbe<br>
-     * Nur f&uuml;r WunschKarte und PlusVierWunschKarte<br>
+    /**<br>
+     * Prozedur zum Ausw&auml;hlen einer neuen Farbe<br>
+     * Nur f&uuml;r WunschKarte und PlusVierWunschKarte<br>
      <br>*/
     private void farbeAuswaehlen() {
         // Mithilfe der Grafik_Konsole eine neue Farbe auswählen
@@ -102,10 +103,10 @@ public class Kartenspiel {
     }
 
 
-    /**<br>
-     * Prozedur zum Vorbereiten des Kartenspiels<br>
-     * @param sp - Spieler (Held)<br>
-     * @param tempelNiveau - Niveau des Tempels<br>
+    /**<br>
+     * Prozedur zum Vorbereiten des Kartenspiels<br>
+     * @param sp - Spieler (Held)<br>
+     * @param tempelNiveau - Niveau des Tempels<br>
      <br>*/
     public void spielVorbereiten(Spieler sp, int tempelNiveau) {
         // KartenStapel mit Karten füllen
@@ -126,15 +127,16 @@ public class Kartenspiel {
         spieler[naechsterSpieler].ersteHand(kartenStapel);
         spieler[(naechsterSpieler+1)%2].ersteHand(kartenStapel);
         // Spielfeld erstellen, erstmal leer dann mit Karten
-        spielfeld.ersteFuelleSpielfeld(spieler[0].hand, spieler[1].hand, null);
+        //spielfeld.ersteFuelleSpielfeld(spieler[0].hand, spieler[1].hand, null);
         
         // Erste Karte auf das Spielfeld legen und ggf. Aktion durchführen
         setzeAktuelleKarte(kartenStapel.karteZiehen(aktuelleKarte));
+        spielfeld.aktuallisiereSpielfeld(spieler[0], spieler[1], this.aktuelleKarte);
     }
 
 
-    /**<br>
-     * Prozedur zum Spielen<br>
+    /**<br>
+     * Prozedur zum Spielen<br>
      <br>*/
     public void spielen(){
         // Während einer der Spieler noch Karten hat
@@ -166,8 +168,11 @@ public class Kartenspiel {
         // Spiel ist zu Ende, falls einer der Spieler keine Karte mehr hat
         if(spieler[0].anzahlKarteHand() == 0) {
             System.out.println("Held hat gewonnen!");
+            //zeiht Schaden von der Lebensenergie des gegners ab
+            //spieler[1].schadenZufuegen(spieler[1].anzahlKartenHand()*10);
         } else if(spieler[1].anzahlKarteHand() == 0) {
             System.out.println("Monster hat gewonnen...");
+            //spieler[0].schadenZufuegen(spieler[1].anzahlKartenHand()*4);
         } else {
             System.out.println("Fehler");
         }

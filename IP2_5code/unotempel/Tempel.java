@@ -108,8 +108,10 @@ public class Tempel {
                 break;
             case "gelb":
             	element = "Luft";
+                break;
             case "gruen":
             	element = "Erde";
+                break;
             case "rot":
             	element = "Feuer";
                 break;

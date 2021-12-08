@@ -1,7 +1,7 @@
 package unotempel.quiz;
 
 /**<br>
- * Klasse stellt eine Quizfrage (bzw. R&auml;tsel) im Spiel mit ihren (bzw. seinen) jeweiligen Attributen dar.<br>
+ * Klasse stellt eine Quizfrage (bzw. R&auml;tsel) im Spiel mit den jeweiligen Attributen dar.<br>
  <br>*/
 public class Quizfrage {
 
@@ -11,20 +11,29 @@ public class Quizfrage {
     private char richtigeAntwort; // Anfangsbuchstabe der richtigen Antwort: a, b oder c
 
     /**<br>
-     * Konstruktor erzeugt eine Instanz von Quizfrage mit den folgenden Parametern:<br>
+     * Konstruktor f&uuml;r drei Antwortm&ouml;glichkeiten, erzeugt eine Instanz von Quizfrage mit den folgenden Parametern:<br>
      * @param frage - Frage<br>
      * @param antwort1 - Antwort a)<br>
      * @param antwort2 - Antwort b)<br>
-     * @param antwort3 - Antwort c) (optional)<br>
+     * @param antwort3 - Antwort c)<br>
      * @param richtigeAntwort - Richtige Antwort<br>
      <br>*/
     public Quizfrage(String frage, String antwort1, String antwort2, String antwort3, char richtigeAntwort) {
         this.frage = frage;
-        // Fehler beheben
-        if(antwort3 == null || antwort3.compareTo("") == 0)
-            this.antwortmoeglichkeiten = new String[] { antwort1, antwort2 };
-        else
-            this.antwortmoeglichkeiten = new String[] { antwort1, antwort2, antwort3 };
+        this.antwortmoeglichkeiten = new String[] { antwort1, antwort2, antwort3 };
+        this.richtigeAntwort = richtigeAntwort;
+    }
+    
+    /**<br>
+     * Konstruktor f&uuml;r zwei Antwortm&ouml;glichkeiten, erzeugt eine Instanz von Quizfrage mit den folgenden Parametern:<br>
+     * @param frage - Frage<br>
+     * @param antwort1 - Antwort a)<br>
+     * @param antwort2 - Antwort b)<br>
+     * @param richtigeAntwort - Richtige Antwort<br>
+     <br>*/
+    public Quizfrage(String frage, String antwort1, String antwort2, char richtigeAntwort) {
+        this.frage = frage;
+        this.antwortmoeglichkeiten = new String[] { antwort1, antwort2 };
         this.richtigeAntwort = richtigeAntwort;
     }
 

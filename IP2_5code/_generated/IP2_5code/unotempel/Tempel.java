@@ -104,13 +104,19 @@ public class Tempel {
         // Fallunterscheidung
         switch(farbe) {
         	case "blau":
+            	System.out.println(farbe);
             	element = "Wasser";
                 break;
             case "gelb":
+            	System.out.println(farbe);
             	element = "Luft";
+                break;
             case "gruen":
+            	System.out.println(farbe);
             	element = "Erde";
+                break;
             case "rot":
+            	System.out.println(farbe);
             	element = "Feuer";
                 break;
         }

@@ -65,32 +65,29 @@ public class Quizfragenpool {
             switch(tempelFarbe) {
                 case "blau": // Wasser-Tempel
                     if(quizNiveau == 1)
-                        dateiName = "./quizfragen/fragen_t1_oop1.txt";
+                        dateiName = "../../quizfragen/fragen_t1_oop1.txt";
                     else if(quizNiveau == 2)
-                        dateiName = "./quizfragen/fragen_t1_oop2.txt";
+                        dateiName = "../../quizfragen/fragen_t1_oop2.txt";
                     break;
                 case "gelb": // Luft-Tempel
                     if(quizNiveau == 1)
-                        dateiName = "./quizfragen/fragen_t2_oop1.txt";
+                        dateiName = "../../quizfragen/fragen_t2_oop1.txt";
                     else if(quizNiveau == 2)
-                        dateiName = "./quizfragen/fragen_t2_oop2.txt";
+                        dateiName = "../../quizfragen/fragen_t2_oop2.txt";
                     break;
                 case "gruen": // Erde-Tempel
                     if(quizNiveau == 1)
-                        dateiName = "./quizfragen/fragen_t3_oop1.txt";
+                        dateiName = "../../quizfragen/fragen_t3_oop1.txt";
                     else if(quizNiveau == 2)
-                        dateiName = "./quizfragen/fragen_t3_oop2.txt";
+                        dateiName = "../../quizfragen/fragen_t3_oop2.txt";
                     break;
                 case "rot": // Feuer-Tempel
                     if(quizNiveau == 1)
-                        dateiName = "./quizfragen/fragen_t4_oop1.txt";
+                        dateiName = "../../quizfragen/fragen_t4_oop1.txt";
                     else if(quizNiveau == 2)
-                        dateiName = "./quizfragen/fragen_t4_oop2.txt";
+                        dateiName = "../../quizfragen/fragen_t4_oop2.txt";
                     break;
             }
-
-
-			// FilterReader funktioniert anscheinend nicht ----->
 
             // Kanonische Erzeugung eines FilterReaders zum Lesen aus einer Datei
             FilterReader fr = new FilterReaderDatensatz(
@@ -113,7 +110,7 @@ public class Quizfragenpool {
                 if (num != -1) {
                     // String aus dem Buffer erzeugen
                     datensatz = new String(buf, off, num);
-                    System.out.println(datensatz); // !!! Zum Testen !!!
+                    //System.out.println(datensatz); // !!! Zum Testen !!!
                     // Datensatz in den String-Array speichern und Anzahl von Datensätzen inkrementieren
                     datensaetze[anzahlDatensaetze++] = datensatz;
                 }
@@ -132,29 +129,71 @@ public class Quizfragenpool {
      * @param datensaetze - String Array mit gelesenen Daten<br>
      <br>*/
     private void quizfragenBearbeiten(String[] datensaetze) {
-        // Anzahl von Quizfragen auf 0 setzen
-        this.anzahlQuizfragen = 0;
-        // Array von Quizfragen mit einer bestimmten Länge erzeugen, die von der Länge des String-Arrays abhängt
-        this.quizfragen = new Quizfrage[datensaetze.length / 5]; // Durch 5 geteilt: Quizfrage kann 5 Attribute besitzen
-        // Variablen um den Index im String-Array mitzuzählen
+        // Variable für die Anzahl von Datensätzen auf 0 setzen
+        int anzahlDatensaetze = 0;
+        
+        // Über die Länge des Datensätze-Arrays iterieren
+        for(int i = 0; i < datensaetze.length; i++) {
+        	// Prüfen, ob ein Wert ungleich null im gegebenen Index gespeichert wurde
+        	if(datensaetze[i] != null) {
+            	// Falls ja: Anzahl von Datensätzen inkrementieren
+            	anzahlDatensaetze++;
+            }
+        }
+        
+        // Anzahl von Datensätzen für Quizfragen mit nur zwei Antwortmöglichkeiten anpassen
+        while(anzahlDatensaetze % 5 != 0) {
+        	anzahlDatensaetze++;
+        }
+        
+        // Anzahl von Quizfragen einen bestimmten Wert zuweisen, der von der Anzahl der Datensätzen abhängt
+        this.anzahlQuizfragen = anzahlDatensaetze / 5;
+        // Array von Quizfragen mit einer bestimmten Länge erzeugen, die der Anzahl von Quizfragen entspricht
+        this.quizfragen = new Quizfrage[this.anzahlQuizfragen]; // Durch 5 geteilt: Quizfrage kann 5 Attribute besitzen
+        // Variable erzeugen, um den Index im String-Array mitzuzählen
         int datenIndex = 0;
 
-		// -> charAt() Fehler beheben
-        char richtigeAntwort = ' ';
+        // Variablen einer Quizfragen erstmal definieren, um Quizfragen-Attribute zwischenzuspeichern
+        char richtigeAntwort;
+        String frage;
+        // Array von Strings für bis zu drei Antwortmöglichkeiten erzeugen
+        String[] antwortmoeglichkeiten = new String[3];
 
         // Über die Länge des Quizfragen-Arrays iterieren und die Quizfragen richtig erzeugen und speichern
-        for(int i = 0; i < this.quizfragen.length; i++) {
-        	// Fehler beheben
-            if(datensaetze[datenIndex+4] != null)
-            	richtigeAntwort = datensaetze[datenIndex+4].charAt(0);
-        
-            // Quizfrage erzeugen mit den folgenden Attributen: Frage, Antwort1, Antwort2, Antwort3 und richtigeAntwort (als char)
-            Quizfrage quizfrage = new Quizfrage(datensaetze[datenIndex], datensaetze[datenIndex+1], datensaetze[datenIndex+2], datensaetze[datenIndex+3], richtigeAntwort);
-            // Quizfrage in Array von Quizfragen speichern und Anzahl von Quizfragen inkrementieren
-            this.quizfragen[this.anzahlQuizfragen++] = quizfrage;
-            // Index im String Array inkrementieren
-            datenIndex++;
+        for(int i = 0; i < this.anzahlQuizfragen; i++) {
+            // Den Variablen einer Quizfragen entsprechende Werte zuweisen und datenIndex inkrementieren  
+            frage = datensaetze[datenIndex++];
+            antwortmoeglichkeiten[0] = datensaetze[datenIndex++]; 
+            antwortmoeglichkeiten[1] = datensaetze[datenIndex++];
+            
+            // Prüfen, ob Quizfrage nur zwei Antwortmöglichkeiten hat
+        	if(datensaetze[datenIndex].charAt(1) != ')') {
+                // Der richtigen Antwort den entsprechenden Wert zuweisen und datenIndex inkrementieren
+            	richtigeAntwort = datensaetze[datenIndex++].charAt(0);
+                // Einen bestimmten Konstruktor von Quizfrage aufrufen und Quizfrage im entsprechenden Index des Quizfrage-Arrays speichern
+            	this.quizfragen[i] = new Quizfrage(frage, antwortmoeglichkeiten[0], antwortmoeglichkeiten[1], richtigeAntwort);
+            // Quizfrage hat drei Antwortmöglichkeiten
+            } else {
+            	// Der dritte Antwortmöglichkeit den entsprechenden Wert zuweisen und datenIndex inkrementieren 
+            	antwortmoeglichkeiten[2] = datensaetze[datenIndex++];
+				// Der richtigen Antwort den entsprechenden Wert zuweisen und datenIndex inkrementieren
+                richtigeAntwort = datensaetze[datenIndex++].charAt(0);
+                // Einen bestimmten Konstruktor von Quizfrage aufrufen und Quizfrage im entsprechenden Index des Quizfrage-Arrays speichern
+            	this.quizfragen[i] = new Quizfrage(frage, antwortmoeglichkeiten[0], antwortmoeglichkeiten[1], antwortmoeglichkeiten[2], richtigeAntwort);
+            }
         }
+        
+        // Code NUR zum Testen
+        /*
+        for(int i = 0; i < anzahlQuizfragen; i++) {
+        	System.out.println(quizfragen[i].getFrage());
+            for(int k = 0; k < quizfragen[i].getAntwortmoeglichkeiten().length; k++) {
+            	System.out.println(quizfragen[i].getAntwortmoeglichkeiten()[k]);
+            }
+            System.out.println(quizfragen[i].getRichtigeAntwort());
+        }
+        */
+        
     }
 
 
@@ -164,16 +203,11 @@ public class Quizfragenpool {
      * @return true - wenn die Frage richtig beantwortet wird, false - sonst<br>
      <br>*/
     public boolean quizfrageRichtigBeantwortet(int zufallsZahl) {
-   
-    	// Zum Testen, da FilterReader anscheinend nicht funktioniert
-        Quizfrage quizfrage = new Quizfrage("frage", "ant1", "ant2", "ant3", 'b');
-        //System.out.println(quizfrage.getAntwortmoeglichkeiten().length);
-    	char ausgewaehlteAntwort = GUI.quizDarstellen(quizfrage.getFrage(), quizfrage.getAntwortmoeglichkeiten());
-        // Quizfrage darstellen
-        //char ausgewaehlteAntwort = GUI.quizDarstellen(quizfragen[zufallsZahl].getFrage(), quizfragen[zufallsZahl].getAntwortmoeglichkeiten(), quizfragen[zufallsZahl].getRichtigeAntwort());
+        // Quizfrage darstellen, Funktion in GUI aufrufen und Rückgabeparameter als char-Variable speichern
+        char ausgewaehlteAntwort = GUI.quizDarstellen(quizfragen[zufallsZahl].getFrage(), quizfragen[zufallsZahl].getAntwortmoeglichkeiten());
         
-        // Bedingung überprüft, ob die ausgewählte Antwort richtig ist
-        if(ausgewaehlteAntwort == quizfrage.getRichtigeAntwort())
+        // Bedingung prüft, ob die ausgewählte Antwort richtig ist
+        if(ausgewaehlteAntwort == quizfragen[zufallsZahl].getRichtigeAntwort())
         	return true;
         return false;
     }

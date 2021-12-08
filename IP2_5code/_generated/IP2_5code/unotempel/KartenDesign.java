@@ -3,8 +3,8 @@ package unotempel;
 import unotempel.grafikkonsole.*;
 import unotempel.konsole.*;
 
-/**<br>
- * <br>
+/**<br>
+ * <br>
  <br>*/
 class KartenDesign {
 
@@ -74,7 +74,7 @@ class KartenDesign {
         new Text(15+positionX, 55+positionY, "+4", farbeWeiss, 25, "1");
     }
     
-    public static void plusZwei(int positionX, int positionY, String farbe){
+    public static void plusZweiKarte(int positionX, int positionY, String farbe){
     
     	Rechteck grafikRechteckMitRundung =
         new Rechteck(positionX, positionY, 50, 100, farbe, farbeWeiss, 2, 10, "callback");
