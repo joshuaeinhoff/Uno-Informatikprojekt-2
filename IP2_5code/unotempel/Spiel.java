@@ -89,7 +89,7 @@ public class Spiel {
         wasserTempel.monsterKaempfen(held);
         
 
-        
+ /*       
         
 
         // 2. Tempel: Luft
@@ -136,7 +136,7 @@ public class Spiel {
         GrafikKonsole.clearGrafik();
         GUI.leererCanvasDarstellen();
 //        feuerTempel.monsterKaempfen(held);
-        
+        */
     }
 	
 } // Ende von Spiel
