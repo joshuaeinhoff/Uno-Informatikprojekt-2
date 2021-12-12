@@ -14,7 +14,6 @@ public class Spielfeld {
     private int groesseX;
    	private int groesseY;
     // 
-    private static int shiftInt = 0;
 
 
     /**
@@ -50,6 +49,28 @@ public class Spielfeld {
         if(x < 10)
         	GUI.setzeKarteAufSpielfeld(karte,x,y);
     }
+    
+    public void kartenVerschobenDarstellen(int kartenVerschiebung,Spieler held){
+    	
+		if(kartenVerschiebung >= 0 && kartenVerschiebung < 10){
+        	for(int i = 0; i < 10; i++){
+            	if(spielfeld[3][i] != null){
+                    spielfeld[3][i].versteckeKarte();
+                    spielfeld[3][i] = null;
+                }
+            }
+            
+            for(int i = 0+kartenVerschiebung; i < 10+kartenVerschiebung; i++){
+            	if(held.getKarte(i) != null){
+            		this.setzeKartePosition(held.getKarte(i),3,i-kartenVerschiebung);
+                }
+            }
+            
+        }//ende if
+        
+    }
+    
+    
     
     public void setzeAktuelleKarte(Karte karte) {
         spielfeld[2][3] = karte;
@@ -171,15 +192,6 @@ public class Spielfeld {
     
     
     
-    public void sichtbareKarten(){
-    	
-        if(Konsole.eingabeString().equals("rechts")&& shiftInt < 20){
-        	shiftInt++;
-        }
-        if(Konsole.eingabeString().equals("links") && shiftInt > 0){
-        	shiftInt--;
-        }
-    }
     
 
     public void spielfeldErneuern(Spieler held, Spieler computerGegener, Karte aktuelleKarte){

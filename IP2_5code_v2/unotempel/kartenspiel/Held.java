@@ -8,11 +8,14 @@ import unotempel.GUI;
  */
 public class Held extends Spieler {
 
+	int kartenVerschiebungsWert;
+
     /**
      * Konstruktor ruft Superkonstruktor auf und erzeugt einen menschlichen Spieler mit 100 Punkten Lebensenergie
      */
     public Held(){
         super(100);
+        kartenVerschiebungsWert = 0;
     }
 
 
@@ -27,8 +30,9 @@ public class Held extends Spieler {
     public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel, boolean karteGezogen,Spielfeld spielfeld){
         // Variable den Index der ausgewählte Karte zuweisen   
         int indexKarte;
-       	String verschieben;                
+       	//String verschieben;
         // Solange der Spieler noch spielbare Karten hat
+        
 		while(spielbareKarteVorhanden(aktuelleKarte)) {       
         	/*
             verschieben = Konsole.eingabeString();
@@ -56,27 +60,31 @@ public class Held extends Spieler {
                 }
             }
             */
+            this.handVerschieben(spielfeld);
             // Karte durch die Grafik Konsole auswählen
         	indexKarte = Konsole.eingabeZahl();
+            
             //
-           
-			// Prüfen, ob die ausgewählte Karte gespielt werden kann
-            if(getKarte(indexKarte).istSpielbar(aktuelleKarte)) {
-            	// Ja, ausgewählte Karte als Variable speichern
-            	Karte ausgewaehlteKarte = getKarte(indexKarte);
-            	// Karte auf der Hand auf null setzen
-                karteAufNullSetzen(indexKarte);
-                // Ausgewählte Karte wird zurückgegeben
-                System.out.println("Held hat " + ausgewaehlteKarte.toString() + " ausgewählt!");
-                return ausgewaehlteKarte;
-            } else {
-            	// Nein, Fehlermeldung auf die Konsole ausgeben
-                System.out.println("Wähle bitte eine geeignete Karte!");
-            }
+           	if(indexKarte != -1){
+                // Prüfen, ob die ausgewählte Karte gespielt werden kann
+                if(getKarte(indexKarte+kartenVerschiebungsWert).istSpielbar(aktuelleKarte)) {
+                    // Ja, ausgewählte Karte als Variable speichern
+                    Karte ausgewaehlteKarte = getKarte(indexKarte+kartenVerschiebungsWert);
+                    // Karte auf der Hand auf null setzen
+                    karteAufNullSetzen(indexKarte+kartenVerschiebungsWert);
+                    // Ausgewählte Karte wird zurückgegeben
+                    System.out.println("Held hat " + ausgewaehlteKarte.toString() + " ausgewählt!");
+                    return ausgewaehlteKarte;
+                } else {
+                    // Nein, Fehlermeldung auf die Konsole ausgeben
+                    System.out.println("Wähle bitte eine geeignete Karte!");
+                }
+           }
         }
         
         // Solange der Spieler noch keine Karte gezogen hat
         while(!karteGezogen) {
+        	this.handVerschieben(spielfeld);
         	System.out.println("Held hat keine spielbare Karten und muss daher eine Karte ziehen.");
         	String eingabe = Konsole.eingabeString();
             // Prüfen, ob der Spieler auf den KartenStapel geklickt hat
@@ -99,6 +107,27 @@ public class Held extends Spieler {
 		return null;
 
     }
+    
+    public void handVerschieben(Spielfeld spielfeld){
+    
+    	String verschieben;
+        
+    	if(hand.length > 0){
+        
+        	verschieben = Konsole.eingabeString();
+            
+            if(verschieben.equals("links") && kartenVerschiebungsWert > 0){
+            	kartenVerschiebungsWert--;
+                spielfeld.kartenVerschobenDarstellen(kartenVerschiebungsWert,this);
+            }
+        	
+            if(verschieben.equals("rechts") && kartenVerschiebungsWert < 10){
+            	kartenVerschiebungsWert++;
+            	spielfeld.kartenVerschobenDarstellen(kartenVerschiebungsWert,this);
+            }
+        }//end of while
+    }//end of handVerschieben
+    
     
     
     /**
