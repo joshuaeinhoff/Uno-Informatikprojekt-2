@@ -119,6 +119,7 @@ public class Spielfeld {
         	j++;
             i %= 10;
     	}
+        spielfeld[j][i].versteckeKarte();
     	spielfeld[j][i] = null;
     }
     
