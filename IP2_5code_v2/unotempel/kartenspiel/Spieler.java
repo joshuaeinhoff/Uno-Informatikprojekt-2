@@ -37,33 +37,9 @@ package unotempel.kartenspiel;
         }
         System.out.println("Erste Hand des Spielers wurde erzeugt.");
     }
+    
 
-
-    /**
-     * Methode zum ziehen der Karten
-     */
-/*    public void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld){
-        //OOP2
-        //hand.get(kartenStapel.karteZiehen());
-        
-        // Solange der Spieler noch Platz für Karten in der Hand hat, d.h. die Hand ist nicht voll
-        for(int i = 0; i < hand.length; i++){
-        	// Bedingung überprüft, ob die Karte in der Hand null ist, d.h. keine echte Karte an dieser Stelle
-            if(hand[i] == null){
-            	// Gezogene Karte aus dem Stapel in der Hand hinzufügen
-                hand[i] = kartenStapel.karteZiehen(aktuelleKarte);
-                // Aktualisiere Karte auf Spielfeld
-                spielfeld.setzeKartePosition(hand[i],2,i);
-                return;
-            }
-        }
-        // Falls die Hand schon voll ist
-        System.out.println("Hand ist voll!");
-    }
-    */
-
-
-    /**
+     /**
      * Funktion gibt die in einem gegebenen Index gespeicherte Karte zurück
      * @param index
      * @return karte
@@ -105,9 +81,17 @@ package unotempel.kartenspiel;
      * @param schaden - int Schaden der abgezogen werden soll
      * @return lebensenergie - int
      */
-    public int schadenZufuegen(int schaden){
-        lebensenergie = lebensenergie-schaden;
-        return lebensenergie;
+    public void schadenZufuegen(int schaden){
+        this.lebensenergie -= schaden;
+    }
+    
+    
+    public void lebenspunkteGewinnen(int punkte) {
+    	this.lebensenergie += punkte;
+    }
+    
+    public int getLebenspunkte() {
+        return this.lebensenergie;
     }
 
 
@@ -149,6 +133,9 @@ package unotempel.kartenspiel;
      * @return ausgewählteKarte
      */
     public abstract Karte karteSpielen(Karte aktuelleKarte, KartenStapel karten, boolean karteGezogen, Spielfeld spielfeld);
+
+
+	public abstract int neueFarbeAuswaehlen();
 
 
 } // Ende von Spieler

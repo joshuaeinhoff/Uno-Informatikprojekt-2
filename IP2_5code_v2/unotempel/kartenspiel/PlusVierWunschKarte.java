@@ -73,6 +73,14 @@ public class PlusVierWunschKarte extends Karte{
      * @param istAktuelleKarte - true, wenn die Karte die aktuelle Karte im Spiel entspricht - false, sonst
      */
     public void setzeKarteAuf(int j, int i, int x, int y, boolean istAktuelleKarte) {
+        /* // Warte 2 Sekunden darauf
+        this.karteform.waitFor(200);
+        this.rechteckGruen.waitFor(200);
+        this.rechteckRot.waitFor(200);
+        this.rechteckBlau.waitFor(200);
+        this.rechteckGelb.waitFor(200);
+        this.zahlOben.waitFor(200);
+        this.zahlUnten.waitFor(200); */
         // Variablen verschieben
         this.karteform.moveTo(x,y);
         this.rechteckGruen.moveTo(x+8,y+33);

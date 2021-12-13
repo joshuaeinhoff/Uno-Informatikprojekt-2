@@ -46,7 +46,7 @@ public abstract class Karte {
      */
    	public void setzeFarbe(String neueFarbe) {
    		this.farbe = neueFarbe;
-        System.out.println("Die neue Farbe der Karte ist " + this.farbe);
+        System.out.println("Die neue Farbe der Karte ist " + this.farbe + ".");
     }
 
 

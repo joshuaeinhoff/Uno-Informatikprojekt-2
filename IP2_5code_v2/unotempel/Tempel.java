@@ -14,6 +14,7 @@ public class Tempel {
     private Quizfragenpool fragenpoolOOP1;
     private Quizfragenpool fragenpoolOOP2;
     private Kartenspiel kartenspiel;
+    private Spieler monster;
 
     /**
      * Konstruktor zum Erzeugen einer Instanz der Klasse Tempel
@@ -51,7 +52,7 @@ public class Tempel {
      * @param quizNiveau
      * @param spieler
      */
-    public void quizLoesen(int quizNiveau, Spieler spieler) {
+    public void quizLoesen(int quizNiveau, Spieler held) {
     
     	// Einführungsdarstellung des Tempels aufrufen
         tempelEinfuehrung();
@@ -79,19 +80,21 @@ public class Tempel {
                 // Nachricht in der Konsole ausgeben
                 System.out.println("Frage falsch beantwortet: \n Held bekommt "+ schaden + " Schadenspunkte \n Probier nochmal!");
                 // Dem Spieler Schaden zufügen
-                int lebensenergie = spieler.schadenZufuegen(schaden);
+                held.schadenZufuegen(schaden);
                 // Lebensenergie des Spielers auf die Konsole ausgeben
-                System.out.println("Lebensenergie: " + lebensenergie);
-                // Bedingung überprüft, ob der Spieler noch Lebensenergie hat
-                if(lebensenergie <= 0) {
-                	// Hat der Spieler keine Lebenspunkte mehr, ist das Spiel zu ende
+                System.out.println("Held hat " + held.getLebenspunkte() + " Lebenspunkte.");
+                GUI.zeigeAktualisierteLebenspunkte(held);
+                // Bedingung überprüft, ob der Held noch Lebensenergie hat
+                if(held.getLebenspunkte() <= 0) {
+                	// Hat der Held keine Lebenspunkte mehr, ist das Spiel zu ende
                 	System.out.println("Game Over \n");
                     return;
                 }
             }
         }
         // Nachricht in der Konsole ausgeben
-        System.out.println("Frage richtig beantwortet: Glückwunsch!\n");
+        System.out.println("Frage richtig beantwortet: Glückwunsch!");
+        System.out.println("Held hat " + held.getLebenspunkte() + " Lebenspunkte.\n");
     }
     
     
@@ -132,35 +135,69 @@ public class Tempel {
         this.kartenspiel = new Kartenspiel();
     }
     
+    
 
     /**
      * Prozedur zum Kämpfen des Monsters im Tempel
      * @param spieler - Menschlicher Spieler als Parameter
      */
-    public void monsterKaempfen(Spieler spieler) {
+    public boolean monsterKaempfen(Spieler held) {        
+        kampfVorbereiten(held);
+        return heldHatMonsterBesiegt(held,false);
+    }
+    
+    
+    /**
+     * Prozedur zum Kämpfen des Monsters im Tempel
+     * @param spieler - Menschlicher Spieler als Parameter
+     */
+    private void kampfVorbereiten(Spieler held) {        
         // Fallunterscheidung: Nach dem Tempel-Niveau fragen
         switch(farbe) {
             case "blau":
-                // Kartenspiel vorbereiten
-                kartenspiel.spielVorbereiten(spieler, 1);
+            	// KIZufall erzeugen
+                this.monster = new KIZufall(50);
                 break;
             case "gelb":
-                // Kartenspiel vorbereiten
-                kartenspiel.spielVorbereiten(spieler, 2);
+            	// KIZufall erzeugen
+                this.monster = new KIZufall(75);
                 break;
             case "gruen":
-                // Kartenspiel vorbereiten
-                kartenspiel.spielVorbereiten(spieler, 3);
+            	// KISchlau erzeugen
+                this.monster = new KISchlau(50);
                 break;
             case "rot":
-                // Kartenspiel vorbereiten
-                kartenspiel.spielVorbereiten(spieler, 4);
+            	// KISchlau erzeugen
+                this.monster = new KISchlau(75);
                 break;
         }
-        System.out.println("Kartenspiel ist bereit!");
+        // Kartenspiel vorbereiten
+        kartenspiel.spielVorbereiten(held, monster);
+        // Meldung auf die Konsole ausgeben
+        System.out.println("Das Monster wartet darauf... Kartenspiel ist bereit!");
+    }
+    
+    
+    /**
+     * Prozedur zum Kämpfen des Monsters im Tempel
+     * @param spieler - Menschlicher Spieler als Parameter
+     */
+    public boolean heldHatMonsterBesiegt(Spieler held, boolean heldHatGewonnen) {        
         // Spielen
-        System.out.println("Spielen! \n");
-        kartenspiel.spielen();
+        System.out.println("Spielen!\n");
+        heldHatGewonnen = kartenspiel.spielen(held, monster);
+        // Solange der Held noch lebt und das Monster nicht besiegt hat
+        if(!heldHatGewonnen && held.getLebenspunkte() > 0) {
+        	return heldHatMonsterBesiegt(held, false);
+        }
+        // Bedingung überprüft, ob der Spieler noch Lebensenergie hat
+        if(held.getLebenspunkte() <= 0) {
+        	// Hat der Spieler keine Lebenspunkte mehr, ist das Spiel zu ende
+            System.out.println("Game Over\n");
+            return false;
+        }
+        // Gibt true zurück, wenn der Held das Monster besiegt hat
+        return true;
     }
 
 } // Ende von Tempel

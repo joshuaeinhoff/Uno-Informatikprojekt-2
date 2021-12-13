@@ -9,7 +9,7 @@ public class KISchlau extends Spieler{
      * Konstruktor ruft Superkonstruktor auf
      * @param _lebensenergie - Lebensenergie des Monsters
      */
-    KISchlau(int _lebensenergie){
+    public KISchlau(int _lebensenergie){
         super(_lebensenergie);
     }
 
@@ -23,22 +23,25 @@ public class KISchlau extends Spieler{
      * @return Karte zum Spielen
      */
     public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel, boolean karteGezogen,Spielfeld spielfeld){
+
         if(existiertKarte(aktuelleKarte,"Aussetzen")){  
-            return findKarte(aktuelleKarte,"Aussetzen");
+            return findKarte(aktuelleKarte,"Aussetzen",spielfeld);
         }else if(existiertKarte(aktuelleKarte, "Retour")){
-            return findKarte(aktuelleKarte,"Retour");
+            return findKarte(aktuelleKarte,"Retour",spielfeld);
         }else if(existiertKarte(aktuelleKarte,"PlusZwei")){
-            return findKarte(aktuelleKarte,"PlusZwei");
+            return findKarte(aktuelleKarte,"PlusZwei",spielfeld);
         }else if(existiertKarte(aktuelleKarte,"Farb")){
-            return findKarte(aktuelleKarte,"Farb");
+            return findKarte(aktuelleKarte,"Farb",spielfeld);
         }else if(existiertKarte(aktuelleKarte,"PlusVierWunsch")){
-            return findKarte(aktuelleKarte,"PlusVierWunsch");
+            return findKarte(aktuelleKarte,"PlusVierWunsch",spielfeld);
         }else if(existiertKarte(aktuelleKarte,"Wunsch")){
-            return findKarte(aktuelleKarte,"Wunsch");
+            return findKarte(aktuelleKarte,"Wunsch",spielfeld);
         } else if(!karteGezogen){
+        	System.out.println("KI zieht eine Karte ab.");
             karteZiehen(kartenStapel, aktuelleKarte,spielfeld);
             return karteSpielen(aktuelleKarte, kartenStapel, true,spielfeld);
         }else{
+        	System.out.println("KI hat keine spielbare Karten.");
             return null;
         }
     }
@@ -52,7 +55,7 @@ public class KISchlau extends Spieler{
      */
     public boolean existiertKarte(Karte aktuelleKarte, String kartenArt){
         for(int i = 0; i < hand.length;i++){
-            if(hand[i].istWelcheKarte(kartenArt)&&hand[i].istSpielbar(aktuelleKarte)){
+            if(hand[i] != null && hand[i].istWelcheKarte(kartenArt) && hand[i].istSpielbar(aktuelleKarte)){
                 return true;
             }
         }
@@ -66,12 +69,16 @@ public class KISchlau extends Spieler{
      * @param kartenArt - String um die Art der Karte zu identifiezieren ("PlusZwei","Aussetzen","Wunsch","PlusVierWunsch","Retour","Farb")
      * @return - Karte: passende Karte | Null: falls doch keine Karte gefunden wird... dürfte eigentlich nicht passieren
      */
-    public Karte findKarte(Karte aktuelleKarte,String kartenArt){
-        for(int i = 0; i < anzahlKarteHand(); i++){
-            if(hand[i].istWelcheKarte(kartenArt)&&hand[i].istSpielbar(aktuelleKarte)){
-            	// Karte auf der Hand auf null setzen
+    public Karte findKarte(Karte aktuelleKarte,String kartenArt, Spielfeld spielfeld){
+        for(int i = 0; i < hand.length; i++){
+            if(hand[i] != null && hand[i].istWelcheKarte(kartenArt) && hand[i].istSpielbar(aktuelleKarte)){
+            	Karte ausgewaehlteKarte = hand[i]; 
+                // Karte auf der Hand auf null setzen
             	karteAufNullSetzen(i);
-                return hand[i];
+                // DummyKarte auf Spielfeld auf null setzen
+                spielfeld.dummyKarteAufNullsetzen(i);
+                // Ausgewählte Karte zurückgeben
+                return ausgewaehlteKarte;
             }
         }
         return null;
@@ -84,10 +91,7 @@ public class KISchlau extends Spieler{
      * @param aktuelleKarte
      * @param spielfeld
      */
-    public void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld){
-        //OOP2
-        //hand.get(kartenStapel.karteZiehen());
-        
+    public void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld){        
         // Solange der Spieler noch Platz für Karten in der Hand hat, d.h. die Hand ist nicht voll
         for(int i = 0; i < hand.length; i++){
         	// Bedingung überprüft, ob die Karte in der Hand null ist, d.h. keine echte Karte an dieser Stelle
@@ -95,12 +99,55 @@ public class KISchlau extends Spieler{
             	// Gezogene Karte aus dem Stapel in der Hand hinzufügen
                 hand[i] = kartenStapel.karteZiehen(aktuelleKarte);
                 // Aktualisiere Karte auf Spielfeld
-                spielfeld.setzeKartePosition(hand[i],0,i);
+                spielfeld.setzeKartePosition(new DummyKarte(),0,i);
                 return;
             }
         }
         // Falls die Hand schon voll ist
         System.out.println("Hand ist voll!");
+    }
+    
+    
+    /**
+    *
+    * @return maxZahl
+    */
+    public int neueFarbeAuswaehlen() {
+    	String farbe = "";
+    	int[] farben = new int[4];
+    	for(Karte k : hand) {
+        	if(k != null) {
+            	farbe = k.getFarbe();
+            }
+            switch(farbe) {
+            	case "blau":
+                	farben[0] += 1;
+                	break;
+                case "gelb":
+                	farben[1] += 1;
+                	break;
+                case "gruen":
+                	farben[2] += 1;
+                	break;
+                case "rot":
+                	farben[3] += 1;
+                	break;
+            }
+        }
+        // Index von der maximalen Anzahl von Karten
+        int maxZahl = -1;
+        int index = -1;
+        for(int i = 0; i < farben.length; i++) {
+        	if(farben[i] >= maxZahl) {
+            	maxZahl = farben[i];
+            }
+        }
+        for(int i = 0; i < farben.length; i++) {
+        	if(farben[i] == maxZahl) {
+            	index = i;
+            }
+        }
+    	return index;
     }
 
 } // Ende von KISchlau

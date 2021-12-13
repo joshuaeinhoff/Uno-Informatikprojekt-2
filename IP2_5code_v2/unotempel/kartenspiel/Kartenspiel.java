@@ -10,11 +10,10 @@ public class Kartenspiel {
     // Eigenschaften einer Instanz von Kartenspiel
     private KartenStapel kartenStapel; // Stapel von Karten
     private Spielfeld spielfeld; // Spielfeld auf dem gespielt wird
-    // oder Map<K,V> -> Spieler, Punkte (OOP2)
     private int naechsterSpieler; // Nächster Spieler (0-1): 0 ist Held, 1 ist KI
     private Spieler[] spieler; // Array von Spielern: Held in Pos 0, KI in Pos 1
     private Karte aktuelleKarte; // Aktuelle Karte im Spiel, auf dem Spielfeld
-    
+  
     private String farben[] = { "blau", "gelb", "gruen", "rot" }; // mögliche Farben der Karten im Spiel 
 
 
@@ -72,12 +71,12 @@ public class Kartenspiel {
                 break;
             case 1:
                 // Nächster Spieler überspringen
-                System.out.println("Aktion der Karte: \nSpieler " + (naechsterSpieler+1)%2 + " wird übersprungen!");
+                System.out.println("Aktion der Karte: Spieler " + naechsterSpieler + " wird übersprungen!");
                 naechsterSpieler = (naechsterSpieler+1)%2;
                 break;
             case 2:
                 // Nächster Spieler zieht 2 Karten (naechsterSpieler ist der aktuelle Spieler)
-                System.out.println("Aktion der Karte: \nSpieler " + (naechsterSpieler+1)%2 + " muss 2 Karten ziehen!");
+                System.out.println("Aktion der Karte: Spieler " + (naechsterSpieler+1)%2 + " muss 2 Karten ziehen!");
                 for(int i = 0; i < 2; i++) {
                     spieler[(naechsterSpieler+1)%2].karteZiehen(kartenStapel, aktuelleKarte,spielfeld);
                 }
@@ -91,7 +90,7 @@ public class Kartenspiel {
                 // Neue Farbe auswählen
                 farbeAuswaehlen();
                 // Nächster Spieler zieht 4 Karten
-                System.out.println("Aktion der Karte: \nSpieler " + (naechsterSpieler+1)%2 + " muss 4 Karten ziehen!");
+                System.out.println("Aktion der Karte: Spieler " + (naechsterSpieler+1)%2 + " muss 4 Karten ziehen!");
                 for(int i = 0; i < 4; i++) {
                     spieler[(naechsterSpieler+1)%2].karteZiehen(kartenStapel, aktuelleKarte,spielfeld);
                 }
@@ -108,48 +107,41 @@ public class Kartenspiel {
      * Nur für WunschKarte und PlusVierWunschKarte
      */
     private void farbeAuswaehlen() {
-    	String neueFarbe = "";
+    	int index = 0;
     	// Prüfen, ob der menschliche Spieler eine neue Farbe auswählen muss
     	if(naechsterSpieler == 0) {
-        	// Mithilfe der Grafik_Konsole eine neue Farbe auswählen
-        	neueFarbe = GUI.farbeAuswaehlen();
+        	// Menschlicher Spieler wählt eine neue Farbe aus
+        	index = spieler[0].neueFarbeAuswaehlen();
         } else {
-        	// Zufälliger Wert wird ausgewählt
-            int zufallszahl = (int)(Math.random() * 4);
-            // Neue Farbe aus dem String-Array zufällig einsetzen
-            neueFarbe = farben[zufallszahl];
+        	// Spieler KI wählt eine neue Farbe aus
+            index = spieler[1].neueFarbeAuswaehlen();
         }
         // Neue Farbe einsetzen
-        aktuelleKarte.setzeFarbe(neueFarbe);
+        aktuelleKarte.setzeFarbe(farben[index]);
     }
 
 
     /**
      * Prozedur zum Vorbereiten des Kartenspiels
-     * @param sp - Spieler (Held)
-     * @param tempelNiveau - Niveau des Tempels
+     * @param held
+     * @param monster
      */
-    public void spielVorbereiten(Spieler sp, int tempelNiveau) {
+    public void spielVorbereiten(Spieler held, Spieler monster) {
+        // Spielfeld leer darstellen
+        spielfeld.stelleSpielfeldLeerDar();
         // KartenStapel mit Karten füllen
         kartenStapel.fuelleMitKarten();
-        // Spieler vorbereiten und KI je nach Tempel-Niveau erzeugen
-        spieler[0] = sp;
-        if(tempelNiveau == 1)
-            spieler[1] = new KIZufall(50);
-        if(tempelNiveau == 2)
-            spieler[1] = new KIZufall(80);
-        if(tempelNiveau == 3)
-            spieler[1] = new KISchlau(50);
-        if(tempelNiveau == 4)
-            spieler[1] = new KISchlau(50);
-        
-        // Karten verteilen
-        spieler[naechsterSpieler].ersteHand(kartenStapel,spielfeld);
-        spieler[(naechsterSpieler+1)%2].ersteHand(kartenStapel,spielfeld);
+        // Spieler vorbereiten und KI je nach Tempel-Niveau 
+        spieler[0] = held;
+        spieler[1] = monster;       
         
         // Erster Spieler auswählen
         setzeErsterSpieler();
         System.out.println("Spieler " + naechsterSpieler + " fängt an.");
+        
+        // Karten verteilen
+        spieler[naechsterSpieler].ersteHand(kartenStapel,spielfeld);
+        spieler[(naechsterSpieler+1)%2].ersteHand(kartenStapel,spielfeld);      
         
         // Erste Karte auf das Spielfeld legen und ggf. Aktion durchführen
         setzeAktuelleKarte(kartenStapel.karteZiehen(aktuelleKarte));
@@ -162,7 +154,7 @@ public class Kartenspiel {
     /**
      * Prozedur zum Spielen
      */
-    public void spielen() {   
+    public boolean spielen(Spieler held, Spieler monster) {   
     
         // Während einer der Spieler noch Karten hat
         while(spieler[0].anzahlKarteHand() > 0 && spieler[1].anzahlKarteHand() > 0) {
@@ -179,7 +171,6 @@ public class Kartenspiel {
             
             // Wenn die Methode karteSpielen() nicht null zurückgibt, wird die Karte abgelegt
             if(ausgewaehlteKarte != null) {
-                System.out.println("Spieler " + naechsterSpieler + " Karte " + ausgewaehlteKarte.toString());
                 // Ausgewählte Karte als aktuelle Karte einsetzen
                 setzeAktuelleKarte(ausgewaehlteKarte);
             }
@@ -213,16 +204,30 @@ public class Kartenspiel {
 
         // Spiel ist zu Ende, falls einer der Spieler keine Karte mehr hat
         if(spieler[0].anzahlKarteHand() == 0) {
+        	// Meldung auf die Konsole ausgeben
             System.out.println("Held hat gewonnen!");
-            //zeiht Schaden von der Lebensenergie des gegners ab
+            // Lebenspunkte für den menschlichen Spieler inkrementieren
+            spieler[0].lebenspunkteGewinnen(spieler[1].anzahlKarteHand() * 4);
+            // Darstellung der Lebenspunkte aktualisieren
+            GUI.zeigeAktualisierteLebenspunkte(spieler[0]);
+            System.out.println("Held hat " + spieler[0].getLebenspunkte() + " Lebenspunkte.");
+            // Schaden für den Spieler KI zufügen
             //spieler[1].schadenZufuegen(spieler[1].anzahlKartenHand()*10);
+            
+            // Gibt true zurück, falls der Held das Monster besiegt hat
+            return true;
         } else if(spieler[1].anzahlKarteHand() == 0) {
+        	// Meldung auf die Konsole ausgeben
             System.out.println("Monster hat gewonnen... Spieler wurde besiegt.");
-            //spieler[0].schadenZufuegen(spieler[1].anzahlKartenHand()*4);
-            // Schaden für den Spieler
-        } else {
-            System.out.println("Fehler");
-        }
+
+            // Schaden für den menschlichen Spieler zufügen
+            spieler[0].schadenZufuegen(spieler[1].anzahlKarteHand()*4);
+            // Darstellung der Lebenspunkte aktualisieren
+            GUI.zeigeAktualisierteLebenspunkte(spieler[0]);
+            System.out.println("Held hat " + spieler[0].getLebenspunkte() + " Lebenspunkte.");
+        } 
+        // Gibt false zurück, wenn der Held das Monster nicht besiegt hat
+        return false;
     }
 
 } // Ende von Kartenspiel

@@ -8,7 +8,9 @@ import unotempel.GUI;
  */
 public class Held extends Spieler {
 
+	// Variable für die Darstellung der Karten
 	int kartenVerschiebungsWert;
+
 
     /**
      * Konstruktor ruft Superkonstruktor auf und erzeugt einen menschlichen Spieler mit 100 Punkten Lebensenergie
@@ -34,32 +36,7 @@ public class Held extends Spieler {
         // Solange der Spieler noch spielbare Karten hat
         
 		while(spielbareKarteVorhanden(aktuelleKarte)) {       
-        	/*
-            verschieben = Konsole.eingabeString();
-            System.out.println(verschieben);
-            while(verschieben.compareTo("links") == 0 || verschieben.compareTo("rechts") == 0) {
-
-				if(verschieben.compareTo("links") == 0) {
-                    for(int j = 0; j < 10; j++) {
-                        if(hand[j] != null) {
-                            spielfeld.setzeKartePosition(hand[j],j,3);
-                        } else {
-                        	System.out.println("Du hast links keine Karten mehr!");
-                        }
-                    }
-                }    
-                if(verschieben.compareTo("rechts") == 0) {
-                    for(int j = 10; j < 20; j++) {
-                        if(hand[j] != null) {
-                            spielfeld.setzeKartePosition(hand[j],j,4);
-                        } else {
-                        	System.out.println("Du hast rechts keine Karten mehr!");
-                            break;
-                        }
-                    }
-                }
-            }
-            */
+        	
             this.handVerschieben(spielfeld);
             // Karte durch die Grafik Konsole auswählen
         	indexKarte = Konsole.eingabeZahl();
@@ -67,19 +44,18 @@ public class Held extends Spieler {
             //
            	if(indexKarte != -1){
                 // Prüfen, ob die ausgewählte Karte gespielt werden kann
-                if(getKarte(indexKarte+kartenVerschiebungsWert).istSpielbar(aktuelleKarte)) {
+                if(getKarte(indexKarte+kartenVerschiebungsWert) != null && getKarte(indexKarte+kartenVerschiebungsWert).istSpielbar(aktuelleKarte)) {
                     // Ja, ausgewählte Karte als Variable speichern
                     Karte ausgewaehlteKarte = getKarte(indexKarte+kartenVerschiebungsWert);
                     // Karte auf der Hand auf null setzen
                     karteAufNullSetzen(indexKarte+kartenVerschiebungsWert);
                     // Ausgewählte Karte wird zurückgegeben
-                    System.out.println("Held hat " + ausgewaehlteKarte.toString() + " ausgewählt!");
                     return ausgewaehlteKarte;
                 } else {
                     // Nein, Fehlermeldung auf die Konsole ausgeben
                     System.out.println("Wähle bitte eine geeignete Karte!");
                 }
-           }
+            }
         }
         
         // Solange der Spieler noch keine Karte gezogen hat
@@ -89,7 +65,7 @@ public class Held extends Spieler {
         	String eingabe = Konsole.eingabeString();
             // Prüfen, ob der Spieler auf den KartenStapel geklickt hat
             
-        	if(eingabe.compareTo("karteZiehen") == 0) {
+        	if(eingabe.equals("karteZiehen")) {
             	// Karte ziehen
                 karteZiehen(kartenStapel, aktuelleKarte,spielfeld);
                 
@@ -100,34 +76,36 @@ public class Held extends Spieler {
             	// Nein, Fehlermeldung auf die Konsole ausgeben
                 System.out.println("Ziehe bitte eine Karte ab.");
             }
-        
         }
         System.out.println("Held hat keine spielbare Karten.");
         // Null zurückgeben, falls keine spielbare Karte vorhanden
 		return null;
-
     }
     
-    public void handVerschieben(Spielfeld spielfeld){
     
+    /*
+    * Prozedur zum Verschieben der Karten auf der Kand
+    * @param spielfeld
+    */
+    public void handVerschieben(Spielfeld spielfeld){
+    	// Variable für das Verschieben
     	String verschieben;
-        
-    	if(hand.length > 0){
-        
+        // Prüfen, ob der Held Karten auf der Hand hat
+    	if(anzahlKarteHand() > 0){
+        	// Eingabe durch die Konsole lesen
         	verschieben = Konsole.eingabeString();
-            
+            // 
             if(verschieben.equals("links") && kartenVerschiebungsWert > 0){
             	kartenVerschiebungsWert--;
                 spielfeld.kartenVerschobenDarstellen(kartenVerschiebungsWert,this);
             }
-        	
+        	// 
             if(verschieben.equals("rechts") && kartenVerschiebungsWert < 10){
             	kartenVerschiebungsWert++;
             	spielfeld.kartenVerschobenDarstellen(kartenVerschiebungsWert,this);
             }
-        }//end of while
-    }//end of handVerschieben
-    
+        } // end of while
+    } // end of handVerschieben
     
     
     /**
@@ -150,6 +128,12 @@ public class Held extends Spieler {
         }
         // Meldung auf die Konsol, falls die Hand schon voll ist
         System.out.println("Hand ist voll!");
+    }
+    
+    
+    public int neueFarbeAuswaehlen() {
+    	// Mithilfe der Grafik_Konsole eine neue Farbe auswählen
+    	return GUI.farbeAuswaehlen();
     }
 
 } // Ende von Held

@@ -33,6 +33,14 @@
 			"content": [
 				{
 					"type": "document",
+					"path": "::dir\\unotempel\\Spiel.java"
+				},
+				{
+					"type": "document",
+					"path": "::dir\\unotempel\\GUI.java"
+				},
+				{
+					"type": "document",
 					"path": "::dir\\unotempel\\kartenspiel\\Kartenspiel.java"
 				},
 				{
@@ -41,28 +49,20 @@
 				},
 				{
 					"type": "document",
-					"path": "::dir\\unotempel\\kartenspiel\\Spielfeld.java",
+					"path": "::dir\\unotempel\\kartenspiel\\KIZufall.java"
+				},
+				{
+					"type": "document",
+					"path": "::dir\\unotempel\\Tempel.java",
 					"active": true,
 					"cursor": {
-						"line": 120,
-						"ch": 6
+						"line": 190,
+						"ch": 37
 					}
 				},
 				{
 					"type": "document",
-					"path": "::dir\\unotempel\\GUI.java"
-				},
-				{
-					"type": "document",
-					"path": "::dir\\unotempel\\kartenspiel\\Karte.java"
-				},
-				{
-					"type": "document",
-					"path": "::dir\\unotempel\\Tempel.java"
-				},
-				{
-					"type": "document",
-					"path": "::dir\\unotempel\\kartenspiel\\DummyKarte.java"
+					"path": "::dir\\unotempel\\quiz\\Quizfragenpool.java"
 				}
 			],
 			"type": 1,
@@ -76,23 +76,15 @@
 				},
 				{
 					"type": "document",
-					"path": "::dir\\unotempel\\kartenspiel\\FarbKarte.java"
-				},
-				{
-					"type": "document",
-					"path": "::dir\\unotempel\\kartenspiel\\RetourKarte.java"
-				},
-				{
-					"type": "document",
 					"path": "::dir\\unotempel\\kartenspiel\\Held.java"
 				},
 				{
 					"type": "document",
-					"path": "::dir\\unotempel\\kartenspiel\\KIZufall.java",
+					"path": "::dir\\unotempel\\kartenspiel\\KISchlau.java",
 					"active": true,
 					"cursor": {
-						"line": 40,
-						"ch": 63
+						"line": 36,
+						"ch": 9
 					}
 				}
 			],
@@ -120,8 +112,8 @@
 				true
 			],
 			"dimension": [
-				40.59522155121393,
-				59.40477844878607
+				57.31697967706076,
+				42.68302032293924
 			]
 		},
 		"split2_right": {
@@ -148,8 +140,8 @@
 		},
 		"split_columns": {
 			"dimension": [
-				48.55891813853675,
-				51.44108186146325
+				56.873545459078606,
+				43.126454540921394
 			]
 		}
 	},
@@ -336,6 +328,6 @@
 		}
 	],
 	"flowMap": [],
-	"activities": "U2FsdGVkX19zoZilRKszHVhy4W98LD/LZixv+I2Xl/o=",
-	"lastSaveDate": "2021-12-10T16:24:02.536Z"
+	"activities": "U2FsdGVkX18Nl4oD1Heg5X89xDI/j59S2HgxHSBBMhs=",
+	"lastSaveDate": "2021-12-13T15:55:32.928Z"
 }

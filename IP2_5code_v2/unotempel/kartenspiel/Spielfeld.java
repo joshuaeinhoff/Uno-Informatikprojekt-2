@@ -90,15 +90,23 @@ public class Spielfeld {
     }
     
 
+	/**
+     * Methode die als erstes Aufgerufen wird um das Spielfeld initial zu füllen
+     * @param player - Held damit die Karten die auf der Hand sind angzeigt werden können
+     * @param aktuelleKarte - zufällige Karte die am Anfang vom Spiel generiert wird
+     */
+    public void stelleSpielfeldLeerDar() {
+        // Spielfeld erstmal leer darstellen
+        GUI.stelleSpielfeldBereit(groesseX,groesseY);
+    }
+
+
     /**
      * Methode die als erstes Aufgerufen wird um das Spielfeld initial zu füllen
      * @param player - Held damit die Karten die auf der Hand sind angzeigt werden können
      * @param aktuelleKarte - zufällige Karte die am Anfang vom Spiel generiert wird
      */
     public void ersteFuelleSpielfeld(Karte[] kartenMenschlichSpieler, Karte aktuelleKarte) {
-        // Spielfeld erstmal leer darstellen
-        GUI.stelleSpielfeldBereit(groesseX,groesseY);       
-
         // Karten vom KI Spieler auf das Spielfeld setzen
         for(int i = 0; i < 7; i++) {
             // Karte im entsprechenden Index speichern

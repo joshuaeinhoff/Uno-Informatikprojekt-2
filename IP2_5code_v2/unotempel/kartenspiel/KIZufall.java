@@ -9,7 +9,7 @@ public class KIZufall extends Spieler{
      * Konstruktor ruft Superkonstruktor auf
      * @param _lebensenergie - Lebensenergie des Monsters
      */
-    KIZufall(int _lebensenergie){
+    public KIZufall(int _lebensenergie){
         super(_lebensenergie);
     }
 
@@ -22,39 +22,35 @@ public class KIZufall extends Spieler{
      * @param spielfeld
      * @return Karte zum Spielen
      */
-    public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel,boolean karteGezogen,Spielfeld spielfeld){
-        
-        //Testen
-        System.out.println("KI hat " + anzahlKarteHand() + " Karten");
-        
+    public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel, boolean karteGezogen, Spielfeld spielfeld){
         // Wenn der Spieler noch spielbare Karten auf der Hand hat
         while(spielbareKarteVorhanden(aktuelleKarte)){
             // Zufällige Zahl zwischen 0 und hand.length-1
             int zufallszahl = (int) (Math.random() * hand.length);
 
             // Wenn eine Karte zufällig ausgewählt wird und die Karte gespielt werden kann
-            if(getKarte(zufallszahl) != null && getKarte(zufallszahl).istSpielbar(aktuelleKarte)){
-            	Karte ausgewaehlteKarte = getKarte(zufallszahl);
+            if(hand[zufallszahl] != null && hand[zufallszahl].istSpielbar(aktuelleKarte)) {
+            	Karte ausgewaehlteKarte = hand[zufallszahl];
             	// Karte auf der Hand auf null setzen
                 karteAufNullSetzen(zufallszahl);
-                // Karte zurückgeben
+                // DummyKarte auf Spielfeld auf null setzen
                 spielfeld.dummyKarteAufNullsetzen(zufallszahl);
-                System.out.println("KI Karte " + ausgewaehlteKarte.toString());
+                // Ausgewählte Karte zurückgeben
                 return ausgewaehlteKarte;
             }
         }
-        // Wenn der Spieler keine spielbare Karte hat und in seinem Zug noch keine Karte gezogen hat
+        // Solange der Spieler keine spielbare Karte hat und in seinem Zug noch keine Karte gezogen hat
         while(!karteGezogen) {
             // Karte ziehen
-            karteZiehen(kartenStapel, aktuelleKarte,spielfeld);
+            karteZiehen(kartenStapel,aktuelleKarte,spielfeld);
             karteGezogen = true;
-            System.out.println("KI zieht eine Karte");
+            System.out.println("KI zieht eine Karte ab.");
             // Versuch Karte zu spielen, diesmal karteGezogen wird auf true gesetzt
             return karteSpielen(aktuelleKarte, kartenStapel,true,spielfeld);
-        // Wenn der Spieler keine spielbare Karte hat und schon eine Karte gezogen hat
         }
-        // Keine spielbare Karte vorhanden
-        System.out.println("KI hat keine spielbare Karten");
+        // Wenn der Spieler keine spielbare Karte hat und schon eine Karte gezogen hat
+        System.out.println("KI hat keine spielbare Karten.");
+        // null zurückgeben
         return null;
     }
     
@@ -66,9 +62,6 @@ public class KIZufall extends Spieler{
      * @param spielfeld
      */
     public void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld){
-        //OOP2
-        //hand.get(kartenStapel.karteZiehen());
-        
         // Solange der Spieler noch Platz für Karten in der Hand hat, d.h. die Hand ist nicht voll
         for(int i = 0; i < hand.length; i++){
         	// Bedingung überprüft, ob die Karte in der Hand null ist, d.h. keine echte Karte an dieser Stelle
@@ -77,11 +70,17 @@ public class KIZufall extends Spieler{
                 hand[i] = kartenStapel.karteZiehen(aktuelleKarte);
                 // Aktualisiere Karte auf Spielfeld
                 spielfeld.setzeKartePosition(new DummyKarte(),0,i);
+                // Schleife unterbrechen
                 return;
             }
         }
-        // Falls die Hand schon voll ist
+        // Meldung auf die Konsole ausgeben, falls die Hand schon voll ist
         System.out.println("Hand ist voll!");
+    }
+    
+    
+    public int neueFarbeAuswaehlen() {
+    	return (int)(Math.random() * 4);
     }
 
 } // Ende von KIZufall

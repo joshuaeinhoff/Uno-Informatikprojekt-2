@@ -35,7 +35,10 @@ public class DummyKarte extends Karte{
     * @param farbe - Farbe der Karte
     */  
 	public void erzeugeVisuelleKarte(String farbe) {
-    	this.karteform = new Rechteck(0, 0, 50, 100, GUI.farbeGrau, GUI.farbeWeiss, 2, 10, ""); 
+    	// Variable initialisieren
+    	this.karteform = new Rechteck(0, 0, 50, 100, GUI.farbeGrau, GUI.farbeWeiss, 2, 10, "");
+        // Variable verstecken
+        versteckeKarte();
     }
     
 
@@ -48,7 +51,10 @@ public class DummyKarte extends Karte{
      * @param istAktuelleKarte - true, wenn die Karte die aktuelle Karte im Spiel entspricht - false, sonst
      */
     public void setzeKarteAuf(int j, int i, int x, int y, boolean istAktuelleKarte) {
-    	erzeugeVisuelleKarte("grau");
+    	// Visuelle Darstellung der Karte erstellen
+        erzeugeVisuelleKarte("grau");
+        // Warte 2 Sekunden darauf
+        this.karteform.waitFor(200);
         // Variablen verschieben
         this.karteform.moveTo(x,y);
         // Variablen anzeigen
@@ -60,8 +66,10 @@ public class DummyKarte extends Karte{
      * Prozedur versteckt eine Karte
      */
     public void versteckeKarte() {
-        // Variablen verstecken
-        this.karteform.hide();
+        if(this.karteform != null) {
+            // Variablen verstecken
+            this.karteform.hide();
+        }
     }
 
 
