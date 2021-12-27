@@ -201,9 +201,9 @@ public class Quizfragenpool {
      * @param zufallsZahl - gegebener Index
      * @return true, wenn die Frage richtig beantwortet wird - false, sonst
      */
-    public boolean quizfrageRichtigBeantwortet(int zufallsZahl) {
+    public boolean quizfrageRichtigBeantwortet(int zufallsZahl, GUI gui) {
         // Quizfrage darstellen, Funktion in GUI aufrufen und Rückgabeparameter als char-Variable speichern
-        char ausgewaehlteAntwort = GUI.quizDarstellen(quizfragen[zufallsZahl].getFrage(), quizfragen[zufallsZahl].getAntwortmoeglichkeiten());
+        char ausgewaehlteAntwort = gui.quizDarstellen(quizfragen[zufallsZahl].getFrage(), quizfragen[zufallsZahl].getAntwortmoeglichkeiten());
         
         // Bedingung prüft, ob die ausgewählte Antwort richtig ist
         if(ausgewaehlteAntwort == quizfragen[zufallsZahl].getRichtigeAntwort())

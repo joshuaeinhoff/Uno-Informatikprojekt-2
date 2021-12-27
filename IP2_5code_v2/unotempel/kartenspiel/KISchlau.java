@@ -1,5 +1,7 @@
 package unotempel.kartenspiel;
 
+import unotempel.GUI;
+
 /**
  * Klasse KIZufall stellt einen komplizierten KI-Gegner dar
  */
@@ -22,7 +24,7 @@ public class KISchlau extends Spieler{
      * @param spielfeld
      * @return Karte zum Spielen
      */
-    public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel, boolean karteGezogen,Spielfeld spielfeld){
+    public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel, boolean karteGezogen, Spielfeld spielfeld, GUI gui){
 
         if(existiertKarte(aktuelleKarte,"Aussetzen")){  
             return findKarte(aktuelleKarte,"Aussetzen",spielfeld);
@@ -38,8 +40,8 @@ public class KISchlau extends Spieler{
             return findKarte(aktuelleKarte,"Wunsch",spielfeld);
         } else if(!karteGezogen){
         	System.out.println("KI zieht eine Karte ab.");
-            karteZiehen(kartenStapel, aktuelleKarte,spielfeld);
-            return karteSpielen(aktuelleKarte, kartenStapel, true,spielfeld);
+            karteZiehen(kartenStapel, aktuelleKarte,spielfeld,gui);
+            return karteSpielen(aktuelleKarte, kartenStapel, true,spielfeld,gui);
         }else{
         	System.out.println("KI hat keine spielbare Karten.");
             return null;
@@ -91,7 +93,7 @@ public class KISchlau extends Spieler{
      * @param aktuelleKarte
      * @param spielfeld
      */
-    public void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld){        
+    public void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld, GUI gui){
         // Solange der Spieler noch Platz für Karten in der Hand hat, d.h. die Hand ist nicht voll
         for(int i = 0; i < hand.length; i++){
         	// Bedingung überprüft, ob die Karte in der Hand null ist, d.h. keine echte Karte an dieser Stelle
@@ -99,7 +101,7 @@ public class KISchlau extends Spieler{
             	// Gezogene Karte aus dem Stapel in der Hand hinzufügen
                 hand[i] = kartenStapel.karteZiehen(aktuelleKarte);
                 // Aktualisiere Karte auf Spielfeld
-                spielfeld.setzeKartePosition(new DummyKarte(),0,i);
+                spielfeld.setzeKartePosition(new DummyKarte(),0,i,gui);
                 return;
             }
         }
@@ -112,7 +114,7 @@ public class KISchlau extends Spieler{
     *
     * @return maxZahl
     */
-    public int neueFarbeAuswaehlen() {
+    public int neueFarbeAuswaehlen(GUI gui) {
     	String farbe = "";
     	int[] farben = new int[4];
     	for(Karte k : hand) {

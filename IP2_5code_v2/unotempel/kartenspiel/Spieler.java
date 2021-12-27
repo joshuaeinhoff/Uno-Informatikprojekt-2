@@ -1,5 +1,7 @@
 package unotempel.kartenspiel;
 
+import unotempel.GUI;
+
 /**
  * Abstrakte Superklasse für den menschlichen Spieler und die SpielerKIs(Schwierigkeiten)
  */
@@ -30,10 +32,10 @@ package unotempel.kartenspiel;
      * @param kartenStapel
      * @param spielfeld
      */
-    public void ersteHand(KartenStapel kartenStapel, Spielfeld spielfeld){
+    public void ersteHand(KartenStapel kartenStapel, Spielfeld spielfeld, GUI gui){
         for(int i = 0; i < 7; i++){
             // Karte aus Stapel ziehen, aktuelle Karte ist null am Spielanfang
-            karteZiehen(kartenStapel, null,spielfeld);
+            karteZiehen(kartenStapel, null,spielfeld, gui);
         }
         System.out.println("Erste Hand des Spielers wurde erzeugt.");
     }
@@ -122,7 +124,7 @@ package unotempel.kartenspiel;
      * @param aktuelleKarte
      * @param spielfeld
      */
-	public abstract void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld);
+	public abstract void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld, GUI gui);
     
     /**
      * Prozedur zum Spielen einer Karte
@@ -132,10 +134,10 @@ package unotempel.kartenspiel;
      * @param spielfeld
      * @return ausgewählteKarte
      */
-    public abstract Karte karteSpielen(Karte aktuelleKarte, KartenStapel karten, boolean karteGezogen, Spielfeld spielfeld);
+    public abstract Karte karteSpielen(Karte aktuelleKarte, KartenStapel karten, boolean karteGezogen, Spielfeld spielfeld,GUI gui);
 
 
-	public abstract int neueFarbeAuswaehlen();
+	public abstract int neueFarbeAuswaehlen(GUI gui);
 
 
 } // Ende von Spieler

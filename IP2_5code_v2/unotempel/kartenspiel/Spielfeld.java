@@ -34,7 +34,7 @@ public class Spielfeld {
      * @param y - Koordinate der Karte auf dem Spielfeld in int
      * @param x - Koordinate der Karte auf dem Spielfeld in int
      */
-    public void setzeKartePosition(Karte karte, int y, int x) {
+    public void setzeKartePosition(Karte karte, int y, int x,GUI gui) {
         int j = x;
         int i = y;
         if(x > 9) {
@@ -47,10 +47,10 @@ public class Spielfeld {
         if(y > 2)
         	y = 2;
         if(x < 10)
-        	GUI.setzeKarteAufSpielfeld(karte,x,y);
+        	gui.setzeKarteAufSpielfeld(karte,x,y);
     }
     
-    public void kartenVerschobenDarstellen(int kartenVerschiebung,Spieler held){
+    public void kartenVerschobenDarstellen(int kartenVerschiebung,Spieler held,GUI gui){
     	
 		if(kartenVerschiebung >= 0 && kartenVerschiebung < 10){
         	for(int i = 0; i < 10; i++){
@@ -60,9 +60,9 @@ public class Spielfeld {
                 }
             }
             
-            for(int i = 0+kartenVerschiebung; i < 10+kartenVerschiebung; i++){
+            for(int i = kartenVerschiebung; i < 10+kartenVerschiebung; i++){
             	if(held.getKarte(i) != null){
-            		this.setzeKartePosition(held.getKarte(i),3,i-kartenVerschiebung);
+            		this.setzeKartePosition(held.getKarte(i),3,i-kartenVerschiebung,gui);
                 }
             }
             
@@ -72,9 +72,9 @@ public class Spielfeld {
     
     
     
-    public void setzeAktuelleKarte(Karte karte) {
+    public void setzeAktuelleKarte(Karte karte,GUI gui) {
         spielfeld[2][3] = karte;
-        GUI.setzeKarteAufSpielfeld(karte,3,1); // 2 -> 1
+        gui.setzeKarteAufSpielfeld(karte,3,1); // 2 -> 1
     }
 
 
@@ -92,33 +92,30 @@ public class Spielfeld {
 
 	/**
      * Methode die als erstes Aufgerufen wird um das Spielfeld initial zu füllen
-     * @param player - Held damit die Karten die auf der Hand sind angzeigt werden können
-     * @param aktuelleKarte - zufällige Karte die am Anfang vom Spiel generiert wird
      */
-    public void stelleSpielfeldLeerDar() {
+    public void stelleSpielfeldLeerDar(GUI gui) {
         // Spielfeld erstmal leer darstellen
-        GUI.stelleSpielfeldBereit(groesseX,groesseY);
+        gui.stelleSpielfeldBereit(groesseX,groesseY);
     }
 
 
     /**
      * Methode die als erstes Aufgerufen wird um das Spielfeld initial zu füllen
-     * @param player - Held damit die Karten die auf der Hand sind angzeigt werden können
      * @param aktuelleKarte - zufällige Karte die am Anfang vom Spiel generiert wird
      */
-    public void ersteFuelleSpielfeld(Karte[] kartenMenschlichSpieler, Karte aktuelleKarte) {
+    public void ersteFuelleSpielfeld(Karte[] kartenMenschlichSpieler, Karte aktuelleKarte,GUI gui) {
         // Karten vom KI Spieler auf das Spielfeld setzen
         for(int i = 0; i < 7; i++) {
             // Karte im entsprechenden Index speichern
-            setzeKartePosition(new DummyKarte(),0,i);
+            setzeKartePosition(new DummyKarte(),0,i,gui);
         }
 
         // Random Starterkarte die übergeben wird
-        setzeKartePosition(aktuelleKarte,1,3);
+        setzeKartePosition(aktuelleKarte,1,3,gui);
 
         // Karten vom menschlichen Spieler auf das Spielfeld setzen
         for(int i = 0; i < 7; i++) {
-            setzeKartePosition(kartenMenschlichSpieler[i],3,i);
+            setzeKartePosition(kartenMenschlichSpieler[i],3,i,gui);
         }
 
     }
@@ -130,10 +127,10 @@ public class Spielfeld {
      * @param kartenSpielerKI
      * @param aktuelleKarte
      */
-    public void aktualisiereSpielfeld(Karte[] kartenMenschlichSpieler, Karte[] kartenSpielerKI, Karte aktuelleKarte) {
+    public void aktualisiereSpielfeld(Karte[] kartenMenschlichSpieler, Karte[] kartenSpielerKI, Karte aktuelleKarte,GUI gui) {
     
     	// Random Starterkarte die übergeben wird
-        setzeKartePosition(aktuelleKarte,1,3);
+        setzeKartePosition(aktuelleKarte,1,3,gui);
     
     
     }

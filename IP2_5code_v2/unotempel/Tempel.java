@@ -50,12 +50,12 @@ public class Tempel {
     /**
      * Prozedur zum Quizlösen
      * @param quizNiveau
-     * @param spieler
+     * @param held
      */
-    public void quizLoesen(int quizNiveau, Spieler held) {
+    public void quizLoesen(int quizNiveau, Spieler held, GUI gui) {
     
     	// Einführungsdarstellung des Tempels aufrufen
-        tempelEinfuehrung();
+        tempelEinfuehrung(gui);
       	
         // Rätsel lösen
         boolean istRichtig = false;
@@ -69,11 +69,11 @@ public class Tempel {
             if(quizNiveau == 1) {
                 // Zufallsfrage aus Fragenpool zu OOP1 auswählen und als Variable speichern
                 zufallsZahl = rand.nextInt(fragenpoolOOP1.anzahlQuizfragen());
-                istRichtig = fragenpoolOOP1.quizfrageRichtigBeantwortet(zufallsZahl);
+                istRichtig = fragenpoolOOP1.quizfrageRichtigBeantwortet(zufallsZahl, gui);
             } else if(quizNiveau == 2) {
                 // Zufallsfrage aus Fragenpool zu OOP2 auswählen und als Variable speichern
                 zufallsZahl = rand.nextInt(fragenpoolOOP2.anzahlQuizfragen());
-                istRichtig = fragenpoolOOP2.quizfrageRichtigBeantwortet(zufallsZahl);
+                istRichtig = fragenpoolOOP2.quizfrageRichtigBeantwortet(zufallsZahl, gui);
             }
 			// Bedingung überprüft, ob die Quizfrage falsch beantwortet wurde
             if(!istRichtig) {
@@ -83,7 +83,7 @@ public class Tempel {
                 held.schadenZufuegen(schaden);
                 // Lebensenergie des Spielers auf die Konsole ausgeben
                 System.out.println("Held hat " + held.getLebenspunkte() + " Lebenspunkte.");
-                GUI.zeigeAktualisierteLebenspunkte(held);
+                gui.zeigeAktualisierteLebenspunkte(held);
                 // Bedingung überprüft, ob der Held noch Lebensenergie hat
                 if(held.getLebenspunkte() <= 0) {
                 	// Hat der Held keine Lebenspunkte mehr, ist das Spiel zu ende
@@ -101,7 +101,7 @@ public class Tempel {
     /**
      * Private Prozedur bereitet die Darstellung zur Einführung in den Tempel vor
      */
-	private void tempelEinfuehrung() {
+	private void tempelEinfuehrung(GUI gui) {
     	// Element als String für den Namen des Tempels erzeugen
         String element = "";
         // Fallunterscheidung
@@ -122,14 +122,12 @@ public class Tempel {
         // Begrüßungsnachricht für den Held, wenn er versucht, den Tempel zu betreten
         String begruessungsNachricht[] = {"Solltest du den " + element + "-Tempel betreten möchten,", "musst du deine Weisheit zeigen,", "indem du ein Rätsel löst."};
         // Aufruf zum Darstellen der Begrüßungsnachricht 
-        GUI.begruessungsnachrichtDarstellen(begruessungsNachricht);
+        gui.begruessungsnachrichtDarstellen(begruessungsNachricht);
     }
 
 
     /**
      * Prozedur zum Erzeugen eines Kartenspiels
-     * @param y - Spielfeld größe in Y Richtung
-     * @param x - Spielfeld größe in X Richtung
      */
     public void kartenspielErzeugen() {
         this.kartenspiel = new Kartenspiel();
@@ -139,19 +137,19 @@ public class Tempel {
 
     /**
      * Prozedur zum Kämpfen des Monsters im Tempel
-     * @param spieler - Menschlicher Spieler als Parameter
+     * @param held - Menschlicher Spieler als Parameter
      */
-    public boolean monsterKaempfen(Spieler held) {        
-        kampfVorbereiten(held);
-        return heldHatMonsterBesiegt(held,false);
+    public boolean monsterKaempfen(Spieler held, GUI gui) {
+        kampfVorbereiten(held, gui);
+        return heldHatMonsterBesiegt(held,false,gui);
     }
     
     
     /**
      * Prozedur zum Kämpfen des Monsters im Tempel
-     * @param spieler - Menschlicher Spieler als Parameter
+     * @param held - Menschlicher Spieler als Parameter
      */
-    private void kampfVorbereiten(Spieler held) {        
+    private void kampfVorbereiten(Spieler held, GUI gui) {
         // Fallunterscheidung: Nach dem Tempel-Niveau fragen
         switch(farbe) {
             case "blau":
@@ -172,7 +170,7 @@ public class Tempel {
                 break;
         }
         // Kartenspiel vorbereiten
-        kartenspiel.spielVorbereiten(held, monster);
+        kartenspiel.spielVorbereiten(held, monster, gui);
         // Meldung auf die Konsole ausgeben
         System.out.println("Das Monster wartet darauf... Kartenspiel ist bereit!");
     }
@@ -180,15 +178,15 @@ public class Tempel {
     
     /**
      * Prozedur zum Kämpfen des Monsters im Tempel
-     * @param spieler - Menschlicher Spieler als Parameter
+     * @param held - Menschlicher Spieler als Parameter
      */
-    public boolean heldHatMonsterBesiegt(Spieler held, boolean heldHatGewonnen) {        
+    public boolean heldHatMonsterBesiegt(Spieler held, boolean heldHatGewonnen,GUI gui) {
         // Spielen
         System.out.println("Spielen!\n");
-        heldHatGewonnen = kartenspiel.spielen(held, monster);
+        heldHatGewonnen = kartenspiel.spielen(held, monster,gui);
         // Solange der Held noch lebt und das Monster nicht besiegt hat
         if(!heldHatGewonnen && held.getLebenspunkte() > 0) {
-        	return heldHatMonsterBesiegt(held, false);
+        	return heldHatMonsterBesiegt(held, false,gui);
         }
         // Bedingung überprüft, ob der Spieler noch Lebensenergie hat
         if(held.getLebenspunkte() <= 0) {

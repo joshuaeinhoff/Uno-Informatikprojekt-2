@@ -1,5 +1,7 @@
 package unotempel.kartenspiel;
 
+import unotempel.GUI;
+
 /**
  * Klasse KIZufall stellt einen einfachen KI-Gegner dar
  */
@@ -22,7 +24,7 @@ public class KIZufall extends Spieler{
      * @param spielfeld
      * @return Karte zum Spielen
      */
-    public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel, boolean karteGezogen, Spielfeld spielfeld){
+    public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel, boolean karteGezogen, Spielfeld spielfeld,GUI gui){
         // Wenn der Spieler noch spielbare Karten auf der Hand hat
         while(spielbareKarteVorhanden(aktuelleKarte)){
             // Zufällige Zahl zwischen 0 und hand.length-1
@@ -42,11 +44,11 @@ public class KIZufall extends Spieler{
         // Solange der Spieler keine spielbare Karte hat und in seinem Zug noch keine Karte gezogen hat
         while(!karteGezogen) {
             // Karte ziehen
-            karteZiehen(kartenStapel,aktuelleKarte,spielfeld);
+            karteZiehen(kartenStapel,aktuelleKarte,spielfeld,gui);
             karteGezogen = true;
             System.out.println("KI zieht eine Karte ab.");
             // Versuch Karte zu spielen, diesmal karteGezogen wird auf true gesetzt
-            return karteSpielen(aktuelleKarte, kartenStapel,true,spielfeld);
+            return karteSpielen(aktuelleKarte, kartenStapel,true,spielfeld,gui);
         }
         // Wenn der Spieler keine spielbare Karte hat und schon eine Karte gezogen hat
         System.out.println("KI hat keine spielbare Karten.");
@@ -61,7 +63,7 @@ public class KIZufall extends Spieler{
      * @param aktuelleKarte
      * @param spielfeld
      */
-    public void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld){
+    public void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld, GUI gui){
         // Solange der Spieler noch Platz für Karten in der Hand hat, d.h. die Hand ist nicht voll
         for(int i = 0; i < hand.length; i++){
         	// Bedingung überprüft, ob die Karte in der Hand null ist, d.h. keine echte Karte an dieser Stelle
@@ -69,7 +71,7 @@ public class KIZufall extends Spieler{
             	// Gezogene Karte aus dem Stapel in der Hand hinzufügen
                 hand[i] = kartenStapel.karteZiehen(aktuelleKarte);
                 // Aktualisiere Karte auf Spielfeld
-                spielfeld.setzeKartePosition(new DummyKarte(),0,i);
+                spielfeld.setzeKartePosition(new DummyKarte(),0,i,gui);
                 // Schleife unterbrechen
                 return;
             }
@@ -79,7 +81,7 @@ public class KIZufall extends Spieler{
     }
     
     
-    public int neueFarbeAuswaehlen() {
+    public int neueFarbeAuswaehlen(GUI gui) {
     	return (int)(Math.random() * 4);
     }
 

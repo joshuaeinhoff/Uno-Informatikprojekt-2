@@ -19,8 +19,6 @@ public class Kartenspiel {
 
     /**
      * Konstruktor zum Erzeugen eines Kartenspiels für 2 Spieler
-     * @param spielfeldGroesseY 
-     * @param spielfeldGroesseX 
      */
     public Kartenspiel() {
         this.kartenStapel = new KartenStapel();
@@ -49,7 +47,7 @@ public class Kartenspiel {
      *  4 -> Farbe auswöhlen und 4 Karten ziehen
      * @param karte - Karte zum Ablegen
      */
-    private void setzeAktuelleKarte(Karte karte) {
+    private void setzeAktuelleKarte(Karte karte,GUI gui) {
         if(aktuelleKarte != null) {
             // Aktuelle Karte verstecken
             aktuelleKarte.versteckeKarte();
@@ -60,7 +58,7 @@ public class Kartenspiel {
         // AblageStapel aktualisieren
         kartenStapel.setzeKarteAblageStapel(aktuelleKarte);
         // Aktuelle Karte visuell darstellen
-        spielfeld.setzeAktuelleKarte(aktuelleKarte);
+        spielfeld.setzeAktuelleKarte(aktuelleKarte,gui);
         // Funktion aufrufen, die einen int-Wert mit dem Code zurückgibt
         int code = aktuelleKarte.aktionDurchfuehren();
                 
@@ -78,23 +76,23 @@ public class Kartenspiel {
                 // Nächster Spieler zieht 2 Karten (naechsterSpieler ist der aktuelle Spieler)
                 System.out.println("Aktion der Karte: Spieler " + (naechsterSpieler+1)%2 + " muss 2 Karten ziehen!");
                 for(int i = 0; i < 2; i++) {
-                    spieler[(naechsterSpieler+1)%2].karteZiehen(kartenStapel, aktuelleKarte,spielfeld);
+                    spieler[(naechsterSpieler+1)%2].karteZiehen(kartenStapel, aktuelleKarte,spielfeld,gui);
                 }
-                naechsterSpieler = (naechsterSpieler+1)%2;
+                //naechsterSpieler = (naechsterSpieler+1)%2;
                 break;
             case 3:
                 // Neue Farbe auswählen
-                farbeAuswaehlen();
+                farbeAuswaehlen(gui);
                 break;
             case 4:
                 // Neue Farbe auswählen
-                farbeAuswaehlen();
+                farbeAuswaehlen(gui);
                 // Nächster Spieler zieht 4 Karten
                 System.out.println("Aktion der Karte: Spieler " + (naechsterSpieler+1)%2 + " muss 4 Karten ziehen!");
                 for(int i = 0; i < 4; i++) {
-                    spieler[(naechsterSpieler+1)%2].karteZiehen(kartenStapel, aktuelleKarte,spielfeld);
+                    spieler[(naechsterSpieler+1)%2].karteZiehen(kartenStapel, aktuelleKarte,spielfeld,gui);
                 }
-                naechsterSpieler = (naechsterSpieler+1)%2;
+                //naechsterSpieler = (naechsterSpieler+1)%2;
                 break;
         }
     }
@@ -106,15 +104,15 @@ public class Kartenspiel {
      * Private Prozedur zum Auswählen einer neuen Farbe
      * Nur für WunschKarte und PlusVierWunschKarte
      */
-    private void farbeAuswaehlen() {
+    private void farbeAuswaehlen(GUI gui) {
     	int index = 0;
     	// Prüfen, ob der menschliche Spieler eine neue Farbe auswählen muss
     	if(naechsterSpieler == 0) {
         	// Menschlicher Spieler wählt eine neue Farbe aus
-        	index = spieler[0].neueFarbeAuswaehlen();
+        	index = spieler[0].neueFarbeAuswaehlen(gui);
         } else {
         	// Spieler KI wählt eine neue Farbe aus
-            index = spieler[1].neueFarbeAuswaehlen();
+            index = spieler[1].neueFarbeAuswaehlen(gui);
         }
         // Neue Farbe einsetzen
         aktuelleKarte.setzeFarbe(farben[index]);
@@ -126,9 +124,9 @@ public class Kartenspiel {
      * @param held
      * @param monster
      */
-    public void spielVorbereiten(Spieler held, Spieler monster) {
+    public void spielVorbereiten(Spieler held, Spieler monster, GUI gui) {
         // Spielfeld leer darstellen
-        spielfeld.stelleSpielfeldLeerDar();
+        spielfeld.stelleSpielfeldLeerDar(gui);
         // KartenStapel mit Karten füllen
         kartenStapel.fuelleMitKarten();
         // Spieler vorbereiten und KI je nach Tempel-Niveau 
@@ -140,21 +138,21 @@ public class Kartenspiel {
         System.out.println("Spieler " + naechsterSpieler + " fängt an.");
         
         // Karten verteilen
-        spieler[naechsterSpieler].ersteHand(kartenStapel,spielfeld);
-        spieler[(naechsterSpieler+1)%2].ersteHand(kartenStapel,spielfeld);      
+        spieler[naechsterSpieler].ersteHand(kartenStapel,spielfeld,gui);
+        spieler[(naechsterSpieler+1)%2].ersteHand(kartenStapel,spielfeld,gui);
         
         // Erste Karte auf das Spielfeld legen und ggf. Aktion durchführen
-        setzeAktuelleKarte(kartenStapel.karteZiehen(aktuelleKarte));
+        setzeAktuelleKarte(kartenStapel.karteZiehen(aktuelleKarte),gui);
 
         // Spielfeld erstellen und füllen
-        spielfeld.ersteFuelleSpielfeld(spieler[0].hand, aktuelleKarte);
+        spielfeld.ersteFuelleSpielfeld(spieler[0].hand, aktuelleKarte,gui);
     }
 
 
     /**
      * Prozedur zum Spielen
      */
-    public boolean spielen(Spieler held, Spieler monster) {   
+    public boolean spielen(Spieler held, Spieler monster, GUI gui) {
     
         // Während einer der Spieler noch Karten hat
         while(spieler[0].anzahlKarteHand() > 0 && spieler[1].anzahlKarteHand() > 0) {
@@ -167,18 +165,18 @@ public class Kartenspiel {
             
             // Spieler spielt seinem Zug, indem er eine Karte zum Ablegen aus seiner Hand nimmt
             // karteSpielen() gibt eine Karte zurück oder gar keine, karteGezogen ist erstmal falsch
-            Karte ausgewaehlteKarte = spieler[naechsterSpieler].karteSpielen(aktuelleKarte, kartenStapel, false, spielfeld);            
+            Karte ausgewaehlteKarte = spieler[naechsterSpieler].karteSpielen(aktuelleKarte, kartenStapel, false, spielfeld,gui);
             
             // Wenn die Methode karteSpielen() nicht null zurückgibt, wird die Karte abgelegt
             if(ausgewaehlteKarte != null) {
                 // Ausgewählte Karte als aktuelle Karte einsetzen
-                setzeAktuelleKarte(ausgewaehlteKarte);
+                setzeAktuelleKarte(ausgewaehlteKarte,gui);
             }
             
             // Prüfen, ob einer der Spieler nur noch eine Karte hat
             // -> noch zu tun
             if(naechsterSpieler == 0 && spieler[0].anzahlKarteHand() == 1) {
-                String uno = GUI.unoKlicken(660,450);
+                String uno = gui.unoKlicken(660,450);
                 // sonst bekommt er noch Karten jede X Sekunden
                 System.out.println(uno + " wurde darauf geklickt!");
             }
@@ -209,7 +207,7 @@ public class Kartenspiel {
             // Lebenspunkte für den menschlichen Spieler inkrementieren
             spieler[0].lebenspunkteGewinnen(spieler[1].anzahlKarteHand() * 4);
             // Darstellung der Lebenspunkte aktualisieren
-            GUI.zeigeAktualisierteLebenspunkte(spieler[0]);
+            gui.zeigeAktualisierteLebenspunkte(spieler[0]);
             System.out.println("Held hat " + spieler[0].getLebenspunkte() + " Lebenspunkte.");
             // Schaden für den Spieler KI zufügen
             //spieler[1].schadenZufuegen(spieler[1].anzahlKartenHand()*10);
@@ -223,7 +221,7 @@ public class Kartenspiel {
             // Schaden für den menschlichen Spieler zufügen
             spieler[0].schadenZufuegen(spieler[1].anzahlKarteHand()*4);
             // Darstellung der Lebenspunkte aktualisieren
-            GUI.zeigeAktualisierteLebenspunkte(spieler[0]);
+            gui.zeigeAktualisierteLebenspunkte(spieler[0]);
             System.out.println("Held hat " + spieler[0].getLebenspunkte() + " Lebenspunkte.");
         } 
         // Gibt false zurück, wenn der Held das Monster nicht besiegt hat

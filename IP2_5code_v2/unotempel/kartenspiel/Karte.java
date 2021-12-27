@@ -66,14 +66,7 @@ public abstract class Karte {
     public int getNummer(){
     	return nummer;
     }
-    
 
-    /**
-     * ????
-     */
-    public void clickAuf(){
-        //code..
-    }
 
 
     /*** Abstrakte Prozeduren und Funktionen ***/

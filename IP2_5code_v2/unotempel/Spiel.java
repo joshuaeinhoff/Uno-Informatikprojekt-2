@@ -20,7 +20,8 @@ public class Spiel {
         
         // GrafikKonsole erstmal 
 		GrafikKonsole.clearGrafik();
-        GUI.leererCanvasDarstellen();
+        GUI gui = new GUI();
+        gui.leererCanvasDarstellen();
         
         /* --- Tempel, Quizfragen und Kartenspiel erzeugen --- */
 
@@ -55,17 +56,17 @@ public class Spiel {
 
 		// Niveau durch die GrafikKonsole auswählen
 		System.out.println("Wählen Sie bitte OOP1 oder OOP2"); 
-        GUI.menueGrafischErzeugen();
-        int spielNiveau = GUI.menueGrafischAuswaehlen();
+        gui.menueGrafischErzeugen();
+        int spielNiveau = gui.menueGrafischAuswaehlen();
         System.out.println("Niveau ausgewählt: " + spielNiveau);
 		GrafikKonsole.clearGrafik();
-        GUI.leererCanvasDarstellen();
+        gui.leererCanvasDarstellen();
 
 		// Held bzw. Spieler erzeugen
         Spieler held = new Held();
         
         // Lebenspunkte darstellen
-        GUI.stelleLebenspunkteDar(held);
+        gui.stelleLebenspunkteDar(held);
 		
 
 
@@ -79,25 +80,25 @@ public class Spiel {
         // Solange den Tempel-Wasser nicht ausgewählt wird
         while(naechsterTempel != 1) {
         	System.out.println("Als erstes musst du den Wasser-Tempel besuchen.");
-        	naechsterTempel = GUI.tempelSymbolZeigen();
+        	naechsterTempel = gui.tempelSymbolZeigen();
         }
         System.out.println("Viel Erfolg!");
         GrafikKonsole.clearGrafik();
-        GUI.leererCanvasDarstellen();
-        GUI.stelleLebenspunkteDar(held);
+        gui.leererCanvasDarstellen();
+        gui.stelleLebenspunkteDar(held);
                 
 		// Rätsel lösen
-        wasserTempel.quizLoesen(spielNiveau, held);
+        wasserTempel.quizLoesen(spielNiveau, held,gui);
         GrafikKonsole.clearGrafik();
-        GUI.leererCanvasDarstellen();
-        GUI.stelleLebenspunkteDar(held);
+        gui.leererCanvasDarstellen();
+        gui.stelleLebenspunkteDar(held);
      
         // Monster Kämpfen
         
-        heldHatGewonnen = wasserTempel.monsterKaempfen(held);
+        heldHatGewonnen = wasserTempel.monsterKaempfen(held,gui);
         GrafikKonsole.clearGrafik();
-        GUI.leererCanvasDarstellen();
-        GUI.stelleLebenspunkteDar(held);
+        gui.leererCanvasDarstellen();
+        gui.stelleLebenspunkteDar(held);
         if(!heldHatGewonnen)
        		return;
         heldHatGewonnen = !heldHatGewonnen;
@@ -109,24 +110,24 @@ public class Spiel {
         // Solange den Luft-Wasser nicht ausgewählt wird
         while(naechsterTempel != 2) {
         	System.out.println("Als nächstes musst du den Luft-Tempel besuchen.");
-        	naechsterTempel = GUI.tempelSymbolZeigen();
+        	naechsterTempel = gui.tempelSymbolZeigen();
         }
         System.out.println("Viel Erfolg!");
         GrafikKonsole.clearGrafik();
-        GUI.leererCanvasDarstellen();
-        GUI.stelleLebenspunkteDar(held);
+        gui.leererCanvasDarstellen();
+        gui.stelleLebenspunkteDar(held);
         
         // Rätsel lösen
-        luftTempel.quizLoesen(spielNiveau,held);
+        luftTempel.quizLoesen(spielNiveau,held,gui);
         GrafikKonsole.clearGrafik();
-        GUI.leererCanvasDarstellen();
-        GUI.stelleLebenspunkteDar(held);
+        gui.leererCanvasDarstellen();
+        gui.stelleLebenspunkteDar(held);
         
         // Monster Kämpfen
-        heldHatGewonnen = luftTempel.monsterKaempfen(held);
+        heldHatGewonnen = luftTempel.monsterKaempfen(held,gui);
         GrafikKonsole.clearGrafik();
-        GUI.leererCanvasDarstellen();
-        GUI.stelleLebenspunkteDar(held);
+        gui.leererCanvasDarstellen();
+        gui.stelleLebenspunkteDar(held);
 		if(!heldHatGewonnen)
        		return;
         heldHatGewonnen = !heldHatGewonnen;
@@ -138,20 +139,20 @@ public class Spiel {
         // Solange den Erde-Wasser nicht ausgewählt wird
         while(naechsterTempel != 3) {
         	System.out.println("Als nächstes musst du den Erde-Tempel besuchen.");
-        	naechsterTempel = GUI.tempelSymbolZeigen();
+        	naechsterTempel = gui.tempelSymbolZeigen();
         }
         System.out.println("Viel Erfolg!");
         GrafikKonsole.clearGrafik();
-        GUI.leererCanvasDarstellen();
-        GUI.stelleLebenspunkteDar(held);
+        gui.leererCanvasDarstellen();
+        gui.stelleLebenspunkteDar(held);
         
-        erdeTempel.quizLoesen(spielNiveau,held);
+        erdeTempel.quizLoesen(spielNiveau,held,gui);
         GrafikKonsole.clearGrafik();
-        GUI.leererCanvasDarstellen();
-        heldHatGewonnen = erdeTempel.monsterKaempfen(held);
+        gui.leererCanvasDarstellen();
+        heldHatGewonnen = erdeTempel.monsterKaempfen(held,gui);
         GrafikKonsole.clearGrafik();
-        GUI.leererCanvasDarstellen();
-        GUI.stelleLebenspunkteDar(held);
+        gui.leererCanvasDarstellen();
+        gui.stelleLebenspunkteDar(held);
 		if(!heldHatGewonnen)
        		return;
         heldHatGewonnen = !heldHatGewonnen;
@@ -163,22 +164,22 @@ public class Spiel {
         // Solange den Feuer-Wasser nicht ausgewählt wird
         while(naechsterTempel != 4) {
         	System.out.println("Als letztes musst du den Feuer-Tempel besuchen.");
-        	naechsterTempel = GUI.tempelSymbolZeigen();
+        	naechsterTempel = gui.tempelSymbolZeigen();
         }
         System.out.println("Viel Erfolg!");
         GrafikKonsole.clearGrafik();
-        GUI.leererCanvasDarstellen();
-        GUI.stelleLebenspunkteDar(held);
+        gui.leererCanvasDarstellen();
+        gui.stelleLebenspunkteDar(held);
         //
-        feuerTempel.quizLoesen(spielNiveau,held);
+        feuerTempel.quizLoesen(spielNiveau,held,gui);
         GrafikKonsole.clearGrafik();
-        GUI.leererCanvasDarstellen();
-        GUI.stelleLebenspunkteDar(held);
+        gui.leererCanvasDarstellen();
+        gui.stelleLebenspunkteDar(held);
         //
-        heldHatGewonnen = feuerTempel.monsterKaempfen(held);
+        heldHatGewonnen = feuerTempel.monsterKaempfen(held,gui);
         GrafikKonsole.clearGrafik();
-        GUI.leererCanvasDarstellen();
-        GUI.stelleLebenspunkteDar(held);
+        gui.leererCanvasDarstellen();
+        gui.stelleLebenspunkteDar(held);
         if(!heldHatGewonnen)
        		return;
         heldHatGewonnen = !heldHatGewonnen;

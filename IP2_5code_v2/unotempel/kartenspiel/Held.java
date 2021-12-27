@@ -29,7 +29,7 @@ public class Held extends Spieler {
      * @param spielfeld
      * @return Karte zum Spielen
      */
-    public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel, boolean karteGezogen,Spielfeld spielfeld){
+    public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel, boolean karteGezogen,Spielfeld spielfeld,GUI gui){
         // Variable den Index der ausgewählte Karte zuweisen   
         int indexKarte;
        	//String verschieben;
@@ -37,7 +37,7 @@ public class Held extends Spieler {
         
 		while(spielbareKarteVorhanden(aktuelleKarte)) {       
         	
-            this.handVerschieben(spielfeld);
+            this.handVerschieben(spielfeld,gui);
             // Karte durch die Grafik Konsole auswählen
         	indexKarte = Konsole.eingabeZahl();
             
@@ -60,18 +60,18 @@ public class Held extends Spieler {
         
         // Solange der Spieler noch keine Karte gezogen hat
         while(!karteGezogen) {
-        	this.handVerschieben(spielfeld);
+        	this.handVerschieben(spielfeld,gui);
         	System.out.println("Held hat keine spielbare Karten und muss daher eine Karte ziehen.");
         	String eingabe = Konsole.eingabeString();
             // Prüfen, ob der Spieler auf den KartenStapel geklickt hat
             
         	if(eingabe.equals("karteZiehen")) {
             	// Karte ziehen
-                karteZiehen(kartenStapel, aktuelleKarte,spielfeld);
+                karteZiehen(kartenStapel, aktuelleKarte,spielfeld,gui);
                 
                 // Versuch Karte zu spielen, diesmal karteGezogen wird auf true gesetzt
                 karteGezogen = true;
-                return karteSpielen(aktuelleKarte,kartenStapel,karteGezogen,spielfeld);
+                return karteSpielen(aktuelleKarte,kartenStapel,karteGezogen,spielfeld,gui);
             } else {
             	// Nein, Fehlermeldung auf die Konsole ausgeben
                 System.out.println("Ziehe bitte eine Karte ab.");
@@ -87,7 +87,7 @@ public class Held extends Spieler {
     * Prozedur zum Verschieben der Karten auf der Kand
     * @param spielfeld
     */
-    public void handVerschieben(Spielfeld spielfeld){
+    public void handVerschieben(Spielfeld spielfeld,GUI gui){
     	// Variable für das Verschieben
     	String verschieben;
         // Prüfen, ob der Held Karten auf der Hand hat
@@ -97,12 +97,12 @@ public class Held extends Spieler {
             // 
             if(verschieben.equals("links") && kartenVerschiebungsWert > 0){
             	kartenVerschiebungsWert--;
-                spielfeld.kartenVerschobenDarstellen(kartenVerschiebungsWert,this);
+                spielfeld.kartenVerschobenDarstellen(kartenVerschiebungsWert,this,gui);
             }
         	// 
             if(verschieben.equals("rechts") && kartenVerschiebungsWert < 10){
             	kartenVerschiebungsWert++;
-            	spielfeld.kartenVerschobenDarstellen(kartenVerschiebungsWert,this);
+            	spielfeld.kartenVerschobenDarstellen(kartenVerschiebungsWert,this,gui);
             }
         } // end of while
     } // end of handVerschieben
@@ -114,7 +114,7 @@ public class Held extends Spieler {
      * @param aktuelleKarte
      * @param spielfeld
      */
-    public void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld){    
+    public void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld, GUI gui){
         // Solange der Spieler noch Platz für Karten in der Hand hat, d.h. die Hand ist nicht voll
         for(int i = 0; i < hand.length; i++){
             // Bedingung überprüft, ob die Karte in der Hand null ist, d.h. keine echte Karte an dieser Stelle
@@ -122,7 +122,7 @@ public class Held extends Spieler {
                 // Gezogene Karte aus dem Stapel in der Hand hinzufügen
                 hand[i] = kartenStapel.karteZiehen(aktuelleKarte);
                 // Aktualisiere Karte auf Spielfeld
-                spielfeld.setzeKartePosition(hand[i],3,i);
+                spielfeld.setzeKartePosition(hand[i],3,i,gui);
                 return;
             }       
         }
@@ -131,9 +131,9 @@ public class Held extends Spieler {
     }
     
     
-    public int neueFarbeAuswaehlen() {
+    public int neueFarbeAuswaehlen(GUI gui) {
     	// Mithilfe der Grafik_Konsole eine neue Farbe auswählen
-    	return GUI.farbeAuswaehlen();
+    	return gui.farbeAuswaehlen();
     }
 
 } // Ende von Held
