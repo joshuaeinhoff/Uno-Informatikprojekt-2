@@ -6,9 +6,9 @@ package unotempel.quiz;
 public class Quizfrage {
 
     // Eigenschaften einer Instanz von Quizfrage
-    private String frage; // Frage zu OOP
-    private String[] antwortmoeglichkeiten; // Zwei oder drei Antwortmöglichkeiten: a), b) und c)
-    private char richtigeAntwort; // Anfangsbuchstabe der richtigen Antwort: a, b oder c
+    protected String frage; // Frage zu OOP
+    protected String[] antwortmoeglichkeiten; // Zwei oder drei Antwortmöglichkeiten: a), b) und c)
+    protected char richtigeAntwort; // Anfangsbuchstabe der richtigen Antwort: a, b oder c
 
 
     /**
@@ -39,31 +39,5 @@ public class Quizfrage {
         this.richtigeAntwort = richtigeAntwort;
     }
 
-
-     /**
-     * Getter-Methode gibt eine Eigenschaft der Klasse zurück
-     * @return Frage als String
-     */
-    public String getFrage() {
-        return frage;
-    }
-
-
-    /**
-     * Getter-Methode gibt eine Eigenschaft der Klasse zurück
-     * @return Antwortmöglichkeiten als Array von Strings
-     */
-    public String[] getAntwortmoeglichkeiten() {
-        return antwortmoeglichkeiten;
-    }
-
-    
-    /**
-     * Getter-Methode gibt eine Eigenschaft der Klasse zurück
-     * @return richtige Antwort
-     */
-    public char getRichtigeAntwort() {
-        return richtigeAntwort;
-    }
 
 } // Ende von Quizfrage
