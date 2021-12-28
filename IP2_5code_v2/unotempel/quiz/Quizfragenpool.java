@@ -1,25 +1,25 @@
 package unotempel.quiz;
 
 import java.io.*;
-import unotempel.*;
+import unotempel.GUI;
 
 /**
  * Klasse stellt eine Instanz von Quizfragenpool im Spiel mit seinen jeweiligen Attributen dar.
  */
 public class Quizfragenpool {
 
-    // Eigenschaften einer Instanz von Quizfragenpool
-    private int quizNiveau;
+    // Eigenschaften von Quizfragenpool
+    private int niveau;
     private Quizfrage[] quizfragen;
     int anzahlQuizfragen;
  
 
     /**
      * Konstruktor erzeugt eine Instanz von Quizfragenpool mit dem folgenden Attribut:
-     * @param quizNiveau - Niveau der Quizfragen (1 für OOP1, 2 für OOP2)
+     * @param niveau - Niveau der Quizfragen (1 für OOP1, 2 für OOP2)
      */
-    public Quizfragenpool(int quizNiveau) {
-        this.quizNiveau = quizNiveau;
+    public Quizfragenpool(int niveau) {
+        this.niveau = niveau;
     }
 
 
@@ -54,27 +54,27 @@ public class Quizfragenpool {
             // Je nach Farbe und Quizniveau des Tempels wird ein bestimmter Dateipfad gespeichert
             switch(tempelFarbe) {
                 case "blau": // Wasser-Tempel
-                    if(quizNiveau == 1)
+                    if(niveau == 1)
                         dateiName = "../../quizfragen/fragen_t1_oop1.txt";
-                    else if(quizNiveau == 2)
+                    else if(niveau == 2)
                         dateiName = "../../quizfragen/fragen_t1_oop2.txt";
                     break;
                 case "gelb": // Luft-Tempel
-                    if(quizNiveau == 1)
+                    if(niveau == 1)
                         dateiName = "../../quizfragen/fragen_t2_oop1.txt";
-                    else if(quizNiveau == 2)
+                    else if(niveau == 2)
                         dateiName = "../../quizfragen/fragen_t2_oop2.txt";
                     break;
                 case "gruen": // Erde-Tempel
-                    if(quizNiveau == 1)
+                    if(niveau == 1)
                         dateiName = "../../quizfragen/fragen_t3_oop1.txt";
-                    else if(quizNiveau == 2)
+                    else if(niveau == 2)
                         dateiName = "../../quizfragen/fragen_t3_oop2.txt";
                     break;
                 case "rot": // Feuer-Tempel
-                    if(quizNiveau == 1)
+                    if(niveau == 1)
                         dateiName = "../../quizfragen/fragen_t4_oop1.txt";
-                    else if(quizNiveau == 2)
+                    else if(niveau == 2)
                         dateiName = "../../quizfragen/fragen_t4_oop2.txt";
                     break;
             }
@@ -180,16 +180,16 @@ public class Quizfragenpool {
     /**
      * Funktion zum Beantworten der zu einem gegebenen Index im Fragenpool gespeicherten Frage
      * @param zufallsZahl - gegebener Index
+     * @param gui - Graphical User Interface
      * @return true, wenn die Frage richtig beantwortet wird - false, sonst
      */
-    public boolean quizfrageRichtigBeantwortet(int zufallsZahl, GUI gui) {
+    public boolean frageRichtigBeantwortet(int zufallsZahl, GUI gui) {
         // Quizfrage darstellen, Funktion in GUI aufrufen und Rückgabeparameter als char-Variable speichern
         char ausgewaehlteAntwort = gui.quizDarstellen(quizfragen[zufallsZahl].frage, quizfragen[zufallsZahl].antwortmoeglichkeiten);
-        
         // Bedingung prüft, ob die ausgewählte Antwort richtig ist
         if(ausgewaehlteAntwort == quizfragen[zufallsZahl].richtigeAntwort)
-        	return true;
-        return false;
+        	return true; // Antwort ist richtig
+        return false; // Antwort ist falsch
     }
 
 

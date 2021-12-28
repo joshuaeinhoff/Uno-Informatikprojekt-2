@@ -39,5 +39,4 @@ public class Quizfrage {
         this.richtigeAntwort = richtigeAntwort;
     }
 
-
 } // Ende von Quizfrage
