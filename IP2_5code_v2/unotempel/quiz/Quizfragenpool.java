@@ -11,7 +11,7 @@ public class Quizfragenpool {
     // Eigenschaften einer Instanz von Quizfragenpool
     private int quizNiveau;
     private Quizfrage[] quizfragen;
-    private int anzahlQuizfragen;
+    int anzahlQuizfragen;
  
 
     /**
@@ -20,15 +20,6 @@ public class Quizfragenpool {
      */
     public Quizfragenpool(int quizNiveau) {
         this.quizNiveau = quizNiveau;
-    }
-
-
-    /**
-     * Funktion gibt die Anzahl von Quizfragen zurück
-     * @return Anzahl von Quizfragen im Quizfragenpool
-     */
-    public int anzahlQuizfragen() {
-        return anzahlQuizfragen;
     }
 
 
