@@ -183,16 +183,6 @@ public class Quizfragenpool {
             }
         }
         
-        // -------------> Code NUR zum Testen
-        /*
-        for(int i = 0; i < anzahlQuizfragen; i++) {
-        	System.out.println(quizfragen[i].getFrage());
-            for(int k = 0; k < quizfragen[i].getAntwortmoeglichkeiten().length; k++) {
-            	System.out.println(quizfragen[i].getAntwortmoeglichkeiten()[k]);
-            }
-            System.out.println(quizfragen[i].getRichtigeAntwort());
-        }
-        */
     }
 
 
@@ -203,10 +193,10 @@ public class Quizfragenpool {
      */
     public boolean quizfrageRichtigBeantwortet(int zufallsZahl, GUI gui) {
         // Quizfrage darstellen, Funktion in GUI aufrufen und Rückgabeparameter als char-Variable speichern
-        char ausgewaehlteAntwort = gui.quizDarstellen(quizfragen[zufallsZahl].getFrage(), quizfragen[zufallsZahl].getAntwortmoeglichkeiten());
+        char ausgewaehlteAntwort = gui.quizDarstellen(quizfragen[zufallsZahl].frage, quizfragen[zufallsZahl].antwortmoeglichkeiten);
         
         // Bedingung prüft, ob die ausgewählte Antwort richtig ist
-        if(ausgewaehlteAntwort == quizfragen[zufallsZahl].getRichtigeAntwort())
+        if(ausgewaehlteAntwort == quizfragen[zufallsZahl].richtigeAntwort)
         	return true;
         return false;
     }
