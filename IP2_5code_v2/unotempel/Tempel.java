@@ -2,7 +2,6 @@ package unotempel;
 
 import unotempel.quiz.*;
 import unotempel.kartenspiel.*;
-import java.util.Random;
 
 /**
  * Klasse stellt eine Instanz von Tempel im Spiel mit seinen jeweiligen Attributen dar.
@@ -10,98 +9,27 @@ import java.util.Random;
 public class Tempel {
 
     // Eigenschaften einer Instanz von Tempel
-    private String farbe;
-    private Quizfragenpool fragenpoolOOP1;
-    private Quizfragenpool fragenpoolOOP2;
-    private Kartenspiel kartenspiel;
-    private Spieler monster;
+    private String farbe; // Farbe des Tempels
+    private Quiz quiz; // Quiz
+    private Kartenspiel kartenspiel; // Kartenspiel
+    private Spieler monster; // Spieler KI
 
     /**
-     * Konstruktor zum Erzeugen einer Instanz der Klasse Tempel
+     * Konstruktor zum Erzeugen einer Instanz der Klasse Tempel, mit einem Quiz und einem Kartenspiel
      * @param farbe - Farbe des Tempels (blau für Wasser, gelb für Luft, grün für Erde, rot für Feuer)
      */
     public Tempel(String farbe) {
         this.farbe = farbe;
-    }
-
-
-    /**
-     * Funktion gibt eine Instanz von Quizfragenpool für Quizfragen zu OOP zurück
-     * @param quizNiveau - Niveau der Quizfragen (1 für OOP1, 2 für OOP2)
-     * @return eine Instanz von Quizfragenpool
-     */
-    public Quizfragenpool quizfragenpoolErzeugen(int quizNiveau) {
-        // Quizniveau 1 bezieht sich auf OOP1, Quizniveau 2 auf OOP2; keine andere Zahl ist möglich
-        if(quizNiveau == 1) {
-            fragenpoolOOP1 = new Quizfragenpool(1);
-            fragenpoolOOP1.quizfragenpoolFuellen(this.farbe);
-            return fragenpoolOOP1;
-        } else if(quizNiveau == 2) {
-            fragenpoolOOP2 = new Quizfragenpool(2);
-            fragenpoolOOP2.quizfragenpoolFuellen(this.farbe);
-            return fragenpoolOOP2;
-        } else {
-            System.out.println("Kein richtiges Niveau ausgewählt");
-            return null;
-        }
-    }
-
-
-    /**
-     * Prozedur zum Quizlösen
-     * @param quizNiveau
-     * @param held
-     */
-    public void quizLoesen(int quizNiveau, Spieler held, GUI gui) {
-    
-    	// Einführungsdarstellung des Tempels aufrufen
-        tempelEinfuehrung(gui);
-      	
-        // Rätsel lösen
-        boolean istRichtig = false;
-        Random rand = new Random();
-        int zufallsZahl;
-        int schaden = 10;
-
-        // Solange keine richtige Frage beantwortet wird
-        while(!istRichtig) {
-            // Nach QuizNiveau Fragenpool zu OOP1 oder OOP2 auswählen
-            if(quizNiveau == 1) {
-                // Zufallsfrage aus Fragenpool zu OOP1 auswählen und als Variable speichern
-                zufallsZahl = rand.nextInt(fragenpoolOOP1.anzahlQuizfragen());
-                istRichtig = fragenpoolOOP1.quizfrageRichtigBeantwortet(zufallsZahl, gui);
-            } else if(quizNiveau == 2) {
-                // Zufallsfrage aus Fragenpool zu OOP2 auswählen und als Variable speichern
-                zufallsZahl = rand.nextInt(fragenpoolOOP2.anzahlQuizfragen());
-                istRichtig = fragenpoolOOP2.quizfrageRichtigBeantwortet(zufallsZahl, gui);
-            }
-			// Bedingung überprüft, ob die Quizfrage falsch beantwortet wurde
-            if(!istRichtig) {
-                // Nachricht in der Konsole ausgeben
-                System.out.println("Frage falsch beantwortet: \n Held bekommt "+ schaden + " Schadenspunkte \n Probier nochmal!");
-                // Dem Spieler Schaden zufügen
-                held.schadenZufuegen(schaden);
-                // Lebensenergie des Spielers auf die Konsole ausgeben
-                System.out.println("Held hat " + held.getLebenspunkte() + " Lebenspunkte.");
-                gui.zeigeAktualisierteLebenspunkte(held);
-                // Bedingung überprüft, ob der Held noch Lebensenergie hat
-                if(held.getLebenspunkte() <= 0) {
-                	// Hat der Held keine Lebenspunkte mehr, ist das Spiel zu ende
-                	System.out.println("Game Over \n");
-                    return;
-                }
-            }
-        }
-        // Nachricht in der Konsole ausgeben
-        System.out.println("Frage richtig beantwortet: Glückwunsch!");
-        System.out.println("Held hat " + held.getLebenspunkte() + " Lebenspunkte.\n");
+        this.quiz = new Quiz(farbe);
+        this.kartenspiel = new Kartenspiel();
     }
     
     
     /**
-     * Private Prozedur bereitet die Darstellung zur Einführung in den Tempel vor
+     * Prozedur bereitet die Darstellung zur Einführung in den Tempel vor
+     * @param gui - Graphical User Interface
      */
-	private void tempelEinfuehrung(GUI gui) {
+	public void tempelEinfuehrung(GUI gui) {
     	// Element als String für den Namen des Tempels erzeugen
         String element = "";
         // Fallunterscheidung
@@ -127,27 +55,66 @@ public class Tempel {
 
 
     /**
-     * Prozedur zum Erzeugen eines Kartenspiels
+     * Funktion zum Lösen des Quizes im Tempel
+     * @param held - Menschlicher Spieler
+     * @param niveau - Niveau von Quiz
+     * @param gui - Graphical User Interface
+     * @return true, wenn Quiz gelöst wird - false, sonst
      */
-    public void kartenspielErzeugen() {
-        this.kartenspiel = new Kartenspiel();
+    public boolean quizLoesen(Spieler held, int niveau, GUI gui) {
+        // Meldung auf die Konsole ausgeben
+        System.out.println("Quiz Lösen!\n");
+        gui.spielbrettDarstellen(held);
+        // Funktion in Quiz aufrufen, um das Quiz zu lösen
+        boolean quizGeloest = quiz.quizGeloest(held, niveau, gui);
+        // Solange der Held noch lebt und das Quiz nicht gelöst hat
+        if(!quizGeloest && held.getLebenspunkte() > 0) {
+            // Funktion zum Quizlösen rekursiv aufrufen
+        	return quizLoesen(held, niveau, gui);
+        }
+        // Bedingung überprüft, ob der Spieler noch Lebensenergie hat
+        if(held.getLebenspunkte() <= 0) {
+        	// Hat der Spieler keine Lebenspunkte mehr, ist das Spiel zu ende
+            System.out.println("Game Over\n");
+            return false;
+        }
+        // Gibt true zurück, wenn der Held das Quiz gelöst hat
+        return true;
     }
-    
-    
+
 
     /**
-     * Prozedur zum Kämpfen des Monsters im Tempel
+     * Funktion zum Kämpfen des Monsters im Tempel
      * @param held - Menschlicher Spieler als Parameter
+     * @param monsterBesiegt - Boolean true, wenn Monster besiegt wird - false, sonst
+     * @param gui - Graphical User Interface
+     * @return true, wenn das Monster besiegt wurde - false, sonst
      */
-    public boolean monsterKaempfen(Spieler held, GUI gui) {
-        kampfVorbereiten(held, gui);
-        return heldHatMonsterBesiegt(held,false,gui);
+    public boolean monsterKaempfen(Spieler held, boolean monsterBesiegt, GUI gui) {
+    	// Solange der Held noch lebt und das Monster nicht besiegt hat
+        if(held.getLebenspunkte() > 0 && !monsterBesiegt) {
+        	// Prozedur zum Vorbereiten des Spieles aufrufen
+        	kampfVorbereiten(held, gui);
+            // Speichern ob das Monster besiegt wurde
+            monsterBesiegt = heldHatMonsterBesiegt(held, gui);
+            // Funktion zum Kämpfen des Monsters aufrufen
+            return monsterKaempfen(held, monsterBesiegt, gui);
+        }
+        // Bedingung überprüft, ob der Spieler noch Lebensenergie hat
+        if(held.getLebenspunkte() <= 0) {
+        	// Hat der Spieler keine Lebenspunkte mehr, ist das Spiel zu ende
+            System.out.println("Game Over\n");
+            return false;
+        }
+        // Gibt true zurück, wenn der Held das Monster besiegt hat
+        return monsterBesiegt;      
     }
     
     
     /**
-     * Prozedur zum Kämpfen des Monsters im Tempel
+     * Prozedur bereitet den Kampf im Tempel vor
      * @param held - Menschlicher Spieler als Parameter
+     * @param gui - Graphical User Interface
      */
     private void kampfVorbereiten(Spieler held, GUI gui) {
         // Fallunterscheidung: Nach dem Tempel-Niveau fragen
@@ -175,27 +142,18 @@ public class Tempel {
         System.out.println("Das Monster wartet darauf... Kartenspiel ist bereit!");
     }
     
-    
+
     /**
-     * Prozedur zum Kämpfen des Monsters im Tempel
+     * Funktion gibt zurück, ob der Held das Monster besiegt hat
      * @param held - Menschlicher Spieler als Parameter
+     * @param gui - Graphical User Interface
+     * @return true, wenn der Held das Monster besiegt hat - false, sonst 
      */
-    public boolean heldHatMonsterBesiegt(Spieler held, boolean heldHatGewonnen,GUI gui) {
-        // Spielen
+    private boolean heldHatMonsterBesiegt(Spieler held, GUI gui) {
+        // Meldung auf die Konsole ausgeben
         System.out.println("Spielen!\n");
-        heldHatGewonnen = kartenspiel.spielen(held, monster,gui);
-        // Solange der Held noch lebt und das Monster nicht besiegt hat
-        if(!heldHatGewonnen && held.getLebenspunkte() > 0) {
-        	return heldHatMonsterBesiegt(held, false,gui);
-        }
-        // Bedingung überprüft, ob der Spieler noch Lebensenergie hat
-        if(held.getLebenspunkte() <= 0) {
-        	// Hat der Spieler keine Lebenspunkte mehr, ist das Spiel zu ende
-            System.out.println("Game Over\n");
-            return false;
-        }
-        // Gibt true zurück, wenn der Held das Monster besiegt hat
-        return true;
+        // Funktion in Kartenspiel zum Spielen aufrufen
+        return kartenspiel.spielen(held, monster, gui);
     }
 
 } // Ende von Tempel

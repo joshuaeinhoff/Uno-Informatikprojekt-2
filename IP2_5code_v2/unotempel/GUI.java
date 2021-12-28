@@ -12,9 +12,10 @@ public class GUI {
         
     // Farbe des Spielfelds
     public final static String farbeSpielfeld = "#9CAF88";
+    // Maße des Spielfelds
     public final static int groesseX = 850;
     public final static int groesseY = 470;
-    
+    // Farben für die Darstellung der Karten
     public final static String farbeGruen = "#465726";
     public final static String farbeRot = "#F57461";
     public final static String farbeBlau = "#64A5BB";
@@ -22,18 +23,58 @@ public class GUI {
     public final static String farbeGelb = "#FDD782";
     public final static String farbeWeiss = "#F7F9EF";
     public final static String farbeGrau = "#3B444B";
-    
+    // Rechteck für die Darstellung der Lebenspunkte vom Held
     public static Rechteck lebenspunkteHeld;
     
+
     /**
-    * Prozedur stellt einen leeren Canvas als Hintergrund dar
+    * Prozedur stellt einen leeren Spielbrett mit den Lebenspunkte von Spieler dar
+    * @param spieler - Spieler Held
     */ 
-    public void leererCanvasDarstellen() {
+    public void spielbrettDarstellen(Spieler spieler) {
+    	// Grafik-Konsole einmal initialisieren
+        GrafikKonsole.clearGrafik();
+        // Rechteck als leerer Canvas darstellen
     	Rechteck spielfeldRechteck = new Rechteck(0, 0, groesseX, groesseY, Grafik.WHITE, Grafik.BLACK, 1, "");
+        // Lebenspunkte vom Spieler darstellen
+        stelleLebenspunkteDar(spieler);   
+    }
+    
+    
+    /**
+    * Private Prozedur stellt Lebenspunkte vom Spieler dar
+    * @param spieler - Spieler Held
+    */
+    private void stelleLebenspunkteDar(Spieler spieler) {
+    	// Variable für die Lebenspunkte des Spielers
+        int aktuellePunkte = spieler.getLebenspunkte();
+        // Lebenspunkte für die grafische Darstellung berechne
+        int punkte = (int)(aktuellePunkte * 848 / 150);
+        // Lebenspunkte zeigen
+    	Text lebensanzeige = new Text(0, 475, "Lebenspunkte", Grafik.BLACK, 15, "");
+        Rechteck platzLebenspunkte = new Rechteck(0, 500, 850, 20, "#006400", Grafik.BLACK, 1, "");
+        lebenspunkteHeld = new Rechteck(1, 501, punkte, 18, Grafik.GREEN, Grafik.BLACK, 0, "");
+    }
+    
+
+    /**
+    * Prozedur aktualisiert visuell die Lebenspunkte vom Spieler
+    * @param spieler - Spieler Held
+    */
+    public void aktualisiereLebenspunkte(Spieler spieler) {
+        // Variable für die Lebenspunkte des Spielers
+        int aktuellePunkte = spieler.getLebenspunkte();
+        // Lebenspunkte für die grafische Darstellung berechnen
+        int punkte = (int)(aktuellePunkte * 848 / 150);
+        if(punkte > 848)
+        	punkte = 848;
+        lebenspunkteHeld.setWidth(punkte);
+        // Lebenspunkte darstellen -> nötig?
+        stelleLebenspunkteDar(spieler);
     }
 
     
-    /****************** Einführung ******************/
+    /************************************ Einführung ************************************/
     
     /**
 	* Prozedur zur Darstellung des Einführungsmenüs
@@ -44,38 +85,43 @@ public class GUI {
         goButtonGrafischErzeugen();
     }
     
+
     /**
 	* Prozedur zur Darstellung der Option OOP1
     */
     public void optionEinsGrafischErzeugen() {
     	Rechteck rechteckOOP1 = new Rechteck(groesseX/2-250, groesseY/2-100, 200, 100, Grafik.GREEN, Grafik.BLACK, 1, 20, "oop1");
-    	Text textOOP1 = new Text(groesseX/2-250+50, groesseY/2-100+10, "OOP1", Grafik.BLACK, 40, "oop1");
+    	Text textOOP1 = new Text(groesseX/2-250+50, groesseY/2-100+10, "OOP1", Grafik.BLACK, 40, "");
     }
     
+
     /**
 	* Prozedur zur Darstellung der Option OOP2
     */
     public void optionZweiGrafischErzeugen() { 
         Rechteck rechteckOOP2 = new Rechteck(groesseX/2+50, groesseY/2-100, 200, 100, Grafik.BLUE, Grafik.BLACK, 1, 20, "oop2");
-    	Text textOOP2 = new Text(groesseX/2+50+50, groesseY/2-100+10, "OOP2", Grafik.BLACK, 40, "oop2");
+    	Text textOOP2 = new Text(groesseX/2+50+50, groesseY/2-100+10, "OOP2", Grafik.BLACK, 40, "");
     }
     
+
     /**
 	* Prozedur zur Darstellung der Auswahl OOP1
     */
     public void optionEinsGrafischAuswaehlen() {
     	Rechteck rechteckOOP1 = new Rechteck(groesseX/2-250, groesseY/2-100, 200, 100, Grafik.GREEN, Grafik.YELLOW, 2, 20, "oop1");
-        Text textOOP1 = new Text(groesseX/2-250+40, groesseY/2-100, "OOP1", Grafik.YELLOW, 50, "oop1");
+        Text textOOP1 = new Text(groesseX/2-250+40, groesseY/2-100, "OOP1", Grafik.YELLOW, 50, "");
     }
     
+
     /**
 	* Prozedur zur Darstellung der Auswahl OOP2
     */
     public void optionZweiGrafischAuswaehlen() {
     	Rechteck rechteckOOP2 = new Rechteck(groesseX/2+50, groesseY/2-100, 200, 100, Grafik.BLUE, Grafik.YELLOW, 2, 20, "oop2");
-    	Text textOOP2 = new Text(groesseX/2+50+40, groesseY/2-100, "OOP2", Grafik.YELLOW, 50, "oop2");
+    	Text textOOP2 = new Text(groesseX/2+50+40, groesseY/2-100, "OOP2", Grafik.YELLOW, 50, "");
     }
     
+
     /**
 	* Prozedur zur Darstellung des Buttons, noch nicht bereit darauf geklickt zu werden
     */
@@ -83,6 +129,7 @@ public class GUI {
     	Button okButton = new Button(groesseX/2-50, groesseY/2+50, 100, 70, Grafik.GREY, "GO", Grafik.WHITE, 30, 5, "");
     }
     
+
     /**
 	* Prozedur zur Darstellung des Buttons, bereit darauf geklickt zu werden
     */
@@ -90,6 +137,7 @@ public class GUI {
     	Button okButton = new Button(groesseX/2-50, groesseY/2+50, 100, 70, Grafik.BLACK, "GO", Grafik.WHITE, 30, 5, "auswaehlen");
     }
     
+
     /**
 	* Prozedur zur Darstellung des Buttons, bereits geklickt
     */
@@ -99,6 +147,7 @@ public class GUI {
         okButton.waitFor(500);
     }
  
+
     /**
      * Funktion zum Darstellen eines grafischen Menüs zur Auswahl des Spielniveaus
      * @return ausgewähltes Spielniveau
@@ -134,7 +183,7 @@ public class GUI {
     } 
 
     
-    /****************** Tempel ******************/
+    /************************************ Tempel ************************************/
 
 	/**
     * Funktion für die Darstellung der Tempel gibt die Zahl des ausgewählten Tempels zurück
@@ -165,6 +214,7 @@ public class GUI {
         return eingabe;
     }
 
+
 	/**
 	* Prozedur zur Darstellung des Begrüßungsnachricht in jedem Tempel
     */
@@ -181,24 +231,44 @@ public class GUI {
     }
 
 
-	/****************** Quiz ******************/
+	/************************************ Quiz ************************************/
 
     /**
     * Funktion stellt eine Quizfrage dar und gibt die ausgewählte Antwort zurück
-    * @param frage
-    * @param antwortmoeglichkeiten
+    * @param frage - Frage zum Darstellen
+    * @param antwortmoeglichkeiten - Array von String mit Antwortmöglichkeiten zum Darstellen
+    * @return ausgewählte Antwort als char
     */
     public char quizDarstellen(String frage, String[] antwortmoeglichkeiten) {
 		// Ausgewählte Antwort erstmal leer erzeugen
+        
         char ausgewaehlteAntwort = ' ';
-        // Grafik-Konsole einmal initialisieren
-        GrafikKonsole.clearGrafik();
-        // Leerer Canvas darstellen
-        leererCanvasDarstellen();
-        // Titel als Text darstellen
-		Text frageText = new Text(10, 10, "Frage", Grafik.BLACK, 20, "");
+        // Aufgabenstellung darstellen
+        Rechteck aufgabenstellungRechteck = new Rechteck(10, 10, 800, 30, Grafik.GREY, Grafik.WHITE, 0, "");
+		Text aufgabenstellungText = new Text(20, 10, "Wähle die richtige Antwort:", Grafik.WHITE, 20, "");
+        
         // Aktuelle Frage darstellen
-        Text aktuelleFrageText = new Text(10, 50, frage+"", Grafik.BLACK, 15, "");
+        Rechteck frageRechteck = new Rechteck(10, 50, 800, 80, Grafik.WHITE, Grafik.WHITE, 0, "");
+        // Frage formatieren
+        int index = 70;
+        // Prüfen, ob Länge der Frage kleiner oder gleich als Index ist
+        if(frage.length() <= index) {
+            // Frage als Text darstellen
+        	Text frageText = new Text(20, 60, frage+"", Grafik.BLACK, 18, "");
+        // Länge der Frage ist größer als Index
+        } else {
+            // Solange der Index die Länge der Frage nicht überschreitet und das Zeichen an der Stelle von Index kein leeres Zeichen ist
+            while(index < frage.length() && frage.charAt(index) != ' ') {
+                // Index inkrementieren
+            	index++;
+            }
+            // Frage in zwei Zeilen teilen
+            String frageTeil1 = frage.substring(0, index);
+            String frageTeil2 = frage.substring(index);
+            // Frage als Text darstellen
+            Text frageTeil1Text = new Text(20, 60, frageTeil1+"", Grafik.BLACK, 18, "");
+            Text frageTeil2Text = new Text(20, 80, frageTeil2+"", Grafik.BLACK, 18, "");
+        }
         
         // Antwortmöglichkeiten darstellen
         // Antwort 1
@@ -222,6 +292,7 @@ public class GUI {
 			// Wert durch die Konsole einlesen
         	eingabe = Konsole.eingabeString();   
     	}
+
         // Ausgewählte Antwort in char umwandeln
         ausgewaehlteAntwort = Konsole.eingabeString().charAt(0);
         // Ausgewählte Antwort zurückgeben
@@ -244,6 +315,7 @@ public class GUI {
         platzFuerKarte.show();
     }
 
+
     /**
 	* Prozedur zur Darstellung des Buttons, in Abhängigkeit von der Größe des Spielfels, noch nicht bereit darauf geklickt zu werden.
     * @param x - Größe X des Spielfelds
@@ -257,6 +329,7 @@ public class GUI {
         unoButton.show();
     }
     
+
     /**
 	* Prozedur zur Darstellung der Buttons, in Abhängigkeit von der Größe des Spielfels.
     * @param x - Größe X des Spielfelds
@@ -273,6 +346,7 @@ public class GUI {
         linksButton.show();
         rechtsButton.show();   
     }
+
 
     /**
     * Prozedur zum Darstellen eines leeren Spielfelds
@@ -310,6 +384,7 @@ public class GUI {
         unoButtonErzeugen(x,y);
     }
     
+
     /**
      * Prozedur setzt Karte an die gegebene Position auf dem Spielfeld
      * @param karte - zu platzierende Karte
@@ -336,16 +411,17 @@ public class GUI {
 
     }
 
+
     /**
      * Prozedur zum Darstellen des KartenStapels
-     * @param positionX - Koordinate auf X-Achse
-     * @param positionY - Koordinate auf Y-Achse
+     * @param spalte - Koordinate auf X-Achse
+     * @param zeile - Koordinate auf Y-Achse
      */
-    public void stapelDarstellen(int positionX, int positionY) {
-    	Rechteck grafikRechteckMitRundung = new Rechteck(positionX, positionY, 50, 100, farbeGrau, Grafik.WHITE, 2, 10, "karteZiehen");
-        Text uStapelText = new Text(positionX+20, positionY+10, "U", Grafik.WHITE, 20,"karteZiehen");
-        Text nStapelText = new Text(positionX+20, positionY+30, "N", Grafik.WHITE, 20,"karteZiehen");
-    	Text oStapelText = new Text(positionX+20, positionY+50, "O", Grafik.WHITE, 20,"karteZiehen");
+    public void stapelDarstellen(int spalte, int zeile) {
+    	Rechteck grafikRechteckMitRundung = new Rechteck(spalte, zeile, 50, 100, farbeGrau, Grafik.WHITE, 2, 10, "karteZiehen");
+        Text uStapelText = new Text(spalte+20, zeile+10, "U", Grafik.WHITE, 20,"karteZiehen");
+        Text nStapelText = new Text(spalte+20, zeile+30, "N", Grafik.WHITE, 20,"karteZiehen");
+    	Text oStapelText = new Text(spalte+20, zeile+50, "O", Grafik.WHITE, 20,"karteZiehen");
         // Warte 2 Sekunden darauf
         grafikRechteckMitRundung.hide();
         uStapelText.hide();
@@ -361,6 +437,7 @@ public class GUI {
         oStapelText.show();
     }
     
+
     /**
      * Funktion stellt eine Menü zur Auswahl der neuen Farbe und gibt diese zurück
      * @return farbe - String mit der ausgewählte Farbe
@@ -397,6 +474,8 @@ public class GUI {
     
     /**
      * Funktion zum Darstellen des UNO-Buttons zum Klicken
+     * @param x
+     * @param y 
      * @return durch die Grafik Konsole gelesene String
      */
     public String unoKlicken(int x, int y) {
@@ -408,33 +487,5 @@ public class GUI {
         unoButton.delete();
         return uno;
     }
-
-	/**
-    *
-    * @param spieler
-    */
-    public void stelleLebenspunkteDar(Spieler spieler) {
-    	// Variable für die Lebenspunkte des Spielers
-        int aktuellePunkte = spieler.getLebenspunkte();
-        // Lebenspunkte für die grafische Darstellung berechnen
-        // 848 = 150 Punkte
-        int punkte = (int)(aktuellePunkte * 848 / 150);
-        // Lebenspunkte zeigen
-    	Text lebensanzeige = new Text(0, 475, "Lebenspunkte", Grafik.BLACK, 15, "");
-        Rechteck platzLebenspunkte = new Rechteck(0, 500, 850, 20, Grafik.WHITE, Grafik.BLACK, 1, "");
-        lebenspunkteHeld = new Rechteck(1, 501, punkte, 18, Grafik.GREEN, Grafik.BLACK, 0, "");
-    }
-    
-    public void zeigeAktualisierteLebenspunkte(Spieler spieler) {
-        // Variable für die Lebenspunkte des Spielers
-        int aktuellePunkte = spieler.getLebenspunkte();
-        // Lebenspunkte für die grafische Darstellung berechnen
-        // 848 = 150 Punkte
-        int punkte = (int)(aktuellePunkte * 848 / 150);
-        if(punkte > 848)
-        	punkte = 848;
-        lebenspunkteHeld.setWidth(punkte);
-    }
-    
 
 } // Ende von GUI
