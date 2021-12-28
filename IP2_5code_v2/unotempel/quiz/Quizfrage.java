@@ -6,9 +6,9 @@ package unotempel.quiz;
 public class Quizfrage {
 
     // Eigenschaften einer Instanz von Quizfrage
-    protected String frage; // Frage zu OOP
-    protected String[] antwortmoeglichkeiten; // Zwei oder drei Antwortmöglichkeiten: a), b) und c)
-    protected char richtigeAntwort; // Anfangsbuchstabe der richtigen Antwort: a, b oder c
+    String frage; // Frage zu OOP
+    String[] antwortmoeglichkeiten; // Zwei oder drei Antwortmöglichkeiten: a), b) und c)
+    char richtigeAntwort; // Anfangsbuchstabe der richtigen Antwort: a, b oder c
 
 
     /**
