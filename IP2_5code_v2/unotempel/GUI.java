@@ -13,8 +13,8 @@ public class GUI {
     // Farbe des Spielfelds
     public final static String farbeSpielfeld = "#9CAF88";
     // Maße des Spielfelds
-    public final static int groesseX = 850;
-    public final static int groesseY = 470;
+    public final static int breite = 850;
+    public final static int hoehe = 470;
     // Farben für die Darstellung der Karten
     public final static String farbeGruen = "#465726";
     public final static String farbeRot = "#F57461";
@@ -35,9 +35,9 @@ public class GUI {
     	// Grafik-Konsole einmal initialisieren
         GrafikKonsole.clearGrafik();
         // Rechteck als leerer Canvas darstellen
-    	Rechteck spielfeldRechteck = new Rechteck(0, 0, groesseX, groesseY, Grafik.WHITE, Grafik.BLACK, 1, "");
+    	Rechteck spielfeldRechteck = new Rechteck(0, 0, breite, hoehe, Grafik.WHITE, Grafik.BLACK, 1, "");
         // Lebenspunkte vom Spieler darstellen
-        stelleLebenspunkteDar(spieler);   
+        stelleLebenspunkteDar(spieler);
     }
     
     
@@ -48,7 +48,7 @@ public class GUI {
     private void stelleLebenspunkteDar(Spieler spieler) {
     	// Variable für die Lebenspunkte des Spielers
         int aktuellePunkte = spieler.getLebenspunkte();
-        // Lebenspunkte für die grafische Darstellung berechne
+        // Lebenspunkte für die grafische Darstellung berechnen
         int punkte = (int)(aktuellePunkte * 848 / 150);
         // Lebenspunkte zeigen
     	Text lebensanzeige = new Text(0, 475, "Lebenspunkte", Grafik.BLACK, 15, "");
@@ -70,7 +70,7 @@ public class GUI {
         	punkte = 848;
         lebenspunkteHeld.setWidth(punkte);
         // Lebenspunkte darstellen -> nötig?
-        stelleLebenspunkteDar(spieler);
+        //stelleLebenspunkteDar(spieler);
     }
 
     
@@ -80,8 +80,11 @@ public class GUI {
 	* Prozedur zur Darstellung des Einführungsmenüs
     */
     public void menueGrafischErzeugen() {
+        // OOP1 Option erzeugen
     	optionEinsGrafischErzeugen();
+        // OOP2 Option erzeugen
         optionZweiGrafischErzeugen();
+        // Button erzeugen
         goButtonGrafischErzeugen();
     }
     
@@ -90,8 +93,9 @@ public class GUI {
 	* Prozedur zur Darstellung der Option OOP1
     */
     public void optionEinsGrafischErzeugen() {
-    	Rechteck rechteckOOP1 = new Rechteck(groesseX/2-250, groesseY/2-100, 200, 100, Grafik.GREEN, Grafik.BLACK, 1, 20, "oop1");
-    	Text textOOP1 = new Text(groesseX/2-250+50, groesseY/2-100+10, "OOP1", Grafik.BLACK, 40, "");
+        // Variablen für die Darstellung der Option OOP1
+    	Rechteck rechteckOOP1 = new Rechteck(breite/2-250, hoehe/2-100, 200, 100, Grafik.GREEN, Grafik.BLACK, 1, 20, "oop1");
+    	Text textOOP1 = new Text(breite/2-250+50, hoehe/2-100+10, "OOP1", Grafik.BLACK, 40, "");
     }
     
 
@@ -99,8 +103,9 @@ public class GUI {
 	* Prozedur zur Darstellung der Option OOP2
     */
     public void optionZweiGrafischErzeugen() { 
-        Rechteck rechteckOOP2 = new Rechteck(groesseX/2+50, groesseY/2-100, 200, 100, Grafik.BLUE, Grafik.BLACK, 1, 20, "oop2");
-    	Text textOOP2 = new Text(groesseX/2+50+50, groesseY/2-100+10, "OOP2", Grafik.BLACK, 40, "");
+        // Variablen für die Darstellung der Option OOP2
+        Rechteck rechteckOOP2 = new Rechteck(breite/2+50, hoehe/2-100, 200, 100, Grafik.BLUE, Grafik.BLACK, 1, 20, "oop2");
+    	Text textOOP2 = new Text(breite/2+50+50, hoehe/2-100+10, "OOP2", Grafik.BLACK, 40, "");
     }
     
 
@@ -108,8 +113,9 @@ public class GUI {
 	* Prozedur zur Darstellung der Auswahl OOP1
     */
     public void optionEinsGrafischAuswaehlen() {
-    	Rechteck rechteckOOP1 = new Rechteck(groesseX/2-250, groesseY/2-100, 200, 100, Grafik.GREEN, Grafik.YELLOW, 2, 20, "oop1");
-        Text textOOP1 = new Text(groesseX/2-250+40, groesseY/2-100, "OOP1", Grafik.YELLOW, 50, "");
+        // Variablen für die Darstellung der Option OOP1 ausgewählt
+    	Rechteck rechteckOOP1 = new Rechteck(breite/2-250, hoehe/2-100, 200, 100, Grafik.GREEN, Grafik.YELLOW, 2, 20, "oop1");
+        Text textOOP1 = new Text(breite/2-250+40, hoehe/2-100, "OOP1", Grafik.YELLOW, 50, "");
     }
     
 
@@ -117,8 +123,9 @@ public class GUI {
 	* Prozedur zur Darstellung der Auswahl OOP2
     */
     public void optionZweiGrafischAuswaehlen() {
-    	Rechteck rechteckOOP2 = new Rechteck(groesseX/2+50, groesseY/2-100, 200, 100, Grafik.BLUE, Grafik.YELLOW, 2, 20, "oop2");
-    	Text textOOP2 = new Text(groesseX/2+50+40, groesseY/2-100, "OOP2", Grafik.YELLOW, 50, "");
+        // Variablen für die Darstellung der Option OOP2 ausgewählt
+    	Rechteck rechteckOOP2 = new Rechteck(breite/2+50, hoehe/2-100, 200, 100, Grafik.BLUE, Grafik.YELLOW, 2, 20, "oop2");
+    	Text textOOP2 = new Text(breite/2+50+40, hoehe/2-100, "OOP2", Grafik.YELLOW, 50, "");
     }
     
 
@@ -126,7 +133,8 @@ public class GUI {
 	* Prozedur zur Darstellung des Buttons, noch nicht bereit darauf geklickt zu werden
     */
     public void goButtonGrafischErzeugen() {
-    	Button okButton = new Button(groesseX/2-50, groesseY/2+50, 100, 70, Grafik.GREY, "GO", Grafik.WHITE, 30, 5, "");
+        // Variable für die Darstellung des Buttons
+    	Button goButton = new Button(breite/2-50, hoehe/2+50, 100, 70, Grafik.GREY, "GO", Grafik.WHITE, 30, 5, "");
     }
     
 
@@ -134,7 +142,8 @@ public class GUI {
 	* Prozedur zur Darstellung des Buttons, bereit darauf geklickt zu werden
     */
     public void goButtonGrafischZeigen() {
-    	Button okButton = new Button(groesseX/2-50, groesseY/2+50, 100, 70, Grafik.BLACK, "GO", Grafik.WHITE, 30, 5, "auswaehlen");
+        // Variable für die Darstellung des Buttons angezeigt
+    	Button goButton = new Button(breite/2-50, hoehe/2+50, 100, 70, Grafik.BLACK, "GO", Grafik.WHITE, 30, 5, "auswaehlen");
     }
     
 
@@ -142,8 +151,9 @@ public class GUI {
 	* Prozedur zur Darstellung des Buttons, bereits geklickt
     */
     public void goButtonGrafischKlicken() {
-    	Button okButton = new Button(groesseX/2-50, groesseY/2+50, 100, 70, Grafik.YELLOW, "GO", Grafik.BLACK, 30, 5, "auswaehlen");
-        // Warte 5 Sekunden darauf
+        // Variablen für die Darstellung des Buttons geklickt
+    	Button goButton = new Button(breite/2-50, hoehe/2+50, 100, 70, Grafik.YELLOW, "GO", Grafik.BLACK, 30, 5, "auswaehlen");
+        // Warte 0.5 Sekunden darauf
         okButton.waitFor(500);
     }
  
@@ -190,27 +200,33 @@ public class GUI {
     * @return zahl, die einem Tempel entspricht (1,2,3 oder 4 - je nach Schritt)
     */
     public int tempelSymbolZeigen() {
-    	Rechteck wasserTempel = new Rechteck(groesseX/2-330, groesseY/2-75, 150, 150, Grafik.BLUE, Grafik.BLACK, 1, 10, "1");
+        // Wasser-Tempel Symbol erzeugen, verstecken und nach 0.3 Sekunden zeigen
+    	Rechteck wasserTempel = new Rechteck(breite/2-330, hoehe/2-75, 150, 150, Grafik.BLUE, Grafik.BLACK, 1, 10, "1");
         wasserTempel.hide();
         wasserTempel.waitFor(300);
         wasserTempel.show();
-        Rechteck luftTempel = new Rechteck(groesseX/2-160, groesseY/2-75, 150, 150, Grafik.YELLOW, Grafik.BLACK, 1, 10, "2");
+        // Luft-Tempel Symbol erzeugen, verstecken und nach 0.3 Sekunden zeigen
+        Rechteck luftTempel = new Rechteck(breite/2-160, hoehe/2-75, 150, 150, Grafik.YELLOW, Grafik.BLACK, 1, 10, "2");
         luftTempel.hide();
         luftTempel.waitFor(300);
         luftTempel.show();
-        Rechteck erdeTempel = new Rechteck(groesseX/2+10, groesseY/2-75, 150, 150, Grafik.GREEN, Grafik.BLACK, 1, 10, "3");
+        // Erde-Tempel Symbol erzeugen, verstecken und nach 0.3 Sekunden zeigen
+        Rechteck erdeTempel = new Rechteck(breite/2+10, hoehe/2-75, 150, 150, Grafik.GREEN, Grafik.BLACK, 1, 10, "3");
         erdeTempel.hide();
         erdeTempel.waitFor(300);
         erdeTempel.show();
-        Rechteck feuerTempel = new Rechteck(groesseX/2+180, groesseY/2-75, 150, 150, Grafik.RED, Grafik.BLACK, 1, 10, "4");
+        // Feuer-Tempel Symbol erzeugen, verstecken und nach 0.3 Sekunden zeigen
+        Rechteck feuerTempel = new Rechteck(breite/2+180, hoehe/2-75, 150, 150, Grafik.RED, Grafik.BLACK, 1, 10, "4");
         feuerTempel.hide();
         feuerTempel.waitFor(300);
         feuerTempel.show();
-        // Auswahl zurückgeben
+        // Auswahl durch die Grafik Konsole auslesen
         int eingabe = 0;
+        // Es muss eine Zahl zwischen 1 und 4 ausgelesen werden, d.h. weder 0 noch einen Zeichenkette
         while(eingabe == 0 || Konsole.eingabeString().equals("")) {
         	eingabe = Konsole.eingabeZahl();
         }
+        // Auswahl zurückgeben
         return eingabe;
     }
 
@@ -219,13 +235,15 @@ public class GUI {
 	* Prozedur zur Darstellung des Begrüßungsnachricht in jedem Tempel
     */
 	public void begruessungsnachrichtDarstellen(String[] nachricht) {
-        Text textTempelEinfuehrungZeile1 = new Text(groesseX/2-250, groesseY/2-150, nachricht[0] +"", Grafik.BLACK, 20, "");
-        Text textTempelEinfuehrungZeile2 = new Text(groesseX/2-180, groesseY/2-120, nachricht[1] +"", Grafik.BLACK, 20, "");
-        Text textTempelEinfuehrungZeile3 = new Text(groesseX/2-150, groesseY/2-90, nachricht[2] +"", Grafik.BLACK, 20, "");
+        // Variablen für die Darstellung der Nachricht in Zeilen geteilt
+        Text textTempelEinfuehrungZeile1 = new Text(breite/2-250, hoehe/2-150, nachricht[0] +"", Grafik.BLACK, 20, "");
+        Text textTempelEinfuehrungZeile2 = new Text(breite/2-180, hoehe/2-120, nachricht[1] +"", Grafik.BLACK, 20, "");
+        Text textTempelEinfuehrungZeile3 = new Text(breite/2-150, hoehe/2-90, nachricht[2] +"", Grafik.BLACK, 20, "");
         // Button grafisch anzeigen, bereit darauf geklickt zu werden
         goButtonGrafischZeigen();
+        // Prüfen, ob die gelesene Zeichenkette dem richtigen Wert entspricht
         if(Konsole.eingabeString().equals("auswaehlen")) {
-        	// Button grafisch darauf klicken (ist momentan nicht wichtig)
+        	// Button grafisch darauf klicken - hier nur wichtig um weiter zu machen
         	goButtonGrafischKlicken();
         }
     }
@@ -236,7 +254,7 @@ public class GUI {
     /**
     * Funktion stellt eine Quizfrage dar und gibt die ausgewählte Antwort zurück
     * @param frage - Frage zum Darstellen
-    * @param antwortmoeglichkeiten - Array von String mit Antwortmöglichkeiten zum Darstellen
+    * @param antwortmoeglichkeiten als Array von String mit Antwortmöglichkeiten zum Darstellen
     * @return ausgewählte Antwort als char
     */
     public char quizDarstellen(String frage, String[] antwortmoeglichkeiten) {
@@ -304,12 +322,13 @@ public class GUI {
     
     /**
     * Prozedur zur Darstellung der Plätze für Karten in (j,i)
-    * @param j - Stelle auf der X-Achse
-    * @param i - Stelle auf der Y-Achse
+    * @param x - X-Koordinate im Spielbrett
+    * @param y - Y-Koordinate im Spielbrett
     */
-    public void platzFuerKarten(int j, int i) {
-        Rechteck platzFuerKarte = new Rechteck(j, i, 50, 100, farbeSpielfeld, Grafik.GREY, 1, 10, "");
-        // Warte 2 Sekunden darauf
+    public void platzFuerKarten(int x, int y) {
+        // Variable für die Darstellung eines Platzes für die Karten
+        Rechteck platzFuerKarte = new Rechteck(x, y, 50, 100, farbeSpielfeld, Grafik.GREY, 1, 10, "");
+        // Reckteck verstecken und nach 0.2 Sekunden anzeigen
         platzFuerKarte.hide();
         platzFuerKarte.waitFor(200);
         platzFuerKarte.show();
@@ -318,12 +337,13 @@ public class GUI {
 
     /**
 	* Prozedur zur Darstellung des Buttons, in Abhängigkeit von der Größe des Spielfels, noch nicht bereit darauf geklickt zu werden.
-    * @param x - Größe X des Spielfelds
-    * @param y - Größe Y des Spielfelds
+    * @param x - X-Koordinate im Spielbrett
+    * @param y - Y-Koordinate im Spielbrett
     */
     public void unoButtonErzeugen(int x, int y) {
+        // Variable für die Darstellung des UNO-Buttons
     	Button unoButton = new Button(x+40, y/2 + 135, 130, 70, Grafik.GREY, "UNO", Grafik.WHITE, 30, 5, "");
-        // Warte 2 Sekunden darauf
+        // Button verstecken und nach 0.2 Sekunden anzeigen
         unoButton.hide();
         unoButton.waitFor(200);
         unoButton.show();
@@ -332,13 +352,14 @@ public class GUI {
 
     /**
 	* Prozedur zur Darstellung der Buttons, in Abhängigkeit von der Größe des Spielfels.
-    * @param x - Größe X des Spielfelds
-    * @param y - Größe Y des Spielfelds
+    * @param x - X-Koordinate im Spielbrett
+    * @param y - Y-Koordinate im Spielbrett
     */
     public void linksRechtsButtonsErzeugen(int x, int y) {
+        // Variablen für die Darstellung von einem Link-Button und einem Recht-Button
     	Button linksButton = new Button(x-45, y/2 + 135, 30, 30, Grafik.WHITE, "<", Grafik.BLACK, 30, 5, "links");
         Button rechtsButton = new Button(x-45, y/2 + 175, 30, 30, Grafik.WHITE, ">", Grafik.BLACK, 30, 5, "rechts");
-        // Warte 2 Sekunden darauf
+        // Variablen verstecken und nach 0.2 Sekunden anzeigen
         linksButton.hide();
         rechtsButton.hide();
         linksButton.waitFor(200);
@@ -350,16 +371,16 @@ public class GUI {
 
     /**
     * Prozedur zum Darstellen eines leeren Spielfelds
-    * @param x - Größe X des Spielfelds
-    * @param y - Größe Y des Spielfelds
+    * @param x - X-Koordinate im Spielbrett
+    * @param y - Y-Koordinate im Spielbrett
     */
     public void stelleSpielfeldBereit(int x, int y) {
-    	// Rand vom Spielbrett
+    	// Variable für den Rand vom Spielbrett
      	int rand = 5;
      	
         // Spielfeld leer als Rechteck darstellen    
     	Rechteck spielfeldRechteck = new Rechteck(0+rand, 0+rand, x+rand, y+rand, farbeSpielfeld, Grafik.BLACK, 1, "");
-        // Warte 3 Sekunden darauf
+        // Rechteck verstecken und nach 0.3 Sekunden anzeigen
         spielfeldRechteck.hide();
         spielfeldRechteck.waitFor(300);
         spielfeldRechteck.show();
@@ -388,25 +409,25 @@ public class GUI {
     /**
      * Prozedur setzt Karte an die gegebene Position auf dem Spielfeld
      * @param karte - zu platzierende Karte
-     * @param j - Koordinate in X-Achse
-     * @param i - Koordinate in Y-Achse
+     * @param spalte - Koordinate in X-Achse
+     * @param zeile - Koordinate in Y-Achse
      */
-    public void setzeKarteAufSpielfeld(Karte karte, int j, int i) {
+    public void setzeKarteAufSpielfeld(Karte karte, int spalte, int zeile) {
         // Spielfeldrand auf 5 setzen
         int rand = 5;
-        // Variablen für die Darstellung berechnen
-        int x = rand + 10 + 60*j;
-        int y = rand + 10 + 165*i;
+        // Variablen für die Darstellung auf dem Spielbrett berechnen
+        int x = rand + 10 + 60*spalte;
+        int y = rand + 10 + 165*zeile;
         // Fallunterscheidung prüfen
-        if(i == 0) {
+        if(zeile == 0) {
             // DummyKarte für den Gegner einsetzen
-            karte.setzeKarteAuf(j,i,x,y,false);
-        } else if(i == 1) {
-            // Karte auf den Ablagenstapel setzen
-        	karte.setzeKarteAuf(j,i,x,y-4,true);
-        } else if(i == 2) {
+            karte.setzeKarteAuf(spalte,zeile,x,y,false);
+        } else if(zeile == 1) {
+            // Karte auf den Ablagenstapel setzen mit true als Parameter für aktuelle Karte
+        	karte.setzeKarteAuf(spalte,zeile,x,y-4,true);
+        } else if(zeile == 2) {
             // Karte für den menschlichen Spieler auf Position (x,y) setzen
-            karte.setzeKarteAuf(j,i,x,y,false);
+            karte.setzeKarteAuf(spalte,zeile,x,y,false);
         }
 
     }
@@ -418,11 +439,12 @@ public class GUI {
      * @param zeile - Koordinate auf Y-Achse
      */
     public void stapelDarstellen(int spalte, int zeile) {
+        // Variablen für die Darsellung des Kartenstapels
     	Rechteck grafikRechteckMitRundung = new Rechteck(spalte, zeile, 50, 100, farbeGrau, Grafik.WHITE, 2, 10, "karteZiehen");
         Text uStapelText = new Text(spalte+20, zeile+10, "U", Grafik.WHITE, 20,"karteZiehen");
         Text nStapelText = new Text(spalte+20, zeile+30, "N", Grafik.WHITE, 20,"karteZiehen");
     	Text oStapelText = new Text(spalte+20, zeile+50, "O", Grafik.WHITE, 20,"karteZiehen");
-        // Warte 2 Sekunden darauf
+        // Variablen verstecken und nach 0.2 Sekunden anzeigen
         grafikRechteckMitRundung.hide();
         uStapelText.hide();
         nStapelText.hide();
@@ -445,16 +467,16 @@ public class GUI {
     public int farbeAuswaehlen() {
     	// Meldung auf die Konsole ausgeben
         System.out.println("Wähle bitte eine neue Farbe");
-		// Variablen für die Größe des Spielfelds
-    	int groesseX = 660;
-        int groesseY = 450;
-        // Menü zur Auswahl darstellen
-        Rechteck rechteckFarbAuswahl = new Rechteck(groesseX + 40, groesseY/2 - 100, 130, 130, Grafik.WHITE, Grafik.BLACK, 1, 10, "");
-        Rechteck rechteckBlau = new Rechteck(groesseX + 50, groesseY/2 - 90, 50, 50, Grafik.BLUE, Grafik.BLACK, 1, 10, "0");
-        Rechteck rechteckGelb = new Rechteck(groesseX + 110, groesseY/2 - 90, 50, 50, Grafik.YELLOW, Grafik.BLACK, 1, 10, "1");
-        Rechteck rechteckGruen = new Rechteck(groesseX + 50, groesseY/2 - 30, 50, 50, Grafik.GREEN, Grafik.BLACK, 1, 10, "2");
-        Rechteck rechteckRot = new Rechteck(groesseX + 110, groesseY/2 - 30, 50, 50, Grafik.RED, Grafik.BLACK, 1, 10, "3");
-        // Farbe auswählen, Variable farbe definieren
+		// Variablen für die Koordinaten des Menüs auf dem Spielbrett
+    	int x = 660;
+        int y = 450;
+        // Variablen für die Dastellung des Menüs zur Auswahl
+        Rechteck rechteckFarbAuswahl = new Rechteck(x + 40, y/2 - 100, 130, 130, Grafik.WHITE, Grafik.BLACK, 1, 10, "");
+        Rechteck rechteckBlau = new Rechteck(x + 50, y/2 - 90, 50, 50, Grafik.BLUE, Grafik.BLACK, 1, 10, "0");
+        Rechteck rechteckGelb = new Rechteck(x + 110, y/2 - 90, 50, 50, Grafik.YELLOW, Grafik.BLACK, 1, 10, "1");
+        Rechteck rechteckGruen = new Rechteck(x + 50, y/2 - 30, 50, 50, Grafik.GREEN, Grafik.BLACK, 1, 10, "2");
+        Rechteck rechteckRot = new Rechteck(x + 110, y/2 - 30, 50, 50, Grafik.RED, Grafik.BLACK, 1, 10, "3");
+        // Variable farbe definieren
         int farbe = -1;
         // Solange die Farbe keine der Farben entspricht
         while(farbe < 0 || farbe > 3) {
@@ -467,24 +489,30 @@ public class GUI {
         rechteckGelb.delete();
         rechteckGruen.delete();
         rechteckRot.delete();
-        // Reaktion zurückgeben
+        // Ausgewählte Farbe als Zahl zurückgeben
         return farbe;
     }
     
     
     /**
      * Funktion zum Darstellen des UNO-Buttons zum Klicken
-     * @param x
-     * @param y 
+     * @param x - X-Koordinate im Spielbrett
+    * @param y - Y-Koordinate im Spielbrett 
      * @return durch die Grafik Konsole gelesene String
      */
     public String unoKlicken(int x, int y) {
+        // Variable für die Darstellung des UNO-Buttons
         Button unoButton = new Button(x+40, y/2 + 135, 130, 70, Grafik.BLACK, "UNO", Grafik.WHITE, 30, 5, "UNO");
+        // Variable für den zu lesenden String
         String uno = "";
+        // Solange die Zeichenkette dem gegebenen Wert nicht entspricht
         while(!uno.equals("UNO")) {
+            // Durch die Grafik Konsole eine Zeichenkette auslesen
         	uno = Konsole.eingabeString();
         }
+        // Button entfernen
         unoButton.delete();
+        // Zeichenkette zurückgeben
         return uno;
     }
 
