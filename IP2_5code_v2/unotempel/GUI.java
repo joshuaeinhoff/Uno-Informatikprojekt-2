@@ -154,7 +154,7 @@ public class GUI {
         // Variablen für die Darstellung des Buttons geklickt
     	Button goButton = new Button(breite/2-50, hoehe/2+50, 100, 70, Grafik.YELLOW, "GO", Grafik.BLACK, 30, 5, "auswaehlen");
         // Warte 0.5 Sekunden darauf
-        okButton.waitFor(500);
+        goButton.waitFor(500);
     }
  
 
