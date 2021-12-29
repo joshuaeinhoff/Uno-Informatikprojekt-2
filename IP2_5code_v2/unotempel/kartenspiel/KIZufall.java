@@ -17,6 +17,31 @@ public class KIZufall extends Spieler{
 
 
     /**
+     * Prozedur zum Ziehen der Karten
+     * @param kartenStapel
+     * @param aktuelleKarte
+     * @param spielfeld
+     */
+    @Override
+    public void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld, GUI gui){
+        // Solange der Spieler noch Platz für Karten in der Hand hat, d.h. die Hand ist nicht voll
+        for(int i = 0; i < hand.length; i++){
+        	// Bedingung überprüft, ob die Karte in der Hand null ist, d.h. keine echte Karte an dieser Stelle
+            if(hand[i] == null){
+            	// Gezogene Karte aus dem Stapel in der Hand hinzufügen
+                hand[i] = kartenStapel.karteZiehen(aktuelleKarte);
+                // Aktualisiere Karte auf Spielfeld
+                spielfeld.setzeKartePosition(new DummyKarte(),0,i,gui);
+                // Schleife unterbrechen
+                return;
+            }
+        }
+        // Meldung auf die Konsole ausgeben, falls die Hand schon voll ist
+        System.out.println("Hand ist voll!");
+    }
+
+
+    /**
      * Funktion zum Spielen einer Karte
      * @param aktuelleKarte - Aktuelle Karte im Spiel
      * @param kartenStapel - KartenStapel
@@ -24,12 +49,12 @@ public class KIZufall extends Spieler{
      * @param spielfeld
      * @return Karte zum Spielen
      */
+    @Override
     public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel, boolean karteGezogen, Spielfeld spielfeld,GUI gui){
         // Wenn der Spieler noch spielbare Karten auf der Hand hat
         while(spielbareKarteVorhanden(aktuelleKarte)){
             // Zufällige Zahl zwischen 0 und hand.length-1
-            int zufallszahl = (int) (Math.random() * hand.length);
-
+            int zufallszahl = (int)(Math.random() * hand.length);
             // Wenn eine Karte zufällig ausgewählt wird und die Karte gespielt werden kann
             if(hand[zufallszahl] != null && hand[zufallszahl].istSpielbar(aktuelleKarte)) {
             	Karte ausgewaehlteKarte = hand[zufallszahl];
@@ -56,32 +81,15 @@ public class KIZufall extends Spieler{
         return null;
     }
     
-
+   
     /**
-     * Prozedur zum Ziehen der Karten
-     * @param kartenStapel
-     * @param aktuelleKarte
-     * @param spielfeld
+     * Funktion zur Auswahl einer neuen Farben
+     * @param gui - Graphical User Interface
+     * @return int - Code der ausgewählten Farbe
      */
-    public void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld, GUI gui){
-        // Solange der Spieler noch Platz für Karten in der Hand hat, d.h. die Hand ist nicht voll
-        for(int i = 0; i < hand.length; i++){
-        	// Bedingung überprüft, ob die Karte in der Hand null ist, d.h. keine echte Karte an dieser Stelle
-            if(hand[i] == null){
-            	// Gezogene Karte aus dem Stapel in der Hand hinzufügen
-                hand[i] = kartenStapel.karteZiehen(aktuelleKarte);
-                // Aktualisiere Karte auf Spielfeld
-                spielfeld.setzeKartePosition(new DummyKarte(),0,i,gui);
-                // Schleife unterbrechen
-                return;
-            }
-        }
-        // Meldung auf die Konsole ausgeben, falls die Hand schon voll ist
-        System.out.println("Hand ist voll!");
-    }
-    
-    
+    @Override
     public int neueFarbeAuswaehlen(GUI gui) {
+        // Zufallszahl zwischen 0 und 4 zurückgeben
     	return (int)(Math.random() * 4);
     }
 

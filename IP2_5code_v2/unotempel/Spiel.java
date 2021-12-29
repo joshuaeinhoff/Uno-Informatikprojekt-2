@@ -75,7 +75,7 @@ public class Spiel {
         heldHatGewonnen = !heldHatGewonnen;
      
         // Monster Kämpfen
-        heldHatGewonnen = wasserTempel.monsterKaempfen(held, false, gui);
+        heldHatGewonnen = wasserTempel.heldHatMonsterBesiegt(held, false, gui);
 		gui.spielbrettDarstellen(held);        
         if(!heldHatGewonnen)
        		return;
@@ -106,7 +106,7 @@ public class Spiel {
         heldHatGewonnen = !heldHatGewonnen;
 
         // Monster Kämpfen
-        heldHatGewonnen = luftTempel.monsterKaempfen(held, false, gui);
+        heldHatGewonnen = luftTempel.heldHatMonsterBesiegt(held, false, gui);
         gui.spielbrettDarstellen(held);
 		if(!heldHatGewonnen)
        		return;
@@ -137,7 +137,7 @@ public class Spiel {
         heldHatGewonnen = !heldHatGewonnen;
 
         // Monster Kämpfen
-        heldHatGewonnen = erdeTempel.monsterKaempfen(held, false, gui);
+        heldHatGewonnen = erdeTempel.heldHatMonsterBesiegt(held, false, gui);
         gui.spielbrettDarstellen(held);
 		if(!heldHatGewonnen)
        		return;
@@ -168,7 +168,7 @@ public class Spiel {
         heldHatGewonnen = !heldHatGewonnen;
 
         // Monster Kämpfen
-        heldHatGewonnen = feuerTempel.monsterKaempfen(held, false, gui);
+        heldHatGewonnen = feuerTempel.heldHatMonsterBesiegt(held, false, gui);
         gui.spielbrettDarstellen(held);
         if(!heldHatGewonnen)
        		return;

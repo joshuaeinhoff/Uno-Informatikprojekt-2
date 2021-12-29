@@ -22,6 +22,34 @@ public class Tempel {
         this.farbe = farbe;
         this.quiz = new Quiz(farbe);
         this.kartenspiel = new Kartenspiel();
+        monsterErzeugen();
+    }
+    
+    
+    /**
+     * Prozedur erzeugt ein Monster je nach Tempel Niveau bzw. Farbe
+     */
+    private void monsterErzeugen() {
+    	// Fallunterscheidung: Nach dem Tempel-Niveau fragen
+        switch(farbe) {
+            case "blau":
+            	// KIZufall erzeugen
+                this.monster = new KIZufall(10);
+                break;
+            case "gelb":
+            	// KIZufall erzeugen
+                this.monster = new KIZufall(20);
+                break;
+            case "gruen":
+            	// KISchlau erzeugen
+                this.monster = new KISchlau(30);
+                break;
+            case "rot":
+            	// KISchlau erzeugen
+                this.monster = new KISchlau(40);
+                break;
+        }
+    
     }
     
     
@@ -90,15 +118,16 @@ public class Tempel {
      * @param gui - Graphical User Interface
      * @return true, wenn das Monster besiegt wurde - false, sonst
      */
-    public boolean monsterKaempfen(Spieler held, boolean monsterBesiegt, GUI gui) {
-    	// Solange der Held noch lebt und das Monster nicht besiegt hat
-        if(held.getLebenspunkte() > 0 && !monsterBesiegt) {
+    public boolean heldHatMonsterBesiegt(Spieler held, boolean hatSpielGewonnen, GUI gui) {
+        // Solange der Held noch lebt und das Monster nicht besiegt hat ( => hat 0 Lebenspunkte)
+        if(held.getLebenspunkte() > 0 && monster.getLebenspunkte() > 0) {
+        	System.out.println("Held muss das Monster besiegen, indem er UNO spielt.");
         	// Prozedur zum Vorbereiten des Spieles aufrufen
         	kampfVorbereiten(held, gui);
             // Speichern ob das Monster besiegt wurde
-            monsterBesiegt = heldHatMonsterBesiegt(held, gui);
+            hatSpielGewonnen = heldHatSpielGewonnen(held, gui);
             // Funktion zum Kämpfen des Monsters aufrufen
-            return monsterKaempfen(held, monsterBesiegt, gui);
+            return heldHatMonsterBesiegt(held, hatSpielGewonnen, gui);
         }
         // Bedingung überprüft, ob der Spieler noch Lebensenergie hat
         if(held.getLebenspunkte() <= 0) {
@@ -107,7 +136,7 @@ public class Tempel {
             return false;
         }
         // Gibt true zurück, wenn der Held das Monster besiegt hat
-        return monsterBesiegt;      
+        return true;      
     }
     
     
@@ -117,25 +146,6 @@ public class Tempel {
      * @param gui - Graphical User Interface
      */
     private void kampfVorbereiten(Spieler held, GUI gui) {
-        // Fallunterscheidung: Nach dem Tempel-Niveau fragen
-        switch(farbe) {
-            case "blau":
-            	// KIZufall erzeugen
-                this.monster = new KIZufall(50);
-                break;
-            case "gelb":
-            	// KIZufall erzeugen
-                this.monster = new KIZufall(75);
-                break;
-            case "gruen":
-            	// KISchlau erzeugen
-                this.monster = new KISchlau(50);
-                break;
-            case "rot":
-            	// KISchlau erzeugen
-                this.monster = new KISchlau(75);
-                break;
-        }
         // Kartenspiel vorbereiten
         kartenspiel.spielVorbereiten(held, monster, gui);
         // Meldung auf die Konsole ausgeben
@@ -144,14 +154,14 @@ public class Tempel {
     
 
     /**
-     * Funktion gibt zurück, ob der Held das Monster besiegt hat
+     * Funktion gibt zurück, ob der Held das Spiel gewonnen hat
      * @param held - Menschlicher Spieler als Parameter
      * @param gui - Graphical User Interface
-     * @return true, wenn der Held das Monster besiegt hat - false, sonst 
+     * @return true, wenn der Held das Spiel gewonnen hat - false, sonst 
      */
-    private boolean heldHatMonsterBesiegt(Spieler held, GUI gui) {
+    private boolean heldHatSpielGewonnen(Spieler held, GUI gui) {
         // Meldung auf die Konsole ausgeben
-        System.out.println("Spielen!\n");
+        System.out.println("Spielen!\n");        
         // Funktion in Kartenspiel zum Spielen aufrufen
         return kartenspiel.spielen(held, monster, gui);
     }

@@ -11,8 +11,8 @@ public class Spielfeld {
     // Eigenschaften
     private Karte[][] spielfeld;
     // Größe des Spielfelds
-    private int groesseX;
-   	private int groesseY;
+    private int breite;
+   	private int hoehe;
     // 
 
 
@@ -22,34 +22,44 @@ public class Spielfeld {
     public Spielfeld(){
     	// ( Anzahl von Karten in Y-Richtung, Anzahl von Karten in X-Richtung)
         this.spielfeld = new Karte[5][10];
-        this.groesseX = 660;
-        this.groesseY = 450;
+        this.breite = 660;
+        this.hoehe = 450;
     }
 
 
     /**
-     * Methode um Karte auf dem Spielfeld zu Platzieren
+     * Prozedur um Karte auf dem Spielfeld zu Platzieren
      * X-Y-Koordinaten mit [0,0] oben links
      * @param karte - Karte die übergeben wird
-     * @param y - Koordinate der Karte auf dem Spielfeld in int
-     * @param x - Koordinate der Karte auf dem Spielfeld in int
+     * @param zeile - Y-Koordinate der Karte auf dem Spielfeld in int
+     * @param spalte - X-Koordinate der Karte auf dem Spielfeld in int
+     * @param gui - Graphical User Interface
      */
-    public void setzeKartePosition(Karte karte, int y, int x,GUI gui) {
-        int j = x;
-        int i = y;
-        if(x > 9) {
-        	i += 1;
-            j %= 10;
+    public void setzeKartePosition(Karte karte, int zeile, int spalte, GUI gui) {
+        int neuSpalte = spalte;
+        int neuZeile = zeile;
+        if(spalte > 9) {
+        	neuZeile += 1;
+            neuSpalte %= 10;
         }
-        	      	
-        spielfeld[i][j] = karte; // problem lsen
-        
-        if(y > 2)
-        	y = 2;
-        if(x < 10)
-        	gui.setzeKarteAufSpielfeld(karte,x,y);
+        // Karte auf das Spielfeld platzieren	      	
+        spielfeld[neuZeile][neuSpalte] = karte; 
+        // Variablen für die Darstellung berechnen
+        if(zeile > 2)
+        	zeile = 2;
+        // Prüfen, ob die Karte dargestellt werden soll
+        if(spalte < 10)
+            // Darstellung der Karte auf dem Spielfeld
+        	gui.setzeKarteAufSpielfeld(karte,spalte,zeile);
     }
     
+
+    /**
+     * Prozedur zum Darstellen einer verschobenen Karte
+     * @param kartenVerschiebung
+     * @param held
+     * @param gui - Graphical User Interface
+     */
     public void kartenVerschobenDarstellen(int kartenVerschiebung,Spieler held,GUI gui){
     	
 		if(kartenVerschiebung >= 0 && kartenVerschiebung < 10){
@@ -66,42 +76,50 @@ public class Spielfeld {
                 }
             }
             
-        }//ende if
-        
+        }//ende if  
     }
     
     
-    
+    /**
+     * Prozedur zum Platzieren und Darstellen der aktuellen Karte
+     * @param karte - Aktuelle Karte
+     * @param gui - Graphical User Interface
+     */
     public void setzeAktuelleKarte(Karte karte,GUI gui) {
         spielfeld[2][3] = karte;
-        gui.setzeKarteAufSpielfeld(karte,3,1); // 2 -> 1
+        gui.setzeKarteAufSpielfeld(karte,3,1); // Für die Darstellung 2 -> 1
     }
 
 
     /**
      * Prozedur entfernt eine Karte aus dem Spielfeld
-     * @param karte
-     * @param y
-     * @param x
+     * @param karte - Karte
+     * @param zeile - Y-Koordinate im Spielfeld
+     * @param spalte - X-Koordinate im Spielfeld
      */
-    public void karteEntfernen(Karte karte, int y, int x) {
-        spielfeld[y][x] = null;
+    public void karteEntfernen(Karte karte, int zeile, int spalte) {
+        // Karte im Spielfeld auf null setzen
+        spielfeld[zeile][spalte] = null;
+        // Karte verstecken
         karte.versteckeKarte();
     }
     
 
 	/**
-     * Methode die als erstes Aufgerufen wird um das Spielfeld initial zu füllen
+     * Prozedur stellt das Spielfeld leer dar
+     * @param gui - Graphical User Interface
      */
     public void stelleSpielfeldLeerDar(GUI gui) {
         // Spielfeld erstmal leer darstellen
-        gui.stelleSpielfeldBereit(groesseX,groesseY);
+        gui.stelleSpielfeldBereit(breite,hoehe);
     }
 
 
     /**
-     * Methode die als erstes Aufgerufen wird um das Spielfeld initial zu füllen
+     * Prozedur zum Füllen des Spielfelds mit Karten
+     * @param kartenMenschlichSpieler - Karten von Spieler Held
      * @param aktuelleKarte - zufällige Karte die am Anfang vom Spiel generiert wird
+     * @param gui - Graphical User Interface
      */
     public void ersteFuelleSpielfeld(Karte[] kartenMenschlichSpieler, Karte aktuelleKarte,GUI gui) {
         // Karten vom KI Spieler auf das Spielfeld setzen
@@ -109,10 +127,8 @@ public class Spielfeld {
             // Karte im entsprechenden Index speichern
             setzeKartePosition(new DummyKarte(),0,i,gui);
         }
-
-        // Random Starterkarte die übergeben wird
+        // Zufällige Karte die übergeben wird
         setzeKartePosition(aktuelleKarte,1,3,gui);
-
         // Karten vom menschlichen Spieler auf das Spielfeld setzen
         for(int i = 0; i < 7; i++) {
             setzeKartePosition(kartenMenschlichSpieler[i],3,i,gui);
@@ -122,31 +138,30 @@ public class Spielfeld {
     
     
     /**
-     * 
-     * @param kartenMenschlichSpieler
-     * @param kartenSpielerKI
-     * @param aktuelleKarte
+     * Prozedur zum aktualisieren des Spielfelds
+     * @param kartenMenschlichSpieler - Karten von Spieler Held
+     * @param kartenSpielerKI - Karten von Spieler KI
+     * @param aktuelleKarte - zufällige Karte die am Anfang vom Spiel generiert wird
+     * @param gui - Graphical User Interface
      */
     public void aktualisiereSpielfeld(Karte[] kartenMenschlichSpieler, Karte[] kartenSpielerKI, Karte aktuelleKarte,GUI gui) {
-    
     	// Random Starterkarte die übergeben wird
         setzeKartePosition(aktuelleKarte,1,3,gui);
-    
-    
     }
     
+
     /**
      * Prozedur setzt eine DummyKarte in einem gegebenen Index auf null
-     * @param i
+     * @param spalte
      */
-    public void dummyKarteAufNullsetzen(int i) {
-    	int j = 0;
-        if(i >= 10) {
-        	j++;
-            i %= 10;
+    public void dummyKarteAufNullsetzen(int spalte) {
+    	int zeile = 0;
+        if(spalte >= 10) {
+        	zeile++;
+            spalte %= 10;
     	}
-        spielfeld[j][i].versteckeKarte();
-    	spielfeld[j][i] = null;
+        spielfeld[zeile][spalte].versteckeKarte();
+    	spielfeld[zeile][spalte] = null;
     }
     
     
@@ -191,14 +206,13 @@ public class Spielfeld {
     }//end of aktuali
  */   
     
-    
-    
-    
-    
-    
-    
-    
 
+    /**
+     * Prozedur
+     * @param held
+     * @param computerGegener
+     * @param aktuelleKarte
+     */
     public void spielfeldErneuern(Spieler held, Spieler computerGegener, Karte aktuelleKarte){
     
     	int gegnerKartenKoordinateX = 15;

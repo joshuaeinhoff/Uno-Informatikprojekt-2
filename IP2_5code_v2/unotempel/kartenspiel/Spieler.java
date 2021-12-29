@@ -7,10 +7,8 @@ import unotempel.GUI;
  */
  public abstract class Spieler {
 
-    //ArrayList<Karte> hand; //OOP2
-
     // Hand des Spielers mit Karten die max. 20 Karten beinhalten darf
-    protected Karte[] hand; 
+    protected Karte[] hand; //ArrayList<Karte> hand; //OOP2
 
     //Jeder Spieler hat Lebensenergie die durch Kämpfe reduziert werden kann
     protected int lebensenergie;
@@ -21,9 +19,9 @@ import unotempel.GUI;
      * @param lebensenergie - int wird am Anfang für den menschlichen Spieler auf 100 gesetz
      */
     public Spieler(int lebensenergie){
-        //hand = new ArrayList<>(); //OOP2
         this.lebensenergie = lebensenergie;
-        this.hand = new Karte[20]; 
+        // Hand hat immer die Länge 20, unabhängig von der Anzahl von aktuellen Karten
+        this.hand = new Karte[20]; //hand = new ArrayList<>(); //OOP2
     }
 
 
@@ -31,42 +29,29 @@ import unotempel.GUI;
      * Prozedur zum Ziehen sieben Karten aus dem Kartenstapel
      * @param kartenStapel
      * @param spielfeld
+     * @param gui - Graphical User Interface
      */
     public void ersteHand(KartenStapel kartenStapel, Spielfeld spielfeld, GUI gui){
+        // Spieler fängt mit 7 Karten an
         for(int i = 0; i < 7; i++){
             // Karte aus Stapel ziehen, aktuelle Karte ist null am Spielanfang
-            karteZiehen(kartenStapel, null,spielfeld, gui);
+            karteZiehen(kartenStapel, null, spielfeld, gui);
         }
         System.out.println("Erste Hand des Spielers wurde erzeugt.");
     }
     
-
-     /**
-     * Funktion gibt die in einem gegebenen Index gespeicherte Karte zurück
-     * @param index
-     * @return karte
-     */
-    public Karte getKarte(int index){
-        return hand[index];
-    }
-
-
-    /**
-     * Funktion gibt zurück, ob der Spieler spielbare Karten vorhanden hat
-     * @param aktuelleKarte - Aktuelle Karte im Spiel
-     * @return true, falls spielbare Karte auf der Hand vorhanden ist - false, sonst
-     */
-    public boolean spielbareKarteVorhanden(Karte aktuelleKarte){
-        // Über die Karten auf der Hand des Spielers iterieren
-        for(int i = 0; i < hand.length; i++){
-            // Prüft, ob die Karte nicht null ist und spielbar ist
-            if(hand[i] != null && hand[i].istSpielbar(aktuelleKarte)){
-                return true;
-            }
-        }
-        return false;
-    }
     
+    /**
+    * Prozedur zum Entleeren der Hand von Karten, falls Karten noch aus vorherigen Spiel übrig bleiben
+    */
+    public void handEntleeren() {
+    	// Solange der Spieler Karten auf der Hand hat
+    	for(int i = 0; i < hand.length; i++) {
+            // Karte auf null setzen aufrufen
+        	karteAufNullSetzen(i);
+        }
+    }
+
 
     /**
     * Prozedur setzt Karte in einem gegebenen Index auf null,
@@ -79,21 +64,12 @@ import unotempel.GUI;
 
 
     /**
-     * Methode zum reduzieren der Lebensenergie
-     * @param schaden - int Schaden der abgezogen werden soll
-     * @return lebensenergie - int
+     * Funktion gibt die in einem gegebenen Index gespeicherte Karte zurück
+     * @param index
+     * @return karte
      */
-    public void schadenZufuegen(int schaden){
-        this.lebensenergie -= schaden;
-    }
-    
-    
-    public void lebenspunkteGewinnen(int punkte) {
-    	this.lebensenergie += punkte;
-    }
-    
-    public int getLebenspunkte() {
-        return this.lebensenergie;
+    public Karte getKarte(int index){
+        return hand[index];
     }
 
 
@@ -116,6 +92,74 @@ import unotempel.GUI;
     }
 
 
+    /**
+     * Funktion gibt zurück, ob der Spieler spielbare Karten vorhanden hat
+     * @param aktuelleKarte - Aktuelle Karte im Spiel
+     * @return true, falls spielbare Karte auf der Hand vorhanden ist - false, sonst
+     */
+    public boolean spielbareKarteVorhanden(Karte aktuelleKarte) {
+        // Über die Karten auf der Hand des Spielers iterieren
+        for(int i = 0; i < hand.length; i++) {
+            // Prüft, ob die Karte nicht null ist und spielbar ist
+            if(hand[i] != null && hand[i].istSpielbar(aktuelleKarte)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+
+    /**
+     * Funktion zum Reduzieren der Lebensenergie
+     * @return aktualisierte Lebensenergie
+     */
+    public int schadenZufuegen(){
+        // Variable für Schaden
+        int schaden = 0;
+        // Schaden für das Kartenspiel berechnen
+        for(Karte karte : hand) {
+            if(karte != null) {
+                if(karte.istWelcheKarte("PlusVierWunsch")) {
+                    schaden += 5;
+                } else if(karte.istWelcheKarte("Wunsch")) {
+                    schaden += 4;
+                } else {
+                    schaden += 2;
+                }
+            }
+        }
+        // Schaden für das Quiz berechnen
+        if(schaden == 0)
+            schaden += 10;
+        // Schaden zufügen 
+        lebensenergie -= schaden;
+        // Prüfen, ob Lebensenergie negativ ist
+        if(lebensenergie < 0)
+        	// Lebensenergie darf nicht weniger als 0 sein
+            lebensenergie = 0;
+        // Lebensenergie zurückgeben
+        return lebensenergie;
+    }
+    
+    
+    /**
+     * Prozedur zum Gewinnen von Lebensenergie
+     * @param punkte
+     */
+    public void lebenspunkteGewinnen(int punkte) {
+        lebensenergie += punkte;
+    }
+    
+
+    /**
+     * Funktion gibt Lebenspunkte zurück
+     * @return lebensenergie
+     */
+    public int getLebenspunkte() {
+        return lebensenergie;
+    }
+
+
     /*** Abstrakte Prozeduren und Funktionen ***/
 
     /**
@@ -127,7 +171,7 @@ import unotempel.GUI;
 	public abstract void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld, GUI gui);
     
     /**
-     * Prozedur zum Spielen einer Karte
+     * Funktion zum Spielen einer Karte
      * @param aktuelleKarte
      * @param karten
      * @param karteGezogen
@@ -136,7 +180,11 @@ import unotempel.GUI;
      */
     public abstract Karte karteSpielen(Karte aktuelleKarte, KartenStapel karten, boolean karteGezogen, Spielfeld spielfeld,GUI gui);
 
-
+    /**
+     * Abstrakte Funktion zur Auswahl einer neuen Farben
+     * @param gui - Graphical User Interface
+     * @return int - Code der ausgewählten Farbe
+     */
 	public abstract int neueFarbeAuswaehlen(GUI gui);
 
 

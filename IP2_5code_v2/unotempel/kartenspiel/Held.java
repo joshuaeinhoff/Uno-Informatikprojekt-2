@@ -22,6 +22,30 @@ public class Held extends Spieler {
 
 
     /**
+     * Prozedur zum Ziehen der Karten
+     * @param kartenStapel
+     * @param aktuelleKarte
+     * @param spielfeld
+     */
+    @Override
+    public void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld, GUI gui){
+        // Solange der Spieler noch Platz für Karten in der Hand hat, d.h. die Hand ist nicht voll
+        for(int i = 0; i < hand.length; i++){
+            // Bedingung überprüft, ob die Karte in der Hand null ist, d.h. keine echte Karte an dieser Stelle
+            if(hand[i] == null){
+                // Gezogene Karte aus dem Stapel in der Hand hinzufügen
+                hand[i] = kartenStapel.karteZiehen(aktuelleKarte);
+                // Aktualisiere Karte auf Spielfeld
+                spielfeld.setzeKartePosition(hand[i],3,i,gui);
+                return;
+            }       
+        }
+        // Meldung auf die Konsol, falls die Hand schon voll ist
+        System.out.println("Hand ist voll!");
+    }
+
+
+    /**
      * Funktion zum Spielen einer Karte
      * @param aktuelleKarte - Aktuelle Karte im Spiel
      * @param kartenStapel - KartenStapel
@@ -29,6 +53,7 @@ public class Held extends Spieler {
      * @param spielfeld
      * @return Karte zum Spielen
      */
+    @Override
     public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel, boolean karteGezogen,Spielfeld spielfeld,GUI gui){
         // Variable den Index der ausgewählte Karte zuweisen   
         int indexKarte;
@@ -42,7 +67,7 @@ public class Held extends Spieler {
         	indexKarte = Konsole.eingabeZahl();
             
             //
-           	if(indexKarte != -1){
+           	if(indexKarte != -1) {
                 // Prüfen, ob die ausgewählte Karte gespielt werden kann
                 if(getKarte(indexKarte+kartenVerschiebungsWert) != null && getKarte(indexKarte+kartenVerschiebungsWert).istSpielbar(aktuelleKarte)) {
                     // Ja, ausgewählte Karte als Variable speichern
@@ -82,12 +107,25 @@ public class Held extends Spieler {
 		return null;
     }
     
+
+    /**
+     * Funktion zur Auswahl einer neuen Farben durch die Grafik Konsole
+     * @param gui - Graphical User Interface
+     * @return int - Code der ausgewählten Farbe
+     */
+    @Override
+    public int neueFarbeAuswaehlen(GUI gui) {
+    	// Mithilfe der Grafik Konsole eine neue Farbe auswählen
+    	return gui.farbeAuswaehlen();
+    }
+
     
-    /*
+    /**
     * Prozedur zum Verschieben der Karten auf der Kand
     * @param spielfeld
+    * @param gui - Graphical User Interface
     */
-    public void handVerschieben(Spielfeld spielfeld,GUI gui){
+    public void handVerschieben(Spielfeld spielfeld, GUI gui){
     	// Variable für das Verschieben
     	String verschieben;
         // Prüfen, ob der Held Karten auf der Hand hat
@@ -107,33 +145,5 @@ public class Held extends Spieler {
         } // end of while
     } // end of handVerschieben
     
-    
-    /**
-     * Prozedur zum Ziehen der Karten
-     * @param kartenStapel
-     * @param aktuelleKarte
-     * @param spielfeld
-     */
-    public void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld, GUI gui){
-        // Solange der Spieler noch Platz für Karten in der Hand hat, d.h. die Hand ist nicht voll
-        for(int i = 0; i < hand.length; i++){
-            // Bedingung überprüft, ob die Karte in der Hand null ist, d.h. keine echte Karte an dieser Stelle
-            if(hand[i] == null){
-                // Gezogene Karte aus dem Stapel in der Hand hinzufügen
-                hand[i] = kartenStapel.karteZiehen(aktuelleKarte);
-                // Aktualisiere Karte auf Spielfeld
-                spielfeld.setzeKartePosition(hand[i],3,i,gui);
-                return;
-            }       
-        }
-        // Meldung auf die Konsol, falls die Hand schon voll ist
-        System.out.println("Hand ist voll!");
-    }
-    
-    
-    public int neueFarbeAuswaehlen(GUI gui) {
-    	// Mithilfe der Grafik_Konsole eine neue Farbe auswählen
-    	return gui.farbeAuswaehlen();
-    }
 
 } // Ende von Held

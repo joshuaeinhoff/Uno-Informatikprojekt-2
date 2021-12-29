@@ -17,7 +17,7 @@ public class PlusZweiKarte extends Karte{
 
 
     /**
-     * Konstruktor mit default-Wert: Nummer 12
+     * Konstruktor erzeugt eine PlusZweiKarte einer bestimmten Farbe mit default-Wert: Nummer 12
      * @param farbe - Farbe der Karte: blau, gelb, grün oder rot
      */
     public PlusZweiKarte(String farbe){
@@ -30,6 +30,7 @@ public class PlusZweiKarte extends Karte{
      * @param kartenart - Art der Karte
      * @return true - falls die KartenArt passt, false - sonst
      */
+    @Override
     public boolean istWelcheKarte(String kartenart){
         return kartenart.equals("PlusZwei");
     }
@@ -38,6 +39,7 @@ public class PlusZweiKarte extends Karte{
     /**
     * Prozedur erzeugt die visuelle Darstellung einer Karte und verteckt sie direkt danach
     */
+    @Override
     public void erzeugeVisuelleKarte(String farbe) {
     	// Fallunterscheidung
     	switch(farbe) {
@@ -65,13 +67,14 @@ public class PlusZweiKarte extends Karte{
 
     /**
      * Prozedur setzt die Karte auf die gegebene Position und macht diese sichtbar
-     * @param j - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)
-     * @param i - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)
+     * @param spalte - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)
+     * @param zeile - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)
      * @param x - Koordinate auf der X-Achse für die Darstellung
      * @param y - Koordinate auf der Y-Achse für die Darstellung
      * @param istAktuelleKarte - true, wenn die Karte die aktuelle Karte im Spiel entspricht - false, sonst
      */
-    public void setzeKarteAuf(int j, int i, int x, int y, boolean istAktuelleKarte) {
+    @Override
+    public void setzeKarteAuf(int spalte, int zeile, int x, int y, boolean istAktuelleKarte) {
         /* // Warte 2 Sekunden darauf
         this.karteform.waitFor(200);
         this.zahlOben.waitFor(200);
@@ -87,9 +90,9 @@ public class PlusZweiKarte extends Karte{
         // Prüfen, ob die Karte nicht die aktuelle Karte ist
         if(!istAktuelleKarte) {
             // Reaktion einsetzen
-            this.karteform.setCallback(j+"");
-            this.zahlOben.setCallback(j+"");
-            this.zahlUnten.setCallback(j+"");
+            this.karteform.setCallback(spalte+"");
+            this.zahlOben.setCallback(spalte+"");
+            this.zahlUnten.setCallback(spalte+"");
          } else {
          	// Reaktion aussetzen
             this.karteform.setCallback("");
@@ -102,6 +105,7 @@ public class PlusZweiKarte extends Karte{
     /**
      * Prozedur versteckt eine Karte
      */
+    @Override
     public void versteckeKarte() {
         this.karteform.hide();
         this.zahlOben.hide();
@@ -124,6 +128,7 @@ public class PlusZweiKarte extends Karte{
      * Funktion gibt die Karte als String zurück
      * @return String - Karte, Farbe und Nummer
      */
+    @Override
     public String toString(){
     	return "PlusZweiKarte " + this.farbe;
     }

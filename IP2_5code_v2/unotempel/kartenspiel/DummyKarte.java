@@ -25,6 +25,7 @@ public class DummyKarte extends Karte{
      * @param kartenart - Art der Karte
      * @return true - falls die KartenArt passt, false - sonst
      */
+    @Override
     public boolean istWelcheKarte(String kartenart){
         return kartenart.equals("Dummy");
     }
@@ -33,7 +34,8 @@ public class DummyKarte extends Karte{
 	/**
     * Prozedur erzeugt die visuelle Darstellung einer Karte
     * @param farbe - Farbe der Karte
-    */  
+    */
+    @Override  
 	public void erzeugeVisuelleKarte(String farbe) {
     	// Variable initialisieren
     	this.karteform = new Rechteck(0, 0, 50, 100, GUI.farbeGrau, GUI.farbeWeiss, 2, 10, "");
@@ -44,13 +46,14 @@ public class DummyKarte extends Karte{
 
     /**
      * Prozedur setzt die Karte auf die gegebene Position und macht diese sichtbar
-     * @param j - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)
-     * @param i - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)
+     * @param spalte - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)
+     * @param zeile - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)
      * @param x - Koordinate auf der X-Achse für die Darstellung
      * @param y - Koordinate auf der Y-Achse für die Darstellung
      * @param istAktuelleKarte - true, wenn die Karte die aktuelle Karte im Spiel entspricht - false, sonst
      */
-    public void setzeKarteAuf(int j, int i, int x, int y, boolean istAktuelleKarte) {
+    @Override
+    public void setzeKarteAuf(int spalte, int zeile, int x, int y, boolean istAktuelleKarte) {
     	// Visuelle Darstellung der Karte erstellen
         erzeugeVisuelleKarte("grau");
         // Warte 2 Sekunden darauf
@@ -65,7 +68,9 @@ public class DummyKarte extends Karte{
     /**
      * Prozedur versteckt eine Karte
      */
+    @Override
     public void versteckeKarte() {
+        // Prüfen, ob die DummyKarte eine Form hat
         if(this.karteform != null) {
             // Variablen verstecken
             this.karteform.hide();
@@ -88,6 +93,7 @@ public class DummyKarte extends Karte{
      * Funktion gibt die Karte als String zurück
      * @return String - Karte
      */
+    @Override
     public String toString(){
      return "DummyKarte";
     }

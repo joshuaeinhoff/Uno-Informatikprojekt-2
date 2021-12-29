@@ -1,16 +1,12 @@
 package unotempel.kartenspiel;
 
-import java.util.*;
-
 /**
  * Kartenstapel enthält alle Uno-Karten. Das sind insgesamt 108 Karten.
  */
 public class KartenStapel {
 
-    // Eigenschaften eines Stapels sind Karten und Anzahl von Karten
-    private Karte[] karten;
-    private int anzahlKarten;
-    //private ArrayList<Karte> karten; //OOP2
+    // Eigenschaften  
+    private Karte[] karten; //private ArrayList<Karte> karten; //OOP2
     // Boolean-Array zum Speichern ob die Karten noch vorhanden oder abgelegt sind
     private boolean[] vorhandeneKarten;
     private boolean[] abgelegteKarten;
@@ -22,11 +18,9 @@ public class KartenStapel {
      * Konstruktor erzeugt einen Array mit 108 Karten 
      */
     public KartenStapel() {
-        karten = new Karte[108];
-        //karten = new ArrayList<>(); //OOP2
+        karten = new Karte[108]; //karten = new ArrayList<>(); //OOP2
         vorhandeneKarten = new boolean[108];
         abgelegteKarten = new boolean[108];
-        updateKartenAnzahl();
     }
 	
 
@@ -119,15 +113,6 @@ public class KartenStapel {
         }
     }
    
-
-    /**
-     * Prozedur zum Aktualisieren die Anzahl der Karten im Kartenstapel
-     */
-    public void updateKartenAnzahl(){
-        anzahlKarten = this.karten.length;
-        //anzahlKarten = this.karten.size(); //OOP2
-    }
-  
 
     /**
      * Funktion zum Ziehen einer Karte aus dem Stapel

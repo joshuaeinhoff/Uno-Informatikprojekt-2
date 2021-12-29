@@ -19,7 +19,7 @@ public class PlusVierWunschKarte extends Karte{
 
 
     /**
-     * Konstruktor mit default-Werten: Farbe schwarz und Nummer 14
+     * Konstruktor erzeugt einer PlusVierWunschKarte mit default-Werten: Farbe schwarz und Nummer 14
      */
     public PlusVierWunschKarte(){
         super("schwarz", 14);
@@ -27,7 +27,7 @@ public class PlusVierWunschKarte extends Karte{
 
 
     /**
-     * Konstruktor zum Erzeugen einer PlusVierWunschKarte mit einer bestimmten Farbe
+     * Konstruktor erzeugt einer PlusVierWunschKarte mit einer bestimmten Farbe
      * @param neueFarbe - Neue Farbe (nur nachdem eine PlusVierWunschKarte gespielt wird)
      */
     public PlusVierWunschKarte(String neueFarbe){
@@ -40,6 +40,7 @@ public class PlusVierWunschKarte extends Karte{
      * @param kartenart - Art der Karte
      * @return true - falls die KartenArt passt, false - sonst
      */
+    @Override
     public boolean istWelcheKarte(String kartenart){
         return kartenart.equals("PlusVierWunsch");
     }
@@ -48,16 +49,17 @@ public class PlusVierWunschKarte extends Karte{
    /**
     * Prozedur erzeugt die visuelle Darstellung einer Karte und verteckt sie direkt danach
     */ 
+    @Override
     public void erzeugeVisuelleKarte(String farbe) {
     	// Variablen Werte zuweisen
     	this.karteform = new Rechteck(0, 0, 50, 100, GUI.farbeSchwarz, Grafik.WHITE, 2, 10, "");
-        //------------------------------------------------------------------------------------------
+        // Farbige Rechtecke
         this.rechteckGruen = new Rechteck(8, 33, 15, 15, GUI.farbeGruen, GUI.farbeWeiss, 0, 2, "");
         this.rechteckRot = new Rechteck(26, 35, 15, 15, GUI.farbeRot, GUI.farbeWeiss, 0, 2, "");
         this.rechteckBlau = new Rechteck(10, 50, 15, 15, GUI.farbeBlau, GUI.farbeWeiss, 0, 2, "");
         this.rechteckGelb = new Rechteck(28, 52, 15, 15, GUI.farbeGelb, GUI.farbeWeiss, 0, 2, "");
-        //Text--------------------------------------------------------------------------------------
-    	this.zahlOben = new Text(5, 0, "+4", GUI.farbeWeiss, 25, "");
+        // Zahlen
+        this.zahlOben = new Text(5, 0, "+4", GUI.farbeWeiss, 25, "");
         this.zahlUnten = new Text(15, 55, "+4", GUI.farbeWeiss, 25, "");
         // Karte verstecken
         versteckeKarte();
@@ -66,13 +68,14 @@ public class PlusVierWunschKarte extends Karte{
 
     /**
      * Prozedur setzt die Karte auf die gegebene Position und macht diese sichtbar
-     * @param j - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)
-     * @param i - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)
+     * @param spalte - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)
+     * @param zeile - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)
      * @param x - Koordinate auf der X-Achse für die Darstellung
      * @param y - Koordinate auf der Y-Achse für die Darstellung
      * @param istAktuelleKarte - true, wenn die Karte die aktuelle Karte im Spiel entspricht - false, sonst
      */
-    public void setzeKarteAuf(int j, int i, int x, int y, boolean istAktuelleKarte) {
+    @Override
+    public void setzeKarteAuf(int spalte, int zeile, int x, int y, boolean istAktuelleKarte) {
         /* // Warte 2 Sekunden darauf
         this.karteform.waitFor(200);
         this.rechteckGruen.waitFor(200);
@@ -100,13 +103,13 @@ public class PlusVierWunschKarte extends Karte{
         // Prüfen, ob die Karte nicht die aktuelle Karte ist
         if(!istAktuelleKarte) {
             // Reaktion einsetzen
-            this.karteform.setCallback(j+"");
-            this.rechteckBlau.setCallback(j+"");
-            this.rechteckGelb.setCallback(j+"");
-            this.rechteckGruen.setCallback(j+"");
-            this.rechteckRot.setCallback(j+"");
-            this.zahlOben.setCallback(j+"");
-            this.zahlUnten.setCallback(j+"");
+            this.karteform.setCallback(spalte+"");
+            this.rechteckBlau.setCallback(spalte+"");
+            this.rechteckGelb.setCallback(spalte+"");
+            this.rechteckGruen.setCallback(spalte+"");
+            this.rechteckRot.setCallback(spalte+"");
+            this.zahlOben.setCallback(spalte+"");
+            this.zahlUnten.setCallback(spalte+"");
         } else {
             // Reaktion aussetzen
             this.karteform.setCallback("");
@@ -123,6 +126,7 @@ public class PlusVierWunschKarte extends Karte{
     /**
      * Prozedur versteckt eine Karte
      */
+    @Override
     public void versteckeKarte() {
         this.karteform.hide();
         this.rechteckBlau.hide();
@@ -140,7 +144,7 @@ public class PlusVierWunschKarte extends Karte{
      */
     @Override
     public int aktionDurchfuehren() {
-        // Code 4: Vier Karte Ziehen
+        // Code 4: Vier Karten Ziehen
         return 4;
     }
     
@@ -148,7 +152,8 @@ public class PlusVierWunschKarte extends Karte{
     /**
      * Funktion gibt die Karte als String zurück
      * @return String - Karte
-     */    
+     */
+    @Override    
     public String toString(){
         return "PlusVierWunschKarte";
     }

@@ -20,7 +20,7 @@ public class RetourKarte extends Karte{
 
 	
     /**
-     * Konstruktor mit default-Wert: Nummer 11
+     * Konstruktor erzeugt eine RetourKarte einer bestimmten Farbe mit default-Wert: Nummer 11
      * @param farbe - Farbe der Karte: Blau, gelb, grün oder rot
      */
     public RetourKarte(String farbe){
@@ -33,6 +33,7 @@ public class RetourKarte extends Karte{
      * @param kartenart - Art der Karte
      * @return true - falls die KartenArt passt, false - sonst
      */
+    @Override
     public boolean istWelcheKarte(String kartenart){
         return kartenart.equals("Retour");
     }
@@ -41,6 +42,7 @@ public class RetourKarte extends Karte{
 	/**
     * Prozedur erzeugt die visuelle Darstellung einer Karte und verteckt sie direkt danach
     */
+    @Override
 	public void erzeugeVisuelleKarte(String farbe) {
     	// Fallunterscheidung
     	switch(farbe) {
@@ -62,10 +64,10 @@ public class RetourKarte extends Karte{
     	this.karteform = new Rechteck(0, 0, 50, 100, farbe, GUI.farbeWeiss, 2, 10, "");
         this.kreis = new Kreis(10, 35, 30, 30, farbe, GUI.farbeWeiss, 3, "");
         this.linie = new Linie(5, 50, 45, 50, farbe, 10, "");
-        //Pfeil 1
+        // Pfeil 1
         this.liniePfeil1 = new Linie(5, 35, 11, 45, GUI.farbeWeiss, 3, "");
         this.liniePfeil2 = new Linie(10, 45, 22, 42, GUI.farbeWeiss, 3, "");
-        //Pfeil 2
+        // Pfeil 2
         this.liniePfeil3 = new Linie(40, 55, 28, 58, GUI.farbeWeiss, 3, "");
         this.liniePfeil4 = new Linie(45, 65, 39, 55, GUI.farbeWeiss, 3, "");
         // Karte verstecken
@@ -75,13 +77,14 @@ public class RetourKarte extends Karte{
 
     /**
      * Prozedur setzt die Karte auf die gegebene Position und macht diese sichtbar
-     * @param j - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)
-     * @param i - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)
+     * @param spalte - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)
+     * @param zeile - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)
      * @param x - Koordinate auf der X-Achse für die Darstellung
      * @param y - Koordinate auf der Y-Achse für die Darstellung
      * @param istAktuelleKarte - true, wenn die Karte die aktuelle Karte im Spiel entspricht - false, sonst
      */
-    public void setzeKarteAuf(int j, int i, int x, int y, boolean istAktuelleKarte) {
+    @Override
+    public void setzeKarteAuf(int spalte, int zeile, int x, int y, boolean istAktuelleKarte) {
         /* // Warte 2 Sekunden darauf
         this.karteform.waitFor(200);
         this.kreis.waitFor(200);
@@ -109,13 +112,13 @@ public class RetourKarte extends Karte{
         // Prüfen, ob die Karte nicht die aktuelle Karte ist
         if(!istAktuelleKarte) {
             // Reaktion einsetzen
-            this.karteform.setCallback(j+"");
-            this.kreis.setCallback(j+"");
-            this.linie.setCallback(j+"");
-            this.liniePfeil1.setCallback(j+"");
-            this.liniePfeil2.setCallback(j+"");
-            this.liniePfeil3.setCallback(j+"");
-            this.liniePfeil4.setCallback(j+"");
+            this.karteform.setCallback(spalte+"");
+            this.kreis.setCallback(spalte+"");
+            this.linie.setCallback(spalte+"");
+            this.liniePfeil1.setCallback(spalte+"");
+            this.liniePfeil2.setCallback(spalte+"");
+            this.liniePfeil3.setCallback(spalte+"");
+            this.liniePfeil4.setCallback(spalte+"");
         } else {
         	// Reaktion aussetzen
             this.karteform.setCallback("");
@@ -132,6 +135,7 @@ public class RetourKarte extends Karte{
     /**
      * Prozedur versteckt eine Karte
      */
+    @Override
     public void versteckeKarte() {
         this.karteform.hide();
         this.kreis.hide();
@@ -158,6 +162,7 @@ public class RetourKarte extends Karte{
      * Funktion gibt die Karte als String zurück
      * @return String - Karte, Farbe und Nummer
      */
+    @Override
     public String toString(){
     	return "RetourKarte " + this.farbe;
     }

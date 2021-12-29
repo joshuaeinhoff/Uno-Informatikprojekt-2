@@ -19,7 +19,7 @@ public class WunschKarte extends Karte{
 
 
     /**
-     * Konstruktor mit default-Werten: Farbe schwarz und Nummer 13
+     * Konstruktor erzeugt eine WunschKarte mit default-Werten: Farbe schwarz und Nummer 13
      */
     public WunschKarte(){
         super("schwarz", 13);
@@ -27,7 +27,7 @@ public class WunschKarte extends Karte{
 
 
     /**
-     * Konstruktor zum Erzeugen einer Wunschkarte mit einer bestimmten Farbe
+     * Konstruktor zum Erzeugen einer Wunschkarte mit einer bestimmten Farbe und default-Wert: Nummer 13
      * @param neueFarbe - Neue Farbe (nur nachdem eine WunschKarte gespielt wird)
      */
     public WunschKarte(String neueFarbe) {
@@ -40,6 +40,7 @@ public class WunschKarte extends Karte{
      * @param kartenart - Art der Karte
      * @return true - falls die KartenArt passt, false - sonst
      */
+    @Override
     public boolean istWelcheKarte(String kartenart){
         return kartenart.equals("Wunsch");
     }
@@ -48,10 +49,11 @@ public class WunschKarte extends Karte{
 	/**
     * Prozedur erzeugt die visuelle Darstellung einer Karte und verteckt sie direkt danach
     */ 
+    @Override
 	public void erzeugeVisuelleKarte(String farbe) {
     	// Variablen Werte zuweisen
     	this.karteform = new Rechteck(0, 0, 50, 100, GUI.farbeSchwarz, GUI.farbeWeiss, 2, 10, "");
-        //------------------------------------------------------------------------------------------
+        // Farbige Rechtecke
         this.rechteckGruen = new Rechteck(8, 33, 15, 15, GUI.farbeGruen, GUI.farbeWeiss, 0, 2, "");
         this.rechteckRot = new Rechteck(26, 35, 15, 15, GUI.farbeRot, GUI.farbeWeiss, 0, 2, "");
         this.rechteckBlau = new Rechteck(10, 50, 15, 15, GUI.farbeBlau, GUI.farbeWeiss, 0, 2, "");
@@ -63,13 +65,14 @@ public class WunschKarte extends Karte{
 
     /**
      * Prozedur setzt die Karte auf die gegebene Position und macht diese sichtbar
-     * @param j - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)
-     * @param i - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)
+     * @param spalte - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)
+     * @param zeile - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)
      * @param x - Koordinate auf der X-Achse für die Darstellung
      * @param y - Koordinate auf der Y-Achse für die Darstellung
      * @param istAktuelleKarte - true, wenn die Karte die aktuelle Karte im Spiel entspricht - false, sonst
      */
-    public void setzeKarteAuf(int j, int i, int x, int y, boolean istAktuelleKarte) {
+    @Override
+    public void setzeKarteAuf(int spalte, int zeile, int x, int y, boolean istAktuelleKarte) {
         /* // Warte 2 Sekunden darauf
         this.karteform.waitFor(200);
         this.rechteckGruen.waitFor(200);
@@ -91,11 +94,11 @@ public class WunschKarte extends Karte{
         // Prüfen, ob die Karte nicht die aktuelle Karte ist
         if(!istAktuelleKarte) {
             // Reaktion einsetzen
-            this.karteform.setCallback(j+"");
-            this.rechteckBlau.setCallback(j+"");
-            this.rechteckGelb.setCallback(j+"");
-            this.rechteckGruen.setCallback(j+"");
-            this.rechteckRot.setCallback(j+"");
+            this.karteform.setCallback(spalte+"");
+            this.rechteckBlau.setCallback(spalte+"");
+            this.rechteckGelb.setCallback(spalte+"");
+            this.rechteckGruen.setCallback(spalte+"");
+            this.rechteckRot.setCallback(spalte+"");
         } else {
         	// Reaktion aussetzen
             this.karteform.setCallback("");
@@ -110,6 +113,7 @@ public class WunschKarte extends Karte{
     /**
      * Prozedur versteckt eine Karte
      */
+    @Override
     public void versteckeKarte() {
         // Variablen verstecken
         this.karteform.hide();
@@ -135,6 +139,7 @@ public class WunschKarte extends Karte{
      * Funktion gibt die Karte als String zurück
      * @return String - Karte
      */
+    @Override
     public String toString(){
     	return "WunschKarte";
     }
