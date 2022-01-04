@@ -14,14 +14,14 @@ public class Quizfrage {
     /**
      * Konstruktor für drei Antwortmöglichkeiten, erzeugt eine Instanz von Quizfrage mit den folgenden Parametern:
      * @param frage - Frage
-     * @param antwort1 - Antwort a)
-     * @param antwort2 - Antwort b)
-     * @param antwort3 - Antwort c)
+     * @param antwortA - Antwort a)
+     * @param antwortB - Antwort b)
+     * @param antwortC - Antwort c)
      * @param richtigeAntwort - Richtige Antwort
      */
-    public Quizfrage(String frage, String antwort1, String antwort2, String antwort3, char richtigeAntwort) {
+    public Quizfrage(String frage, String antwortA, String antwortB, String antwortC, char richtigeAntwort) {
         this.frage = frage;
-        this.antwortmoeglichkeiten = new String[] { antwort1, antwort2, antwort3 };
+        this.antwortmoeglichkeiten = new String[] { antwortA, antwortB, antwortC };
         this.richtigeAntwort = richtigeAntwort;
     }
     
@@ -29,13 +29,13 @@ public class Quizfrage {
     /**
      * Konstruktor für zwei Antwortmöglichkeiten, erzeugt eine Instanz von Quizfrage mit den folgenden Parametern:
      * @param frage - Frage
-     * @param antwort1 - Antwort a)
-     * @param antwort2 - Antwort b)
+     * @param antwortA - Antwort a)
+     * @param antwortB - Antwort b)
      * @param richtigeAntwort - Richtige Antwort
      */
-    public Quizfrage(String frage, String antwort1, String antwort2, char richtigeAntwort) {
+    public Quizfrage(String frage, String antwortA, String antwortB, char richtigeAntwort) {
         this.frage = frage;
-        this.antwortmoeglichkeiten = new String[] { antwort1, antwort2 };
+        this.antwortmoeglichkeiten = new String[] { antwortA, antwortB };
         this.richtigeAntwort = richtigeAntwort;
     }
 
