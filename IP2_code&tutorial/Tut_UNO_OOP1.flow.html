@@ -1,0 +1,372 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="UTF-8" /> 
+	<meta name="headingType" content="1" /> 
+	<meta name="headingStartValue" content="1" /> 
+<title>Tut_UNO_OOP1</title> 
+<style> 
+    body { 
+       font-family: "Segoe UI", Verdana, Geneva, Tahoma, sans-serif; 
+    } 
+    .segment { 
+       font-size: 19px; 
+       line-height: 1.5; 
+    } 
+    .code { 
+       color: #666; 
+       font-family: monospace; 
+       padding: 5px; 
+    } 
+    .task-link { 
+       background-color: hsl(47, 90%, 60%); 
+       border: 2px solid hsl(47, 90%, 40%); 
+       padding: 0 2px; 
+       line-height: 26px; 
+    } 
+    .task-link[data-href] { 
+       cursor: pointer; 
+    } 
+    .task-link::after { 
+       content: "➤"; 
+       margin-left: 3px; 
+       color: hsl(47, 90%, 40%); 
+    } 
+    a { 
+       color: hsl(196, 100%, 47%); 
+    } 
+    .hilitecolor1 { 
+       background-color: hsl(45, 100%, 70%); 
+    } 
+    .hilitecolor2 { 
+       background-color: hsl(218, 100%, 80%); 
+    } 
+    .hilitecolor3 { 
+       background-color: hsl(150, 100%, 70%); 
+    } 
+    .hilitecolor4 { 
+       background-color: hsl(0, 100%, 70%); 
+    } 
+    .hilitesolution { 
+       background-color: hsl(47, 60%, 70%); 
+       font-style: italic; 
+    } 
+    h1, h2, h3 { 
+      color: hsl(209, 60%, 45%); 
+    } 
+    h1[data-number]:before, h2[data-number]:before, h3[data-number]:before { 
+      content: attr(data-number); 
+      margin-right: 10px; 
+    } 
+    .skill { 
+      line-height: initial; 
+      padding: 7px 0px 3px 0px; 
+      border: 1px solid hsl(0,0%,100%); 
+    } 
+    .skill .skill { 
+      display: inline-block; 
+      margin: 0px 5px 2px 5px; 
+      position: relative; 
+    } 
+    .skill .skill .container { 
+      min-height: 27px; 
+      display: table; 
+      border: 2px solid hsl(0,0%,25%); 
+    } 
+    .skill .skill .container .block { 
+      font-size: 14px; 
+      display: table-cell; 
+      min-width: 19px; 
+      text-align: center; 
+      vertical-align: middle; 
+      padding: 0px 6px 0px 4px; 
+    } 
+    .skill .skill .container .content { 
+      padding: 2px 6px; 
+      font-size: 14px; 
+      display: table-cell; 
+      vertical-align: middle; 
+    } 
+    .skill .skill .container .content span { 
+      margin-left: 1px; 
+      margin-right: 1px; 
+    } 
+    .skill .skill .container .content .text { 
+      vertical-align: -1px; 
+    } 
+    .block { 
+      background-color: hsl(0,0%,25%);  
+      color: hsl(196, 100%, 97%);  
+    } 
+    .block { 
+      background-color: hsl(0,0%,25%);  
+      color: hsl(196, 100%, 97%);  
+    } 
+    .skill .skill .container.attr_certificate { 
+      border: 2px solid hsl(0, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_certificate .block { 
+      background-color: hsl(0, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_new { 
+      border: 2px solid hsl(120, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_new .block { 
+      background-color: hsl(120, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_revision { 
+      border: 2px solid hsl(47, 90%, 60%); 
+    } 
+    .skill .skill .container.attr_revision .block { 
+      background-color: hsl(47, 90%, 60%); 
+    } 
+    .hint .hint { 
+      margin-left: 30px; 
+      margin-bottom: 5px; 
+    } 
+    .header .wrap { 
+      padding-right: 10px; 
+      width: fit-content; 
+      cursor: pointer; 
+      border-bottom: 2px solid hsl(214, 38%, 59%); 
+    } 
+    .header .wrap .icon { 
+      vertical-align: -4px; 
+      margin-right: 3px; 
+    } 
+    .header .wrap .icon svg{ 
+      fill: hsl(214, 38%, 59%); 
+    } 
+  </style> 
+  <script> 
+     window.onload = function() { 
+       if (window.location.hash) { 
+         let id = window.location.hash.substr(1); 
+         let anchor = document.getElementsByClassName(id); 
+         if (anchor[0]) { 
+           let top = anchor[0].offsetTop; 
+           window.scrollTo(0, top); 
+         } 
+       } 
+       let links = document.querySelectorAll(".task-link"); 
+       for (let i = 0; i < links.length; i++) { 
+         links[i].onclick = function(event) { 
+           if (event.target.getAttribute("data-href")) { 
+             window.open(event.target.getAttribute("data-href"), "_self"); 
+           } 
+         } 
+       } 
+    } 
+  </script> 
+</head> 
+<body>
+<div class="text segment" id="9a4cq4">
+<h1 class="e_99frac">UNO: Einleitung für OOP1</h1>
+<p>Mit Hilfe dieses Tutorials entwickeln Sie <em>Schritt für Schritt</em> ein Spiel. Dabei werden nach und nach objektorientierte Eigenschaften eingesetzt. Außerdem können Sie das Spiel am Ende des Tutorials auf der Grafik-Konsole darstellen und spielen.</p>
+<h1 class="e_onf3wt">Spielkonzept</h1>
+<p>Bei dem Spiel, das Sie entwickeln werden, geht es um eine abgewandelte Version des Spiels UNO. Es handelt sich um eine Schatzsuche, wo der Spieler insgesamt <strong>vier Tempeln</strong> (Wasser-Tempel, Luft-Tempel, Erde-Tempel, Feuer-Tempel ) überqueren muss, um zu gewinnen und somit auch an den Schatz zu kommen. In jedem Tempel muss der Spieler Aufgaben lösen, um in den nächsten Tempel zu gelangen usw. Die zu bestehenden Aufgaben setzen sich aus einer <strong>Quizrunde</strong> und einem <strong>UNO-Spiel </strong>zusammen. Schafft der Spieler den Schatz zu finden, bekommt er als Belohnung 5Code Coins.</p>
+<p>Die in jedem Tempel vom Spieler zu lösende Quizrunde besteht aus insgesamt 20 Fragen (5 Fragen pro Tempel) zu bestimmten OOP-Themen. Der Spieler hat x Sekunden Zeit die Frage zu beantworten. Wird die Frage richtig beantwortet, darf der Spieler weitergehen und UNO spielen. Ist dies jedoch nicht der Fall, bekommt der Spieler Minuspunkte oder muss sogar ganz von vorne anfangen, wenn alle Fragen falsch beantwortet wurden.</p>
+<p>Sie fangen erstmal mit dem Kartenspiel an:</p>
+<h3>***** Klassendiagramm als Übersicht hinzufügen ******</h3>
+<h1 class="e_jzsouk"><strong>1 Karte</strong></h1>
+<p><span class="task-link s_1q8u64 action" data-href="#s_1q8u64">Implementieren Sie</span> als erstes die abstrakte Klasse <code>Karte,</code> die alle gemeinsamen Eigenschaften aller Karten zusammenfasst<code>.</code></p>
+<h2 class="e_dqftdb">1.2 Daten als Instanz-Variable implementieren</h2>
+<p>Eine Karte beschreiben Sie durch zwei Variablen:</p>
+<ul>
+<li><code><strong>farbe</strong></code> als Text&nbsp;</li>
+<li><strong><code>nummer</code></strong> als Zahl</li>
+</ul>
+<p><span class="s_sltd2n def s_aq88if"><span class="task-link s_wpevuy def">Definieren Sie</span> die IV.</span></p>
+<h2 class="e_x55aob">1.3 Superkonstruktor definieren</h2>
+<p>Damit Sie später Objekte der Klasse Karte erzeugen können, müssen Sie an dieser Stelle auch einen Konstruktor definieren. Der Konstruktor der Klasse Karte ist gleichzeitig der Superkonstruktor für alle Subklassen. Das heißt, dass wir für die Subklassen der Klasse Karte lediglich den Superkonstruktor aufrufen müssen, um Objekte erzeugen zu können.</p>
+<p><span class="s_wwplun def s_p8thj6"><span class="task-link s_de5i1n def">Definieren Sie</span> den Konstruktor der Klasse <code>Karte</code>, indem Sie die oben definierten IV initailisieren.</span>&nbsp;</p>
+<h2 class="e_5zkd4q">1.4 Prüfen, ob eine Karte spielbar ist</h2>
+<p><span class="task-link s_lggjxn def">Implementieren Sie</span> die Funktion <code>public boolean istSpielbar(Karte aktuelleKarte),</code> die true zurückgibt, wenn eine Karte spielbar ist und false, wenn nicht.</p>
+<p>Eine Karte ist spielbar, wenn:</p>
+<ul>
+<li>ihre Nummer mit der Nummer der obersten Karte auf dem Ablagestapel übereinstimmt und/oder</li>
+<li>ihre Farbe mit der Farbe der obersten Karte auf dem Ablagestapel übereinstimmt oder</li>
+<li>die ausgewählte Karte eine Aktionskarte ist (d.h. die Farbe schwarz hat)</li>
+</ul>
+<p><span class="task-link s_ie6iyl action" data-href="#s_ie6iyl">Vergleichen Sie die ausgewählte Karte mit der Karte auf dem Ablagestapel.</span></p>
+</div>
+<div class="hint segment" id="61se3f" data-title="Hinweis">
+<div class="header"><div class="wrap"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg></span><span>Hinweis</span></div></div>
+<div data-uuid="qks8if" data-hint="U2FsdGVkX1/iUDMva7uZJU0lgc9G38/ZmRhb3q8n+fdU+/dnLxG52YheVo9h1NeVFkInGWukikEBPF9nJTPxWsXW+bxh9FcwzJFkoZSl0eZI3jICOUlGMiP+WpD65jKemamknhJBGi2uejof5nQbrGtbaw46k/z2SORznuaTqTjbBDqgiVfT5WiPmdTtXsN2Yd8k/OlsAoiH8PpVFTsj/BMDhftOQ0m00ntgWxOV98G5z2s6VKydbRvezdsi6ksZRip+XZ4TS6umsTwMcKGJv9ve2wGQLaT4b2qhUzkVdNNDOlY+7EA9B1A3Yf/pJFX/Ab/iDNMsR5ZNtu9a0GMAI04sLw3C4BzYIPqPd0SFMFIZu1ilZpxPJACXVgIsDDyS3IrC91527BDGxFpG+ENwW9m3pGS1fOxu/T4PsdUwzTJhZXgH1s4fNc1+KubZdg9LoUVPgR+OgthwbNRAiXq9AYtQag3fxGPw5X6aZ33qSh+qQq7hY+zMXup00Il2x2GaLOrPrtaQsJMWtz/yaRo5yBhPe0ABNmq/r9sCkTCs9jeDZfqF3P3hOUnYi0KvxR7HTi6vl1WOd2p4iFXauOb1CA==" class="hint"></div>
+
+</div>
+<div class="text segment" id="hiyxrr">
+<h2 class="e_48vg13"><strong>1.5 Abstrakte Methoden&nbsp;</strong></h2>
+<p><span class="task-link s_mitkjw action" data-href="#s_mitkjw">Deklarieren Sie: </span></p>
+<ul>
+<li>die abstrakte Funktion <code>istWelcheKarte(), </code>die true zurückgibt, wenn die Kartenart übereinstimmt und false wenn nicht&nbsp;</li>
+<li>die abstrakte Prozedur <code>erzeugeVisuelleKarte()</code>, die die visuelle Darstellung einer Karte erzeugt und direkt danach versteckt</li>
+<li>die abstrakte Prozedur <code>setzeKarteAuf()</code>, die die Karte auf eine gegebene Position setzt und sie sichtbar macht</li>
+<li>die abstrakte Prozedur <code>versteckeKarte()</code>, die eine Karte versteckt</li>
+<li>die abstrakte Funktion <code>aktionDurchfuehren() </code>zum Durchführen der Aktion einer bestimmten Karte</li>
+<li>die abstrakte Funktion <code>toString()</code>, die uns die Karte als String zurückgibt</li>
+</ul>
+<p>Diese Methoden werden Sie erst in den Subklassen von <code>Karte</code> implementieren.&nbsp;</p>
+<h1 class="e_7hjk22"><strong>2 Spielfeld</strong></h1>
+<p><strong> </strong> Um überhaupt spielen zu können, brauchen Sie ein Spielfeld. Die Karte soll an einer bestimmten Position auf dem Spielfeld abgelegt werden können. Die Position geht in x – und y-Richtung bzW. Breite und Höhe.</p>
+<p><span class="task-link s_0xfyrm action" data-href="#s_0xfyrm">Definieren Sie die neue Klasse <code>Spielfeld</code>.</span></p>
+<h2 class="e_h4rf0c">2.1 Daten als Instanz-Variablen implementieren</h2>
+<p>Da wir hier ein zweidimensionales Spielfeld haben, speichern wir die Karten in einem 2D-Array.</p>
+<p><span class="task-link s_hh5mj9 def" data-href="unotempel/kartenspiel/Spielfeld.java#e_hh5mj9">Definieren Sie die IV <code><strong>spielfeld</strong></code> vom DT Karte</span>.</p>
+<p>Um die Größe des Spielfelds zu definierenn, brauchen wir nochmal zwei Instanz-Variablen: einmal für die <code><strong>höhe</strong></code> und einmal für die <code><strong>breite</strong></code> des Spielfelds.</p>
+<p><span class="task-link s_2gefui def" data-href="unotempel/kartenspiel/Spielfeld.java#e_2gefui">Definieren Sie die IV.</span></p>
+</div>
+<div class="hint segment" id="cymqlw" data-title="Hinweis: die IV dürfen nur intern in Spielfeld benutzt werden.">
+<div class="header"><div class="wrap"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg></span><span>Hinweis: die IV dürfen nur intern in Spielfeld benutzt werden.</span></div></div>
+<div data-uuid="19veip" data-hint="U2FsdGVkX18fhkueTFCc/7XvID0P82QJFwSp09bI0VdQndwun8H8eF7puohieRX8Auic1Y5XDFScIuYfDDk9277KETrezBc/XOKaAAyqxz+y0/0VsMczqwxhTkbh5DziJpeT/3wbkrR/VGHcLHyZRl5VtXcmZ+CqWkKsc5p7wbEWsZ7SaKOuWPpeIClm3ZiRK/yUSuztT0ygso0EtMKQmXkaa0D3dPA2ZkmOX4moedQXGIIOviN30fbOIHbSfzZ+2Gbe3R4FgNlau36DCZI6JqJmlbb5tSbVyCHYyZBTc2i/zboJRmo1tcjDfddI/eK8WmxkQPvF8YlyDDjjEf89KWaUhbT6JjHNAzh3A1aLRlBxseJGUnFEgkbfZVqobufPJAufXtS8Givlgqpws146Yz+A3X2DLcEqGSdnyyO2lrMTCTfL0AqPEHGovqD/QoefWKYyWfJIXdFTmDGhdhJrJpapcb7mvA5x271vtUmAb2A=" class="hint"></div>
+
+</div>
+<div class="text segment" id="vfbs4g">
+<h2 class="e_mgu4px">2.2 Konstruktor der Klasse Spielfeld definieren</h2>
+<p>Damit Sie später das Spielfeld erzeugen können, brauchen Sie auch hier wieder einen Konstruktor. Im Konstruktor allokieren Sie Speicherplatz für ein Spielfeld der Größe 5x10 und setzen den Wert für die Breite (= 660) und Höhe (= 450).</p>
+<p><span class="task-link s_6jqqga def" data-href="unotempel/kartenspiel/Spielfeld.java#e_6jqqga">Definieren Sie den Konstruktor für die Klasse Spielfeld.</span></p>
+<h1 class="e_ma4ved"><strong>3 Aktionskarten</strong></h1>
+<p>Damit Sie UNO wie gewohnt spielen können, müssen Sie noch verschiedene Arten von Karten definieren. Diese haben einiges gemeinsam, nämlich die Eigenschaften, die sie von der Klasse <code>Karte</code> erben. Sie unterscheiden sich jedoch in der Darstellung und Reaktion auf einen Klick (wenn man beispielsweise eine Aktionskarte ablegt). Da die Aktionskarten von der Klasse <code>Karte </code>erben, müssen Sie diese als Subklassen dieser Klasse implementieren.</p>
+<h2 class="e_jy7reb">3.1 AussetzenKarte</h2>
+<p>Als erste Aktionskarte implementieren Sie die "Aussetzen-Karte". Diese hat folgende spezielle Eigenschaften:</p>
+<ul>
+<li>Nachdem ein Spieler diese Karte abgelegt hat, wird der Gegenspieler „übersprungen“ und derjenige, der die Karte abgelegt hat, darf nochmal legen. </li>
+<li>Die Karte kann nur auf eine andere mit entsprechender Farbe oder eine andere AussetzenKarte gelegt werden.</li>
+<li>Wenn diese Karte zu Beginn des Spiels gezogen wird, dann muss derjenige, der anfängt, aussetzen und der Gegenspieler darf beginnen.    </li>
+</ul>
+<p><span class="s_9r3xx7 action s_j6fb4v def" data-href="#s_9r3xx7"><span class="s_fj1yqz def s_spaa1p action task-link s_lx8ex0" data-href="#s_fj1yqz">Implementieren Sie</span> die Klasse <code>AussetzenKarte</code> als Subklasse von Karte.</span></p>
+<h3 class="e_61hitj">3.1.1 Daten als IV implementieren</h3>
+<p><span class="task-link s_6l6jyc def">Definieren Sie </span>folgene IV für die Darstellung einer AussetzenKarte:</p>
+<ul>
+<li>die Kartenform als Rechteck</li>
+<li>ein Kreis</li>
+<li>eine Linie</li>
+</ul>
+<h3 class="e_61hitj">3.1.2 Definition des Konstruktors</h3>
+<p>Damit Sie später Objekte von dieser Klasse erzeugen können, definieren Sie einen eigenen Konstruktor. Da die Subklassen von der Superklasse <code>Karte</code> erben, müssen Sie hier lediglich den Superkonstruktor aufrufen.</p>
+<p>Für alle Aktionskarten, außer der Farbkarte, setzen Sie bei dem Aufruf des Superkonstruktors einen Wert für die <strong><code>nummer</code></strong> ein:</p>
+<ul>
+<li>AussetzenKarte hat die <strong><code>nummer</code> </strong>10.</li>
+</ul>
+<p>Grund dafür ist, dass wir auf dieser Weise einfacher mit den Aktionskarten umgehen können, da sie bei der Darstellung keine Nummer, sondern lediglich nur die Farbe schwarz haben. Sie können diese Nummer als eine ID betrachten.</p>
+<p><span class="s_ki2oi1 def s_mxcbth"><span class="task-link s_w5leb8 def">Definieren Sie</span> den Konstruktor der Klasse AussetzenKarte.</span></p>
+<h3 class="e_dec5w0">3.1.3 Kartenart zurückgeben</h3>
+<p><span class="task-link s_pwzc9v def">Implementieren Sie</span> die Funktion public <code>boolean istWelcheKarte(String kartenart)</code>, die die Kartenart der Karte zurückgibt. In diesem Fall "Aussetzen".&nbsp;</p>
+</div>
+<div class="hint segment" id="vzjv0t" data-title="Hinweis">
+<div class="header"><div class="wrap"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg></span><span>Hinweis</span></div></div>
+<div data-uuid="jc479t" data-hint="U2FsdGVkX19Px1Uz4N0rT6kV2lAO/kFGCvGR0DwhnMB67cghOrIdDwg1IlbU2oMIzRhWWsGooCrd7L1+96o/ZRNsG7ZolKU3f996Uj7kozwzjDjwd65VYnRPpgMChzADMyEzGkLEThrriVsaHLZlAGTp3DvoMd+YXR+84p+fbzSjAmN1t4w/vbO8eLmEapy4pBS5te8XmtkFyk3Hy4tj+Nd1cZGa1220NzooTFvOoQs/3pGjejvEEMymXP+7stvGkwvVxZdV1adk7hlGlOGsub/l1yH0iZrz5Er1AIBIiDivtNBnIc+o8Gh49RaNm21BLVO9xkiKjIqCvNIYnXINURgu2wgvQwP6ezaSmylHVSrQ6RlQ9nRTFgq6rZrIGkccb/yVhUfLd4S5dDJyDYNsxM9EpsWMbULDYkEO5MLboXn49bA1/aHyRIzsnHnBSLsFOjNVN6QN/7axviKI3lJkaS+sDXDvc6/hmMQMqzxY02G4N1xt3QU5z3/iogj1bVnC/CuY4I7Kq8hnq/VS44zFA/gy5t97M59a+w5MlUIhqTxn2apOA/xz29EbY2CvMm1XOPpbggM2bdMJVCcKAQ3PPQ==" class="hint"></div>
+
+</div>
+<div class="text segment" id="pzlu4a">
+<h3 class="e_dec5w0">3.1.4 Karte als String zurückgeben</h3>
+<p><span class="task-link s_tt7y4k action" data-href="#s_tt7y4k">Überschreiben Sie</span> die <code>toString()</code>-Methode aus <code>Karte, </code>indem Sie die AussetzenKarte als String und die farbe zurückgeben.</p>
+<h2 class="e_dec5w0">3.2 RetourKarte</h2>
+<p>Diese Karte hat folgende Eigenschaften:</p>
+<ul>
+<li>Bei dieser Karte ändert sich die Spielrichtung.</li>
+<li>Die Karte kann nur auf eine entsprechende Farbe oder eine andere RetourKarte gelegt werden.</li>
+<li>Wenn diese Karte zu Beginn des Spiels gezogen wird, muss der Spieler, der anfangen darf, aussetzten und sein Gegenspieler darf anfangen.    </li>
+</ul>
+<p><span class="s_zqe8sd action s_9oqgq1 def" data-href="#s_zqe8sd"><span class="s_ljqtks def s_gdnpo0 action task-link s_58562c" data-href="#s_ljqtks">Implementieren Sie</span> die Klasse <code>RetourKarte</code> als Subklasse von Karte.</span></p>
+<h3 class="e_z1643o"><span class="s_khkt5t def s_5jhk0h">3.2.1 Definition des Konstruktors</span></h3>
+<p><span class="s_khkt5t def s_5jhk0h"><span class="task-link s_23ik9q def" data-href="unotempel/kartenspiel/RetourKarte.java#e_23ik9q">Definieren Sie</span> den Konstruktor der Klasse <code>RetourKarte</code>, indem Sie den Superkonstruktor aufrufen und den Wert 11 für die <strong>nummer </strong>einsetzen.</span></p>
+<h3 class="e_6vru2k">3.2.2 Kartenart zurückgeben</h3>
+<p><span class="task-link s_1tt6vm action" data-href="#s_1tt6vm">Überschreiben Sie</span> die Funktion public <code>boolean istWelcheKarte(String kartenart) </code>aus <code>Karte </code>und geben die Kartenart "Retour" zurück.</p>
+<h3 class="e_6y9ngj">3.2.3 Karte als String zurückgeben</h3>
+<p><span class="task-link s_8zbt8g action" data-href="#s_8zbt8g">Überschreiben Sie </span>die <code>toString()</code>-Methode aus <code>Karte, </code>indem Sie die RetourKarte als String und die farbe zurückgeben.</p>
+<h2 class="e_04osz7">3.3 PlusZweiKarte</h2>
+<p>Diese Karte hat folgende Eigenschaften:</p>
+<ul>
+<li>Wenn diese Karte gelegt wird, muss der Gegenspieler 2 Karten ziehen und darf in dieser Runde keine Karten ablegen.</li>
+<li>Diese Karte kann nur auf eine Karte mit entsprechender Farbe oder andere ZiehZweiKarten gelegt werden.</li>
+<li>Wenn sie zu Beginn des Spiels aufgedeckt wird, gelten dieselben Regeln.    </li>
+</ul>
+<p><span class="s_290dfe action s_a6l3yi def" data-href="#s_290dfe"><span class="task-link s_yzrboi action" data-href="#s_yzrboi">Implementieren Sie </span>die Klasse <code>PlusZweiKarte</code> als Subklasse von Karte.</span></p>
+<h3 class="e_gjwjsy">3.3.1 Definition des Konstruktors</h3>
+<p><span class="task-link s_9fbk2d def">Definieren Sie</span> den Konstruktor der Klasse <code>PlusZweiKarte</code>, indem Sie den Superkonstruktor aufrufen und den Wert 12 für die <strong>nummer </strong>einsetzen.</p>
+<h3 class="e_fg97zt">3.3.2 Kartenart zurückgeben</h3>
+<p><span class="task-link s_ryjx3a action" data-href="#s_ryjx3a">Überschreiben Sie</span> die Funktion public <code>boolean istWelcheKarte(String kartenart) </code>aus <code>Karte </code>und geben die Kartenart "PlusZwei" zurück.</p>
+<h3 class="e_av4ghc">3.3.3 Karte als String zurückgeben</h3>
+<p><span class="task-link s_cs0dj9 action" data-href="#s_cs0dj9">Überschreiben Sie</span> die <code>toString()</code>-Methode aus <code>Karte, </code>indem Sie die PlusZweiKarte als String und die farbe zurückgeben.</p>
+<h2 class="e_4ymdmi">3.4 WunschKarte</h2>
+<p>Diese Karte hat folgende Eigenschaften:</p>
+<ul>
+<li>Der Spieler, der diese Karte legt, entscheidet welche Farbe als nächstes gelegt werden soll. Dabei darf auch die schon liegende Farbe gewählt werden (Für die Farbwahl wird es spezielle Farb-Buttons geben, die man drücken kann, um die gewünschte Farbe auszuwählen). </li>
+<li>WunschKarten kann man immer legen, das heißt man muss nicht auf die Farbe der vorherigen Karte achten.  </li>
+<li>Wenn eine WunschKarte zu Beginn des Spiels gezogen wird, entscheidet der Spieler, der anfangen darf, welche Farbe als nächstes gelegt werden soll.   </li>
+</ul>
+<p><span class="s_7evw1k action s_54s3v2 main"><span class="task-link s_31ci57 action" data-href="#s_31ci57">Implementieren Sie</span> die Klasse <code>WunschKarte</code> als Subklasse von Karte.</span></p>
+<h3 class="e_ubybp8">3.4.1 Definition des Konstruktors</h3>
+<p>Die WunschKarte ist eine spezielle Aktionskarte, die nur die Farbe schwarz haben kann.</p>
+<p><span class="task-link s_5vg2pb def">Definieren Sie</span> den Konstruktor der Klasse <code>WunschKarte</code>, indem Sie den Superkonstruktor aufrufen und die <strong>farbe</strong> schwarz &amp; den Wert 13 für die <strong>nummer </strong>einsetzen.</p>
+<h3 class="e_ki2d9u">3.4.2 Kartenart zurückgeben</h3>
+<p><span class="task-link s_doz02e action" data-href="#s_doz02e">Überschreiben Sie</span> die Funktion public <code>boolean istWelcheKarte(String kartenart) </code>aus <code>Karte </code>und geben die Kartenart "Wunsch" zurück.</p>
+<h3 class="e_sozzd4">3.4.3 Karte als String zurückgeben</h3>
+<p><span class="task-link s_c7usir action" data-href="#s_c7usir">Überschreiben Sie</span> die <code>toString()</code>-Methode aus <code>Karte, </code>indem Sie die WunschKarte als String zurückgeben.</p>
+<h2 class="e_ez203m">3.5 PlusVierWunschKarte</h2>
+<p>Diese Karte hat folgende Eigenschaften:</p>
+<ul>
+<li>Der Spieler, der diese Karte legt, entscheidet welche Farbe als nächstes gelegt werden soll. </li>
+<li>Zudem muss der Gegenspieler 4 Karten von dem Kartenstapel nehmen.  </li>
+</ul>
+<p><span class="s_42ui2q action s_kjsmu5 main" data-href="#s_42ui2q"><span class="task-link s_r0u6dq action" data-href="#s_r0u6dq">Implementieren Sie</span> die Klasse <code>PlusVierWunschKarte</code> als Subklasse von Karte.</span></p>
+<h3 class="e_t2wgi2">3.5.1 Definition des Konstruktors</h3>
+<p>Die PlusVierWunschKarte ist auch eine spezielle Aktionskarte, die nur die Farbe schwarz haben kann.</p>
+<p><span class="task-link s_j7cznw def">Definieren Sie</span> den Konstruktor der Klasse PlusVier<code>WunschKarte</code>, indem Sie den Superkonstruktor aufrufen und die <strong>farbe</strong> schwarz &amp; den Wert 14 für die <strong>nummer </strong>einsetzen.</p>
+<h3 class="e_17bi6v">3.5.2 Kartenart zurückgeben</h3>
+<p><span class="task-link s_z01t4f action" data-href="#s_z01t4f">Überschreiben Sie</span> die Funktion public <code>boolean istWelcheKarte(String kartenart) </code>aus <code>Karte </code>und geben die Kartenart "PlusVierWunsch" zurück.</p>
+<h3 class="e_v3hcnc">3.5.3 Karte als String zurückgeben</h3>
+<p><span class="task-link s_1thiv6 action" data-href="#s_1thiv6">Überschreiben Sie</span> die <code>toString()</code>-Methode aus <code>Karte, </code>indem Sie die PlusVierWunschKarte als String zurückgeben.</p>
+<h1 class="e_i52fo6"><strong>4 Kartenstapel</strong></h1>
+<p><strong> </strong> Sie haben bis jetzt die Karten und das Spielfeld erstellt. Es fehlt jedoch noch der Kartenstapel, der alle Uno-Karten beinhaltet. Das sind insgesamt 108 Karten:</p>
+<p><span class="hilitecolor2">25 blaue Karten: </span></p>
+<ul>
+<li>10 Karten mit Zahlen von 0 bis 9</li>
+<li>9 Karten mit Zahlen von 1 bis 9</li>
+<li>2 PlusZweiKarten</li>
+<li>2 AussetzenKarten</li>
+<li>2 RetourKarten</li>
+</ul>
+<p><span class="hilitecolor4">25 rote Karten: </span></p>
+<ul>
+<li>10 Karten mit Zahlen von 0 bis 9</li>
+<li>9 Karten mit Zahlen von 1 bis 9</li>
+<li>2 PlusZweiKarten</li>
+<li>2 AussetzenKarten</li>
+<li>2 RetourKarten</li>
+</ul>
+<p><span class="hilitecolor3">25 grüne Karten: </span></p>
+<ul>
+<li>10 Karten mit Zahlen von 0 bis 9</li>
+<li>9 Karten mit Zahlen von 1 bis 9</li>
+<li>2 PlusZweiKarten</li>
+<li>2 AussetzenKarten</li>
+<li>2 RetourKarten</li>
+</ul>
+<p><span class="hilitecolor1">25 gelbe Karten: </span></p>
+<ul>
+<li>10 Karten mit Zahlen von 0 bis 9</li>
+<li>9 Karten mit Zahlen von 1 bis 9</li>
+<li>2 PlusZweiKarten</li>
+<li>2 AussetzenKarten</li>
+<li>2 RetourKarten</li>
+</ul>
+<p>4 WunschKarten</p>
+<p>4 PlusVierWunschKarten</p>
+<p><span class="task-link s_fayw8z action">Definieren Sie die Klasse <code>KartenStapel</code>.</span></p>
+<h2 class="e_mhsi77">4.1 Daten als Instanz-Variablen implementieren</h2>
+<p>KartenStapel enthält alle Uno-Karten. <span class="task-link s_0m800i def" data-href="KartenStapel.java#e_0m800i">Definieren Sie also erstmal eine Array-Variable <code><strong>karten</strong></code>, die vom Datentyp Karte ist.</span></p>
+<p>Wir müssen hier nochmal zwischen den Karten unterscheiden, die schon abgelegt wurden und die noch im Kartenstapel vorhanden sind. <span class="task-link s_3dhf0k def" data-href="KartenStapel.java#e_3dhf0k">Definieren Sie also noch zwei Array-Variablen (<code><strong>abgelegteKarten</strong></code> und <code><strong>vorhandene Karten</strong></code>) vom Datentyp boolean. </span> Das Boolean-Array ist zum Speichern, ob die Karten noch vorhanden sind oder schon abgelegt wurden.</p>
+<p>Zum Schluss folgt noch eine Array-Variable <code><strong>farben</strong></code>, die die möglichen Farben der Karten enthält. Die Farben sind: blau, gelb, grün, rot. <span class="task-link s_zls2re def" data-href="KartenStapel.java#e_zls2re">Definieren Sie diese Variable.</span></p>
+<h2 class="e_y593zy">4.2 Konstruktor der Klasse Kartenstapel definieren</h2>
+<p>Damit Sie jetzt den Kartenstapel erzeugen können, müssen Sie wieder einen Konstruktor erstellen. Der Konstruktor erzeugt einen Array vom Datentyp Karten mit 108 Karten.</p>
+<p><span class="task-link s_jwr3zt def" data-href="KartenStapel.java#e_jwr3zt">Definieren Sie den Konstruktor der Klasse Kartenstapel.</span></p>
+<h1 class="e_2eskew">5 Kartenspiel</h1>
+<p>Sie haben bis jetzt also die Karten, das Spielfeld und den Kartenstapel definiert. Jetzt kommt es um das Spielen an sich und dafür brauchen Sie eine neue Klasse.</p>
+<p>a) Definieren Sie die Klasse Kartenspiel.</p>
+<p>&nbsp;</p>
+</div>
+
+</body> 
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="UTF-8" /> 
+	<meta name="headingType" content="1" /> 
+	<meta name="headingStartValue" content="1" /> 
+<title>Tut_Spieler_OOP2</title> 
+<style> 
+    body { 
+       font-family: "Segoe UI", Verdana, Geneva, Tahoma, sans-serif; 
+    } 
+    .segment { 
+       font-size: 19px; 
+       line-height: 1.5; 
+    } 
+    .code { 
+       color: #666; 
+       font-family: monospace; 
+       padding: 5px; 
+    } 
+    .task-link { 
+       background-color: hsl(47, 90%, 60%); 
+       border: 2px solid hsl(47, 90%, 40%); 
+       padding: 0 2px; 
+       line-height: 26px; 
+    } 
+    .task-link[data-href] { 
+       cursor: pointer; 
+    } 
+    .task-link::after { 
+       content: "➤"; 
+       margin-left: 3px; 
+       color: hsl(47, 90%, 40%); 
+    } 
+    a { 
+       color: hsl(196, 100%, 47%); 
+    } 
+    .hilitecolor1 { 
+       background-color: hsl(45, 100%, 70%); 
+    } 
+    .hilitecolor2 { 
+       background-color: hsl(218, 100%, 80%); 
+    } 
+    .hilitecolor3 { 
+       background-color: hsl(150, 100%, 70%); 
+    } 
+    .hilitecolor4 { 
+       background-color: hsl(0, 100%, 70%); 
+    } 
+    .hilitesolution { 
+       background-color: hsl(47, 60%, 70%); 
+       font-style: italic; 
+    } 
+    h1, h2, h3 { 
+      color: hsl(209, 60%, 45%); 
+    } 
+    h1[data-number]:before, h2[data-number]:before, h3[data-number]:before { 
+      content: attr(data-number); 
+      margin-right: 10px; 
+    } 
+    .skill { 
+      line-height: initial; 
+      padding: 7px 0px 3px 0px; 
+      border: 1px solid hsl(0,0%,100%); 
+    } 
+    .skill .skill { 
+      display: inline-block; 
+      margin: 0px 5px 2px 5px; 
+      position: relative; 
+    } 
+    .skill .skill .container { 
+      min-height: 27px; 
+      display: table; 
+      border: 2px solid hsl(0,0%,25%); 
+    } 
+    .skill .skill .container .block { 
+      font-size: 14px; 
+      display: table-cell; 
+      min-width: 19px; 
+      text-align: center; 
+      vertical-align: middle; 
+      padding: 0px 6px 0px 4px; 
+    } 
+    .skill .skill .container .content { 
+      padding: 2px 6px; 
+      font-size: 14px; 
+      display: table-cell; 
+      vertical-align: middle; 
+    } 
+    .skill .skill .container .content span { 
+      margin-left: 1px; 
+      margin-right: 1px; 
+    } 
+    .skill .skill .container .content .text { 
+      vertical-align: -1px; 
+    } 
+    .block { 
+      background-color: hsl(0,0%,25%);  
+      color: hsl(196, 100%, 97%);  
+    } 
+    .block { 
+      background-color: hsl(0,0%,25%);  
+      color: hsl(196, 100%, 97%);  
+    } 
+    .skill .skill .container.attr_certificate { 
+      border: 2px solid hsl(0, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_certificate .block { 
+      background-color: hsl(0, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_new { 
+      border: 2px solid hsl(120, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_new .block { 
+      background-color: hsl(120, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_revision { 
+      border: 2px solid hsl(47, 90%, 60%); 
+    } 
+    .skill .skill .container.attr_revision .block { 
+      background-color: hsl(47, 90%, 60%); 
+    } 
+    .hint .hint { 
+      margin-left: 30px; 
+      margin-bottom: 5px; 
+    } 
+    .header .wrap { 
+      padding-right: 10px; 
+      width: fit-content; 
+      cursor: pointer; 
+      border-bottom: 2px solid hsl(214, 38%, 59%); 
+    } 
+    .header .wrap .icon { 
+      vertical-align: -4px; 
+      margin-right: 3px; 
+    } 
+    .header .wrap .icon svg{ 
+      fill: hsl(214, 38%, 59%); 
+    } 
+  </style> 
+  <script> 
+     window.onload = function() { 
+       if (window.location.hash) { 
+         let id = window.location.hash.substr(1); 
+         let anchor = document.getElementsByClassName(id); 
+         if (anchor[0]) { 
+           let top = anchor[0].offsetTop; 
+           window.scrollTo(0, top); 
+         } 
+       } 
+       let links = document.querySelectorAll(".task-link"); 
+       for (let i = 0; i < links.length; i++) { 
+         links[i].onclick = function(event) { 
+           if (event.target.getAttribute("data-href")) { 
+             window.open(event.target.getAttribute("data-href"), "_self"); 
+           } 
+         } 
+       } 
+    } 
+  </script> 
+</head> 
+<body>
+<div class="text segment" id="aky76o">
+<h1 class="e_o7w2ng">Spieler: Einleitung für OOP2</h1>
+<p>Sie haben bis jetzt alle Klassen, die Sie für das Spielen brauchen, implementiert. Aber was ist ein Spiel ohne seine Spieler? In diesem Teil des Tutorials beschäftigen Sie sich mit dem Held des Spiels und mit seinem Gegner, der KI.</p>
+<h1 class="e_kjyjma">1 Spieler</h1>
+<p>Wie oben schon erwähnt, gibt es zwei Arten von Spieler: der menschliche Spieler (Held) und die KI.</p>
+<p>Sie benötigen, wie bei den Karten, eine Klasse, die gemeinsame Eigenschaften der Spieler zusammenfasst.</p>
+<p><span class="task-link s_446zhq action" data-href="#s_446zhq">Implementieren Sie die abstrakte Superklasse <code>Spieler</code>.</span></p>
+<h2 class="e_5tsye0">1.1 Daten als IV implementieren</h2>
+<p>Ein Spieler beschreiben Sie durch zwei Variablen:</p>
+<ul>
+<li>seine Hand, mit dem er die Karten "hält"</li>
+<li>seine Lebensenergie, die durch Kämpfe bzW. Spiele reduziert werden kann</li>
+</ul>
+<p>Die IV sollen nur für Klassen, die im selben Package sind oder für die Subklassen zugreifbar sein.</p>
+<p><span class="task-link s_tibk8b def" data-href="unotempel/kartenspiel/Spieler.java#e_tibk8b">Definieren Sie die Instanz-Variablen. </span></p>
+<h2 class="e_gch7cc">1.2 Superkonstrukor definieren</h2>
+<p>Initialisieren Sie die oben definierten IV im Konstruktor. Die Hand hat immer die Länge 20, unabhängig von der Anzahl der aktuellen Karten.</p>
+<p><span class="task-link s_rvwgwm def" data-href="unotempel/kartenspiel/Spieler.java#e_rvwgwm">Definieren Sie den Superkonstruktor für die Klasse Spieler.</span></p>
+<h2 class="e_661je5">1.3 Erste Hand des Spielers</h2>
+<p>Am Anfang des Spiels müssen beide Spieler 7 Karten aus dem Kartenstapel ziehen.</p>
+<p><span class="task-link s_l67qcy def" data-href="unotempel/kartenspiel/Spieler.java#e_l67qcy">Implementieren Sie</span> dafür die Methode <code>public void ersteHand(KartenStapel kartenStapel, Spielfeld spielfeld, GUI gui), </code>die insgsamt 7 Karten aus dem Kartenstapel zieht. Die benögtigte Methode dafür, haben Sie schon definiert (<strong>Hinweis</strong>: die aktuelleKarte muss am Anfang auf null gesetzt werden).</p>
+<p><span class="task-link s_5j1qbj action" data-href="#s_5j1qbj">Geben Sie eine Meldung auf die Konsole aus</span>, nachdem der Spieler die Karten gezogen hat und seine erste Hand somit "erzeugt wurde".</p>
+<h2 class="e_4q249x">1.4 Hand des Spielers entleeren</h2>
+<p>Es kann durchaus vorkommen, dass ein Spieler nach einem Spiel noch Karten auf der Hand hat. Aus diesem Grund müssen Sie jetzt eine Methode implementieren, die die Hand des Spielers nach einem Spiel "entleert".</p>
+<p>Gehen Sie wie folgt vor:</p>
+<p>1. <span class="task-link s_fmh75j action" data-href="#s_fmh75j">Schreiben Sie eine Hilfsfunktion <code>getKarte()</code></span>, die eine in einem gegebenen Index gespeicherten Karte zurückgibt.</p>
+<p>2. <span class="task-link s_rqcztl action" data-href="#s_rqcztl">Schreiben Sie eine Prozedur <code>karteAufNullSetzen()</code></span>, die diese Karte auf null setzt.</p>
+<p>Jetzt folgt die eigentliche Methode zum Entleeren der Hand:</p>
+<p>Iterieren Sie über die Hand des Spielers. Solange der Spieler noch Karten auf der Hand hat, setzten Sie die Karte am gegebenen Index auf null. Dafür rufen Sie einfach die im Punkt 2. definierte Prozedur auf.</p>
+<p><span class="task-link s_axc4lk def" data-href="unotempel/kartenspiel/Spieler.java#e_axc4lk">Implementieren Sie diese Methode.</span></p>
+<p><code></code></p>
+<p><code></code></p>
+<p><code></code></p>
+<h2 class="e_8ajz6t">1.5 Anzahl der Karten in der Hand zurückgeben</h2>
+<p><span class="task-link s_corr1u def" data-href="unotempel/kartenspiel/Spieler.java#e_corr1u">Schreiben Sie </span> die Funktion <code>anzahlKarteHand()</code>, die die Anzahl der Karten in der Hand des Spielers zurückgeben soll. Gehen Sie wie folgt vor:</p>
+<ul>
+<li>eine Variable <code><strong>zaehler</strong></code> definieren und auf 0 setzen</li>
+<li>mit Hilfe einer for-each-Schleife über die Karten in der Hand iterieren und solange eine Karte vorhanden ist, <code><strong>zaehler</strong></code> inkrementieren</li>
+<li>Anzahl der Karten zurückgeben</li>
+</ul>
+<h2 class="e_3i0d5g">1.6 Sind spielbare Karten vorhanden?</h2>
+<p><span class="task-link s_qb20zk def" data-href="unotempel/kartenspiel/Spieler.java#e_qb20zk">Schreiben Sie</span> die Funktion <code>public boolean spielbareKarteVorhanden(Karte aktuelleKarte)</code>, die true zurückgibt, wenn der Spieler spielbare Karten auf der Hand hat und false, wenn das nicht der Fall sein sollte. Gehen Sie wie folgt vor:</p>
+<ul>
+<li>iterieren Sie über die Hand des Spielers</li>
+<li>wenn eine Karte am gegebenen Index vorhanden und spielbar ist (<strong>Hinweis</strong>: prüfen Sie dies mit der Methode istSpielbar() aus Karte), geben die true zurück</li>
+<li>und wenn das nicht der Fall sein sollte false</li>
+</ul>
+<h2 class="e_5k7ye0">1.7 Schaden zufügen</h2>
+<p><span class="s_2dqba4 def s_qipl2s" data-href="unotempel/kartenspiel/Spieler.java#e_2dqba4">Schreiben Sie</span> die Funktion <code>schadenZufuegen()</code>, die die Lebensenergie des Spielers reduzieren soll.</p>
+<p>Gehen Sie wie folgt vor:</p>
+<p>1. <span class="task-link s_057tz5 action" data-href="#s_057tz5">Schreiben Sie</span> eine Hilfsfunktion <code>getLebenspunkte()</code>, die die Lebensenergie des Spielers zurückgibt.</p>
+<p>2. <span class="task-link s_26co7y action" data-href="#s_26co7y">Definieren Sie</span> die Prozedur <code>lebenspunkteGewinnen(int punkte)</code>, die Punkte zu der Lebensergie des Spielers addiert.</p>
+<p>Jetzt folgt die eigentliche Methode zum Reduzieren der Lebensenergie:</p>
+<ul>
+<li>definieren Sie eine Variable für den Schaden und setzen diese auf 0</li>
+<li>iterieren Sie mit Hilfe einer for-each-Schleife über die Karten in der Hand des Spielers</li>
+<li>prüfen Sie, ob eine Karte vorhanden ist</li>
+<li>wenn die Karte eine "PlusVierWunsch" Karte ist, fügen Sie 5 Schadenspunkte hinzu</li>
+<li>wenn die Karte eine "Wunsch" Karte ist, dann fügen sie 4 Schadenspunkte hinzu</li>
+<li>wenn es eine andere Art von Karte ist, fügen sie 2 Schadenspunkte hinzu</li>
+</ul>
+<p>Nun müssen Sie den Schaden für das Quiz berechnen:</p>
+<ul>
+<li>wenn der Schaden gleich 0 ist, fügen sie 10 Schadenspunkte hinzu und ziehen diese von der Lebensenergie ab</li>
+<li>falls die Lebensenergie negativ sein sollte, setzen sie diese auf 0</li>
+<li>zum Schluss geben Sie die Lebensenergie zurück</li>
+</ul>
+<p><span class="task-link s_hmq0hd def" data-href="unotempel/kartenspiel/Spieler.java#e_hmq0hd">Implementieren Sie diese Methode.</span></p>
+<h1 class="e_z7942w">2 Held</h1>
+<p>Diese Klasse stellt den menschlichen Spieler dar.</p>
+<p><span class="task-link s_1wm5r1 action" data-href="#s_1wm5r1">Implementieren Sie die Klasse <code>Held</code> als Subklasse von Spieler.</span></p>
+<h2 class="e_jb8xrq">2.1 Daten als IV implementieren</h2>
+<p><span class="task-link s_e8bfpm def">Definieren Sie</span> eine Variable, die den Verschiebungswert einer Karte speichert.</p>
+<h2 class="e_ijq6rp">2.2 Konstruktor definieren</h2>
+<p><span class="task-link s_iqwacl def">Definieren Sie</span> den Konstrukor dieser Klasse, indem Sie den Superkonstruktor aufrufen, einen menschlichen Spieler mit 100 Punkten Lebensenergie erzeugen und die IV für den Verschiebungswert der Karte auf 0 setzten.</p>
+<h2 class="e_94u0qa">2.3 Eine Karte ziehen</h2>
+<p><span class="task-link s_ga1g0p def">Implementieren Sie</span> die Methode <code>public void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld, GUI gui)</code>, die dafür sorgt, dass der Spieler Karten aus dem Kartenstapel zieht, solange seine Hand noch nicht voll ist. Vergessen Sie nicht am Ende den Kartenstapel zu aktualisieren. Falls die Hand des Spielers voll sein sollte, geben Sie eine entsprechende Meldung auf die Konsole aus.</p>
+<h2 class="e_bub02p">2.4 Karten verschieben</h2>
+<p><span class="task-link s_5ehwh2 def">Implementieren Sie</span> eine Methode, die die Karten in der Hand des Spielers verschiebt, wenn er beispielsweise eine neue Karte zieht oder eine Karte auf dem Kartenstapel ablegt. Gehen Sie wie folgt vor:</p>
+<p>1. Definieren Sie eine Variable für das Verschieben einer Karte als Text.</p>
+<p>2. Prüfen Sie, ob der Held noch Karten auf der Hand hat und lesen Sie die Eingabe durch die Konsole.</p>
+<p>3. Wenn die IV verschieben gleich "links" ist und der kartenVerschiebungswert größer als 0, müssen Sie den kartenVerschiebungswert dekrementieren und anschließend die Karten verschoben darstellen. Das gleiche gilt für "rechts", außer dass Sie da den Wert inkrementieren müssen.</p>
+<h2 class="e_p0mlc3">2.5 Eine Karte spielen</h2>
+<p><span class="task-link s_bobk33 def">Implementieren Sie</span> die Methode <code>public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel, boolean karteGezogen,Spielfeld spielfeld,GUI gui) </code>wie folgt:</p>
+<p>1. Definieren Sie eine Variable<code><strong> indexKarte</strong></code> für den Index der ausgewählten Karte.</p>
+<p>2. Solange die aktuelle Karte spielbar ist, müssen die Karten in der Hand verschoben werden. Die benögtigte Methode dafür, haben Sie schon definiert.</p>
+<p>3. Nur falls indexKarte ungleich -1 ist, prüfen Sie ob die ausgewählte Karte gespielt werden kann. Wenn dies der Fall sein sollte, speichern Sie die ausgewählte, spielbare Karte als Variable und setzen dann die Karte auf der Hand auf null, da sie jetzt in der Hand nicht mehr vorhanden ist. Zum Schluss geben Sie die ausgewählte Karte zurück.</p>
+<p><span class="task-link s_430ksk action">Geben Sie eine Meldung auf die Konsole aus</span>, wenn die ausgewählte Karte nicht spielbar sein sollte.</p>
+<p>4. Wenn der Spieler keine spielbare Karte hat, muss er eine aus dem Kartenstapel ziehen. Es wird erstmal geprüft, ob der Spieler schon eine Karte gezogen hat. Das machen Sie indem Sie prüfen, ob der Spieler auf den Kartenstapel geklickt hat. Wenn die gezogene Karte spielbar ist, darf der Spieler sie legen. Das machen Sie mit einem rekursiven Aufruf der Methode <code>karteSpielen().</code></p>
+<p><span class="task-link s_hmmrc6 action">Geben Sie eine Meldung auf die Konsole aus</span>, wenn der Spieler keine spielbare Karte haben sollte.</p>
+<h2 class="e_cm90n1">2.6 Neue Farbe Auswählen</h2>
+<p>Wie Sie bereits wissen, gibt es in dem UNO-Spiel ein paar Aktionskarten, wie z.B. die WunschKarte. Der Spieler, der diese Karte legt, entscheidet welche Farbe als nächstes gelegt werden soll.</p>
+<p><span class="task-link s_47t81z def">Schreiben Sie</span> eine Funktion, die dem Spieler ermöglicht eine neue Farbe auszuwählen. Sie müssen hierfür nur die richtige Methode aus der Klasse GUI aufrufen.</p>
+<h1 class="e_tsue3z">3 KI&nbsp;</h1>
+<p>Für die KI müssen Sie nun zwei Klassen erstellen:</p>
+<ul>
+<li>KIZufall</li>
+<li>KISchlau</li>
+</ul>
+<h2 class="e_it74bs">3.1 KIZufall</h2>
+<p>Diese Klasse stellt einen einfachen KI-Gegner dar, der eher zufällig spielt.</p>
+<p><span class="task-link s_zwndg1 action">Implementieren Sie die Klasse <code>KIZufall</code> als Subklasse von Spieler.</span></p>
+<h3 class="e_3g3d61">3.1.1 Konstruktor definieren</h3>
+<p><span class="task-link s_nxk0f0 def">Definieren Sie</span> den Konstruktor dieser Klasse, indem Sie den Superkonstruktor aufrufen.</p>
+<h3 class="e_dil3k6">3.1.2 Eine Karte ziehen</h3>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="s_oem0mi def s_aroe60">Diese Methode ähnelt der Methode <code>karteSpielen()</code> aus Held. Der einzige Unterschied ist, dass hier das Ganze zufällig passiert.</span></p>
+<p><span class="task-link s_oem0mi def">Implementieren Sie</span> die Methode <code>public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel, boolean karteGezogen, Spielfeld spielfeld,GUI gui) </code>wie folgt:</p>
+<p>1. Solange der Spieler noch spielbare Karten auf der Hand hat, erzeugen Sie eine zufällige Zahl zwischen 0 und hand-length-1 und speichern diese in eine Variable.</p>
+</div>
+<div class="hint segment" id="7neoz0" data-title="Wie erstellen Sie eine zufällige Zahl?">
+<div class="header"><div class="wrap"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg></span><span>Wie erstellen Sie eine zufällige Zahl?</span></div></div>
+<div data-uuid="eq02gl" data-hint="U2FsdGVkX19irs6hH544eF3BT0ue/KLhTXrNOZVIqlT8mGI4HYuemhfatwoW21t+q3x/K0stmyK50lPLpPgISjGF3Iu9zZX31VUfHPHfiOdr+8L5IIajsjf/a7uP4AOTbU3lzex6OYP9xrTr9h8fH8oVqymAGVf9LaD3I+8v21BgJDAX9ZNZZFfGl4/unka5Nz1S8hIu8+2bfSloFFoRm5uMIBWij6aB8DSX1esWYEd9WMrysyD0xT7aUBWXiuXMrCI0xBimpILI3BFUNUpWOJfclZwJrziObLnpnJtojXo5mpWSUktVk2r2vRW+hu76P8UNC14zxLy9lhj2ciXLOpvU6Hf5VE0OHepEzYqQhSG1fOKN8VfVwzi2uG0uJ86IM6sez2mHRsgtca5YeY+Sc8P8lMPglm2PMCszW6iKeSZYt7PprLv3RVLKOSpJW8xsACqJE9ulg9Ut/5kS+gkNag==" class="hint"></div>
+
+</div>
+<div class="text segment" id="xx4wma">
+<p>2.&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+</body> 
+</html>
