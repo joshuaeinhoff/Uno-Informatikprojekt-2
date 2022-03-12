@@ -1,0 +1,228 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="UTF-8" /> 
+	<meta name="headingType" content="1" /> 
+	<meta name="headingStartValue" content="1" /> 
+<title>Tut_GUI</title> 
+<style> 
+    body { 
+       font-family: "Segoe UI", Verdana, Geneva, Tahoma, sans-serif; 
+    } 
+    .segment { 
+       font-size: 19px; 
+       line-height: 1.5; 
+    } 
+    .code { 
+       color: #666; 
+       font-family: monospace; 
+       padding: 5px; 
+    } 
+    .task-link { 
+       background-color: hsl(47, 90%, 60%); 
+       border: 2px solid hsl(47, 90%, 40%); 
+       padding: 0 2px; 
+       line-height: 26px; 
+    } 
+    .task-link[data-href] { 
+       cursor: pointer; 
+    } 
+    .task-link::after { 
+       content: "➤"; 
+       margin-left: 3px; 
+       color: hsl(47, 90%, 40%); 
+    } 
+    a { 
+       color: hsl(196, 100%, 47%); 
+    } 
+    .hilitecolor1 { 
+       background-color: hsl(45, 100%, 70%); 
+    } 
+    .hilitecolor2 { 
+       background-color: hsl(218, 100%, 80%); 
+    } 
+    .hilitecolor3 { 
+       background-color: hsl(150, 100%, 70%); 
+    } 
+    .hilitecolor4 { 
+       background-color: hsl(0, 100%, 70%); 
+    } 
+    .hilitesolution { 
+       background-color: hsl(47, 60%, 70%); 
+       font-style: italic; 
+    } 
+    h1, h2, h3 { 
+      color: hsl(209, 60%, 45%); 
+    } 
+    h1[data-number]:before, h2[data-number]:before, h3[data-number]:before { 
+      content: attr(data-number); 
+      margin-right: 10px; 
+    } 
+    .skill { 
+      line-height: initial; 
+      padding: 7px 0px 3px 0px; 
+      border: 1px solid hsl(0,0%,100%); 
+    } 
+    .skill .skill { 
+      display: inline-block; 
+      margin: 0px 5px 2px 5px; 
+      position: relative; 
+    } 
+    .skill .skill .container { 
+      min-height: 27px; 
+      display: table; 
+      border: 2px solid hsl(0,0%,25%); 
+    } 
+    .skill .skill .container .block { 
+      font-size: 14px; 
+      display: table-cell; 
+      min-width: 19px; 
+      text-align: center; 
+      vertical-align: middle; 
+      padding: 0px 6px 0px 4px; 
+    } 
+    .skill .skill .container .content { 
+      padding: 2px 6px; 
+      font-size: 14px; 
+      display: table-cell; 
+      vertical-align: middle; 
+    } 
+    .skill .skill .container .content span { 
+      margin-left: 1px; 
+      margin-right: 1px; 
+    } 
+    .skill .skill .container .content .text { 
+      vertical-align: -1px; 
+    } 
+    .block { 
+      background-color: hsl(0,0%,25%);  
+      color: hsl(196, 100%, 97%);  
+    } 
+    .block { 
+      background-color: hsl(0,0%,25%);  
+      color: hsl(196, 100%, 97%);  
+    } 
+    .skill .skill .container.attr_certificate { 
+      border: 2px solid hsl(0, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_certificate .block { 
+      background-color: hsl(0, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_new { 
+      border: 2px solid hsl(120, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_new .block { 
+      background-color: hsl(120, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_revision { 
+      border: 2px solid hsl(47, 90%, 60%); 
+    } 
+    .skill .skill .container.attr_revision .block { 
+      background-color: hsl(47, 90%, 60%); 
+    } 
+    .hint .hint { 
+      margin-left: 30px; 
+      margin-bottom: 5px; 
+    } 
+    .header .wrap { 
+      padding-right: 10px; 
+      width: fit-content; 
+      cursor: pointer; 
+      border-bottom: 2px solid hsl(214, 38%, 59%); 
+    } 
+    .header .wrap .icon { 
+      vertical-align: -4px; 
+      margin-right: 3px; 
+    } 
+    .header .wrap .icon svg{ 
+      fill: hsl(214, 38%, 59%); 
+    } 
+  </style> 
+  <script> 
+     window.onload = function() { 
+       if (window.location.hash) { 
+         let id = window.location.hash.substr(1); 
+         let anchor = document.getElementsByClassName(id); 
+         if (anchor[0]) { 
+           let top = anchor[0].offsetTop; 
+           window.scrollTo(0, top); 
+         } 
+       } 
+       let links = document.querySelectorAll(".task-link"); 
+       for (let i = 0; i < links.length; i++) { 
+         links[i].onclick = function(event) { 
+           if (event.target.getAttribute("data-href")) { 
+             window.open(event.target.getAttribute("data-href"), "_self"); 
+           } 
+         } 
+       } 
+    } 
+  </script> 
+</head> 
+<body>
+<div class="text segment" id="klrnw5">
+<h1 class="e_ab5fef">GUI</h1>
+<p>Die Darstellung des Spiels wird durch die Klasse GUI ermöglicht. Für ein visuell ansprechendes Spiel ist es ratsam sich in vorhinein Gedanken zu einer Farbpallete zu machen. Die ausgewählten Hex-Codes können Sie, dann als Konstanten speichern.</p>
+</div>
+<div class="hint segment" id="177tty" data-title="Hints">
+<div class="header"><div class="wrap"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg></span><span>Hints</span></div></div>
+<div data-uuid="9l5m8j" data-hint="U2FsdGVkX18in98+/uyQvZ5z0qQQ6iPSghCFqXzS1OnPnfb5XsVbCgvE9Iai7hWcbYP0mDT1A2W9u8EVRrVvn1tlTWF0XPOpQyRrX1HPogs9GLy7OZe0zejtrOm9TfkG/BMW6OLWzcA2cBitSfTKgbj/pqv90MAk5EE46CrCiira8IrK7oAilIYwQsYlfPOg2UCihB69/MzDQ6gXbztx553n1juXkaKLEHaKA1nGhosLYOtx5XVWa+P5/j7d1eG1MKwaBKrodTg+KvuPT+UqTca+0H40gMIbb5wRrbBgB1rmte2KegpsDRSMBoqqCmFgFuN064a13ebNhSWr2HlT7CgHoI+fFMGoA7NiBPxgv6haD7dBzVWgwHt0b9NYZZ/0jx7Ni4hTh2qgHU4Raye7xpQQPcCdG2gxBf3LgNhUus+bIUKErFyYl15IOlDmF/644p9R6HRVn29c8hZUIUqa5ZL2lRilHpMNKyUdkvPSN2sqQ5Y73boBv9drrZJgN76Xsi1+MNxxm3cmUv9/iV/Sq+EESdYw6HNrq3blX+JM+GdJ6xnR+zn1i5hL/vAOv6jRQ5O6G7OTYGsSi/TKSWra3BqdMZQNfl13iE/vR6sxbkqSn0Bx8ObAk0h3WoKrcQgc7z4vtgNuuQ/2otW850XiGAgapcKahc0rDhazzP3JbrBYu7NFno1HniTTikk7ML5zX32mww1QPYkqzQ2R/Xw0Trk33qvYywb8y5MadYDPGAf79MdN7pjyXVjjcZruWpcRIysoH3Bhh/guagAQz/tKkLNukcWZmQORazcX2ZckzublDo6Q1Rhb7g7a3gRMv0KO/ovkPBWVt2pvYs+8Nbl2lGPZ0+43waFZosUoxJYj96eZ8L4rdJxdtgRAjQ58Qs8RYo4p1fGYyBEOaryqoZTruoIegEtCTYEPe6wgsh8725eCxlqayLjd7b32toLEAgROP+5/lkAxv/i/nVMSi3laIP5BX8vPENkHeRkt45qJj/kQ047/ukwFUwdccFXxxuEL" class="hint"></div>
+
+</div>
+<div class="text segment" id="u42kl5">
+<h3 class="e_bpq2to">Darstellung von einem leeren Canvas</h3>
+<p>Mittels dieser Methode wird eine leere weiße Fläche erstellt, die der Größe des späteren Spiels entspricht.</p>
+<p>&nbsp;</p>
+</div>
+<div class="hint segment" id="vrq27s" data-title="Hints">
+<div class="header"><div class="wrap"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg></span><span>Hints</span></div></div>
+<div data-uuid="yh15nq" data-hint="U2FsdGVkX1/hBEPpFsCxSHjrqPx94Kw+M1pMj7G9i9f1/bZrWG/8bOlzc5wlfrvuGQsndvoqCwANP66F+QVTmVD98Naa6w1qWKlqoGTRlopYRWvDEv2uU1DBFrOPMOjFKwU05K3LCCpMnG+Tf93JfkO4pgJ/K4RzhqCF80d5xUR3sX849xU4W+bB2Tb+7UCX9f5rMRAr9Th22DgKMjjFtdpd9PA8DqtZ+Po1mHI2HkSVTmvw/PuF7Z4quiTmgkgT9+ZlvwUptpiiCL6SDjypmKGEXR1vbPXHIBQTLoHoBkSr0m49B2AjF1YhSbztkESGydRLA6v81b8vi/kGoVw82CS7Oy22gtLzdFOfzHBgdNt7hJQvH/u8GfsesWLcljZOgRV6cCnfKLSg//S0igEuidjBy/xZf3cwx46XC07kgzL6I2lqitP+goocgHo6eBQV8sDOjkRnwAzCd1h04lsHFJ2Zfep1nv0GtNW67GMSTiLF45G92y669XpB6dE+cy/VOhtL8JIcLqhBGo5yMeH5mUzR6IyOA88WYnIJTvhAZEXJQxmWP1sdXK9f3xnil4tWDenDluQWN2gBHylnVuKH1tqHx/W633aBiggr7qFCvnXOq08Gjv9vJpJ5r5Fhu6L9IvVDBA+6RjHdMU+Opvou08nUQBb5KuKI+gI966F1hnc=" class="hint"></div>
+
+</div>
+<div class="text segment" id="9ixk6e">
+<p>&nbsp;</p>
+<h3 class="e_7eimen">Wahl des Moduls</h3>
+<p>Hier geben Sie dem Spieler die Möglichkeit zwischen OOP1 und OOP2 zu wählen. Dies hat Einfluss auf die Fragen die der Spieler später beantworten muss.&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+<div class="hint segment" id="jidod4" data-title="Hints">
+<div class="header"><div class="wrap"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg></span><span>Hints</span></div></div>
+<div data-uuid="q3o2mu" data-hint="U2FsdGVkX19xxf+QOsHuvJ7B2x1Y9uza37JPH3iG0kXp+xp7pMj/hLh5Fg+2X77ypTjt58jb8Wu5j7tf02pkaYj+DGpqylaFOpDuim64AF3YfMryn1oU9CddBIleJzRUwxNq7pFWkmSuTA7eePbcN4d9tox9oEuP0wuVeIRt09u8Du1wMxppnVK/BvJtH7sgwtpXWNuJ413551/RJ40EfIXS7fCNyy6PIEApyuaSES/y1Cf7AUS1Z2Q2Cum6nB9eceQN3veeWD+ceM69ZMsmK/P/7FbvInT7sZV+BxyZI/NhJA8PDrg0wXUzyy0zmuNFf5qsh9cS8m7e9/YTAL4hH8Xp3Mq+QFbHhMYS2VbDgymvyA5YNxzA53BX6NtJdFqkn3PDknqXX9M1SJtVqI/UYwOHAGQv1q354AIKVo2wNeclFdad8LCA6RMqun4ASH8qOa4kwf0FiWRAN3eNkMxs3Qd1e7P4k3nkK47euh6pfMqn+WnCKP+4iQ+/2Q99YkFm0AjYLvOSwGf5aX4WLxGuFZ8Jp5HcyUp6Q7YiMkHv4st7OECHFehBh8QTUvPKB2knVZ0p4wEiQjpBvNpNSh5ARH0kwaMYzDubbxyB352e0EQ8F7acrz86YqIXmkCRvTJ5mdCg/1OTvD8qgpXkqvOPN7zqB0FbkXTAcdkzXFIGX342z/hLKKDSgrJm4Mh7yz+RtlvSVsyjE702afXKsZTQOMNe5IGTUnsyYOjdyqnmrkNI/Kj7WCSH9MdiUqwmoi7Pn/bdBSKR1RRASMQx+LqA+R48SRjuodPRJs7QCx8bnbU=" class="hint"></div>
+
+</div>
+<div class="text segment" id="czmweg">
+<p>&nbsp;</p>
+<h3 class="e_f6v014">Wahl der Tempel</h3>
+<p>Erstellen Sie eine Funktion zur Darstellung der Tempelsymbol. Durch einen Klick auf das passende Symbol wird der Spieler zu einer Begrüßungsnachricht weitergeleitet.&nbsp;<br>Wenn Sie möchten können sie, mit der waitFor() Methode, Animationen simulieren.</p>
+<p>&nbsp;</p>
+<h3 class="e_k50xa5">Darstellung der Begrüßungsnachricht</h3>
+<p>Die Begrüßungsnachricht gibt eine kurze Einführung für die folgende Quizfrage.&nbsp;</p>
+</div>
+<div class="hint segment" id="v9ct9r" data-title="Hints">
+<div class="header"><div class="wrap"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg></span><span>Hints</span></div></div>
+<div data-uuid="d0woca" data-hint="U2FsdGVkX1/RG9YI7M0Wq8JlRhc3p9JVEV0eixFSPn3NJv/lzmUy1rMSzehAxoIyz1P2KKo3DfPcTJPJJ6qVfB3j7bWsZAIaw5xvLGsT/FCMdxmF0XoOV0W2xhT092EESU3EkkhT+MwQT69ia/u1JF39sI9arXkHe02QDKvPfHI10DOH4WMUci4dISLHFXxzS817T280ZJSy7ztLNXBRsNf2cIVE3obOF9Q78N8ex8bzXPp3fY5nwHtEtONTJ/1Ygx9onyBEwo+mqQhwMKtlh4Jqf5C0b5RXJE2Fd2rwFdLjXFx6fyPlzZUfnRjOQVv1eISv6+9bAiuVUG/cBuPr50G8HAGPcVzPLHWhrxeEEAohOuyaoIXDF9dVuHSLB2i0VcEWVJ4qmaNNLV/EOdQhk61FHBt95rlzMEd9wIosbQA4j8Qn9YwtfsT1TQ47QG0VO2Qd3JbZEJgFj4O5Qu6I1XZ0ZCdAC5Dre9DbDCXoygak07tXrbud997Y29QpVXZXUiFaDSsP4TpQdr1ZwcqDtCrBLoDT1r+lKhPGWMVyuOu0Zwki/m5WcETJYQh2Uc3H8tw8jBp2oWIkWIEaoFnFbwJId+oSHeKGU7doF7GI/oWUFW9bb/N5X1sbJNzCw0oGyfLRpliMb0JZDZyOOgWkT0h1+oC4AWEyuwT2XHk7eAMrIzuPrnUI5yf3/dL/8nDWAIoEyf1PO6oo3KfsvWDKnAZNhMfIZrK1e0X/TbR5euWwhBQAgEMNuBwiHOgc/TA0D6ozC2oQ2EGf0b5cyJJ2gcFv7xoR5XUrIWD1uyVdubR6/UYglMSocu1RKtpQdKpkgR9vKRCD0Qewi3bX57Xu6oOcMNwKu21elTzZb0bcf2oCprF4DJ1L5vXbA8ilAIZIk+ZlpgZhB52HClmOY6zWlA==" class="hint"></div>
+
+</div>
+<div class="text segment" id="imvrr6">
+<h3 class="e_k1goyu">Das Quiz darstellen</h3>
+<p>Nun fehlt noch die Quizfrage darzustellen. Der Methode soll eine Frage und Antwortmöglichkeiten übergeben werden und die ausgewählte Anwort wird zurückgegeben.</p>
+<p>&nbsp;</p>
+<h2 class="e_r58uca">Das Spielfeld</h2>
+<p>Sie schreiben als erstes einige Methoden die Ihnen später bei dem zusammensetzen des Spielfelds helfen werden.</p>
+<h3 class="e_j449ny">Darstellung der Kartenplätze (Optional?)</h3>
+<p>Diese Methode soll einen Hinweis auf den Platz der Kartenposition darstellen, das kann zum Beispiel durch eine kartenförmige Umrandung realisiert werden.&nbsp;</p>
+<h3 class="e_ksg73u">Darstellung des Uno-Buttons</h3>
+<p>Erstellen Sie einen Uno-Button der erstmal noch keine Funktion hat und mit den Angaben von X- und Y- Position aufgerufen wird.<span style="background-color: var(--background); color: var(--text);">&nbsp;</span></p>
+<h3 class="e_ko2e7t">Darstellung der Links-/Rechtsbuttons</h3>
+<p>Wir brauchen ebenfalls eine Methode die zwei Knöpfe der Links- und Rechtsverschiebung der Spielerhand darzustellen. Die Knöpfe sollten eine entsprechende Ausgabe auf die Konsole ausgeben. Die Methode wird wieder durch Angabe der X- und Y-Koordinate aufgerufen.</p>
+<h3 class="e_wqw29x">Darstellung des Kartenstapels</h3>
+<p>Fehlt nur noch die Darstellung von einem Kartenstapel von dem der Spieler Karten ziehen kann. Die Vorgehensweise ähnelt der der Darstellung der Platzhalterkarten. [Kartengröße z.B. (50,100)]</p>
+<h3 class="e_3r8730">Erstellung der Spielfelddarstellung</h3>
+<p>Es ist ratsam für das Spielfeld eine andere Farbe als des Hintergrundes zu wählen und einen kleinen Rand zum Canvas zu lassen.&nbsp;</p>
+<p>Danach rufen Sie in passenden Abständen die Methode für die Platzhalterdarstellung, für der Karten der Händer der Spieler, auf.&nbsp;<br>Für eine bessere Übersicht sollten Sie nicht alle Karten auf der Hand gleichzeitig anzeigen. (z.B. nur 10 von 20 möglichen Karten auf der Hand)</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+</body> 
+</html>
