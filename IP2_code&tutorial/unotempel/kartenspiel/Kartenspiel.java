@@ -148,12 +148,12 @@ public class Kartenspiel {
 
 
     /**
-     * Funktion zum Spielen
+     * Prozedur zum Spielen
      * @param held - Spieler Held
      * @param monster - Spieler KI
      * @param gui - Graphical User Interface
      */
-    public boolean spielen(Spieler held, Spieler monster, GUI gui) {
+    public void spielen(Spieler held, Spieler monster, GUI gui) {
     
         // Während einer der Spieler noch Karten hat
         while(spieler[0].anzahlKarteHand() > 0 && spieler[1].anzahlKarteHand() > 0) {
@@ -211,10 +211,8 @@ public class Kartenspiel {
             // Spieler müssen ihre Hände entleeren
             spieler[0].handEntleeren();
             spieler[1].handEntleeren();
-            // Gibt true zurück, falls der Held gewonnen hat
-            return true;
-        }
-        if(spieler[1].anzahlKarteHand() == 0) {
+
+        } else if(spieler[1].anzahlKarteHand() == 0) {
         	// Meldung auf die Konsole ausgeben
             System.out.println("Monster hat gewonnen... Spieler wurde besiegt.");
             // Schaden für den menschlichen Spieler zufügen
@@ -226,8 +224,7 @@ public class Kartenspiel {
             System.out.println("Held hat " + spieler[0].getLebenspunkte() + " Lebenspunkte.");
             System.out.println("Monster hat " + spieler[1].getLebenspunkte() + " Lebenspunkte.");
         } 
-        // Gibt false zurück, wenn der Held das Monster nicht besiegt hat
-        return false;
+
     }
 
 } // Ende von Kartenspiel

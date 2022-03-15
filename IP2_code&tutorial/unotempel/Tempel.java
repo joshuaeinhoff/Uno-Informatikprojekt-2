@@ -113,11 +113,10 @@ public class Tempel {
 	/** 1.3.4 Methode heldHatMonsterBesiegt() Δe_ivzxg8 Δ
      * Funktion zum Kämpfen des Monsters im Tempel
      * @param held - Menschlicher Spieler als Parameter
-     * @param monsterBesiegt - Boolean true, wenn Monster besiegt wird - false, sonst
      * @param gui - Graphical User Interface
      * @return true, wenn das Monster besiegt wurde - false, sonst
      */
-    public boolean heldHatMonsterBesiegt(Spieler held, boolean hatSpielGewonnen, GUI gui) {
+    public boolean heldHatMonsterBesiegt(Spieler held, GUI gui) {
         // Solange der Held noch lebt und das Monster nicht besiegt hat ( => hat 0 Lebenspunkte)
         if(held.getLebenspunkte() > 0 && monster.getLebenspunkte() > 0) {
         	System.out.println("Held muss das Monster besiegen, indem er UNO spielt.");
@@ -129,10 +128,10 @@ public class Tempel {
         	System.out.println("Spielen!\n");        
         	
             // Speichern ob das Spiel gewonnen wird
-            hatSpielGewonnen = kartenspiel.spielen(held, monster, gui);
+            kartenspiel.spielen(held, monster, gui);
             
             // Funktion zum Kämpfen des Monsters aufrufen
-            return heldHatMonsterBesiegt(held, hatSpielGewonnen, gui);
+            return heldHatMonsterBesiegt(held, gui);
         }
         // Bedingung überprüft, ob der Spieler noch Lebensenergie hat
         if(held.getLebenspunkte() <= 0) {
@@ -140,7 +139,7 @@ public class Tempel {
             System.out.println("Game Over\n");
             return false;
         }
-        // Meldung
+        // Keine weitere Bedingungen, dann hat der Held gewonnen
         System.out.println("Held hat das Monster besiegt!");
         // Gibt true zurück, wenn der Held das Monster besiegt hat
         return true;   
