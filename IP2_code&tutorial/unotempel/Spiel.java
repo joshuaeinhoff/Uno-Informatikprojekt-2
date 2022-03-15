@@ -75,7 +75,7 @@ public class Spiel {
         heldHatAufgabeErledigt = !heldHatAufgabeErledigt;
      
         // Monster Kämpfen
-        heldHatAufgabeErledigt = wasserTempel.heldHatMonsterBesiegt(held, false, gui);
+        heldHatAufgabeErledigt = wasserTempel.heldHatMonsterBesiegt(held, gui);
 		gui.spielbrettDarstellen(held);        
         if(!heldHatAufgabeErledigt)
        		return;
@@ -106,7 +106,7 @@ public class Spiel {
         heldHatAufgabeErledigt = !heldHatAufgabeErledigt;
 
         // Monster Kämpfen
-        heldHatAufgabeErledigt = luftTempel.heldHatMonsterBesiegt(held, false, gui);
+        heldHatAufgabeErledigt = luftTempel.heldHatMonsterBesiegt(held, gui);
         gui.spielbrettDarstellen(held);
 		if(!heldHatAufgabeErledigt)
        		return;
@@ -137,7 +137,7 @@ public class Spiel {
         heldHatAufgabeErledigt = !heldHatAufgabeErledigt;
 
         // Monster Kämpfen
-        heldHatAufgabeErledigt = erdeTempel.heldHatMonsterBesiegt(held, false, gui);
+        heldHatAufgabeErledigt = erdeTempel.heldHatMonsterBesiegt(held, gui);
         gui.spielbrettDarstellen(held);
 		if(!heldHatAufgabeErledigt)
        		return;
@@ -168,7 +168,7 @@ public class Spiel {
         heldHatAufgabeErledigt = !heldHatAufgabeErledigt;
 
         // Monster Kämpfen
-        heldHatAufgabeErledigt = feuerTempel.heldHatMonsterBesiegt(held, false, gui);
+        heldHatAufgabeErledigt = feuerTempel.heldHatMonsterBesiegt(held, gui);
         gui.spielbrettDarstellen(held);
         if(!heldHatAufgabeErledigt)
        		return;

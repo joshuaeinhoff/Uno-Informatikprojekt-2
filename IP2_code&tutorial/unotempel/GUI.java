@@ -474,11 +474,11 @@ public class GUI {
     	int x = 660;
         int y = 450;
         // Variablen für die Dastellung des Menüs zur Auswahl
-        Rechteck rechteckFarbAuswahl = new Rechteck(x + 40, y/2 - 100, 130, 130, Grafik.WHITE, Grafik.BLACK, 1, 10, "");
-        Rechteck rechteckBlau = new Rechteck(x + 50, y/2 - 90, 50, 50, Grafik.BLUE, Grafik.BLACK, 1, 10, "0");
-        Rechteck rechteckGelb = new Rechteck(x + 110, y/2 - 90, 50, 50, Grafik.YELLOW, Grafik.BLACK, 1, 10, "1");
-        Rechteck rechteckGruen = new Rechteck(x + 50, y/2 - 30, 50, 50, Grafik.GREEN, Grafik.BLACK, 1, 10, "2");
-        Rechteck rechteckRot = new Rechteck(x + 110, y/2 - 30, 50, 50, Grafik.RED, Grafik.BLACK, 1, 10, "3");
+        Rechteck rechteckFarbAuswahl = new Rechteck(x + 40, y/2 - 100, 130, 130, FARBE_WEISS, FARBE_SCHWARZ, 1, 10, "");
+        Rechteck rechteckBlau = new Rechteck(x + 50, y/2 - 90, 50, 50, FARBE_BLAU, FARBE_SCHWARZ, 1, 10, "0");
+        Rechteck rechteckGelb = new Rechteck(x + 110, y/2 - 90, 50, 50, FARBE_GELB, FARBE_SCHWARZ, 1, 10, "1");
+        Rechteck rechteckGruen = new Rechteck(x + 50, y/2 - 30, 50, 50, FARBE_GRUEN, FARBE_SCHWARZ, 1, 10, "2");
+        Rechteck rechteckRot = new Rechteck(x + 110, y/2 - 30, 50, 50, FARBE_ROT, FARBE_SCHWARZ, 1, 10, "3");
         // Variable farbe definieren
         int farbe = -1;
         // Solange die Farbe keine der Farben entspricht

@@ -34,19 +34,19 @@ public class Tempel {
         switch(farbe) {
             case "blau":
             	// KIZufall erzeugen
-                this.monster = new KIZufall(10);
+                this.monster = new KIZufall(5);
                 break;
             case "gelb":
             	// KIZufall erzeugen
-                this.monster = new KIZufall(20);
+                this.monster = new KIZufall(10);
                 break;
             case "gruen":
             	// KISchlau erzeugen
-                this.monster = new KISchlau(30);
+                this.monster = new KISchlau(15);
                 break;
             case "rot":
             	// KISchlau erzeugen
-                this.monster = new KISchlau(40);
+                this.monster = new KISchlau(20);
                 break;
         }
     }
@@ -125,22 +125,22 @@ public class Tempel {
         	kartenspiel.spielVorbereiten(held, monster, gui);
         	// Meldung auf die Konsole ausgeben
         	System.out.println("Das Monster wartet darauf... Kartenspiel ist bereit!");
-        	System.out.println("Spielen!\n");        
         	
-            // Speichern ob das Spiel gewonnen wird
+            // Karten spielen
+            System.out.println("Spielen!\n");
             kartenspiel.spielen(held, monster, gui);
             
-            // Funktion zum Kämpfen des Monsters aufrufen
+            // Funktion zum Kämpfen des Monsters rekursiv aufrufen
             return heldHatMonsterBesiegt(held, gui);
         }
-        // Bedingung überprüft, ob der Spieler noch Lebensenergie hat
+        // Bedingung überprüft, ob der Spieler keine Lebensenergie mehr hat
         if(held.getLebenspunkte() <= 0) {
         	// Hat der Spieler keine Lebenspunkte mehr, ist das Spiel zu ende
             System.out.println("Game Over\n");
             return false;
         }
         // Keine weitere Bedingungen, dann hat der Held gewonnen
-        System.out.println("Held hat das Monster besiegt!");
+        System.out.println("Held hat das Monster besiegt!\n");
         // Gibt true zurück, wenn der Held das Monster besiegt hat
         return true;   
     }
