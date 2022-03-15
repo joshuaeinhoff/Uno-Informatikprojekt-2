@@ -3,9 +3,9 @@ package unotempel.kartenspiel;
 import unotempel.grafikkonsole.*;
 import unotempel.GUI;
 
-/**
- * FarbKarte stellt eine Karte mit einer bestimmten Farbe und einer bestimmten Nummer dar
- */
+/**<br>
+ * FarbKarte stellt eine Karte mit einer bestimmten Farbe und einer bestimmten Nummer dar<br>
+ <br>*/
 public class FarbKarte extends Karte{
   
     // Variablen für die Darstellung einer FarbKarte
@@ -13,30 +13,30 @@ public class FarbKarte extends Karte{
     Text zahl;
 
 
-    /**
-     * Konstruktor erzeugt einer Farbkarte mit den folgenden Eigenschaften
-     * @param farbe - Farbe: blau, gelb, grün oder rot
-     * @param nummer - Nummer: Zahl von 0 bis 9
-     */
+    /**<br>
+     * Konstruktor erzeugt einer Farbkarte mit den folgenden Eigenschaften<br>
+     * @param farbe - Farbe: blau, gelb, gr&uuml;n oder rot<br>
+     * @param nummer - Nummer: Zahl von 0 bis 9<br>
+     <br>*/
     public FarbKarte(String farbe, int nummer){
         super(farbe, nummer);
     }
 
 
-    /**
-     * Funktion gibt zurück, ob die Karte eine FarbKarte ist
-     * @param kartenart - Art der Karte
-     * @return true - falls die KartenArt passt, false - sonst
-     */
+    /**<br>
+     * Funktion gibt zur&uuml;ck, ob die Karte eine FarbKarte ist<br>
+     * @param kartenart - Art der Karte<br>
+     * @return true - falls die KartenArt passt, false - sonst<br>
+     <br>*/
     @Override
     public boolean istWelcheKarte(String kartenart){
         return kartenart.equals("Farb");
     }
 
 
-	/**
-    * Prozedur erzeugt die visuelle Darstellung einer Karte und verteckt sie direkt danach
-    */
+	/**<br>
+    * Prozedur erzeugt die visuelle Darstellung einer Karte und verteckt sie direkt danach<br>
+    <br>*/
     @Override 
 	public void erzeugeVisuelleKarte(String farbe) {
     	// Fallunterscheidung
@@ -62,14 +62,14 @@ public class FarbKarte extends Karte{
     }
 
 
-    /**
-     * Prozedur setzt die Karte auf die gegebene Position und macht diese sichtbar
-     * @param spalte - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)
-     * @param zeile - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)
-     * @param x - Koordinate auf der X-Achse für die Darstellung
-     * @param y - Koordinate auf der Y-Achse für die Darstellung
-     * @param istAktuelleKarte - true, wenn die Karte die aktuelle Karte im Spiel entspricht - false, sonst
-     */
+    /**<br>
+     * Prozedur setzt die Karte auf die gegebene Position und macht diese sichtbar<br>
+     * @param spalte - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)<br>
+     * @param zeile - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)<br>
+     * @param x - Koordinate auf der X-Achse f&uuml;r die Darstellung<br>
+     * @param y - Koordinate auf der Y-Achse f&uuml;r die Darstellung<br>
+     * @param istAktuelleKarte - true, wenn die Karte die aktuelle Karte im Spiel entspricht - false, sonst<br>
+     <br>*/
     @Override
     public void setzeKarteAuf(int spalte, int zeile, int x, int y, boolean istAktuelleKarte) {
         /* // Warte 2 Sekunden darauf
@@ -94,9 +94,9 @@ public class FarbKarte extends Karte{
     }
 
 
-    /**
-     * Prozedur versteckt eine Karte
-     */
+    /**<br>
+     * Prozedur versteckt eine Karte<br>
+     <br>*/
     @Override
     public void versteckeKarte() {
         // Variablen verstecken
@@ -105,10 +105,10 @@ public class FarbKarte extends Karte{
     }
 
 
-    /**
-     * Funktion zum Durchführen der Aktion einer speziellen Karte, gibt den Code für die Aktion zurück
-     * @return int - Code für die Aktion
-     */
+    /**<br>
+     * Funktion zum Durchf&uuml;hren der Aktion einer speziellen Karte, gibt den Code für die Aktion zurück<br>
+     * @return int - Code f&uuml;r die Aktion<br>
+     <br>*/
     @Override
     public int aktionDurchfuehren() {
         // Code 0: Nichts machen
@@ -116,10 +116,10 @@ public class FarbKarte extends Karte{
     }
     
 
-    /**
-     * Funktion gibt die Karte als String zurück
-     * @return String - Karte, Farbe und Nummer
-     */
+    /**<br>
+     * Funktion gibt die Karte als String zur&uuml;ck<br>
+     * @return String - Karte, Farbe und Nummer<br>
+     <br>*/
     @Override
     public String toString(){
     	return "FarbKarte in der Farbe "+this.farbe+" und der Nummer "+this.nummer;

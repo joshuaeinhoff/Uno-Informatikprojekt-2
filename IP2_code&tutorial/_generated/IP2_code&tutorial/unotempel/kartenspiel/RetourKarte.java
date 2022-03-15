@@ -3,10 +3,10 @@ package unotempel.kartenspiel;
 import unotempel.grafikkonsole.*;
 import unotempel.GUI;
 
-/**
- * Bei dieser Karte ändert sich die Spielrichtung. Wenn diese Karte zu Beginn des Spiels gezogen wird, muss der Spieler, der
- * anfangen darf, aussetzten und sein Gegenspieler darf anfangen.
- */
+/**<br>
+ * Bei dieser Karte &auml;ndert sich die Spielrichtung. Wenn diese Karte zu Beginn des Spiels gezogen wird, muss der Spieler, der<br>
+ * anfangen darf, aussetzten und sein Gegenspieler darf anfangen.<br>
+ <br>*/
 public class RetourKarte extends Karte{
 
     // Variablen für die Darstellung einer RetourKarte
@@ -18,29 +18,29 @@ public class RetourKarte extends Karte{
     Linie liniePfeil3;
     Linie liniePfeil4;
 
-	/** 3.2.1 Definition des Konstruktors Δe_23ik9q Δ 
-     * Konstruktor erzeugt eine RetourKarte einer bestimmten Farbe mit default-Wert: Nummer 11
-     * @param farbe - Farbe der Karte: Blau, gelb, grün oder rot
-     */
+	/** 3.2.1 Definition des Konstruktors  <br>
+     * Konstruktor erzeugt eine RetourKarte einer bestimmten Farbe mit default-Wert: Nummer 11<br>
+     * @param farbe - Farbe der Karte: Blau, gelb, gr&uuml;n oder rot<br>
+     <br>*/
     public RetourKarte(String farbe){
         super(farbe, 11);
     }
 
 
-    /**
-     * Funktion gibt zurück, ob die Karte eine RetourKarte ist
-     * @param kartenart - Art der Karte
-     * @return true - falls die KartenArt passt, false - sonst
-     */
+    /**<br>
+     * Funktion gibt zur&uuml;ck, ob die Karte eine RetourKarte ist<br>
+     * @param kartenart - Art der Karte<br>
+     * @return true - falls die KartenArt passt, false - sonst<br>
+     <br>*/
     @Override
     public boolean istWelcheKarte(String kartenart){
         return kartenart.equals("Retour");
     }
 
 
-	/**
-    * Prozedur erzeugt die visuelle Darstellung einer Karte und verteckt sie direkt danach
-    */
+	/**<br>
+    * Prozedur erzeugt die visuelle Darstellung einer Karte und verteckt sie direkt danach<br>
+    <br>*/
     @Override
 	public void erzeugeVisuelleKarte(String farbe) {
     	// Fallunterscheidung
@@ -74,14 +74,14 @@ public class RetourKarte extends Karte{
     }
 
 
-    /**
-     * Prozedur setzt die Karte auf die gegebene Position und macht diese sichtbar
-     * @param spalte - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)
-     * @param zeile - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)
-     * @param x - Koordinate auf der X-Achse für die Darstellung
-     * @param y - Koordinate auf der Y-Achse für die Darstellung
-     * @param istAktuelleKarte - true, wenn die Karte die aktuelle Karte im Spiel entspricht - false, sonst
-     */
+    /**<br>
+     * Prozedur setzt die Karte auf die gegebene Position und macht diese sichtbar<br>
+     * @param spalte - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)<br>
+     * @param zeile - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)<br>
+     * @param x - Koordinate auf der X-Achse f&uuml;r die Darstellung<br>
+     * @param y - Koordinate auf der Y-Achse f&uuml;r die Darstellung<br>
+     * @param istAktuelleKarte - true, wenn die Karte die aktuelle Karte im Spiel entspricht - false, sonst<br>
+     <br>*/
     @Override
     public void setzeKarteAuf(int spalte, int zeile, int x, int y, boolean istAktuelleKarte) {
         /* // Warte 2 Sekunden darauf
@@ -131,9 +131,9 @@ public class RetourKarte extends Karte{
     }
 
 
-    /**
-     * Prozedur versteckt eine Karte
-     */
+    /**<br>
+     * Prozedur versteckt eine Karte<br>
+     <br>*/
     @Override
     public void versteckeKarte() {
         this.karteform.hide();
@@ -146,10 +146,10 @@ public class RetourKarte extends Karte{
     }
 
     
-    /**
-     * Funktion zum Durchführen der Aktion einer speziellen Karte, gibt den Code für die Aktion zurück
-     * @return int - Code für die Aktion
-     */
+    /**<br>
+     * Funktion zum Durchf&uuml;hren der Aktion einer speziellen Karte, gibt den Code für die Aktion zurück<br>
+     * @return int - Code f&uuml;r die Aktion<br>
+     <br>*/
     @Override
     public int aktionDurchfuehren() {
         // Code 1: Nächster Spieler überspringen
@@ -157,10 +157,10 @@ public class RetourKarte extends Karte{
     }
     
 
-    /**
-     * Funktion gibt die Karte als String zurück
-     * @return String - Karte, Farbe und Nummer
-     */
+    /**<br>
+     * Funktion gibt die Karte als String zur&uuml;ck<br>
+     * @return String - Karte, Farbe und Nummer<br>
+     <br>*/
     @Override
     public String toString(){
     	return "RetourKarte " + this.farbe;

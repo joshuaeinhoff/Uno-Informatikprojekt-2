@@ -3,29 +3,29 @@ package unotempel.kartenspiel;
 import unotempel.konsole.Konsole;
 import unotempel.GUI;
 
-/**
- * Klasse Held stellt einen menschlichen Spieler dar
- */
+/**<br>
+ * Klasse Held stellt einen menschlichen Spieler dar<br>
+ <br>*/
 public class Held extends Spieler {
 
 	// Variable für die Darstellung der Karten
 	int kartenVerschiebungsWert;
 
-    /**
-     * Konstruktor ruft Superkonstruktor auf und erzeugt einen menschlichen Spieler mit 100 Punkten Lebensenergie
-     */
+    /**<br>
+     * Konstruktor ruft Superkonstruktor auf und erzeugt einen menschlichen Spieler mit 100 Punkten Lebensenergie<br>
+     <br>*/
     public Held(){
         super(100);
         kartenVerschiebungsWert = 0;
     }
 
 
-    /**
-     * Prozedur zum Ziehen der Karten
-     * @param kartenStapel
-     * @param aktuelleKarte
-     * @param spielfeld
-     */
+    /**<br>
+     * Prozedur zum Ziehen der Karten<br>
+     * @param kartenStapel<br>
+     * @param aktuelleKarte<br>
+     * @param spielfeld<br>
+     <br>*/
     @Override
     public void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld, GUI gui){
         // Solange der Spieler noch Platz für Karten in der Hand hat, d.h. die Hand ist nicht voll
@@ -44,14 +44,14 @@ public class Held extends Spieler {
     }
 
 
-    /**
-     * Funktion zum Spielen einer Karte
-     * @param aktuelleKarte - Aktuelle Karte im Spiel
-     * @param kartenStapel - KartenStapel
-     * @param karteGezogen - Karte wird schon gezogen
-     * @param spielfeld
-     * @return Karte zum Spielen
-     */
+    /**<br>
+     * Funktion zum Spielen einer Karte<br>
+     * @param aktuelleKarte - Aktuelle Karte im Spiel<br>
+     * @param kartenStapel - KartenStapel<br>
+     * @param karteGezogen - Karte wird schon gezogen<br>
+     * @param spielfeld<br>
+     * @return Karte zum Spielen<br>
+     <br>*/
     @Override
     public Karte karteSpielen(Karte aktuelleKarte, KartenStapel kartenStapel, boolean karteGezogen,Spielfeld spielfeld,GUI gui){
         // Variable den Index der ausgewählte Karte zuweisen   
@@ -107,11 +107,11 @@ public class Held extends Spieler {
     }
     
 
-    /**
-     * Funktion zur Auswahl einer neuen Farben durch die Grafik Konsole
-     * @param gui - Graphical User Interface
-     * @return int - Code der ausgewählten Farbe
-     */
+    /**<br>
+     * Funktion zur Auswahl einer neuen Farben durch die Grafik Konsole<br>
+     * @param gui - Graphical User Interface<br>
+     * @return int - Code der ausgew&auml;hlten Farbe<br>
+     <br>*/
     @Override
     public int neueFarbeAuswaehlen(GUI gui) {
     	// Mithilfe der Grafik Konsole eine neue Farbe auswählen
@@ -119,11 +119,11 @@ public class Held extends Spieler {
     }
 
     
-    /**
-    * Prozedur zum Verschieben der Karten auf der Hand
-    * @param spielfeld
-    * @param gui - Graphical User Interface
-    */
+    /**<br>
+    * Prozedur zum Verschieben der Karten auf der Hand<br>
+    * @param spielfeld<br>
+    * @param gui - Graphical User Interface<br>
+    <br>*/
     public void handVerschieben(Spielfeld spielfeld, GUI gui){
     	// Variable für das Verschieben
     	String verschieben;

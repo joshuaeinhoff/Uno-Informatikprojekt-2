@@ -2,9 +2,9 @@ package unotempel.kartenspiel;
 
 import unotempel.GUI;
 
-/**
- * Klasse für das Kartenspiel
- */
+/**<br>
+ * Klasse f&uuml;r das Kartenspiel<br>
+ <br>*/
 public class Kartenspiel {
 
     // Eigenschaften einer Instanz von Kartenspiel
@@ -17,9 +17,9 @@ public class Kartenspiel {
     private String[] farben = { "blau", "gelb", "gruen", "rot" }; 
 
 
-    /**
-     * Konstruktor zum Erzeugen eines Kartenspiels für 2 Spieler
-     */
+    /**<br>
+     * Konstruktor zum Erzeugen eines Kartenspiels f&uuml;r 2 Spieler<br>
+     <br>*/
     public Kartenspiel() {
         this.kartenStapel = new KartenStapel();
         this.spielfeld = new Spielfeld();
@@ -28,26 +28,26 @@ public class Kartenspiel {
     }
 
 
-    /**
-     * Private Prozedur zum zufällig Auswählen des ersten Spielers
-     * Held ist 0, KI ist 1
-     */
+    /**<br>
+     * Private Prozedur zum zuf&auml;llig Auswählen des ersten Spielers<br>
+     * Held ist 0, KI ist 1<br>
+     <br>*/
     private void setzeErsterSpieler() {
         naechsterSpieler = (int) Math.round(Math.random());
     }
 
 
-    /**
-     * Private Prozedur zum Setzen der aktuellen Karte im Spiel und ggf. die Aktion durchführen
-     * Code je Aktion:
-     *  0 -> nichts machen
-     *  1 -> nächster Spieler überspringen
-     *  2 -> 2 Karten ziehen
-     *  3 -> Farbe auswählen
-     *  4 -> Farbe auswöhlen und 4 Karten ziehen
-     * @param karte - Karte zum Ablegen
-     * @param gui - Graphical User Interface
-     */
+    /**<br>
+     * Private Prozedur zum Setzen der aktuellen Karte im Spiel und ggf. die Aktion durchf&uuml;hren<br>
+     * Code je Aktion:<br>
+     *  0 -&gt; nichts machen<br>
+     *  1 -&gt; n&auml;chster Spieler &uuml;berspringen<br>
+     *  2 -&gt; 2 Karten ziehen<br>
+     *  3 -&gt; Farbe ausw&auml;hlen<br>
+     *  4 -&gt; Farbe ausw&ouml;hlen und 4 Karten ziehen<br>
+     * @param karte - Karte zum Ablegen<br>
+     * @param gui - Graphical User Interface<br>
+     <br>*/
     private void setzeAktuelleKarte(Karte karte, GUI gui) {
         if(aktuelleKarte != null) {
             // Aktuelle Karte verstecken
@@ -99,11 +99,11 @@ public class Kartenspiel {
     }
     
 
-    /**
-     * Private Prozedur zum Auswählen einer neuen Farbe
-     * Nur für WunschKarte und PlusVierWunschKarte
-     * @param gui - Graphical User Interface
-     */
+    /**<br>
+     * Private Prozedur zum Ausw&auml;hlen einer neuen Farbe<br>
+     * Nur f&uuml;r WunschKarte und PlusVierWunschKarte<br>
+     * @param gui - Graphical User Interface<br>
+     <br>*/
     private void farbeAuswaehlen(GUI gui) {
     	int index = 0;
     	// Prüfen, ob der menschliche Spieler eine neue Farbe auswählen muss
@@ -116,16 +116,16 @@ public class Kartenspiel {
         }
         // Neue Farbe einsetzen
         aktuelleKarte.farbe = farben[index];
-        System.out.println("Neue Farbe ist " + farben[index]);
+        System.out.println("Neue Farbe ausgewählt ist " + farben[index]);
     }
 
 
-    /**
-     * Prozedur zum Vorbereiten des Kartenspiels
-     * @param held - Spieler Held
-     * @param monster - Spieler KI
-     * @param gui - Graphical User Interface
-     */
+    /**<br>
+     * Prozedur zum Vorbereiten des Kartenspiels<br>
+     * @param held - Spieler Held<br>
+     * @param monster - Spieler KI<br>
+     * @param gui - Graphical User Interface<br>
+     <br>*/
     public void spielVorbereiten(Spieler held, Spieler monster, GUI gui) {
         // Spielfeld leer darstellen
         spielfeld.stelleSpielfeldLeerDar(gui);
@@ -147,13 +147,13 @@ public class Kartenspiel {
     }
 
 
-    /**
-     * Prozedur zum Spielen
-     * @param held - Spieler Held
-     * @param monster - Spieler KI
-     * @param gui - Graphical User Interface
-     */
-    public void spielen(Spieler held, Spieler monster, GUI gui) {
+    /**<br>
+     * Funktion zum Spielen<br>
+     * @param held - Spieler Held<br>
+     * @param monster - Spieler KI<br>
+     * @param gui - Graphical User Interface<br>
+     <br>*/
+    public boolean spielen(Spieler held, Spieler monster, GUI gui) {
     
         // Während einer der Spieler noch Karten hat
         while(spieler[0].anzahlKarteHand() > 0 && spieler[1].anzahlKarteHand() > 0) {
@@ -178,7 +178,7 @@ public class Kartenspiel {
             if(naechsterSpieler == 0 && spieler[0].anzahlKarteHand() == 1) {
                 String uno = gui.unoKlicken(660,450);
                 // sonst bekommt er noch Karten jede X Sekunden ??
-                System.out.println(uno + " wurde geklickt!");
+                System.out.println(uno + " wurde darauf geklickt!");
             }
             if(naechsterSpieler == 1 && spieler[1].anzahlKarteHand() == 1) {
                 // warten X sekunden
@@ -199,7 +199,7 @@ public class Kartenspiel {
         // Spiel ist zu Ende, falls einer der Spieler keine Karte mehr hat
         if(spieler[0].anzahlKarteHand() == 0) {
         	// Meldung auf die Konsole ausgeben
-            System.out.println("Held hat das Kartenspiel gewonnen!");
+            System.out.println("Held hat gewonnen!");
             // Schaden für den Spieler KI zufügen
             int punkte = spieler[1].schadenZufuegen(); 
             // Lebenspunkte für den menschlichen Spieler inkrementieren
@@ -211,20 +211,22 @@ public class Kartenspiel {
             // Spieler müssen ihre Hände entleeren
             spieler[0].handEntleeren();
             spieler[1].handEntleeren();
-
+            // Gibt true zurück, falls der Held gewonnen hat
+            return true;
         } else if(spieler[1].anzahlKarteHand() == 0) {
         	// Meldung auf die Konsole ausgeben
             System.out.println("Monster hat gewonnen... Spieler wurde besiegt.");
             // Schaden für den menschlichen Spieler zufügen
             int punkte = spieler[0].schadenZufuegen();
-            // Lebenspunkte für den Spieler KI inkrementieren - vllt sollte das Monster lieber kein leben dazu bekommen
+            // Lebenspunkte für den Spieler KI inkrementieren
             spieler[1].lebenspunkteGewinnen(punkte);
             // Darstellung der Lebenspunkte aktualisieren
             gui.aktualisiereLebenspunkte(spieler[0]);
             System.out.println("Held hat " + spieler[0].getLebenspunkte() + " Lebenspunkte.");
             System.out.println("Monster hat " + spieler[1].getLebenspunkte() + " Lebenspunkte.");
         } 
-
+        // Gibt false zurück, wenn der Held das Monster nicht besiegt hat
+        return false;
     }
 
 } // Ende von Kartenspiel

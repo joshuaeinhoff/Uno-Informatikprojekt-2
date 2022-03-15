@@ -3,38 +3,38 @@ package unotempel.kartenspiel;
 import unotempel.grafikkonsole.*;
 import unotempel.GUI;
 
-/**
- * DummyKarte stellt die Karten des Gegners im Spiel dar
- */
+/**<br>
+ * DummyKarte stellt die Karten des Gegners im Spiel dar<br>
+ <br>*/
 public class DummyKarte extends Karte{
 
     // Variablen für die Darstellung einer DummyKarte
     Rechteck karteform;
 
 
-    /**
-     * Konstruktor erzeugt eine DummyKarte mit default-Werten: Farbe keine und Nummer -1
-     */
+    /**<br>
+     * Konstruktor erzeugt eine DummyKarte mit default-Werten: Farbe keine und Nummer -1<br>
+     <br>*/
     public DummyKarte(){
         super("keine", -1);
     }
 
 
-    /**
-     * Funktion gibt zurück, ob die Karte eine DummyKarte ist
-     * @param kartenart - Art der Karte
-     * @return true - falls die KartenArt passt, false - sonst
-     */
+    /**<br>
+     * Funktion gibt zur&uuml;ck, ob die Karte eine DummyKarte ist<br>
+     * @param kartenart - Art der Karte<br>
+     * @return true - falls die KartenArt passt, false - sonst<br>
+     <br>*/
     @Override
     public boolean istWelcheKarte(String kartenart){
         return kartenart.equals("Dummy");
     }
 
 
-	/**
-    * Prozedur erzeugt die visuelle Darstellung einer Karte
-    * @param farbe - Farbe der Karte
-    */
+	/**<br>
+    * Prozedur erzeugt die visuelle Darstellung einer Karte<br>
+    * @param farbe - Farbe der Karte<br>
+    <br>*/
     @Override  
 	public void erzeugeVisuelleKarte(String farbe) {
     	// Variable initialisieren
@@ -44,14 +44,14 @@ public class DummyKarte extends Karte{
     }
     
 
-    /**
-     * Prozedur setzt die Karte auf die gegebene Position und macht diese sichtbar
-     * @param spalte - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)
-     * @param zeile - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)
-     * @param x - Koordinate auf der X-Achse für die Darstellung
-     * @param y - Koordinate auf der Y-Achse für die Darstellung
-     * @param istAktuelleKarte - true, wenn die Karte die aktuelle Karte im Spiel entspricht - false, sonst
-     */
+    /**<br>
+     * Prozedur setzt die Karte auf die gegebene Position und macht diese sichtbar<br>
+     * @param spalte - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)<br>
+     * @param zeile - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)<br>
+     * @param x - Koordinate auf der X-Achse f&uuml;r die Darstellung<br>
+     * @param y - Koordinate auf der Y-Achse f&uuml;r die Darstellung<br>
+     * @param istAktuelleKarte - true, wenn die Karte die aktuelle Karte im Spiel entspricht - false, sonst<br>
+     <br>*/
     @Override
     public void setzeKarteAuf(int spalte, int zeile, int x, int y, boolean istAktuelleKarte) {
     	// Visuelle Darstellung der Karte erstellen
@@ -65,9 +65,9 @@ public class DummyKarte extends Karte{
     }
 
 
-    /**
-     * Prozedur versteckt eine Karte
-     */
+    /**<br>
+     * Prozedur versteckt eine Karte<br>
+     <br>*/
     @Override
     public void versteckeKarte() {
         // Prüfen, ob die DummyKarte eine Form hat
@@ -78,10 +78,10 @@ public class DummyKarte extends Karte{
     }
 
 
-    /**
-     * Funktion zum Durchführen der Aktion einer speziellen Karte, gibt den Code für die Aktion zurück
-     * @return int - Code für die Aktion
-     */
+    /**<br>
+     * Funktion zum Durchf&uuml;hren der Aktion einer speziellen Karte, gibt den Code für die Aktion zurück<br>
+     * @return int - Code f&uuml;r die Aktion<br>
+     <br>*/
     @Override
     public int aktionDurchfuehren() {
         // Code 0: Nichts machen
@@ -89,10 +89,10 @@ public class DummyKarte extends Karte{
     }
     
 
-    /**
-     * Funktion gibt die Karte als String zurück
-     * @return String - Karte
-     */
+    /**<br>
+     * Funktion gibt die Karte als String zur&uuml;ck<br>
+     * @return String - Karte<br>
+     <br>*/
     @Override
     public String toString(){
      return "DummyKarte";

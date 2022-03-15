@@ -2,28 +2,28 @@ package unotempel.quiz;
 
 import java.io.*;
 
-/**
- * Klasse zum Lesen von durch Semikolon getrennten Datensätzen.
- */
+/**<br>
+ * Klasse zum Lesen von durch Semikolon getrennten Datens&auml;tzen.<br>
+ <br>*/
 public class FilterReaderDatensatz extends FilterReader {
 
-    /**
-     * Konstruktor von FilterReader vererbt
-     * @param in - Variable vom Typ Reader
-     */
+    /**<br>
+     * Konstruktor von FilterReader vererbt<br>
+     * @param in - Variable vom Typ Reader<br>
+     <br>*/
     protected FilterReaderDatensatz(Reader in) {
         super(in);
     }
 
     
-    /**
-     * Überschriebene Funktion liest Datensätze aus einer Datei und speichert sie im Puffer
-     * @param buf - Buffer
-     * @param off - AnfangIndex im Buffer
-     * @param len - Anzahl der gelesenen Zeichen im Buffer
-     * @return - Anzahl der gelesenen Zeichen
-     * @throws IOException - Exception wird geworfen
-     */
+    /**<br>
+     * &Uuml;berschriebene Funktion liest Datens&auml;tze aus einer Datei und speichert sie im Puffer<br>
+     * @param buf - Buffer<br>
+     * @param off - AnfangIndex im Buffer<br>
+     * @param len - Anzahl der gelesenen Zeichen im Buffer<br>
+     * @return - Anzahl der gelesenen Zeichen<br>
+     * @throws IOException - Exception wird geworfen<br>
+     <br>*/
     public int read (char[] buf, int off, int len) throws IOException {
         // try-Block - Es wird versucht, Datensätze aus einer Datei zu lesen und im Puffer zu speichern
         try {

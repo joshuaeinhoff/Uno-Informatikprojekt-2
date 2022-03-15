@@ -3,29 +3,29 @@ package unotempel.quiz;
 import java.io.*;
 import unotempel.GUI;
 
-/**Klasse stellt eine Instanz von Quizfragenpool mit seinen jeweiligen Attributen dar im Spiel dar.*/
+/**Klasse stellt eine Instanz von Quizfragenpool mit seinen jeweiligen Attributen dar im Spiel dar.<br>*/
 public class Quizfragenpool {
 
-    /** 2.1 Daten als IV implementieren  Δe_5pr11j Δ */
+    /** 2.1 Daten als IV implementieren   <br>*/
     private int niveau;
     private Quizfrage[] quizfragen;
     int anzahlQuizfragen;
  
 
-    /** 2.2 Konstruktor erstellen Δe_pgnbuh Δ 
-     * Konstruktor erzeugt eine Instanz von Quizfragenpool 
-     * @param niveau - Niveau der Quizfragen (1 für OOP1, 2 für OOP2)
-     */
+    /** 2.2 Konstruktor erstellen  <br>
+     * Konstruktor erzeugt eine Instanz von Quizfragenpool <br>
+     * @param niveau - Niveau der Quizfragen (1 f&uuml;r OOP1, 2 für OOP2)<br>
+     <br>*/
     public Quizfragenpool(int niveau) {
         this.niveau = niveau;
     }
 	
 	
-    /** 2.5 Quizfragenpool füllen  Δe_qmcjp1 Δ 
-     * Methode zum Füllen eines Quizfragenpools von einem bestimmten Tempel
-     * Aufruf der Methoden 'quizfragenAuslesen' und 'quizfragenBearbeiten'
-     * @param tempelFarbe - String mit der Farbe des Tempels
-     */
+    /** 2.5 Quizfragenpool f&uuml;llen   <br>
+     * Methode zum F&uuml;llen eines Quizfragenpools von einem bestimmten Tempel<br>
+     * Aufruf der Methoden 'quizfragenAuslesen' und 'quizfragenBearbeiten'<br>
+     * @param tempelFarbe - String mit der Farbe des Tempels<br>
+     <br>*/
     public void quizfragenpoolFuellen(String tempelFarbe) {
         // String-Array zum Speichern den Rückgabe-Wert der Funktion
         String[] datensaetze = quizfragenAuslesen(tempelFarbe);
@@ -33,11 +33,11 @@ public class Quizfragenpool {
         quizfragenBearbeiten(datensaetze);
     }
 
-    /** 4.3.1 Quizfragen auslesen Δe_9o37cz Δ
-     * Private Funktion liest, speichert und gibt Datensätze aus einer bestimmten Datei als String-Array zurück
-     * @param tempelFarbe - String mit der Farbe des Tempels
-     * @return Array von String
-     */
+    /** 4.3.1 Quizfragen auslesen <br>
+     * Private Funktion liest, speichert und gibt Datens&auml;tze aus einer bestimmten Datei als String-Array zur&uuml;ck<br>
+     * @param tempelFarbe - String mit der Farbe des Tempels<br>
+     * @return Array von String<br>
+     <br>*/
     private String[] quizfragenAuslesen(String tempelFarbe) {
         // Variablen zum Speichern der aus einer Datei gelesenen Datensätze
         String datensatz; // Zum Speichern eines Datensatzes
@@ -112,10 +112,10 @@ public class Quizfragenpool {
     }
 
 
-    /**
-     * Private Prozedur zum Bearbeiten und Speichern der gelesenen Datensätze als Quizfragen
-     * @param datensaetze - String Array mit gelesenen Daten
-     */
+    /**<br>
+     * Private Prozedur zum Bearbeiten und Speichern der gelesenen Datens&auml;tze als Quizfragen<br>
+     * @param datensaetze - String Array mit gelesenen Daten<br>
+     <br>*/
     private void quizfragenBearbeiten(String[] datensaetze) {
         // Variable für die Anzahl von Datensätzen auf 0 setzen
         int anzahlDatensaetze = 0;
@@ -174,12 +174,12 @@ public class Quizfragenpool {
     }
 
 
-    /**
-     * Funktion zum Beantworten der zu einem gegebenen Index im Fragenpool gespeicherten Frage
-     * @param zufallsZahl - gegebener Index
-     * @param gui - Graphical User Interface
-     * @return true, wenn die Frage richtig beantwortet wird - false, sonst
-     */
+    /**<br>
+     * Funktion zum Beantworten der zu einem gegebenen Index im Fragenpool gespeicherten Frage<br>
+     * @param zufallsZahl - gegebener Index<br>
+     * @param gui - Graphical User Interface<br>
+     * @return true, wenn die Frage richtig beantwortet wird - false, sonst<br>
+     <br>*/
     public boolean frageRichtigBeantwortet(int zufallsZahl, GUI gui) {
         // Quizfrage darstellen, Funktion in GUI aufrufen und Rückgabeparameter als char-Variable speichern
         char ausgewaehlteAntwort = gui.quizDarstellen(quizfragen[zufallsZahl].frage, quizfragen[zufallsZahl].antwortmoeglichkeiten);

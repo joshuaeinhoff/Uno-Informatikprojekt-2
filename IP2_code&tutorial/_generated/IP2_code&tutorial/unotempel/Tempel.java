@@ -3,9 +3,9 @@ package unotempel;
 import unotempel.quiz.*;
 import unotempel.kartenspiel.*;
 
-/**
- * Klasse stellt eine Instanz von Tempel im Spiel mit seinen jeweiligen Attributen dar.
- */
+/**<br>
+ * Klasse stellt eine Instanz von Tempel im Spiel mit seinen jeweiligen Attributen dar.<br>
+ <br>*/
 public class Tempel {
 
     // Eigenschaften einer Instanz von Tempel
@@ -14,10 +14,10 @@ public class Tempel {
     private Kartenspiel kartenspiel; // Kartenspiel
     private Spieler monster; // Spieler KI
 
-    /** 1.2 Konstruktor erstellen Δe_4j1v50 Δ 
-     * Konstruktor zum Erzeugen einer Instanz der Klasse Tempel, mit einem Quiz und einem Kartenspiel
-     * @param farbe - Farbe des Tempels (blau für Wasser, gelb für Luft, grün für Erde, rot für Feuer)
-     */
+    /** 1.2 Konstruktor erstellen  <br>
+     * Konstruktor zum Erzeugen einer Instanz der Klasse Tempel, mit einem Quiz und einem Kartenspiel<br>
+     * @param farbe - Farbe des Tempels (blau f&uuml;r Wasser, gelb für Luft, grün für Erde, rot für Feuer)<br>
+     <br>*/
     public Tempel(String farbe) {
         this.farbe = farbe;
         this.quiz = new Quiz(farbe);
@@ -26,9 +26,9 @@ public class Tempel {
     }
     
     
-    /** 1.3.1 Methode zum Erzeugen eines Monsters Δe_aoqvv1 Δ 
-     * Prozedur erzeugt ein Monster je nach Tempel Niveau bzw. Farbe
-     */
+    /** 1.3.1 Methode zum Erzeugen eines Monsters  <br>
+     * Prozedur erzeugt ein Monster je nach Tempel Niveau bzw. Farbe<br>
+     <br>*/
     private void monsterErzeugen() {
     	// Fallunterscheidung: Nach dem Tempel-Niveau fragen
         switch(farbe) {
@@ -52,10 +52,10 @@ public class Tempel {
     }
     
     
-    /** 1.3.2 Methode zur Einführung in den Tempel Δe_suyqe3 Δ
-     * Prozedur bereitet die Darstellung zur Einführung in den Tempel vor
-     * @param gui - Graphical User Interface
-     */
+    /** 1.3.2 Methode zur Einf&uuml;hrung in den Tempel <br>
+     * Prozedur bereitet die Darstellung zur Einf&uuml;hrung in den Tempel vor<br>
+     * @param gui - Graphical User Interface<br>
+     <br>*/
 	public void tempelEinfuehrung(GUI gui) {
     	// Element als String für den Namen des Tempels erzeugen
         String element = "";
@@ -81,13 +81,13 @@ public class Tempel {
     }
 
 
-    /** 1.3.3 Methode zum Lösen des Quizes  Δe_xuszin Δ 
-     * Funktion zum Lösen des Quizes im Tempel
-     * @param held - Menschlicher Spieler
-     * @param niveau - Niveau von Quiz
-     * @param gui - Graphical User Interface
-     * @return true, wenn Quiz gelöst wird - false, sonst
-     */
+    /** 1.3.3 Methode zum L&ouml;sen des Quizes   <br>
+     * Funktion zum L&ouml;sen des Quizes im Tempel<br>
+     * @param held - Menschlicher Spieler<br>
+     * @param niveau - Niveau von Quiz<br>
+     * @param gui - Graphical User Interface<br>
+     * @return true, wenn Quiz gel&ouml;st wird - false, sonst<br>
+     <br>*/
     public boolean heldHatQuizGeloest(Spieler held, int niveau, GUI gui) {
         // Meldung auf die Konsole ausgeben
         System.out.println("Quiz lösen!\n");
@@ -109,29 +109,51 @@ public class Tempel {
         return true;
     }
 
+    
+    /** 1.3.4 Methode zum Vorbereiten des Kampfes <br>
+     * Prozedur bereitet den Kampf im Tempel vor<br>
+     * @param held - Menschlicher Spieler als Parameter<br>
+     * @param gui - Graphical User Interface<br>
+     <br>*/
+    private void kampfVorbereiten(Spieler held, GUI gui) {
+        // Kartenspiel vorbereiten
+        kartenspiel.spielVorbereiten(held, monster, gui);
+        // Meldung auf die Konsole ausgeben
+        System.out.println("Das Monster wartet darauf... Kartenspiel ist bereit!");
+    }
+    
 
-	/** 1.3.4 Methode heldHatMonsterBesiegt() Δe_ivzxg8 Δ
-     * Funktion zum Kämpfen des Monsters im Tempel
-     * @param held - Menschlicher Spieler als Parameter
-     * @param gui - Graphical User Interface
-     * @return true, wenn das Monster besiegt wurde - false, sonst
-     */
-    public boolean heldHatMonsterBesiegt(Spieler held, GUI gui) {
+    /** 1.3.5 Methode heldHatSpielGewonnen()  <br>
+     * Funktion gibt zur&uuml;ck, ob der Held das Spiel gewonnen hat<br>
+     * @param held - Menschlicher Spieler als Parameter<br>
+     * @param gui - Graphical User Interface<br>
+     * @return true, wenn der Held das Spiel gewonnen hat - false, sonst <br>
+     <br>*/
+    private boolean heldHatSpielGewonnen(Spieler held, GUI gui) {
+        // Meldung auf die Konsole ausgeben
+        System.out.println("Spielen!\n");        
+        // Funktion in Kartenspiel zum Spielen aufrufen
+        return kartenspiel.spielen(held, monster, gui);
+    }
+
+
+	/** 1.3.6 Methode heldHatMonsterBesiegt() <br>
+     * Funktion zum K&auml;mpfen des Monsters im Tempel<br>
+     * @param held - Menschlicher Spieler als Parameter<br>
+     * @param monsterBesiegt - Boolean true, wenn Monster besiegt wird - false, sonst<br>
+     * @param gui - Graphical User Interface<br>
+     * @return true, wenn das Monster besiegt wurde - false, sonst<br>
+     <br>*/
+    public boolean heldHatMonsterBesiegt(Spieler held, boolean hatSpielGewonnen, GUI gui) {
         // Solange der Held noch lebt und das Monster nicht besiegt hat ( => hat 0 Lebenspunkte)
         if(held.getLebenspunkte() > 0 && monster.getLebenspunkte() > 0) {
         	System.out.println("Held muss das Monster besiegen, indem er UNO spielt.");
-        	
-        	// Kartenspiel vorbereiten
-        	kartenspiel.spielVorbereiten(held, monster, gui);
-        	// Meldung auf die Konsole ausgeben
-        	System.out.println("Das Monster wartet darauf... Kartenspiel ist bereit!");
-        	System.out.println("Spielen!\n");        
-        	
-            // Speichern ob das Spiel gewonnen wird
-            kartenspiel.spielen(held, monster, gui);
-            
+        	// Prozedur zum Vorbereiten des Spieles aufrufen
+        	kampfVorbereiten(held, gui);
+            // Speichern ob das Monster besiegt wurde
+            hatSpielGewonnen = heldHatSpielGewonnen(held, gui);
             // Funktion zum Kämpfen des Monsters aufrufen
-            return heldHatMonsterBesiegt(held, gui);
+            return heldHatMonsterBesiegt(held, hatSpielGewonnen, gui);
         }
         // Bedingung überprüft, ob der Spieler noch Lebensenergie hat
         if(held.getLebenspunkte() <= 0) {
@@ -139,10 +161,8 @@ public class Tempel {
             System.out.println("Game Over\n");
             return false;
         }
-        // Keine weitere Bedingungen, dann hat der Held gewonnen
-        System.out.println("Held hat das Monster besiegt!");
         // Gibt true zurück, wenn der Held das Monster besiegt hat
-        return true;   
+        return true;      
     }
 		
 } // Ende von Tempel
