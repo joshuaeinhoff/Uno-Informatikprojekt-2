@@ -56,9 +56,9 @@ public class Quiz {
             // Nachricht in der Konsole ausgeben
             System.out.println("Frage falsch beantwortet: \n-Held bekommt "+ schaden + " Schadenspunkte \n-Probier nochmal!");
             // Dem Spieler Schaden zufügen
-            int lebenspunkte = held.schadenZufuegen();
+            int schadenspunkte = held.schadenZufuegen();
             // Lebensenergie des Spielers auf die Konsole ausgeben
-            System.out.println("Held hat " + lebenspunkte + " Lebenspunkte.");
+            System.out.println("Held hat " + held.getLebenspunkte() + " Lebenspunkte.");
             gui.aktualisiereLebenspunkte(held);            
         }
         // Return ob die Antwort richtig ist

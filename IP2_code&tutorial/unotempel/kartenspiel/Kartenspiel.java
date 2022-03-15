@@ -197,11 +197,12 @@ public class Kartenspiel {
         }
 
         // Spiel ist zu Ende, falls einer der Spieler keine Karte mehr hat
+        // Held hat keine Karte mehr, dann hat der Held gewonnen 
         if(spieler[0].anzahlKarteHand() == 0) {
         	// Meldung auf die Konsole ausgeben
             System.out.println("Held hat das Kartenspiel gewonnen!");
             // Schaden für den Spieler KI zufügen
-            int punkte = spieler[1].schadenZufuegen(); 
+            int punkte = spieler[1].schadenZufuegen();
             // Lebenspunkte für den menschlichen Spieler inkrementieren
             spieler[0].lebenspunkteGewinnen(punkte);
             // Darstellung der Lebenspunkte aktualisieren
@@ -212,9 +213,10 @@ public class Kartenspiel {
             spieler[0].handEntleeren();
             spieler[1].handEntleeren();
 
+		// Spieler KI hat keine Karte mehr, dann hat der Held verloren
         } else if(spieler[1].anzahlKarteHand() == 0) {
         	// Meldung auf die Konsole ausgeben
-            System.out.println("Monster hat gewonnen... Spieler wurde besiegt.");
+            System.out.println("Monster hat das Kartenspiel gewonnen...");
             // Schaden für den menschlichen Spieler zufügen
             int punkte = spieler[0].schadenZufuegen();
             // Lebenspunkte für den Spieler KI inkrementieren

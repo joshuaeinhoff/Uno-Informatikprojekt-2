@@ -114,14 +114,17 @@ import unotempel.GUI;
 	
 	/** 1.7 Schaden zufügen Δe_2dqba4 Δ 
      * Funktion zum Reduzieren der Lebensenergie
-     * @return aktualisierte Lebensenergie
+     * @return Schadenspunkte
      */
     public int schadenZufuegen(){
         // Variable für Schaden
         int schaden = 0;
+        
         // Schaden für das Kartenspiel berechnen
         for(Karte karte : hand) {
+        	// Für jede Karte sollte eine bestimmte Anzahl von Schadenspunkten abgezogen werden
             if(karte != null) {
+            	// Je nach Art Karte
                 if(karte.istWelcheKarte("PlusVierWunsch")) {
                     schaden += 5;
                 } else if(karte.istWelcheKarte("Wunsch")) {
@@ -131,9 +134,13 @@ import unotempel.GUI;
                 }
             }
         }
+        
         // Schaden für das Quiz berechnen
+        // schaden = 0 bedeutet, dass die Schadenspunkte für das Quiz abgezogen werden müssen
+        // da noch kein UNO-Spiel angefangen hat
         if(schaden == 0)
             schaden += 10;
+        
         // Schaden zufügen 
         lebensenergie -= schaden;
         // Prüfen, ob Lebensenergie negativ ist
@@ -141,7 +148,7 @@ import unotempel.GUI;
         	// Lebensenergie darf nicht weniger als 0 sein
             lebensenergie = 0;
         // Lebensenergie zurückgeben
-        return lebensenergie;
+        return schaden;
     }
     
     
@@ -151,6 +158,8 @@ import unotempel.GUI;
      */
     public void lebenspunkteGewinnen(int punkte) {
         lebensenergie += punkte;
+        if(lebensenergie > 100)
+        	lebensenergie = 100;
     }
     
 
