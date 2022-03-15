@@ -3,9 +3,9 @@ package unotempel.kartenspiel;
 import unotempel.grafikkonsole.*;
 import unotempel.GUI;
 
-/** Der Spieler, der diese Karte legt, entscheidet welche Farbe als nächstes gelegt werden soll.
- * Zudem muss der Gegenspieler vier Karten von dem Kartenstapel ziehen.
- */
+/** Der Spieler, der diese Karte legt, entscheidet welche Farbe als n&auml;chstes gelegt werden soll.<br>
+ * Zudem muss der Gegenspieler vier Karten von dem Kartenstapel ziehen.<br>
+ <br>*/
 public class PlusVierWunschKarte extends Karte{
         
     // Variablen für die Darstellung einer PlusVierWunschKarte
@@ -18,37 +18,37 @@ public class PlusVierWunschKarte extends Karte{
     Text zahlUnten;
 
 
-    /**
-     * Konstruktor erzeugt einer PlusVierWunschKarte mit default-Werten: Farbe schwarz und Nummer 14
-     */
+    /**<br>
+     * Konstruktor erzeugt einer PlusVierWunschKarte mit default-Werten: Farbe schwarz und Nummer 14<br>
+     <br>*/
     public PlusVierWunschKarte(){
         super("schwarz", 14);
     }
 
 
-    /**
-     * Konstruktor erzeugt einer PlusVierWunschKarte mit einer bestimmten Farbe
-     * @param neueFarbe - Neue Farbe (nur nachdem eine PlusVierWunschKarte gespielt wird)
-     */
+    /**<br>
+     * Konstruktor erzeugt einer PlusVierWunschKarte mit einer bestimmten Farbe<br>
+     * @param neueFarbe - Neue Farbe (nur nachdem eine PlusVierWunschKarte gespielt wird)<br>
+     <br>*/
     public PlusVierWunschKarte(String neueFarbe){
         super(neueFarbe, 14);
     }
 
 
-    /**
-     * Funktion gibt zurück, ob die Karte eine PlusVierWunschKarte ist
-     * @param kartenart - Art der Karte
-     * @return true - falls die KartenArt passt, false - sonst
-     */
+    /**<br>
+     * Funktion gibt zur&uuml;ck, ob die Karte eine PlusVierWunschKarte ist<br>
+     * @param kartenart - Art der Karte<br>
+     * @return true - falls die KartenArt passt, false - sonst<br>
+     <br>*/
     @Override
     public boolean istWelcheKarte(String kartenart){
         return kartenart.equals("PlusVierWunsch");
     }
 
     
-   /**
-    * Prozedur erzeugt die visuelle Darstellung einer Karte und verteckt sie direkt danach
-    */ 
+   /**<br>
+    * Prozedur erzeugt die visuelle Darstellung einer Karte und verteckt sie direkt danach<br>
+    <br>*/ 
     @Override
     public void erzeugeVisuelleKarte(String farbe) {
     	// Variablen Werte zuweisen
@@ -66,14 +66,14 @@ public class PlusVierWunschKarte extends Karte{
     }
 
 
-    /**
-     * Prozedur setzt die Karte auf die gegebene Position und macht diese sichtbar
-     * @param spalte - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)
-     * @param zeile - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)
-     * @param x - Koordinate auf der X-Achse für die Darstellung
-     * @param y - Koordinate auf der Y-Achse für die Darstellung
-     * @param istAktuelleKarte - true, wenn die Karte die aktuelle Karte im Spiel entspricht - false, sonst
-     */
+    /**<br>
+     * Prozedur setzt die Karte auf die gegebene Position und macht diese sichtbar<br>
+     * @param spalte - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)<br>
+     * @param zeile - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)<br>
+     * @param x - Koordinate auf der X-Achse f&uuml;r die Darstellung<br>
+     * @param y - Koordinate auf der Y-Achse f&uuml;r die Darstellung<br>
+     * @param istAktuelleKarte - true, wenn die Karte die aktuelle Karte im Spiel entspricht - false, sonst<br>
+     <br>*/
     @Override
     public void setzeKarteAuf(int spalte, int zeile, int x, int y, boolean istAktuelleKarte) {
         /* // Warte 2 Sekunden darauf
@@ -123,9 +123,9 @@ public class PlusVierWunschKarte extends Karte{
     }
 
 
-    /**
-     * Prozedur versteckt eine Karte
-     */
+    /**<br>
+     * Prozedur versteckt eine Karte<br>
+     <br>*/
     @Override
     public void versteckeKarte() {
         this.karteform.hide();
@@ -138,10 +138,10 @@ public class PlusVierWunschKarte extends Karte{
     }
 
 
-    /**
-     * Funktion zum Durchführen der Aktion einer speziellen Karte, gibt den Code für die Aktion zurück
-     * @return int - Code für die Aktion
-     */
+    /**<br>
+     * Funktion zum Durchf&uuml;hren der Aktion einer speziellen Karte, gibt den Code für die Aktion zurück<br>
+     * @return int - Code f&uuml;r die Aktion<br>
+     <br>*/
     @Override
     public int aktionDurchfuehren() {
         // Code 4: Vier Karten Ziehen
@@ -149,10 +149,10 @@ public class PlusVierWunschKarte extends Karte{
     }
     
     
-    /**
-     * Funktion gibt die Karte als String zurück
-     * @return String - Karte
-     */
+    /**<br>
+     * Funktion gibt die Karte als String zur&uuml;ck<br>
+     * @return String - Karte<br>
+     <br>*/
     @Override    
     public String toString(){
         return "PlusVierWunschKarte";

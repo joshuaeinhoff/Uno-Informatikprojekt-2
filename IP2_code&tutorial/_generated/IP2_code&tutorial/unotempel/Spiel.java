@@ -4,15 +4,15 @@ import unotempel.quiz.*;
 import unotempel.kartenspiel.*;
 import unotempel.konsole.*;
 
-/**
- *  Klasse Spiel
- */
+/**<br>
+ *  Klasse Spiel<br>
+ <br>*/
 public class Spiel {
     
-    /**
-     * Main-Methode
-     * @param args
-     */
+    /**<br>
+     * Main-Methode<br>
+     * @param args<br>
+     <br>*/
     public static void main(String[] args){
 
         /* ------------ Spielvorbereitung ------------ */

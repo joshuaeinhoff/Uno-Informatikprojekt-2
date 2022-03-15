@@ -2,12 +2,12 @@ package unotempel.kartenspiel;
 
 import unotempel.GUI;
 
-/**
- * Abstrakte Superklasse für den menschlichen Spieler und die SpielerKIs(Schwierigkeiten)
- */
+/**<br>
+ * Abstrakte Superklasse f&uuml;r den menschlichen Spieler und die SpielerKIs(Schwierigkeiten)<br>
+ <br>*/
  public abstract class Spieler {
 
-	/** 1.2 Daten als IV implementieren  Δe_tibk8b Δ */
+	/** 1.2 Daten als IV implementieren   <br>*/
     
     // Hand des Spielers mit Karten die max. 20 Karten beinhalten darf
     protected Karte[] hand; //ArrayList<Karte> hand; //OOP2
@@ -16,10 +16,10 @@ import unotempel.GUI;
     protected int lebensenergie;
     
 
-	/** 1.3 Superkonstrukor definieren Δe_rvwgwm Δ 
-     * Konstruktor
-     * @param lebensenergie - int wird am Anfang für den menschlichen Spieler auf 100 gesetz
-     */
+	/** 1.3 Superkonstrukor definieren  <br>
+     * Konstruktor<br>
+     * @param lebensenergie - int wird am Anfang f&uuml;r den menschlichen Spieler auf 100 gesetz<br>
+     <br>*/
     public Spieler(int lebensenergie){
         this.lebensenergie = lebensenergie;
         // Hand hat immer die Länge 20, unabhängig von der Anzahl von aktuellen Karten
@@ -28,12 +28,12 @@ import unotempel.GUI;
     }
 
 
-	/** 1.3 Erste Hand des Spielers Δe_l67qcy Δ 
-     * Prozedur zum Ziehen sieben Karten aus dem Kartenstapel
-     * @param kartenStapel
-     * @param spielfeld
-     * @param gui - Graphical User Interface
-     */
+	/** 1.3 Erste Hand des Spielers  <br>
+     * Prozedur zum Ziehen sieben Karten aus dem Kartenstapel<br>
+     * @param kartenStapel<br>
+     * @param spielfeld<br>
+     * @param gui - Graphical User Interface<br>
+     <br>*/
     public void ersteHand(KartenStapel kartenStapel, Spielfeld spielfeld, GUI gui){
         // Spieler fängt mit 7 Karten an
         for(int i = 0; i < 7; i++){
@@ -43,9 +43,9 @@ import unotempel.GUI;
         System.out.println("Erste Hand des Spielers wurde erzeugt.");
     }
     
-    /** 1.4 Hand des Spielers entleeren Δe_axc4lk Δ 
-    * Prozedur zum Entleeren der Hand von Karten, falls Karten noch aus vorherigen Spiel übrig bleiben
-    */
+    /** 1.4 Hand des Spielers entleeren  <br>
+    * Prozedur zum Entleeren der Hand von Karten, falls Karten noch aus vorherigen Spiel &uuml;brig bleiben<br>
+    <br>*/
     public void handEntleeren() {
     	// Solange der Spieler Karten auf der Hand hat
     	for(int i = 0; i < hand.length; i++) {
@@ -55,30 +55,30 @@ import unotempel.GUI;
     }
 
 
-    /**
-    * Prozedur setzt Karte in einem gegebenen Index auf null,
-    * Platz für neue Karten auf der Hand wird freigegeben
-    * @param index
-    */
+    /**<br>
+    * Prozedur setzt Karte in einem gegebenen Index auf null,<br>
+    * Platz f&uuml;r neue Karten auf der Hand wird freigegeben<br>
+    * @param index<br>
+    <br>*/
     public void karteAufNullSetzen(int index) {
     	hand[index] = null;
     }
 
 
-    /**
-     * Funktion gibt die in einem gegebenen Index gespeicherte Karte zurück
-     * @param index
-     * @return karte
-     */
+    /**<br>
+     * Funktion gibt die in einem gegebenen Index gespeicherte Karte zur&uuml;ck<br>
+     * @param index<br>
+     * @return karte<br>
+     <br>*/
     public Karte getKarte(int index){
         return hand[index];
     }
 
 
-	/** 1.5 Anzahl der Karten in der Hand zurückgeben Δe_corr1u Δ 
-     * Funktion gibt die Anzahl der Karten in der Hand des Spielers zurück
-     * @return int - Anzahl von Karten
-     */
+	/** 1.5 Anzahl der Karten in der Hand zur&uuml;ckgeben  <br>
+     * Funktion gibt die Anzahl der Karten in der Hand des Spielers zur&uuml;ck<br>
+     * @return int - Anzahl von Karten<br>
+     <br>*/
     public int anzahlKarteHand() {
         // Zähler auf 0 setzen
         int zaehler = 0;
@@ -94,11 +94,11 @@ import unotempel.GUI;
     }
 
 
-    /** 1.6 Sind spielbare Karten vorhanden? Δe_qb20zk Δ 
-     * Funktion gibt zurück, ob der Spieler spielbare Karten vorhanden hat
-     * @param aktuelleKarte - Aktuelle Karte im Spiel
-     * @return true, falls spielbare Karte auf der Hand vorhanden ist - false, sonst
-     */
+    /** 1.6 Sind spielbare Karten vorhanden?  <br>
+     * Funktion gibt zur&uuml;ck, ob der Spieler spielbare Karten vorhanden hat<br>
+     * @param aktuelleKarte - Aktuelle Karte im Spiel<br>
+     * @return true, falls spielbare Karte auf der Hand vorhanden ist - false, sonst<br>
+     <br>*/
     public boolean spielbareKarteVorhanden(Karte aktuelleKarte) {
         // Über die Karten auf der Hand des Spielers iterieren
         for(int i = 0; i < hand.length; i++) {
@@ -112,10 +112,10 @@ import unotempel.GUI;
     
 
 	
-	/** 1.7 Schaden zufügen Δe_2dqba4 Δ 
-     * Funktion zum Reduzieren der Lebensenergie
-     * @return aktualisierte Lebensenergie
-     */
+	/** 1.7 Schaden zuf&uuml;gen  <br>
+     * Funktion zum Reduzieren der Lebensenergie<br>
+     * @return aktualisierte Lebensenergie<br>
+     <br>*/
     public int schadenZufuegen(){
         // Variable für Schaden
         int schaden = 0;
@@ -145,52 +145,52 @@ import unotempel.GUI;
     }
     
     
-    /**
-     * Prozedur zum Gewinnen von Lebensenergie
-     * @param punkte
-     */
+    /**<br>
+     * Prozedur zum Gewinnen von Lebensenergie<br>
+     * @param punkte<br>
+     <br>*/
     public void lebenspunkteGewinnen(int punkte) {
         lebensenergie += punkte;
     }
     
 
-    /**
-     * Funktion gibt Lebenspunkte zurück
-     * @return lebensenergie
-     */
+    /**<br>
+     * Funktion gibt Lebenspunkte zur&uuml;ck<br>
+     * @return lebensenergie<br>
+     <br>*/
     public int getLebenspunkte() {
         return lebensenergie;
     }
 
 
-    /*** Abstrakte Prozeduren und Funktionen ***/
+    /*** Abstrakte Prozeduren und Funktionen **<br>*/
 
 	//Deklaration der abstrakten Methoden, macht die Methoden für Subklassen bekannt
 	//implementiert die Methoden aber nicht, dies muss noch in den Subklassen erfolgen
     
-    /**
-     * Prozedur zum Ziehen der Karten
-     * @param kartenStapel
-     * @param aktuelleKarte
-     * @param spielfeld
-     */
+    /**<br>
+     * Prozedur zum Ziehen der Karten<br>
+     * @param kartenStapel<br>
+     * @param aktuelleKarte<br>
+     * @param spielfeld<br>
+     <br>*/
 	public abstract void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld, GUI gui);
     
-    /**
-     * Funktion zum Spielen einer Karte
-     * @param aktuelleKarte
-     * @param karten
-     * @param karteGezogen
-     * @param spielfeld
-     * @return ausgewählteKarte
-     */
+    /**<br>
+     * Funktion zum Spielen einer Karte<br>
+     * @param aktuelleKarte<br>
+     * @param karten<br>
+     * @param karteGezogen<br>
+     * @param spielfeld<br>
+     * @return ausgew&auml;hlteKarte<br>
+     <br>*/
     public abstract Karte karteSpielen(Karte aktuelleKarte, KartenStapel karten, boolean karteGezogen, Spielfeld spielfeld,GUI gui);
 
-    /**
-     * Abstrakte Funktion zur Auswahl einer neuen Farben
-     * @param gui - Graphical User Interface
-     * @return int - Code der ausgewählten Farbe
-     */
+    /**<br>
+     * Abstrakte Funktion zur Auswahl einer neuen Farben<br>
+     * @param gui - Graphical User Interface<br>
+     * @return int - Code der ausgew&auml;hlten Farbe<br>
+     <br>*/
 	public abstract int neueFarbeAuswaehlen(GUI gui);
 	
 	

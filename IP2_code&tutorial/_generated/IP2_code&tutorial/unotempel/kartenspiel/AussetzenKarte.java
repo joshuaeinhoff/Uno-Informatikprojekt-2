@@ -3,10 +3,10 @@ package unotempel.kartenspiel;
 import unotempel.grafikkonsole.*;
 import unotempel.GUI;
 
-/**
- * Nachdem ein Spieler diese Karte gelegt hat, wird der Gegenspieler „übersprungen“ und derjenige, der die Karte gelegt hat, darf nochmal legen.
- * Wenn diese Karte zu Beginn des Spiels gezogen wird, dann muss derjenige, der anfängt, aussetzen und der Gegenspieler darf beginnen.
- */
+/**<br>
+ * Nachdem ein Spieler diese Karte gelegt hat, wird der Gegenspieler „&uuml;bersprungen“ und derjenige, der die Karte gelegt hat, darf nochmal legen.<br>
+ * Wenn diese Karte zu Beginn des Spiels gezogen wird, dann muss derjenige, der anf&auml;ngt, aussetzen und der Gegenspieler darf beginnen.<br>
+ <br>*/
 public class AussetzenKarte extends Karte {
 
     // Variablen für die Darstellung einer AussetzenKarte
@@ -15,30 +15,30 @@ public class AussetzenKarte extends Karte {
     Linie linie;
 
 
-    /**
-     * Konstruktor mit default-Wert: Nummer 10
-     * @param farbe - Farbe der Karte: Blau, gelb, grün oder rot
-     */
+    /**<br>
+     * Konstruktor mit default-Wert: Nummer 10<br>
+     * @param farbe - Farbe der Karte: Blau, gelb, gr&uuml;n oder rot<br>
+     <br>*/
     public AussetzenKarte(String farbe){
         super(farbe, 10);
     }
 
 
-    /**
-     * Funktion gibt zurück, ob die Karte eine AussetzenKarte ist
-     * @param kartenart - Art der Karte
-     * @return true - falls die KartenArt passt, false - sonst
-     */
+    /**<br>
+     * Funktion gibt zur&uuml;ck, ob die Karte eine AussetzenKarte ist<br>
+     * @param kartenart - Art der Karte<br>
+     * @return true - falls die KartenArt passt, false - sonst<br>
+     <br>*/
     @Override
     public boolean istWelcheKarte(String kartenart){
         return kartenart.equals("Aussetzen");
     }
 
 
-	/**
-    * Prozedur erzeugt die visuelle Darstellung einer Karte und verteckt sie direkt danach
-    * @param farbe - Farbe der Karte
-    */
+	/**<br>
+    * Prozedur erzeugt die visuelle Darstellung einer Karte und verteckt sie direkt danach<br>
+    * @param farbe - Farbe der Karte<br>
+    <br>*/
     @Override  
 	public void erzeugeVisuelleKarte(String farbe) {
     	// Fallunterscheidung
@@ -65,14 +65,14 @@ public class AussetzenKarte extends Karte {
     }
     
 
-    /**
-     * Prozedur setzt die Karte auf die gegebene Position und macht diese sichtbar
-     * @param spalte - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)
-     * @param zeile - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)
-     * @param x - Koordinate auf der X-Achse für die Darstellung
-     * @param y - Koordinate auf der Y-Achse für die Darstellung
-     * @param istAktuelleKarte - true, wenn die Karte die aktuelle Karte im Spiel entspricht - false, sonst
-     */
+    /**<br>
+     * Prozedur setzt die Karte auf die gegebene Position und macht diese sichtbar<br>
+     * @param spalte - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)<br>
+     * @param zeile - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)<br>
+     * @param x - Koordinate auf der X-Achse f&uuml;r die Darstellung<br>
+     * @param y - Koordinate auf der Y-Achse f&uuml;r die Darstellung<br>
+     * @param istAktuelleKarte - true, wenn die Karte die aktuelle Karte im Spiel entspricht - false, sonst<br>
+     <br>*/
     @Override
     public void setzeKarteAuf(int spalte, int zeile, int x, int y, boolean istAktuelleKarte) {
         /* // Warte 2 Sekunden darauf
@@ -102,9 +102,9 @@ public class AussetzenKarte extends Karte {
     }
 
 
-    /**
-     * Prozedur versteckt eine Karte
-     */
+    /**<br>
+     * Prozedur versteckt eine Karte<br>
+     <br>*/
     @Override
     public void versteckeKarte() {
         // Variablen verstecken
@@ -114,10 +114,10 @@ public class AussetzenKarte extends Karte {
     }
 
 
-    /**
-     * Funktion zum Durchführen der Aktion einer speziellen Karte, gibt den Code für die Aktion zurück
-     * @return int - Code für die Aktion
-     */
+    /**<br>
+     * Funktion zum Durchf&uuml;hren der Aktion einer speziellen Karte, gibt den Code für die Aktion zurück<br>
+     * @return int - Code f&uuml;r die Aktion<br>
+     <br>*/
     @Override
     public int aktionDurchfuehren() {
         // Code 1: Nächster Spieler überspringen
@@ -125,10 +125,10 @@ public class AussetzenKarte extends Karte {
     }
     
     
-    /**
-     * Funktion gibt die Karte als String zurück
-     * @return String - Karte und Farbe
-     */
+    /**<br>
+     * Funktion gibt die Karte als String zur&uuml;ck<br>
+     * @return String - Karte und Farbe<br>
+     <br>*/
     @Override
     public String toString(){
     	return "AussetzenKarte "+ this.farbe;

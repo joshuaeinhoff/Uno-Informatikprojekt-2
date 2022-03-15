@@ -1,8 +1,8 @@
 package unotempel.kartenspiel;
 
-/**
- * Kartenstapel enthält alle Uno-Karten. Das sind insgesamt 108 Karten.
- */
+/**<br>
+ * Kartenstapel enth&auml;lt alle Uno-Karten. Das sind insgesamt 108 Karten.<br>
+ <br>*/
 public class KartenStapel {
 
     // Eigenschaften  
@@ -15,9 +15,9 @@ public class KartenStapel {
     private String[] farben = { "blau", "gelb", "gruen", "rot" };
 
 
-    /**
-     * Konstruktor erzeugt einen Array mit 108 Karten 
-     */
+    /**<br>
+     * Konstruktor erzeugt einen Array mit 108 Karten <br>
+     <br>*/
     public KartenStapel() {
         karten = new Karte[108]; 
         //karten = new ArrayList<>(); // Für OOP2
@@ -26,9 +26,9 @@ public class KartenStapel {
     }
 	
 
-    /**
-     * Prozedur zum Füllen eines KartenStapels
-     */
+    /**<br>
+     * Prozedur zum F&uuml;llen eines KartenStapels<br>
+     <br>*/
     public void fuelleMitKarten() {
         // index
         int farbeIndex = 0;
@@ -82,10 +82,10 @@ public class KartenStapel {
     }
 
 
-    /**
-     * Funktion gibt die Anzahl der vorhandenen im KartenStapel zurück
-     * @return Anzahl von Karten im Stapel
-     */
+    /**<br>
+     * Funktion gibt die Anzahl der vorhandenen im KartenStapel zur&uuml;ck<br>
+     * @return Anzahl von Karten im Stapel<br>
+     <br>*/
     public int anzahlVorhandeneKarten() {
         // Zähler auf 0 setzen
         int zaehler = 0;
@@ -101,10 +101,10 @@ public class KartenStapel {
     }
 
 
-    /**
-     * Prozedur zum Setzen der aktuellen Karte im AblageStapel
-     * @param aktuelleKarte - Aktuelle Karte im Spiel
-     */
+    /**<br>
+     * Prozedur zum Setzen der aktuellen Karte im AblageStapel<br>
+     * @param aktuelleKarte - Aktuelle Karte im Spiel<br>
+     <br>*/
     public void setzeKarteAblageStapel(Karte aktuelleKarte) {
         // Über den KartenStapel iterieren
         for(int i = 0; i < karten.length; i++) {
@@ -116,11 +116,11 @@ public class KartenStapel {
     }
    
 
-    /**
-     * Funktion zum Ziehen einer Karte aus dem Stapel
-     * @param aktuelleKarte - Aktuelle Karte im Spiel
-     * @return eine Karte aus Stapel
-     */
+    /**<br>
+     * Funktion zum Ziehen einer Karte aus dem Stapel<br>
+     * @param aktuelleKarte - Aktuelle Karte im Spiel<br>
+     * @return eine Karte aus Stapel<br>
+     <br>*/
     public Karte karteZiehen(Karte aktuelleKarte){
         // Prüfen, ob es vorhandene Karten im Stapel gibt
         if(anzahlVorhandeneKarten() < 1)
@@ -140,11 +140,11 @@ public class KartenStapel {
     }
 
 
-    /**
-     * Prozedur zum Mischen der Karten und wieder als vorhanden setzen
-     * Die aktuelle Karte darf nicht im Stapel gesetzt werden
-     * @param aktuelleKarte - Aktuelle Karte im Spiel
-     */
+    /**<br>
+     * Prozedur zum Mischen der Karten und wieder als vorhanden setzen<br>
+     * Die aktuelle Karte darf nicht im Stapel gesetzt werden<br>
+     * @param aktuelleKarte - Aktuelle Karte im Spiel<br>
+     <br>*/
     public void kartenMischen(Karte aktuelleKarte) {
         // Index der aktuellen Karte im Stapel finden:
         // Index der aktuellen Karten auf einen unmöglichen Wert setzen

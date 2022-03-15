@@ -3,11 +3,11 @@ package unotempel.kartenspiel;
 import unotempel.grafikkonsole.*;
 import unotempel.GUI;
 
-/**
- * Der Spieler, der diese Karte legt, entscheidet welche Farbe als nächstes gelegt werden soll. WunschKarten kann man immer legen, 
- * das heißt man muss nicht auf die Farbe der vorherigen Karte achten. Wenn eine WunschKarte zu Beginn des Spiels gezogen wird,
- * entscheidet der Spieler, der anfangen darf, welche Farbe als nächstes gelegt werden soll.
- */
+/**<br>
+ * Der Spieler, der diese Karte legt, entscheidet welche Farbe als n&auml;chstes gelegt werden soll. WunschKarten kann man immer legen, <br>
+ * das hei&szlig;t man muss nicht auf die Farbe der vorherigen Karte achten. Wenn eine WunschKarte zu Beginn des Spiels gezogen wird,<br>
+ * entscheidet der Spieler, der anfangen darf, welche Farbe als n&auml;chstes gelegt werden soll.<br>
+ <br>*/
 public class WunschKarte extends Karte{
 
     // Variablen für die Darstellung einer WunschKarte
@@ -18,37 +18,37 @@ public class WunschKarte extends Karte{
     Rechteck rechteckRot;
 
 
-    /**
-     * Konstruktor erzeugt eine WunschKarte mit default-Werten: Farbe schwarz und Nummer 13
-     */
+    /**<br>
+     * Konstruktor erzeugt eine WunschKarte mit default-Werten: Farbe schwarz und Nummer 13<br>
+     <br>*/
     public WunschKarte(){
         super("schwarz", 13);
     }
 
 
-    /**
-     * Konstruktor zum Erzeugen einer Wunschkarte mit einer bestimmten Farbe und default-Wert: Nummer 13
-     * @param neueFarbe - Neue Farbe (nur nachdem eine WunschKarte gespielt wird)
-     */
+    /**<br>
+     * Konstruktor zum Erzeugen einer Wunschkarte mit einer bestimmten Farbe und default-Wert: Nummer 13<br>
+     * @param neueFarbe - Neue Farbe (nur nachdem eine WunschKarte gespielt wird)<br>
+     <br>*/
     public WunschKarte(String neueFarbe) {
         super(neueFarbe, 13);
     }
 
 
-    /**
-     * Funktion gibt zurück, ob die Karte eine WunschKarte ist
-     * @param kartenart - Art der Karte
-     * @return true - falls die KartenArt passt, false - sonst
-     */
+    /**<br>
+     * Funktion gibt zur&uuml;ck, ob die Karte eine WunschKarte ist<br>
+     * @param kartenart - Art der Karte<br>
+     * @return true - falls die KartenArt passt, false - sonst<br>
+     <br>*/
     @Override
     public boolean istWelcheKarte(String kartenart){
         return kartenart.equals("Wunsch");
     }
 
 
-	/**
-    * Prozedur erzeugt die visuelle Darstellung einer Karte und verteckt sie direkt danach
-    */ 
+	/**<br>
+    * Prozedur erzeugt die visuelle Darstellung einer Karte und verteckt sie direkt danach<br>
+    <br>*/ 
     @Override
 	public void erzeugeVisuelleKarte(String farbe) {
     	// Variablen Werte zuweisen
@@ -63,14 +63,14 @@ public class WunschKarte extends Karte{
     }
 
 
-    /**
-     * Prozedur setzt die Karte auf die gegebene Position und macht diese sichtbar
-     * @param spalte - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)
-     * @param zeile - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)
-     * @param x - Koordinate auf der X-Achse für die Darstellung
-     * @param y - Koordinate auf der Y-Achse für die Darstellung
-     * @param istAktuelleKarte - true, wenn die Karte die aktuelle Karte im Spiel entspricht - false, sonst
-     */
+    /**<br>
+     * Prozedur setzt die Karte auf die gegebene Position und macht diese sichtbar<br>
+     * @param spalte - Koordinate auf der X-Achse im Spielfeld (2x2-KarteArray)<br>
+     * @param zeile - Koordinate auf der Y-Achse im Spielfeld (2x2-KarteArray)<br>
+     * @param x - Koordinate auf der X-Achse f&uuml;r die Darstellung<br>
+     * @param y - Koordinate auf der Y-Achse f&uuml;r die Darstellung<br>
+     * @param istAktuelleKarte - true, wenn die Karte die aktuelle Karte im Spiel entspricht - false, sonst<br>
+     <br>*/
     @Override
     public void setzeKarteAuf(int spalte, int zeile, int x, int y, boolean istAktuelleKarte) {
         /* // Warte 2 Sekunden darauf
@@ -110,9 +110,9 @@ public class WunschKarte extends Karte{
     }
 
 
-    /**
-     * Prozedur versteckt eine Karte
-     */
+    /**<br>
+     * Prozedur versteckt eine Karte<br>
+     <br>*/
     @Override
     public void versteckeKarte() {
         // Variablen verstecken
@@ -124,10 +124,10 @@ public class WunschKarte extends Karte{
     }
 
 
-    /**
-     * Funktion zum Durchführen der Aktion einer speziellen Karte, gibt den Code für die Aktion zurück
-     * @return int - Code für die Aktion
-     */
+    /**<br>
+     * Funktion zum Durchf&uuml;hren der Aktion einer speziellen Karte, gibt den Code für die Aktion zurück<br>
+     * @return int - Code f&uuml;r die Aktion<br>
+     <br>*/
     @Override
     public int aktionDurchfuehren() {
         // Code 3: Eine neue Farbe auswählen
@@ -135,10 +135,10 @@ public class WunschKarte extends Karte{
     }
     
 
-    /**
-     * Funktion gibt die Karte als String zurück
-     * @return String - Karte
-     */
+    /**<br>
+     * Funktion gibt die Karte als String zur&uuml;ck<br>
+     * @return String - Karte<br>
+     <br>*/
     @Override
     public String toString(){
     	return "WunschKarte";

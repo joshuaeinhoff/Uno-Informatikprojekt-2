@@ -2,9 +2,9 @@ package unotempel.kartenspiel;
 
 import unotempel.GUI;
 
-/**
- * Klasse für das Kartenspiel
- */
+/**<br>
+ * Klasse f&uuml;r das Kartenspiel<br>
+ <br>*/
 public class Kartenspiel {
 
     // Eigenschaften einer Instanz von Kartenspiel
@@ -17,9 +17,9 @@ public class Kartenspiel {
     private String[] farben = { "blau", "gelb", "gruen", "rot" }; 
 
 
-    /**
-     * Konstruktor zum Erzeugen eines Kartenspiels für 2 Spieler
-     */
+    /**<br>
+     * Konstruktor zum Erzeugen eines Kartenspiels f&uuml;r 2 Spieler<br>
+     <br>*/
     public Kartenspiel() {
         this.kartenStapel = new KartenStapel();
         this.spielfeld = new Spielfeld();
@@ -28,26 +28,26 @@ public class Kartenspiel {
     }
 
 
-    /**
-     * Private Prozedur zum zufällig Auswählen des ersten Spielers
-     * Held ist 0, KI ist 1
-     */
+    /**<br>
+     * Private Prozedur zum zuf&auml;llig Auswählen des ersten Spielers<br>
+     * Held ist 0, KI ist 1<br>
+     <br>*/
     private void setzeErsterSpieler() {
         naechsterSpieler = (int) Math.round(Math.random());
     }
 
 
-    /**
-     * Private Prozedur zum Setzen der aktuellen Karte im Spiel und ggf. die Aktion durchführen
-     * Code je Aktion:
-     *  0 -> nichts machen
-     *  1 -> nächster Spieler überspringen
-     *  2 -> 2 Karten ziehen
-     *  3 -> Farbe auswählen
-     *  4 -> Farbe auswöhlen und 4 Karten ziehen
-     * @param karte - Karte zum Ablegen
-     * @param gui - Graphical User Interface
-     */
+    /**<br>
+     * Private Prozedur zum Setzen der aktuellen Karte im Spiel und ggf. die Aktion durchf&uuml;hren<br>
+     * Code je Aktion:<br>
+     *  0 -&gt; nichts machen<br>
+     *  1 -&gt; n&auml;chster Spieler &uuml;berspringen<br>
+     *  2 -&gt; 2 Karten ziehen<br>
+     *  3 -&gt; Farbe ausw&auml;hlen<br>
+     *  4 -&gt; Farbe ausw&ouml;hlen und 4 Karten ziehen<br>
+     * @param karte - Karte zum Ablegen<br>
+     * @param gui - Graphical User Interface<br>
+     <br>*/
     private void setzeAktuelleKarte(Karte karte, GUI gui) {
         if(aktuelleKarte != null) {
             // Aktuelle Karte verstecken
@@ -99,11 +99,11 @@ public class Kartenspiel {
     }
     
 
-    /**
-     * Private Prozedur zum Auswählen einer neuen Farbe
-     * Nur für WunschKarte und PlusVierWunschKarte
-     * @param gui - Graphical User Interface
-     */
+    /**<br>
+     * Private Prozedur zum Ausw&auml;hlen einer neuen Farbe<br>
+     * Nur f&uuml;r WunschKarte und PlusVierWunschKarte<br>
+     * @param gui - Graphical User Interface<br>
+     <br>*/
     private void farbeAuswaehlen(GUI gui) {
     	int index = 0;
     	// Prüfen, ob der menschliche Spieler eine neue Farbe auswählen muss
@@ -120,12 +120,12 @@ public class Kartenspiel {
     }
 
 
-    /**
-     * Prozedur zum Vorbereiten des Kartenspiels
-     * @param held - Spieler Held
-     * @param monster - Spieler KI
-     * @param gui - Graphical User Interface
-     */
+    /**<br>
+     * Prozedur zum Vorbereiten des Kartenspiels<br>
+     * @param held - Spieler Held<br>
+     * @param monster - Spieler KI<br>
+     * @param gui - Graphical User Interface<br>
+     <br>*/
     public void spielVorbereiten(Spieler held, Spieler monster, GUI gui) {
         // Spielfeld leer darstellen
         spielfeld.stelleSpielfeldLeerDar(gui);
@@ -147,12 +147,12 @@ public class Kartenspiel {
     }
 
 
-    /**
-     * Funktion zum Spielen
-     * @param held - Spieler Held
-     * @param monster - Spieler KI
-     * @param gui - Graphical User Interface
-     */
+    /**<br>
+     * Funktion zum Spielen<br>
+     * @param held - Spieler Held<br>
+     * @param monster - Spieler KI<br>
+     * @param gui - Graphical User Interface<br>
+     <br>*/
     public boolean spielen(Spieler held, Spieler monster, GUI gui) {
     
         // Während einer der Spieler noch Karten hat
