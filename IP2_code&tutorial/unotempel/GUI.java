@@ -49,7 +49,7 @@ public class GUI {
     	// Variable für die Lebenspunkte des Spielers
         int aktuellePunkte = spieler.getLebenspunkte();
         // Lebenspunkte für die grafische Darstellung berechnen
-        int punkte = (int)(aktuellePunkte * 848 / 150);
+        int punkte = (int)(aktuellePunkte * 848 / 100);
         // Lebenspunkte zeigen
     	Text lebensanzeige = new Text(0, 475, "Lebenspunkte", Grafik.BLACK, 15, "");
         Rechteck platzLebenspunkte = new Rechteck(0, 500, 850, 20, "#006400", Grafik.BLACK, 1, "");
@@ -65,7 +65,7 @@ public class GUI {
         // Variable für die Lebenspunkte des Spielers
         int aktuellePunkte = spieler.getLebenspunkte();
         // Lebenspunkte für die grafische Darstellung berechnen
-        int punkte = (int)(aktuellePunkte * 848 / 150);
+        int punkte = (int)(aktuellePunkte * 848 / 100);
         if(punkte > 848)
         	punkte = 848;
         lebenspunkteHeld.setWidth(punkte);
@@ -201,22 +201,22 @@ public class GUI {
     */
     public int tempelSymbolZeigen() {
         // Wasser-Tempel Symbol erzeugen, verstecken und nach 0.3 Sekunden zeigen
-    	Rechteck wasserTempel = new Rechteck(breite/2-330, hoehe/2-75, 150, 150, Grafik.BLUE, Grafik.BLACK, 1, 10, "1");
+    	Rechteck wasserTempel = new Rechteck(breite/2-330, hoehe/2-75, 150, 150, farbeBlau, Grafik.BLACK, 1, 10, "1");
         wasserTempel.hide();
         wasserTempel.waitFor(300);
         wasserTempel.show();
         // Luft-Tempel Symbol erzeugen, verstecken und nach 0.3 Sekunden zeigen
-        Rechteck luftTempel = new Rechteck(breite/2-160, hoehe/2-75, 150, 150, Grafik.YELLOW, Grafik.BLACK, 1, 10, "2");
+        Rechteck luftTempel = new Rechteck(breite/2-160, hoehe/2-75, 150, 150, farbeGelb, Grafik.BLACK, 1, 10, "2");
         luftTempel.hide();
         luftTempel.waitFor(300);
         luftTempel.show();
         // Erde-Tempel Symbol erzeugen, verstecken und nach 0.3 Sekunden zeigen
-        Rechteck erdeTempel = new Rechteck(breite/2+10, hoehe/2-75, 150, 150, Grafik.GREEN, Grafik.BLACK, 1, 10, "3");
+        Rechteck erdeTempel = new Rechteck(breite/2+10, hoehe/2-75, 150, 150, farbeGruen, Grafik.BLACK, 1, 10, "3");
         erdeTempel.hide();
         erdeTempel.waitFor(300);
         erdeTempel.show();
         // Feuer-Tempel Symbol erzeugen, verstecken und nach 0.3 Sekunden zeigen
-        Rechteck feuerTempel = new Rechteck(breite/2+180, hoehe/2-75, 150, 150, Grafik.RED, Grafik.BLACK, 1, 10, "4");
+        Rechteck feuerTempel = new Rechteck(breite/2+180, hoehe/2-75, 150, 150, farbeRot, Grafik.BLACK, 1, 10, "4");
         feuerTempel.hide();
         feuerTempel.waitFor(300);
         feuerTempel.show();
@@ -472,10 +472,10 @@ public class GUI {
         int y = 450;
         // Variablen für die Dastellung des Menüs zur Auswahl
         Rechteck rechteckFarbAuswahl = new Rechteck(x + 40, y/2 - 100, 130, 130, Grafik.WHITE, Grafik.BLACK, 1, 10, "");
-        Rechteck rechteckBlau = new Rechteck(x + 50, y/2 - 90, 50, 50, Grafik.BLUE, Grafik.BLACK, 1, 10, "0");
-        Rechteck rechteckGelb = new Rechteck(x + 110, y/2 - 90, 50, 50, Grafik.YELLOW, Grafik.BLACK, 1, 10, "1");
-        Rechteck rechteckGruen = new Rechteck(x + 50, y/2 - 30, 50, 50, Grafik.GREEN, Grafik.BLACK, 1, 10, "2");
-        Rechteck rechteckRot = new Rechteck(x + 110, y/2 - 30, 50, 50, Grafik.RED, Grafik.BLACK, 1, 10, "3");
+        Rechteck rechteckBlau = new Rechteck(x + 50, y/2 - 90, 50, 50, farbeBlau, Grafik.BLACK, 1, 10, "0");
+        Rechteck rechteckGelb = new Rechteck(x + 110, y/2 - 90, 50, 50, farbeGelb, Grafik.BLACK, 1, 10, "1");
+        Rechteck rechteckGruen = new Rechteck(x + 50, y/2 - 30, 50, 50, farbeGruen, Grafik.BLACK, 1, 10, "2");
+        Rechteck rechteckRot = new Rechteck(x + 110, y/2 - 30, 50, 50, farbeRot, Grafik.BLACK, 1, 10, "3");
         // Variable farbe definieren
         int farbe = -1;
         // Solange die Farbe keine der Farben entspricht

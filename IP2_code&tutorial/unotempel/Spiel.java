@@ -35,7 +35,7 @@ public class Spiel {
         Tempel feuerTempel = new Tempel("rot");
 
 		// Niveau durch die GrafikKonsole auswählen
-		System.out.println("Wählen Sie bitte OOP1 oder OOP2"); 
+		System.out.println("Wählen Sie bitte zwischen OOP1 oder OOP2"); 
         gui.menueGrafischErzeugen();
         int spielNiveau = gui.menueGrafischAuswaehlen();
         System.out.println("Niveau ausgewählt: " + spielNiveau);

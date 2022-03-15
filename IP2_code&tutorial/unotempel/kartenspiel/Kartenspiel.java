@@ -116,7 +116,7 @@ public class Kartenspiel {
         }
         // Neue Farbe einsetzen
         aktuelleKarte.farbe = farben[index];
-        System.out.println("Neue Farbe ausgewählt ist " + farben[index]);
+        System.out.println("Neue Farbe ist " + farben[index]);
     }
 
 
@@ -178,7 +178,7 @@ public class Kartenspiel {
             if(naechsterSpieler == 0 && spieler[0].anzahlKarteHand() == 1) {
                 String uno = gui.unoKlicken(660,450);
                 // sonst bekommt er noch Karten jede X Sekunden ??
-                System.out.println(uno + " wurde darauf geklickt!");
+                System.out.println(uno + " wurde geklickt!");
             }
             if(naechsterSpieler == 1 && spieler[1].anzahlKarteHand() == 1) {
                 // warten X sekunden
@@ -218,7 +218,7 @@ public class Kartenspiel {
             System.out.println("Monster hat gewonnen... Spieler wurde besiegt.");
             // Schaden für den menschlichen Spieler zufügen
             int punkte = spieler[0].schadenZufuegen();
-            // Lebenspunkte für den Spieler KI inkrementieren
+            // Lebenspunkte für den Spieler KI inkrementieren - vllt sollte das Monster lieber kein leben dazu bekommen
             spieler[1].lebenspunkteGewinnen(punkte);
             // Darstellung der Lebenspunkte aktualisieren
             gui.aktualisiereLebenspunkte(spieler[0]);

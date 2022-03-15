@@ -149,7 +149,12 @@ import unotempel.GUI;
      * @param punkte
      */
     public void lebenspunkteGewinnen(int punkte) {
-        lebensenergie += punkte;
+    	
+        if((lebensenergie += punkte)<100){
+        	lebensenergie += punkte;
+        }else{
+        	lebensenergie = 100;
+        }
     }
     
 

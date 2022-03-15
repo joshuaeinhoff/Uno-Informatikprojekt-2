@@ -119,7 +119,7 @@ public class Tempel {
         // Kartenspiel vorbereiten
         kartenspiel.spielVorbereiten(held, monster, gui);
         // Meldung auf die Konsole ausgeben
-        System.out.println("Das Monster wartet darauf... Kartenspiel ist bereit!");
+        System.out.println("Das Monster wartet... Kartenspiel ist bereit!");
     }
     
 

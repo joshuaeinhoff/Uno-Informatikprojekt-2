@@ -123,17 +123,20 @@ public class Spielfeld {
      */
     public void ersteFuelleSpielfeld(Karte[] kartenMenschlichSpieler, Karte aktuelleKarte,GUI gui) {
         // Karten vom KI Spieler auf das Spielfeld setzen
+        /*
         for(int i = 0; i < 7; i++) {
             // Karte im entsprechenden Index speichern
             setzeKartePosition(new DummyKarte(),0,i,gui);
         }
+        */
         // Zufällige Karte die übergeben wird
         setzeKartePosition(aktuelleKarte,1,3,gui);
+        /*
         // Karten vom menschlichen Spieler auf das Spielfeld setzen
         for(int i = 0; i < 7; i++) {
             setzeKartePosition(kartenMenschlichSpieler[i],3,i,gui);
         }
-
+		*/
     }
     
     
@@ -151,18 +154,17 @@ public class Spielfeld {
     
 
     /**
-     * Prozedur setzt eine DummyKarte in einem gegebenen Index auf null
+     * Prozedur setzt eine Beliebige Dummykarte auf Null
      * @param spalte
      */
     public void dummyKarteAufNullsetzen(int spalte) {
-    	int zeile = 0;
-        if(spalte >= 10) {
-        	zeile++;
-            spalte %= 10;
-    	}
-        spielfeld[zeile][spalte].versteckeKarte();
-    	spielfeld[zeile][spalte] = null;
-    }
+        if(spalte >= 10) return;
+        
+        if(spielfeld[0][spalte]!=null){
+            spielfeld[0][spalte].versteckeKarte();
+            spielfeld[0][spalte] = null;
+        }//end if
+    }//end procedure
     
     
 

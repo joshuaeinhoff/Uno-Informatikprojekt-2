@@ -24,6 +24,7 @@ public class KIZufall extends Spieler{
      */
     @Override
     public void karteZiehen(KartenStapel kartenStapel, Karte aktuelleKarte, Spielfeld spielfeld, GUI gui){
+ 		
         // Solange der Spieler noch Platz für Karten in der Hand hat, d.h. die Hand ist nicht voll
         for(int i = 0; i < hand.length; i++){
         	// Bedingung überprüft, ob die Karte in der Hand null ist, d.h. keine echte Karte an dieser Stelle
@@ -31,7 +32,8 @@ public class KIZufall extends Spieler{
             	// Gezogene Karte aus dem Stapel in der Hand hinzufügen
                 hand[i] = kartenStapel.karteZiehen(aktuelleKarte);
                 // Aktualisiere Karte auf Spielfeld
-                spielfeld.setzeKartePosition(new DummyKarte(),0,i,gui);
+                spielfeld.setzeKartePosition(new DummyKarte(),0,anzahlKarteHand()-1,gui);
+                System.out.println("Der Gegner hat "+this.anzahlKarteHand()+" Karten auf der Hand.");
                 // Schleife unterbrechen
                 return;
             }
@@ -61,7 +63,8 @@ public class KIZufall extends Spieler{
             	// Karte auf der Hand auf null setzen
                 karteAufNullSetzen(zufallszahl);
                 // DummyKarte auf Spielfeld auf null setzen
-                spielfeld.dummyKarteAufNullsetzen(zufallszahl);
+                spielfeld.dummyKarteAufNullsetzen(this.anzahlKarteHand());
+                System.out.println("Der Gegner hat "+this.anzahlKarteHand()+" Karten auf der Hand.");
                 // Ausgewählte Karte zurückgeben
                 return ausgewaehlteKarte;
             }
@@ -71,7 +74,7 @@ public class KIZufall extends Spieler{
             // Karte ziehen
             karteZiehen(kartenStapel,aktuelleKarte,spielfeld,gui);
             karteGezogen = true;
-            System.out.println("KI zieht eine Karte ab.");
+            System.out.println("KI zieht eine Karte.");
             // Versuch Karte zu spielen, diesmal karteGezogen wird auf true gesetzt
             return karteSpielen(aktuelleKarte, kartenStapel,true,spielfeld,gui);
         }

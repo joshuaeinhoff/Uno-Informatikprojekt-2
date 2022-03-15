@@ -31,7 +31,8 @@ public class KISchlau extends Spieler{
             	// Gezogene Karte aus dem Stapel in der Hand hinzufügen
                 hand[i] = kartenStapel.karteZiehen(aktuelleKarte);
                 // Aktualisiere Karte auf Spielfeld
-                spielfeld.setzeKartePosition(new DummyKarte(),0,i,gui);
+                spielfeld.setzeKartePosition(new DummyKarte(),0,anzahlKarteHand()-1,gui);
+                System.out.println("Der Gegner hat "+this.anzahlKarteHand()+" Karten auf der Hand.");
                 return;
             }
         }
@@ -77,7 +78,7 @@ public class KISchlau extends Spieler{
             return findKarte(aktuelleKarte,"Wunsch",spielfeld);
         // Prüfen, ob Spieler KI keine Karte abgezogen hat
         if(!karteGezogen) {
-        	System.out.println("KI zieht eine Karte ab.");
+        	System.out.println("KI zieht eine Karte.");
             // Karte ziehen
             karteZiehen(kartenStapel, aktuelleKarte,spielfeld,gui);
             // Karte Spielen Funktion rekursiv aufrufen mit true als Parameter da abgezogene Karte
@@ -170,7 +171,8 @@ public class KISchlau extends Spieler{
                 // Karte auf der Hand auf null setzen
             	karteAufNullSetzen(i);
                 // DummyKarte auf Spielfeld auf null setzen
-                spielfeld.dummyKarteAufNullsetzen(i);
+                spielfeld.dummyKarteAufNullsetzen(this.anzahlKarteHand());
+                System.out.println("Der Gegner hat "+this.anzahlKarteHand()+" Karten auf der Hand.");
                 // Ausgewählte Karte zurückgeben
                 return ausgewaehlteKarte;
             }
