@@ -177,7 +177,7 @@ public class Kartenspiel {
             // Prüfen, ob einer der Spieler nur noch eine Karte hat
             if(naechsterSpieler == 0 && spieler[0].anzahlKarteHand() == 1) {
                 String uno = gui.unoKlicken(660,450);
-                // sonst bekommt er noch Karten jede X Sekunden ??
+                // sonst bekommt er noch Karten jede X Sekunden ?? --> ??
                 System.out.println(uno + " wurde darauf geklickt!");
             }
             if(naechsterSpieler == 1 && spieler[1].anzahlKarteHand() == 1) {
@@ -199,7 +199,7 @@ public class Kartenspiel {
         // Spiel ist zu Ende, falls einer der Spieler keine Karte mehr hat
         if(spieler[0].anzahlKarteHand() == 0) {
         	// Meldung auf die Konsole ausgeben
-            System.out.println("Held hat gewonnen!");
+            System.out.println("Held hat das Kartenspiel gewonnen!");
             // Schaden für den Spieler KI zufügen
             int punkte = spieler[1].schadenZufuegen(); 
             // Lebenspunkte für den menschlichen Spieler inkrementieren
@@ -213,7 +213,8 @@ public class Kartenspiel {
             spieler[1].handEntleeren();
             // Gibt true zurück, falls der Held gewonnen hat
             return true;
-        } else if(spieler[1].anzahlKarteHand() == 0) {
+        }
+        if(spieler[1].anzahlKarteHand() == 0) {
         	// Meldung auf die Konsole ausgeben
             System.out.println("Monster hat gewonnen... Spieler wurde besiegt.");
             // Schaden für den menschlichen Spieler zufügen

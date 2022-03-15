@@ -109,35 +109,8 @@ public class Tempel {
         return true;
     }
 
-    
-    /** 1.3.4 Methode zum Vorbereiten des Kampfes Δe_p6vf02 Δ
-     * Prozedur bereitet den Kampf im Tempel vor
-     * @param held - Menschlicher Spieler als Parameter
-     * @param gui - Graphical User Interface
-     */
-    private void kampfVorbereiten(Spieler held, GUI gui) {
-        // Kartenspiel vorbereiten
-        kartenspiel.spielVorbereiten(held, monster, gui);
-        // Meldung auf die Konsole ausgeben
-        System.out.println("Das Monster wartet darauf... Kartenspiel ist bereit!");
-    }
-    
 
-    /** 1.3.5 Methode heldHatSpielGewonnen() Δe_z1x89s Δ 
-     * Funktion gibt zurück, ob der Held das Spiel gewonnen hat
-     * @param held - Menschlicher Spieler als Parameter
-     * @param gui - Graphical User Interface
-     * @return true, wenn der Held das Spiel gewonnen hat - false, sonst 
-     */
-    private boolean heldHatSpielGewonnen(Spieler held, GUI gui) {
-        // Meldung auf die Konsole ausgeben
-        System.out.println("Spielen!\n");        
-        // Funktion in Kartenspiel zum Spielen aufrufen
-        return kartenspiel.spielen(held, monster, gui);
-    }
-
-
-	/** 1.3.6 Methode heldHatMonsterBesiegt() Δe_ivzxg8 Δ
+	/** 1.3.4 Methode heldHatMonsterBesiegt() Δe_ivzxg8 Δ
      * Funktion zum Kämpfen des Monsters im Tempel
      * @param held - Menschlicher Spieler als Parameter
      * @param monsterBesiegt - Boolean true, wenn Monster besiegt wird - false, sonst
@@ -148,10 +121,16 @@ public class Tempel {
         // Solange der Held noch lebt und das Monster nicht besiegt hat ( => hat 0 Lebenspunkte)
         if(held.getLebenspunkte() > 0 && monster.getLebenspunkte() > 0) {
         	System.out.println("Held muss das Monster besiegen, indem er UNO spielt.");
-        	// Prozedur zum Vorbereiten des Spieles aufrufen
-        	kampfVorbereiten(held, gui);
-            // Speichern ob das Monster besiegt wurde
-            hatSpielGewonnen = heldHatSpielGewonnen(held, gui);
+        	
+        	// Kartenspiel vorbereiten
+        	kartenspiel.spielVorbereiten(held, monster, gui);
+        	// Meldung auf die Konsole ausgeben
+        	System.out.println("Das Monster wartet darauf... Kartenspiel ist bereit!");
+        	System.out.println("Spielen!\n");        
+        	
+            // Speichern ob das Spiel gewonnen wird
+            hatSpielGewonnen = kartenspiel.spielen(held, monster, gui);
+            
             // Funktion zum Kämpfen des Monsters aufrufen
             return heldHatMonsterBesiegt(held, hatSpielGewonnen, gui);
         }
@@ -161,8 +140,10 @@ public class Tempel {
             System.out.println("Game Over\n");
             return false;
         }
+        // Meldung
+        System.out.println("Held hat das Monster besiegt!");
         // Gibt true zurück, wenn der Held das Monster besiegt hat
-        return true;      
+        return true;   
     }
 		
 } // Ende von Tempel
