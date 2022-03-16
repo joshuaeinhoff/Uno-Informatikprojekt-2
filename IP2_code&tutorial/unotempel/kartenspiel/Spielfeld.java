@@ -122,7 +122,8 @@ public class Spielfeld {
      * @param gui - Graphical User Interface
      */
     public void ersteFuelleSpielfeld(Karte[] kartenMenschlichSpieler, Karte aktuelleKarte,GUI gui) {
-        // Karten vom KI Spieler auf das Spielfeld setzen
+       /*
+       // Karten vom KI Spieler auf das Spielfeld setzen
         for(int i = 0; i < 7; i++) {
             // Karte im entsprechenden Index speichern
             setzeKartePosition(new DummyKarte(),0,i,gui);
@@ -133,7 +134,7 @@ public class Spielfeld {
         for(int i = 0; i < 7; i++) {
             setzeKartePosition(kartenMenschlichSpieler[i],3,i,gui);
         }
-
+	*/
     }
     
     
@@ -156,10 +157,8 @@ public class Spielfeld {
      */
     public void dummyKarteAufNullsetzen(int spalte) {
     	int zeile = 0;
-        if(spalte >= 10) {
-        	zeile++;
-            spalte %= 10;
-    	}
+        if(spalte >= 10) return;
+        
         spielfeld[zeile][spalte].versteckeKarte();
     	spielfeld[zeile][spalte] = null;
     }

@@ -31,7 +31,7 @@ public class KIZufall extends Spieler{
             	// Gezogene Karte aus dem Stapel in der Hand hinzufügen
                 hand[i] = kartenStapel.karteZiehen(aktuelleKarte);
                 // Aktualisiere Karte auf Spielfeld
-                spielfeld.setzeKartePosition(new DummyKarte(),0,i,gui);
+                spielfeld.setzeKartePosition(new DummyKarte(),0,anzahlKarteHand()-1,gui);
                 // Schleife unterbrechen
                 return;
             }
@@ -61,7 +61,7 @@ public class KIZufall extends Spieler{
             	// Karte auf der Hand auf null setzen
                 karteAufNullSetzen(zufallszahl);
                 // DummyKarte auf Spielfeld auf null setzen
-                spielfeld.dummyKarteAufNullsetzen(zufallszahl);
+                spielfeld.dummyKarteAufNullsetzen(anzahlKarteHand());
                 // Ausgewählte Karte zurückgeben
                 return ausgewaehlteKarte;
             }

@@ -31,7 +31,7 @@ public class KISchlau extends Spieler{
             	// Gezogene Karte aus dem Stapel in der Hand hinzufügen
                 hand[i] = kartenStapel.karteZiehen(aktuelleKarte);
                 // Aktualisiere Karte auf Spielfeld
-                spielfeld.setzeKartePosition(new DummyKarte(),0,i,gui);
+                spielfeld.setzeKartePosition(new DummyKarte(),0,anzahlKarteHand()-1,gui);
                 return;
             }
         }
@@ -170,7 +170,7 @@ public class KISchlau extends Spieler{
                 // Karte auf der Hand auf null setzen
             	karteAufNullSetzen(i);
                 // DummyKarte auf Spielfeld auf null setzen
-                spielfeld.dummyKarteAufNullsetzen(i);
+                spielfeld.dummyKarteAufNullsetzen(anzahlKarteHand());
                 // Ausgewählte Karte zurückgeben
                 return ausgewaehlteKarte;
             }
