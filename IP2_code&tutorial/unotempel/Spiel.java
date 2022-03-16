@@ -9,13 +9,12 @@ import unotempel.konsole.*;
  */
 public class Spiel {
     
-    /**
-     * Main-Methode
+    /** 1.1 Main-Methode Δe_n6n4ut Δ 
      * @param args
      */
     public static void main(String[] args){
 
-        /* ------------ Spielvorbereitung ------------ */
+        /* ------------ Spielvorbereitung ------------ Δe_3uxsiz Δ */
         
         // Graphical User Interface erzeugen 
         GUI gui = new GUI();
@@ -42,7 +41,7 @@ public class Spiel {
         gui.spielbrettDarstellen(held);
         		
 
-        /* ------------ Spielablauf ------------ */
+        /* ------------ Spielablauf ------------ Δe_66ksuu Δ */
 
 		// darstellen
 		gui.spielbrettDarstellen(held);
@@ -175,7 +174,5 @@ public class Spiel {
         heldHatAufgabeErledigt = !heldHatAufgabeErledigt;
            
     }
-	
-
 	
 } // Ende von Spiel

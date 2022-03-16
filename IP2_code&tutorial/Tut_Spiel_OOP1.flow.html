@@ -1,0 +1,211 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="UTF-8" /> 
+	<meta name="headingType" content="1" /> 
+	<meta name="headingStartValue" content="1" /> 
+<title>Tut_Spiel_OOP1</title> 
+<style> 
+    body { 
+       font-family: "Segoe UI", Verdana, Geneva, Tahoma, sans-serif; 
+    } 
+    .segment { 
+       font-size: 19px; 
+       line-height: 1.5; 
+    } 
+    .code { 
+       color: #666; 
+       font-family: monospace; 
+       padding: 5px; 
+    } 
+    .task-link { 
+       background-color: hsl(47, 90%, 60%); 
+       border: 2px solid hsl(47, 90%, 40%); 
+       padding: 0 2px; 
+       line-height: 26px; 
+    } 
+    .task-link[data-href] { 
+       cursor: pointer; 
+    } 
+    .task-link::after { 
+       content: "➤"; 
+       margin-left: 3px; 
+       color: hsl(47, 90%, 40%); 
+    } 
+    a { 
+       color: hsl(196, 100%, 47%); 
+    } 
+    .hilitecolor1 { 
+       background-color: hsl(45, 100%, 70%); 
+    } 
+    .hilitecolor2 { 
+       background-color: hsl(218, 100%, 80%); 
+    } 
+    .hilitecolor3 { 
+       background-color: hsl(150, 100%, 70%); 
+    } 
+    .hilitecolor4 { 
+       background-color: hsl(0, 100%, 70%); 
+    } 
+    .hilitesolution { 
+       background-color: hsl(47, 60%, 70%); 
+       font-style: italic; 
+    } 
+    h1, h2, h3 { 
+      color: hsl(209, 60%, 45%); 
+    } 
+    h1[data-number]:before, h2[data-number]:before, h3[data-number]:before { 
+      content: attr(data-number); 
+      margin-right: 10px; 
+    } 
+    .skill { 
+      line-height: initial; 
+      padding: 7px 0px 3px 0px; 
+      border: 1px solid hsl(0,0%,100%); 
+    } 
+    .skill .skill { 
+      display: inline-block; 
+      margin: 0px 5px 2px 5px; 
+      position: relative; 
+    } 
+    .skill .skill .container { 
+      min-height: 27px; 
+      display: table; 
+      border: 2px solid hsl(0,0%,25%); 
+    } 
+    .skill .skill .container .block { 
+      font-size: 14px; 
+      display: table-cell; 
+      min-width: 19px; 
+      text-align: center; 
+      vertical-align: middle; 
+      padding: 0px 6px 0px 4px; 
+    } 
+    .skill .skill .container .content { 
+      padding: 2px 6px; 
+      font-size: 14px; 
+      display: table-cell; 
+      vertical-align: middle; 
+    } 
+    .skill .skill .container .content span { 
+      margin-left: 1px; 
+      margin-right: 1px; 
+    } 
+    .skill .skill .container .content .text { 
+      vertical-align: -1px; 
+    } 
+    .block { 
+      background-color: hsl(0,0%,25%);  
+      color: hsl(196, 100%, 97%);  
+    } 
+    .block { 
+      background-color: hsl(0,0%,25%);  
+      color: hsl(196, 100%, 97%);  
+    } 
+    .skill .skill .container.attr_certificate { 
+      border: 2px solid hsl(0, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_certificate .block { 
+      background-color: hsl(0, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_new { 
+      border: 2px solid hsl(120, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_new .block { 
+      background-color: hsl(120, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_revision { 
+      border: 2px solid hsl(47, 90%, 60%); 
+    } 
+    .skill .skill .container.attr_revision .block { 
+      background-color: hsl(47, 90%, 60%); 
+    } 
+    .hint .hint { 
+      margin-left: 30px; 
+      margin-bottom: 5px; 
+    } 
+    .header .wrap { 
+      padding-right: 10px; 
+      width: fit-content; 
+      cursor: pointer; 
+      border-bottom: 2px solid hsl(214, 38%, 59%); 
+    } 
+    .header .wrap .icon { 
+      vertical-align: -4px; 
+      margin-right: 3px; 
+    } 
+    .header .wrap .icon svg{ 
+      fill: hsl(214, 38%, 59%); 
+    } 
+  </style> 
+  <script> 
+     window.onload = function() { 
+       if (window.location.hash) { 
+         let id = window.location.hash.substr(1); 
+         let anchor = document.getElementsByClassName(id); 
+         if (anchor[0]) { 
+           let top = anchor[0].offsetTop; 
+           window.scrollTo(0, top); 
+         } 
+       } 
+       let links = document.querySelectorAll(".task-link"); 
+       for (let i = 0; i < links.length; i++) { 
+         links[i].onclick = function(event) { 
+           if (event.target.getAttribute("data-href")) { 
+             window.open(event.target.getAttribute("data-href"), "_self"); 
+           } 
+         } 
+       } 
+    } 
+  </script> 
+</head> 
+<body>
+<div class="text segment" id="tdyuv9">
+<h1 class="e_n3h21a">UnoTempel Spiel: Einleitung für OOP1</h1>
+<p>Bei dem zu entwickelnden Spiel handelt es sich um ein Abenteuer, in dem der Spieler(in) die Rolle eines Helden spielt und insgesamt vier Tempeln (Wasser-Tempel, Feuer-Tempel usw.) überqueren muss, um zu gewinnen und somit auch an den Schatz zu kommen. Dafür muss er bestimmte Aufgaben in vier verschiedenen Tempeln erledigen.</p>
+<p>Beim letzten Teil dieses Tutorial handelt es sich um die Erstellung der Klasse für die Anwendung. In dieser Klasse werden die Prozeduren und Methoden aufgerufen, die für die Entwicklung des Spiels zuständig sind.</p>
+<h1 class="e_okyr3u">1 Spiel</h1>
+<p>Die Klasse Spiel beinhaltet die Main-Methode und ist daher für die Ausführung der Anwendung verantwortlich. Als nächstes wird die Main-Methode ausführlich erläutert.</p>
+<p><span class="task-link s_yr8lz1 action">Erstellen Sie die Klasse Spiel.</span></p>
+<h2 class="e_xcoajd">1.1 Main-Methode</h2>
+<p><span class="task-link s_n6n4ut def" data-href="unotempel/Spiel.java#e_n6n4ut">Definieren Sie die Methode&nbsp;<code>main().</code></span></p>
+<p><span class="task-link s_3uxsiz def" data-href="unotempel/Spiel.java#e_3uxsiz"><strong>1. </strong>Spielvorbereitung</span></p>
+<p>In der Methode müssen zuerst eine Instanz der Klasse GUI, die <em>Graphical User Interface</em>, und eine Instanz von Held erzeugt werden.</p>
+</div>
+<div class="hint segment" id="50s5e0" data-title="Hinweis:">
+<div class="header"><div class="wrap"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg></span><span>Hinweis:</span></div></div>
+<div data-uuid="vwjsnz" data-hint="U2FsdGVkX1/pKSYnZp+mFImcjUvX3OlfBbMdpwgort7LY1PIRg+p5MiM0t6PGmWWMUw1YPano8ol7kcVtW5HpNdUTsVYfSrI/b8elYS+9e5IH+NZgj6Aoaytm9dr4B+3IY4Ui+WfaCZDLwXG5ipX++4oJ2/R0F7jNAR6XHSAsKwcVye1RTmB9NIuovVBb3j57URLJ8PbC95PrqHU5mJhXAYVTAvTlGZ6z/Gj2J0f5xZV7Z2tFLHBTDjBmgs5NRkHMIi6/zyGwg1R9K6GEcSxN67VpB7QAXpeOAFLwkPIWuRO+W0eVZaD1F0q42ogHFOUrAoU4f+I4OPvr16EXjZMUj2hXoo6+o5B6DA1GuCuJoMIyWcXMnP4WqNko0Ka+YpNrJiVA+6JAKgLIJZ2VAs629w2gvB0D5n0DMULL0K9wlY=" class="hint"></div>
+
+</div>
+<div class="text segment" id="qtkrb6">
+<p>Zunächst muss das Spielbrett mithilfe der Klasse GUI zum ersten Mal dargestellt werden.&nbsp;Am Anfang besteht das Spielbrett nur aus einen leeren Canvas, wo alle Visualisierungen des Spiels dargestellt werden.</p>
+<p><strong>Wichtig:</strong> Aus visuellen Gründen muss nach jedem Auslesen mit der Konsole das Spielbrett neu dargestellt werden.</p>
+<p><strong>Tipp:</strong> Benutzen Sie Meldungen auf der Konsole durch die Klasse <em>System</em>. Sie helfen Ihnen, den Spielstand auch zu verbalisieren!&nbsp;</p>
+<p>Beim Spiel handelt es sich um eine Schatzsuche in verschiedenen Tempeln (Wasser-, Luft-, -Erde- und Feuer-), die nun als Instanzen der Klasse Tempel mit der entsprechenden Farbe erzeugt werden müssen.</p>
+<p>Als nächstes sollte ein Menü zur Auswahl des Spiel-Niveaus dargestellt werden.&nbsp;</p>
+<p><span class="task-link s_66ksuu def" data-href="unotempel/Spiel.java#e_66ksuu"><strong>2. </strong>Spielablauf</span></p>
+<p>Nachdem der Spieler das Spiel-Niveau durch die grafische Konsole ausgewählt hat, beginnt das Abenteuer bzw. die Aktion.</p>
+<p>Eine Variable sollte das Niveau bzw. die Nummer (von 1 bis 4) für den nächsten Tempel speichern. Definieren und initialisieren Sie diese Variable mit dem Wert 0, da der Spieler noch keinen Tempel ausgewählt hat.</p>
+<p>Sie benötigen eine Variable zum Speichern, ob der Held eine Aufgabe im Tempel erfolgreich erledigt hat.</p>
+<p><strong>Tipp:</strong> Sie können diese Variable mehrmals überschreiben, da diese nur dient, um das Spiel fortsetzen oder ggf. beenden zu können.&nbsp;</p>
+<p>Für jeden Tempel sollte folgendes passieren:</p>
+<ul>
+<li>Der aktuelle Spieler muss den richtigen Tempel durch die GUI auswählen. Solange der Spieler dies nicht macht, sollte die Option zur Auswahl zur Verfügung gestellt werden. Rufen Sie die entsprechende Funktion der Klasse GUI auf.&nbsp;</li>
+<li>Hat der Spieler den richtigen Tempel ausgewählt, wird nun eine Einführung in den Tempel gezeigt. Rufen Sie die entsprechende Methode auf.</li>
+<li>Quiz lösen: Es muss gespeichert werden, ob der Spieler das Quiz gelöst hat. Sollte dies nicht der Fall sein, ist das Spiel zu Ende und die Anwendung muss abgebrochen werden.</li>
+<li>Monster Kämpfen: Es muss gespeichert werden, ob der Spieler das Monster besiegt hat. Sollte dies nicht der Fall sein, ist das Spiel zu Ende und die Anwendung muss abgebrochen werden.</li>
+</ul>
+<p><strong>Tip: </strong>Nach jedem dieser Schritte sollte das Spielbrett neu dargestellt werden.&nbsp;</p>
+</div>
+<div class="hint segment" id="hc3rra" data-title="Hinweis:">
+<div class="header"><div class="wrap"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg></span><span>Hinweis:</span></div></div>
+<div data-uuid="pqdn97" data-hint="U2FsdGVkX192mgkcHL7yJAVNzseDAJvBLruRSd3TBKAX0tc2ZN3R58CLxwYFNOmf6PD2eQfLOeylHwwY2d3tOPUFjhzNb+uEYzWVNs745lj/4Uzb5kPwQAuZIXo0toHhQaYqfKMYViRvPgmkWrsxikrKdOI9MDsYbfc021DZLXgp/w3Ep0Yc/xGFYavZdoyWzN8x4G7RAvcTPwC3UwthPXr93sL1npHlL7HCxMxKEsNYbURWBp/APo/ZKA8dlknVfp412ZATHypTdntTIjQSCN8u80tIczp+ecqFi25ViwMxRVTL/GpfOi4sYwEzjN16InAR9QjqfIP1nx//JxPrkdCXT4UNdVva8/7pNNPWkIO+idtRn34d3PV+jOCytFR/TleEbVb/zJJ/QOxRTy3Z+ArPIjWEyDu0eYrGnaCvzdTbZtfJnH5ChxM958QcjR8VHJ75mJVpcFN9vSIX9ayfxeG9rrtKCQXkmZr8FJjyS3/PBmtZIH46qnIUCxKUifI3Dfl8/IEDY0oglhrpoovmj7vl21oZo/0LO2Wp6khWR5CciPa9VQrA4p4h1BA0DaCC5gyC4Gh9depPccmiVr2pHeVQgwyCSkdVK2x82WN6/WCIyqJ9pds8/f3Csxf2beZOyoZvVGs48LDHkDA0JAba/Q==" class="hint"></div>
+
+</div>
+<div class="text segment" id="d5o2co">
+<h2 class="e_rzva85">Herzlichen Glückwünsch!&nbsp;</h2>
+<p>Sie haben das Tutorial erfolgreich erledigt und somit ein Spiel entwickelt!</p>
+</div>
+
+</body> 
+</html>
