@@ -160,66 +160,48 @@
   </script> 
 </head> 
 <body>
-<div class="text segment" id="klrnw5">
-<h1 class="e_ab5fef">GUI</h1>
-<p>Die Darstellung des Spiels wird durch die Klasse GUI ermöglicht. Für ein visuell ansprechendes Spiel ist es ratsam sich in vorhinein Gedanken zu einer Farbpallete zu machen. Die ausgewählten Hex-Codes können Sie, dann als Konstanten speichern.</p>
+<div class="text segment" id="r2d98m">
+<h1 class="e_e65d4p">1 GUI</h1>
+<p>Die Darstellung des Spiels wird durch die Klasse GUI ermöglicht. Für ein visuell ansprechendes Spiel ist es ratsam sich im Vorhinein Gedanken zu einer Farbpallete zu machen. Die ausgewählten Hex-Codes können Sie, dann als Konstanten speichern.</p>
+<p><span class="task-link s_2nv1ze def">Erstellen Sie</span> die Klasse GUI und packen Sie diese im <code>package</code> <code>unotempel.&nbsp;</code></p>
+<h2 class="e_3c1qpj">1.1 Konstanten für die Darstellung des Spiels&nbsp;</h2>
+<p><span class="task-link s_ngfjpr def">Definieren Sie</span> folgende Konstanten für die Darstellung des Spiels:</p>
+<ul>
+<li>die Farbe des Spielfelds&nbsp;</li>
+<li>die Größe des Spielfelds&nbsp;</li>
+<li>die Farben für die Darstellung der Karten&nbsp;</li>
+<li>ein Rechteck für die Darstellung der Lebenspunkte&nbsp;</li>
+</ul>
+<p>In dem unten stehenden Code-Block finden Sie die Werte, die wir für die Darstelung des Spiels benutzt haben. Sie können diese so übernehmen oder nach persönlichen Vorlieben anpassen.&nbsp;</p>
 </div>
-<div class="hint segment" id="177tty" data-title="Hints">
-<div class="header"><div class="wrap"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg></span><span>Hints</span></div></div>
-<div data-uuid="9l5m8j" data-hint="U2FsdGVkX18in98+/uyQvZ5z0qQQ6iPSghCFqXzS1OnPnfb5XsVbCgvE9Iai7hWcbYP0mDT1A2W9u8EVRrVvn1tlTWF0XPOpQyRrX1HPogs9GLy7OZe0zejtrOm9TfkG/BMW6OLWzcA2cBitSfTKgbj/pqv90MAk5EE46CrCiira8IrK7oAilIYwQsYlfPOg2UCihB69/MzDQ6gXbztx553n1juXkaKLEHaKA1nGhosLYOtx5XVWa+P5/j7d1eG1MKwaBKrodTg+KvuPT+UqTca+0H40gMIbb5wRrbBgB1rmte2KegpsDRSMBoqqCmFgFuN064a13ebNhSWr2HlT7CgHoI+fFMGoA7NiBPxgv6haD7dBzVWgwHt0b9NYZZ/0jx7Ni4hTh2qgHU4Raye7xpQQPcCdG2gxBf3LgNhUus+bIUKErFyYl15IOlDmF/644p9R6HRVn29c8hZUIUqa5ZL2lRilHpMNKyUdkvPSN2sqQ5Y73boBv9drrZJgN76Xsi1+MNxxm3cmUv9/iV/Sq+EESdYw6HNrq3blX+JM+GdJ6xnR+zn1i5hL/vAOv6jRQ5O6G7OTYGsSi/TKSWra3BqdMZQNfl13iE/vR6sxbkqSn0Bx8ObAk0h3WoKrcQgc7z4vtgNuuQ/2otW850XiGAgapcKahc0rDhazzP3JbrBYu7NFno1HniTTikk7ML5zX32mww1QPYkqzQ2R/Xw0Trk33qvYywb8y5MadYDPGAf79MdN7pjyXVjjcZruWpcRIysoH3Bhh/guagAQz/tKkLNukcWZmQORazcX2ZckzublDo6Q1Rhb7g7a3gRMv0KO/ovkPBWVt2pvYs+8Nbl2lGPZ0+43waFZosUoxJYj96eZ8L4rdJxdtgRAjQ58Qs8RYo4p1fGYyBEOaryqoZTruoIegEtCTYEPe6wgsh8725eCxlqayLjd7b32toLEAgROP+5/lkAxv/i/nVMSi3laIP5BX8vPENkHeRkt45qJj/kQ047/ukwFUwdccFXxxuEL" class="hint"></div>
+<div class="code segment" id="ijwe6n" data-class="" data-class-name="Tut_GUI" data-segment-id="1" data-solution-id="e_6ur2st">
+&nbsp;&nbsp;&nbsp;&nbsp;// Farbe des Spielfelds<br>&nbsp;&nbsp;&nbsp;&nbsp;public final static String farbeSpielfeld = "#9CAF88";<br>&nbsp;&nbsp;&nbsp;&nbsp;// Maße des Spielfelds<br>&nbsp;&nbsp;&nbsp;&nbsp;public final static int breite = 850;<br>&nbsp;&nbsp;&nbsp;&nbsp;public final static int hoehe = 470;<br>&nbsp;&nbsp;&nbsp;&nbsp;// Farben für die Darstellung der Karten<br>&nbsp;&nbsp;&nbsp;&nbsp;public final static String farbeGruen = "#465726";<br>&nbsp;&nbsp;&nbsp;&nbsp;public final static String farbeRot = "#F57461";<br>&nbsp;&nbsp;&nbsp;&nbsp;public final static String farbeBlau = "#64A5BB";<br>&nbsp;&nbsp;&nbsp;&nbsp;public final static String farbeSchwarz = "#232B2B";<br>&nbsp;&nbsp;&nbsp;&nbsp;public final static String farbeGelb = "#FDD782";<br>&nbsp;&nbsp;&nbsp;&nbsp;public final static String farbeWeiss = "#F7F9EF";<br>&nbsp;&nbsp;&nbsp;&nbsp;public final static String farbeGrau = "#3B444B";<br>&nbsp;&nbsp;&nbsp;&nbsp;// Rechteck für die Darstellung der Lebenspunkte vom Held<br>&nbsp;&nbsp;&nbsp;&nbsp;public static Rechteck lebenspunkteHeld;<br>
+</div>
+<div class="text segment" id="9vkuud">
+<h2 class="e_eottrq">1.2 Spielbrett darstellen</h2>
+<p><span class="task-link s_mo95s8 def">Schreiben Sie</span> eine Prozedur, die einen leeren Spielbrett mit den Lebenspunkten des Spielers darstellt.&nbsp;</p>
+<p>Gehen Sie dabei so vor:&nbsp;</p>
+<ul>
+<li>initailisieren Sie die Grafikkonsole&nbsp;</li>
+<li>erstellen sie einen Rechteck, der den leeren Spielbrett darstellen soll</li>
+</ul>
+</div>
+<div class="hint segment" id="jqhexy" data-title="Hinweis ">
+<div class="header"><div class="wrap"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg></span><span>Hinweis </span></div></div>
+<div data-uuid="5v1a67" data-hint="U2FsdGVkX19TQ0PFWADf09NNHqInVEcc+L9KO6m20P0/C5wUNU0PxxLWErMTUVZGBIgLt9AwENdZol4x6hCnOsbbuOrtlbRcrHGjY0LQcNW5iB+vEuZ1o9dPI3b1p/hD9aNAKnwCRULB5gHirffZMVOCVos+HxgoJREmnoAQ2m+V0mRKOmeI4FQjzfiFfsKiAWfWcnGAeZC9UbFgmpc2zvEFVZ3wuSPgOqxzGd532fjRqbdaAC5B7PT6ckl/rmHsUmhoaJFyoPGKZgQnvhcMlYJtbqAsNUIiEWAqvVvIhedYA1dwu8jl5YLSkjLr/xpgSa3jrqEsWBmj8yUz4r+VO3J2UxCJmjIIrxUh5gF0Amh5z7HNGP7zUu9vObegCgfGbzU+NihITIxGAgZxlSq3kkKJegdNAATQ0YV/45KQBnynWOGhOgqcCxbxjnI07AaJTGrJatz/8+qWZd0C3rac5fhM2xCDP8Whi+oNPQx5Ik8SNWQlpQW/X76SZZ9vgaQGKbJRbOWvN533m9nGeR9WNwY1920upMGQEOnY0I0ovJ2cfBAXJQfWhsqzwI/Riv9MgVew8oVQiMuMgADF402qBvZT6D2MaAndAjDr5802xc1GdaO459Wp7hoPh1kn6OEcgFXzCGZokBoLJ7v2Gy1eKRRESqil9PBJQQyySu4PbBt3nCqA0d7kg7cVrhFoGHTj" class="hint"></div>
 
 </div>
-<div class="text segment" id="u42kl5">
-<h3 class="e_bpq2to">Darstellung von einem leeren Canvas</h3>
-<p>Mittels dieser Methode wird eine leere weiße Fläche erstellt, die der Größe des späteren Spiels entspricht.</p>
-<p>&nbsp;</p>
+<div class="text segment" id="b4aa06">
+<ul>
+<li>stellen Sie die Lebenspunkte des Spielers dar&nbsp;</li>
+</ul>
+<p>Wir stellen Ihnen eine private Prozedur zur Verfügung, die die Lebenspunkte des Spielers darstellt. Sie müssen diese nur einfügen und an der richtigen Stelle aufrufen.&nbsp;</p>
 </div>
-<div class="hint segment" id="vrq27s" data-title="Hints">
-<div class="header"><div class="wrap"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg></span><span>Hints</span></div></div>
-<div data-uuid="yh15nq" data-hint="U2FsdGVkX1/hBEPpFsCxSHjrqPx94Kw+M1pMj7G9i9f1/bZrWG/8bOlzc5wlfrvuGQsndvoqCwANP66F+QVTmVD98Naa6w1qWKlqoGTRlopYRWvDEv2uU1DBFrOPMOjFKwU05K3LCCpMnG+Tf93JfkO4pgJ/K4RzhqCF80d5xUR3sX849xU4W+bB2Tb+7UCX9f5rMRAr9Th22DgKMjjFtdpd9PA8DqtZ+Po1mHI2HkSVTmvw/PuF7Z4quiTmgkgT9+ZlvwUptpiiCL6SDjypmKGEXR1vbPXHIBQTLoHoBkSr0m49B2AjF1YhSbztkESGydRLA6v81b8vi/kGoVw82CS7Oy22gtLzdFOfzHBgdNt7hJQvH/u8GfsesWLcljZOgRV6cCnfKLSg//S0igEuidjBy/xZf3cwx46XC07kgzL6I2lqitP+goocgHo6eBQV8sDOjkRnwAzCd1h04lsHFJ2Zfep1nv0GtNW67GMSTiLF45G92y669XpB6dE+cy/VOhtL8JIcLqhBGo5yMeH5mUzR6IyOA88WYnIJTvhAZEXJQxmWP1sdXK9f3xnil4tWDenDluQWN2gBHylnVuKH1tqHx/W633aBiggr7qFCvnXOq08Gjv9vJpJ5r5Fhu6L9IvVDBA+6RjHdMU+Opvou08nUQBb5KuKI+gI966F1hnc=" class="hint"></div>
-
+<div class="code segment" id="da0bhe" data-class="" data-class-name="Tut_GUI" data-segment-id="2" data-solution-id="e_lihlj3">
+&nbsp;&nbsp;/** <br>&nbsp;&nbsp;&nbsp;&nbsp;* Private Prozedur stellt Lebenspunkte vom Spieler dar<br>&nbsp;&nbsp;&nbsp;&nbsp;* @param spieler - Spieler Held<br>&nbsp;&nbsp;&nbsp;&nbsp;*/<br>&nbsp;&nbsp;&nbsp;&nbsp;private void stelleLebenspunkteDar(Spieler spieler) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Variable für die Lebenspunkte des Spielers<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int aktuellePunkte = spieler.getLebenspunkte();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Lebenspunkte für die grafische Darstellung berechnen<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int punkte = (int)(aktuellePunkte * 848 / 150);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Lebenspunkte zeigen<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text lebensanzeige = new Text(0, 475, "Lebenspunkte", Grafik.BLACK, 15, "");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rechteck platzLebenspunkte = new Rechteck(0, 500, 850, 20, "#006400", Grafik.BLACK, 1, "");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lebenspunkteHeld = new Rechteck(1, 501, punkte, 18, Grafik.GREEN, Grafik.BLACK, 0, "");<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
 </div>
-<div class="text segment" id="9ixk6e">
+<div class="text segment" id="hzxxgn">
 <p>&nbsp;</p>
-<h3 class="e_7eimen">Wahl des Moduls</h3>
-<p>Hier geben Sie dem Spieler die Möglichkeit zwischen OOP1 und OOP2 zu wählen. Dies hat Einfluss auf die Fragen die der Spieler später beantworten muss.&nbsp;</p>
-<p>&nbsp;</p>
-</div>
-<div class="hint segment" id="jidod4" data-title="Hints">
-<div class="header"><div class="wrap"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg></span><span>Hints</span></div></div>
-<div data-uuid="q3o2mu" data-hint="U2FsdGVkX19xxf+QOsHuvJ7B2x1Y9uza37JPH3iG0kXp+xp7pMj/hLh5Fg+2X77ypTjt58jb8Wu5j7tf02pkaYj+DGpqylaFOpDuim64AF3YfMryn1oU9CddBIleJzRUwxNq7pFWkmSuTA7eePbcN4d9tox9oEuP0wuVeIRt09u8Du1wMxppnVK/BvJtH7sgwtpXWNuJ413551/RJ40EfIXS7fCNyy6PIEApyuaSES/y1Cf7AUS1Z2Q2Cum6nB9eceQN3veeWD+ceM69ZMsmK/P/7FbvInT7sZV+BxyZI/NhJA8PDrg0wXUzyy0zmuNFf5qsh9cS8m7e9/YTAL4hH8Xp3Mq+QFbHhMYS2VbDgymvyA5YNxzA53BX6NtJdFqkn3PDknqXX9M1SJtVqI/UYwOHAGQv1q354AIKVo2wNeclFdad8LCA6RMqun4ASH8qOa4kwf0FiWRAN3eNkMxs3Qd1e7P4k3nkK47euh6pfMqn+WnCKP+4iQ+/2Q99YkFm0AjYLvOSwGf5aX4WLxGuFZ8Jp5HcyUp6Q7YiMkHv4st7OECHFehBh8QTUvPKB2knVZ0p4wEiQjpBvNpNSh5ARH0kwaMYzDubbxyB352e0EQ8F7acrz86YqIXmkCRvTJ5mdCg/1OTvD8qgpXkqvOPN7zqB0FbkXTAcdkzXFIGX342z/hLKKDSgrJm4Mh7yz+RtlvSVsyjE702afXKsZTQOMNe5IGTUnsyYOjdyqnmrkNI/Kj7WCSH9MdiUqwmoi7Pn/bdBSKR1RRASMQx+LqA+R48SRjuodPRJs7QCx8bnbU=" class="hint"></div>
-
-</div>
-<div class="text segment" id="czmweg">
-<p>&nbsp;</p>
-<h3 class="e_f6v014">Wahl der Tempel</h3>
-<p>Erstellen Sie eine Funktion zur Darstellung der Tempelsymbol. Durch einen Klick auf das passende Symbol wird der Spieler zu einer Begrüßungsnachricht weitergeleitet.&nbsp;<br>Wenn Sie möchten können sie, mit der waitFor() Methode, Animationen simulieren.</p>
-<p>&nbsp;</p>
-<h3 class="e_k50xa5">Darstellung der Begrüßungsnachricht</h3>
-<p>Die Begrüßungsnachricht gibt eine kurze Einführung für die folgende Quizfrage.&nbsp;</p>
-</div>
-<div class="hint segment" id="v9ct9r" data-title="Hints">
-<div class="header"><div class="wrap"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg></span><span>Hints</span></div></div>
-<div data-uuid="d0woca" data-hint="U2FsdGVkX1/RG9YI7M0Wq8JlRhc3p9JVEV0eixFSPn3NJv/lzmUy1rMSzehAxoIyz1P2KKo3DfPcTJPJJ6qVfB3j7bWsZAIaw5xvLGsT/FCMdxmF0XoOV0W2xhT092EESU3EkkhT+MwQT69ia/u1JF39sI9arXkHe02QDKvPfHI10DOH4WMUci4dISLHFXxzS817T280ZJSy7ztLNXBRsNf2cIVE3obOF9Q78N8ex8bzXPp3fY5nwHtEtONTJ/1Ygx9onyBEwo+mqQhwMKtlh4Jqf5C0b5RXJE2Fd2rwFdLjXFx6fyPlzZUfnRjOQVv1eISv6+9bAiuVUG/cBuPr50G8HAGPcVzPLHWhrxeEEAohOuyaoIXDF9dVuHSLB2i0VcEWVJ4qmaNNLV/EOdQhk61FHBt95rlzMEd9wIosbQA4j8Qn9YwtfsT1TQ47QG0VO2Qd3JbZEJgFj4O5Qu6I1XZ0ZCdAC5Dre9DbDCXoygak07tXrbud997Y29QpVXZXUiFaDSsP4TpQdr1ZwcqDtCrBLoDT1r+lKhPGWMVyuOu0Zwki/m5WcETJYQh2Uc3H8tw8jBp2oWIkWIEaoFnFbwJId+oSHeKGU7doF7GI/oWUFW9bb/N5X1sbJNzCw0oGyfLRpliMb0JZDZyOOgWkT0h1+oC4AWEyuwT2XHk7eAMrIzuPrnUI5yf3/dL/8nDWAIoEyf1PO6oo3KfsvWDKnAZNhMfIZrK1e0X/TbR5euWwhBQAgEMNuBwiHOgc/TA0D6ozC2oQ2EGf0b5cyJJ2gcFv7xoR5XUrIWD1uyVdubR6/UYglMSocu1RKtpQdKpkgR9vKRCD0Qewi3bX57Xu6oOcMNwKu21elTzZb0bcf2oCprF4DJ1L5vXbA8ilAIZIk+ZlpgZhB52HClmOY6zWlA==" class="hint"></div>
-
-</div>
-<div class="text segment" id="imvrr6">
-<h3 class="e_k1goyu">Das Quiz darstellen</h3>
-<p>Nun fehlt noch die Quizfrage darzustellen. Der Methode soll eine Frage und Antwortmöglichkeiten übergeben werden und die ausgewählte Anwort wird zurückgegeben.</p>
-<p>&nbsp;</p>
-<h2 class="e_r58uca">Das Spielfeld</h2>
-<p>Sie schreiben als erstes einige Methoden die Ihnen später bei dem zusammensetzen des Spielfelds helfen werden.</p>
-<h3 class="e_j449ny">Darstellung der Kartenplätze (Optional?)</h3>
-<p>Diese Methode soll einen Hinweis auf den Platz der Kartenposition darstellen, das kann zum Beispiel durch eine kartenförmige Umrandung realisiert werden.&nbsp;</p>
-<h3 class="e_ksg73u">Darstellung des Uno-Buttons</h3>
-<p>Erstellen Sie einen Uno-Button der erstmal noch keine Funktion hat und mit den Angaben von X- und Y- Position aufgerufen wird.<span style="background-color: var(--background); color: var(--text);">&nbsp;</span></p>
-<h3 class="e_ko2e7t">Darstellung der Links-/Rechtsbuttons</h3>
-<p>Wir brauchen ebenfalls eine Methode die zwei Knöpfe der Links- und Rechtsverschiebung der Spielerhand darzustellen. Die Knöpfe sollten eine entsprechende Ausgabe auf die Konsole ausgeben. Die Methode wird wieder durch Angabe der X- und Y-Koordinate aufgerufen.</p>
-<h3 class="e_wqw29x">Darstellung des Kartenstapels</h3>
-<p>Fehlt nur noch die Darstellung von einem Kartenstapel von dem der Spieler Karten ziehen kann. Die Vorgehensweise ähnelt der der Darstellung der Platzhalterkarten. [Kartengröße z.B. (50,100)]</p>
-<h3 class="e_3r8730">Erstellung der Spielfelddarstellung</h3>
-<p>Es ist ratsam für das Spielfeld eine andere Farbe als des Hintergrundes zu wählen und einen kleinen Rand zum Canvas zu lassen.&nbsp;</p>
-<p>Danach rufen Sie in passenden Abständen die Methode für die Platzhalterdarstellung, für der Karten der Händer der Spieler, auf.&nbsp;<br>Für eine bessere Übersicht sollten Sie nicht alle Karten auf der Hand gleichzeitig anzeigen. (z.B. nur 10 von 20 möglichen Karten auf der Hand)</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 </div>
