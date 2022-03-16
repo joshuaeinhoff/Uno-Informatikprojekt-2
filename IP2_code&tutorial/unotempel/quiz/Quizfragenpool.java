@@ -6,34 +6,22 @@ import unotempel.GUI;
 /**Klasse stellt eine Instanz von Quizfragenpool mit seinen jeweiligen Attributen dar im Spiel dar.*/
 public class Quizfragenpool {
 
-    /** 2.1 Daten als IV implementieren  Δe_5pr11j Δ */
+    /** 4.1 Daten als Instanz-Variablen definieren Δe_bonl0u Δ */
     private int niveau;
     private Quizfrage[] quizfragen;
     int anzahlQuizfragen;
  
 
-    /** 2.2 Konstruktor erstellen Δe_pgnbuh Δ 
+    /** 4.2 Konstruktor erstellen Δe_1x28mz Δ 
      * Konstruktor erzeugt eine Instanz von Quizfragenpool 
      * @param niveau - Niveau der Quizfragen (1 für OOP1, 2 für OOP2)
      */
     public Quizfragenpool(int niveau) {
         this.niveau = niveau;
     }
-	
-	
-    /** 2.5 Quizfragenpool füllen  Δe_qmcjp1 Δ 
-     * Methode zum Füllen eines Quizfragenpools von einem bestimmten Tempel
-     * Aufruf der Methoden 'quizfragenAuslesen' und 'quizfragenBearbeiten'
-     * @param tempelFarbe - String mit der Farbe des Tempels
-     */
-    public void quizfragenpoolFuellen(String tempelFarbe) {
-        // String-Array zum Speichern den Rückgabe-Wert der Funktion
-        String[] datensaetze = quizfragenAuslesen(tempelFarbe);
-        // und als Parameter der Prozedur übergeben
-        quizfragenBearbeiten(datensaetze);
-    }
 
-    /** 4.3.1 Quizfragen auslesen Δe_9o37cz Δ
+	
+    /** 4.3 Quizfragen auslesen Δe_ylcic3 Δ 
      * Private Funktion liest, speichert und gibt Datensätze aus einer bestimmten Datei als String-Array zurück
      * @param tempelFarbe - String mit der Farbe des Tempels
      * @return Array von String
@@ -112,7 +100,7 @@ public class Quizfragenpool {
     }
 
 
-    /**
+    /** 4.4 Quizfragen bearbeiten Δe_utnq13 Δ 
      * Private Prozedur zum Bearbeiten und Speichern der gelesenen Datensätze als Quizfragen
      * @param datensaetze - String Array mit gelesenen Daten
      */
@@ -172,9 +160,22 @@ public class Quizfragenpool {
         }
         
     }
+    
+    
+    /** 4.5 Quizfragenpool füllen  Δe_qmcjp1 Δ 
+     * Methode zum Füllen eines Quizfragenpools von einem bestimmten Tempel
+     * Aufruf der Methoden 'quizfragenAuslesen' und 'quizfragenBearbeiten'
+     * @param tempelFarbe - String mit der Farbe des Tempels
+     */
+    public void quizfragenpoolFuellen(String tempelFarbe) {
+        // String-Array zum Speichern den Rückgabe-Wert der Funktion
+        String[] datensaetze = quizfragenAuslesen(tempelFarbe);
+        // und als Parameter der Prozedur übergeben
+        quizfragenBearbeiten(datensaetze);
+    }
 
 
-    /**
+    /** 4.6 Quizfrage richtig beantwortet Δe_m289wi Δ
      * Funktion zum Beantworten der zu einem gegebenen Index im Fragenpool gespeicherten Frage
      * @param zufallsZahl - gegebener Index
      * @param gui - Graphical User Interface
@@ -189,6 +190,5 @@ public class Quizfragenpool {
         return false; // Antwort ist falsch
     }
 
-	
 	
 } // Ende von Quizfragenpool

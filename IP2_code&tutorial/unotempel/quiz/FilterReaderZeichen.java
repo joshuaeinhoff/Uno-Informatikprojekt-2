@@ -7,7 +7,7 @@ import java.io.*;
  */
 public class FilterReaderZeichen extends FilterReader {
 
-    /**
+    /** 1.1 Konstruktor erstellen Δe_vba2i2 Δ
      * Konstruktor von FilterReader vererbt
      * @param in - Variable vom Typ Reader
      */
@@ -16,7 +16,7 @@ public class FilterReaderZeichen extends FilterReader {
     }
 
     
-    /**
+    /** 1.2 Instanz-Methode Δe_x3co6y Δ
      * Überschriebene Funktion liest einzelne Zeichen aus einer Datei
      * @return c - Zeichen, falls nicht End of Stream
      * @throws IOException - Exception wird geworfen
@@ -40,5 +40,6 @@ public class FilterReaderZeichen extends FilterReader {
             throw ioe;
         }
     }
-    
+
+
 } // Ende von FilterReaderZeichen

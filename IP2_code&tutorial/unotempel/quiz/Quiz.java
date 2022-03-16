@@ -6,12 +6,12 @@ import unotempel.kartenspiel.Spieler;
 /**Klasse stellt ein Quiz im Spiel mit den jeweiligen Attributen dar.*/
 public class Quiz {
 
-  	/** 3.1 Daten als IV implementieren Δe_vu63ql Δ */
+  	/** 5.1 Daten als Instanz-Variablen definieren Δe_gm1kws Δ */
     private Quizfragenpool fragenpoolOOP1;
     private Quizfragenpool fragenpoolOOP2;
 
 	
-    /** 3.2 Konstruktor erstellen  Δe_14pa6r Δ 
+    /** 5.2 Konstruktor erstellen  Δe_7ds5tx Δ
      * Konstruktor erzeugt ein Quiz mit zwei Fragenpools mit Fragen gefüllt
      * @param farbe - Farbe des Tempels
      */
@@ -27,7 +27,7 @@ public class Quiz {
     }
 
 
-    /**
+    /** 5.3 Quiz lösen  Δe_6l1dmp Δ
      * Funktion zum Beantworten der zu einem gegebenen Index im Fragenpool gespeicherten Frage
      * @param held - Spieler
      * @param quizNiveau - Niveau von Quiz
@@ -65,6 +65,6 @@ public class Quiz {
         return antwortIstRichtig;
 
     }
-
+	
 	
 } // Ende von Quiz

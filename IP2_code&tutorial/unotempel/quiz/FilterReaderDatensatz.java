@@ -7,7 +7,7 @@ import java.io.*;
  */
 public class FilterReaderDatensatz extends FilterReader {
 
-    /**
+    /** 2.1 Konstruktor erstellen Δe_lk9d6v Δ
      * Konstruktor von FilterReader vererbt
      * @param in - Variable vom Typ Reader
      */
@@ -16,7 +16,7 @@ public class FilterReaderDatensatz extends FilterReader {
     }
 
     
-    /**
+    /** 2.2 Instanz-Methode Δe_r8wfrd Δ
      * Überschriebene Funktion liest Datensätze aus einer Datei und speichert sie im Puffer
      * @param buf - Buffer
      * @param off - AnfangIndex im Buffer
@@ -64,4 +64,5 @@ public class FilterReaderDatensatz extends FilterReader {
         return -1;
     }
 
+	
 } // Ende von FilterReaderDatensatz
