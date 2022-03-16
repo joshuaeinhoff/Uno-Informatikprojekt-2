@@ -74,10 +74,6 @@ public class PlusZweiKarte extends Karte{
      */
     @Override
     public void setzeKarteAuf(int spalte, int zeile, int x, int y, boolean istAktuelleKarte) {
-        /* // Warte 2 Sekunden darauf
-        this.karteform.waitFor(200);
-        this.zahlOben.waitFor(200);
-        this.zahlUnten.waitFor(200); */
         // Variablen verschieben
         this.karteform.moveTo(x,y);
         this.zahlOben.moveTo(x+5,y-5);

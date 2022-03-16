@@ -84,14 +84,6 @@ public class RetourKarte extends Karte{
      */
     @Override
     public void setzeKarteAuf(int spalte, int zeile, int x, int y, boolean istAktuelleKarte) {
-        /* // Warte 2 Sekunden darauf
-        this.karteform.waitFor(200);
-        this.kreis.waitFor(200);
-        this.linie.waitFor(200);
-        this.liniePfeil1.waitFor(200);
-        this.liniePfeil2.waitFor(200);
-        this.liniePfeil3.waitFor(200);
-        this.liniePfeil4.waitFor(200); */
         // Variablen verschieben
         this.karteform.moveTo(x,y);
         this.kreis.moveTo(x+10,y+35);
