@@ -9,7 +9,6 @@ import unotempel.kartenspiel.*;
 public class Tempel {
 
 	/** 1.1 Daten als IV definieren Δe_tpkd2b Δ */
-    // Eigenschaften einer Instanz von Tempel
     private String farbe; // Farbe des Tempels
     private Quiz quiz; // Quiz
     private Kartenspiel kartenspiel; // Kartenspiel
