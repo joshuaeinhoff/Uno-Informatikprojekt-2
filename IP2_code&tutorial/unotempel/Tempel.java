@@ -8,11 +8,13 @@ import unotempel.kartenspiel.*;
  */
 public class Tempel {
 
+	/** 1.1 Daten als IV definieren Δe_tpkd2b Δ */
     // Eigenschaften einer Instanz von Tempel
     private String farbe; // Farbe des Tempels
     private Quiz quiz; // Quiz
     private Kartenspiel kartenspiel; // Kartenspiel
     private Spieler monster; // Spieler KI
+
 
     /** 1.2 Konstruktor erstellen Δe_4j1v50 Δ 
      * Konstruktor zum Erzeugen einer Instanz der Klasse Tempel, mit einem Quiz und einem Kartenspiel
@@ -26,7 +28,7 @@ public class Tempel {
     }
     
     
-    /** 1.3.1 Methode zum Erzeugen eines Monsters Δe_aoqvv1 Δ 
+    /** 1.3 Methode zum Erzeugen eines Monsters Δe_aoqvv1 Δ 
      * Prozedur erzeugt ein Monster je nach Tempel Niveau bzw. Farbe
      */
     private void monsterErzeugen() {
@@ -52,7 +54,7 @@ public class Tempel {
     }
     
     
-    /** 1.3.2 Methode zur Einführung in den Tempel Δe_suyqe3 Δ
+    /** 1.4 Methode zur Einführung in den Tempel Δe_suyqe3 Δ
      * Prozedur bereitet die Darstellung zur Einführung in den Tempel vor
      * @param gui - Graphical User Interface
      */
@@ -81,7 +83,7 @@ public class Tempel {
     }
 
 
-    /** 1.3.3 Methode zum Lösen des Quizes  Δe_xuszin Δ 
+    /** 1.5 Methode zum Lösen des Quizes  Δe_xuszin Δ 
      * Funktion zum Lösen des Quizes im Tempel
      * @param held - Menschlicher Spieler
      * @param niveau - Niveau von Quiz
@@ -110,7 +112,7 @@ public class Tempel {
     }
 
 
-	/** 1.3.4 Methode heldHatMonsterBesiegt() Δe_ivzxg8 Δ
+	/** 1.6 Methode heldHatMonsterBesiegt() Δe_ivzxg8 Δ
      * Funktion zum Kämpfen des Monsters im Tempel
      * @param held - Menschlicher Spieler als Parameter
      * @param gui - Graphical User Interface
