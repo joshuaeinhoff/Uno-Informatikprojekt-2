@@ -1,8 +1,0 @@
-In einer Liste stehen miteinander verkettete…;a) Nutzlasten;b) Knoten;;b
-Wie viele Elemente müssen durchschnittlich bei der Suche in einer Liste der Länge n getestet werden?;a) n;b) n/2;c) log(n);b
-Welchen Sichtbarkeitsbegriff muss die Klasse Knoten beinhalten?;a) public;b) protected;c) private;c
-Wie kann eine Liste in beide Richtungen iteriert werden?;a) Mit einem ListIterator;b) Mit einem Iterator;;a
-Wird es über die einzelnen Nutzlasten einer Liste iteriert?;a) Nein;b) Ja;;a
-Welcher Aufruf gibt die nächste Nutzlast zurück?;a) hasNext();b) next();c) next.next();b
-Besitzen die Knoten eine Referenz zum Elternelement?;a) Ja;b) Nein;;b
-Wie viele Nachfolger kann ein Knoten in einem Binärbaum maximal besitzen?;a) Kein;b) Eins;c) Zwei;c
