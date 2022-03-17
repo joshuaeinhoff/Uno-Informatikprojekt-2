@@ -10,8 +10,7 @@ import unotempel.GUI;
 	/** 1.2 Daten als IV implementieren  Δe_tibk8b Δ */
     
     // Hand des Spielers mit Karten die max. 20 Karten beinhalten darf
-    protected Karte[] hand; //ArrayList<Karte> hand; //OOP2
-
+    protected Karte[] hand;
     //Jeder Spieler hat Lebensenergie die durch Kämpfe reduziert werden kann
     protected int lebensenergie;
     
@@ -24,7 +23,7 @@ import unotempel.GUI;
         this.lebensenergie = lebensenergie;
         // Hand hat immer die Länge 20, unabhängig von der Anzahl von aktuellen Karten
         this.hand = new Karte[20]; 
-        // this.hand = new ArrayList<>(); // Für OOP2
+       
     }
 
 
