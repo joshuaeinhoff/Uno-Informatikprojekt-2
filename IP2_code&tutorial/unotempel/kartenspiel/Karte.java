@@ -39,17 +39,6 @@ public abstract class Karte {
     }
 
 
-    /**
-     * Prozedur zum Setzen einer neuen Farbe für die Karte
-     * Nur für WunschKarte und PlusVierWunschKarte -> Überlegen ob hier oder in den Subklassen
-     * @param neueFarbe
-     */
-   	/*public void setzeFarbe(String neueFarbe) {
-   		this.farbe = neueFarbe;
-        System.out.println("Die neue Farbe der Karte ist " + this.farbe + ".");
-    } */
-
-
     /*** Abstrakte Prozeduren und Funktionen ***/
 
     /**
