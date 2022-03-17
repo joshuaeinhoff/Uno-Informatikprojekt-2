@@ -142,8 +142,6 @@ public class Kartenspiel {
         spieler[(naechsterSpieler+1)%2].ersteHand(kartenStapel,spielfeld,gui);
         // Erste Karte auf das Spielfeld legen und ggf. Aktion durchführen
         setzeAktuelleKarte(kartenStapel.karteZiehen(aktuelleKarte),gui);
-        // Spielfeld erstellen und füllen
-        spielfeld.ersteFuelleSpielfeld(spieler[0].hand, aktuelleKarte,gui);
     }
 
 

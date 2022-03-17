@@ -113,29 +113,6 @@ public class Spielfeld {
         // Spielfeld erstmal leer darstellen
         gui.stelleSpielfeldBereit(breite,hoehe);
     }
-
-
-    /**
-     * Prozedur zum Füllen des Spielfelds mit Karten
-     * @param kartenMenschlichSpieler - Karten von Spieler Held
-     * @param aktuelleKarte - zufällige Karte die am Anfang vom Spiel generiert wird
-     * @param gui - Graphical User Interface
-     */
-    public void ersteFuelleSpielfeld(Karte[] kartenMenschlichSpieler, Karte aktuelleKarte,GUI gui) {
-       /*
-       // Karten vom KI Spieler auf das Spielfeld setzen
-        for(int i = 0; i < 7; i++) {
-            // Karte im entsprechenden Index speichern
-            setzeKartePosition(new DummyKarte(),0,i,gui);
-        }
-        // Zufällige Karte die übergeben wird
-        setzeKartePosition(aktuelleKarte,1,3,gui);
-        // Karten vom menschlichen Spieler auf das Spielfeld setzen
-        for(int i = 0; i < 7; i++) {
-            setzeKartePosition(kartenMenschlichSpieler[i],3,i,gui);
-        }
-	*/
-    }
     
     
     /**
@@ -162,48 +139,6 @@ public class Spielfeld {
         spielfeld[zeile][spalte].versteckeKarte();
     	spielfeld[zeile][spalte] = null;
     }
-    
-    
-
-/*
-    public void aktuallisiereSpielfeld(Spieler kartenMenschlicherSpieler, Spieler kartenSpielerKI, Karte aktuelleKarte){
-    
-    GUI.darstellungSpielfeldTest(groesseX,groesseY);
-    
-    int gegnerKartenKoordinateX = 15;
-    int gegnerKartenKoordinateY = 15;
-    int kartenBreite = 60;
-    
-    int heldKartenKoordinateX = 15;
-    int heldKartenKoordinateY = 345;
-    	
-        for(int x = 0; x < 10; x++){ // spielfeld[0].length ?
-        	if(x < kartenSpielerKI.anzahlKarteHand()){
-            	spielfeld[0][x] = new DummyKarte();
-                GUI.karteDarstellen(spielfeld[0][x],gegnerKartenKoordinateY,gegnerKartenKoordinateX+x*kartenBreite);
-                System.out.println("Debug: Render Karte: "+x);
-            }else{
-            	System.out.println("Debug: Render Karte: "+x);
-            	GUI.karteDarstellen(spielfeld[0][x],gegnerKartenKoordinateY,gegnerKartenKoordinateX+x*kartenBreite);
-            }
-        }//end of for loop
-        
-        spielfeld[2][2] = aktuelleKarte;
-        GUI.karteDarstellen(aktuelleKarte, groesseY/2 - 50, groesseX/2 - 50);
-        
-        
-        for(int i = 0; i < 10; i++){
-        	if(i < kartenMenschlicherSpieler.anzahlKarteHand()){
-            	spielfeld[4][i] = kartenMenschlicherSpieler.getKarte(i);
-                System.out.println(spielfeld[4][i].toString());
-				GUI.karteDarstellen(spielfeld[4][i],heldKartenKoordinateY,heldKartenKoordinateX+i*kartenBreite);
-            }else{
-				GUI.karteDarstellen(spielfeld[4][i],heldKartenKoordinateY,heldKartenKoordinateX+i*kartenBreite);
-                System.out.println("Debug: Render Karte: "+i);
-            }
-        }
-    }//end of aktuali
- */   
     
 
     /**
