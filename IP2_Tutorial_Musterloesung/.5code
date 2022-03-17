@@ -1,0 +1,440 @@
+{
+	"name": "::dir",
+	"id": "249zr7",
+	"user": "f6592be009aeffa6cfff48a4794872c2",
+	"programmingLanguage": "JAVA",
+	"mainClass": "Spiel",
+	"libraries": [],
+	"javadocVisibilityType": 2,
+	"useComfortJavadoc": true,
+	"features": [
+		{
+			"feature": "gamification.feature.Hints",
+			"value": []
+		},
+		{
+			"feature": "gamification.feature.FiveCoins",
+			"value": [
+				"U2FsdGVkX197cZEZy78qKrSvnWpokaca6kfJBYTOq2zSNxAQLhleBABKmaD3hAdI",
+				"U2FsdGVkX1+4ueWH2tejY43RSqJNsGuGbP6lhMqbnKpeFW+DBAV+GTZ5i9YCXmNU",
+				"U2FsdGVkX1+HVhjIJWhmjCJvQmdH4z2m4JCprmz3ZYCoQwYaEqsB5bbAizT923Tn",
+				"U2FsdGVkX18WybmVq2xyn9Z2IoTuwTwZ6DZRr7J4GQREhy+cOPHGtWRRzgQKS9NM",
+				"U2FsdGVkX18f3gENIjqi64QlK4ZY0HLspLW05XQ7l0pJ0+VFCmo7PYhLSrxt4J0K",
+				"U2FsdGVkX18Fe6RWbhAyQI58YJ0rqafzULNxsbp6+GiloHpQxyQLjOSea3d8m8g4",
+				"U2FsdGVkX1+iDknmXRbkZJH8ELt8yG3+aPQ7ec01C2YRI8komjDB2IEsgGwIZF+j",
+				"U2FsdGVkX18LcpG783f/Dpt4vzqtjwC4wkv4SwGMxoS59w7/YjBDO0Ugm4l8InZH",
+				"U2FsdGVkX1+VKO5pCPll53YkAxQz8YkrI73BjR5V3+F3nJ9dNNbXAu7kA0rJ2rSy",
+				"U2FsdGVkX1/Cr2z0Emnu69DsERnh338IrztY0JLIqAKU/oX3kvkMRR287rGiQSQa"
+			]
+		}
+	],
+	"layout": [
+		{
+			"content": [
+				{
+					"type": "document",
+					"path": "IP2_code&tutorial\\2_Tut_Spieler_OOP1.flow.html",
+					"active": true,
+					"cursor": {
+						"segment": "946hnn",
+						"cursor": {
+							"startOffset": 26,
+							"endOffset": 26,
+							"nodeData": "3.2.6 Neue Farbe auswählen",
+							"nodeHTML": "3.2.6 Neue Farbe auswählen",
+							"nodeTagName": "H3"
+						}
+					}
+				}
+			],
+			"type": 1,
+			"active": false
+		},
+		{
+			"content": [
+				{
+					"type": "document",
+					"path": "IP2_code&tutorial\\unotempel\\Spiel.java",
+					"active": true,
+					"cursor": {
+						"line": 53,
+						"ch": 39
+					}
+				},
+				{
+					"type": "document",
+					"path": "IP2_code&tutorial\\unotempel\\Tempel.java"
+				}
+			],
+			"type": 1,
+			"active": true
+		},
+		{
+			"type": 2
+		}
+	],
+	"workspace": {
+		"split2_left": {
+			"visibility": [
+				true,
+				true
+			],
+			"dimension": [
+				11.425087033158846,
+				88.57491296684115
+			]
+		},
+		"split2_bottom": {
+			"visibility": [
+				true,
+				true
+			],
+			"dimension": [
+				80.41440554756723,
+				19.585594452432776
+			]
+		},
+		"split2_right": {
+			"visibility": [
+				false,
+				true
+			],
+			"dimension": [
+				"*",
+				250
+			]
+		},
+		"split3_explorer": {
+			"visibility": [
+				true,
+				true,
+				true
+			],
+			"dimension": [
+				63.00171788841452,
+				25.959387737782052,
+				11.03889437380344
+			]
+		},
+		"split_columns": {
+			"dimension": [
+				46.51116734392788,
+				53.48883265607212
+			]
+		}
+	},
+	"classMap": [
+		{
+			"name": "Spiel",
+			"path": "::dir\\unotempel\\Spiel.java",
+			"id": "os2cj8",
+			"isGenerated": false
+		},
+		{
+			"name": "Held",
+			"path": "::dir\\unotempel\\kartenspiel\\Held.java",
+			"id": "718vxl",
+			"isGenerated": false
+		},
+		{
+			"name": "GUI",
+			"path": "::dir\\unotempel\\GUI.java",
+			"id": "lg4wd4",
+			"isGenerated": false
+		},
+		{
+			"name": "AussetzenKarte",
+			"path": "::dir\\unotempel\\kartenspiel\\AussetzenKarte.java",
+			"id": "oi6q1c",
+			"isGenerated": false
+		},
+		{
+			"name": "DummyKarte",
+			"path": "::dir\\unotempel\\kartenspiel\\DummyKarte.java",
+			"id": "0hh46i",
+			"isGenerated": false
+		},
+		{
+			"name": "FarbKarte",
+			"path": "::dir\\unotempel\\kartenspiel\\FarbKarte.java",
+			"id": "tvt4yd",
+			"isGenerated": false
+		},
+		{
+			"name": "Karte",
+			"path": "::dir\\unotempel\\kartenspiel\\Karte.java",
+			"id": "559vgj",
+			"isGenerated": false
+		},
+		{
+			"name": "Kartenspiel",
+			"path": "::dir\\unotempel\\kartenspiel\\Kartenspiel.java",
+			"id": "ztd96h",
+			"isGenerated": false
+		},
+		{
+			"name": "KartenStapel",
+			"path": "::dir\\unotempel\\kartenspiel\\KartenStapel.java",
+			"id": "ze7hyy",
+			"isGenerated": false
+		},
+		{
+			"name": "KISchlau",
+			"path": "::dir\\unotempel\\kartenspiel\\KISchlau.java",
+			"id": "y3i55h",
+			"isGenerated": false
+		},
+		{
+			"name": "KIZufall",
+			"path": "::dir\\unotempel\\kartenspiel\\KIZufall.java",
+			"id": "7afjko",
+			"isGenerated": false
+		},
+		{
+			"name": "PlusVierWunschKarte",
+			"path": "::dir\\unotempel\\kartenspiel\\PlusVierWunschKarte.java",
+			"id": "yxx45d",
+			"isGenerated": false
+		},
+		{
+			"name": "PlusZweiKarte",
+			"path": "::dir\\unotempel\\kartenspiel\\PlusZweiKarte.java",
+			"id": "9162zw",
+			"isGenerated": false
+		},
+		{
+			"name": "RetourKarte",
+			"path": "::dir\\unotempel\\kartenspiel\\RetourKarte.java",
+			"id": "vyp9tz",
+			"isGenerated": false
+		},
+		{
+			"name": "Spieler",
+			"path": "::dir\\unotempel\\kartenspiel\\Spieler.java",
+			"id": "yw973b",
+			"isGenerated": false
+		},
+		{
+			"name": "Spielfeld",
+			"path": "::dir\\unotempel\\kartenspiel\\Spielfeld.java",
+			"id": "5179uk",
+			"isGenerated": false
+		},
+		{
+			"name": "WunschKarte",
+			"path": "::dir\\unotempel\\kartenspiel\\WunschKarte.java",
+			"id": "lcxhwl",
+			"isGenerated": false
+		},
+		{
+			"name": "FilterReaderDatensatz",
+			"path": "::dir\\unotempel\\quiz\\FilterReaderDatensatz.java",
+			"id": "0t7zch",
+			"isGenerated": false
+		},
+		{
+			"name": "FilterReaderZeichen",
+			"path": "::dir\\unotempel\\quiz\\FilterReaderZeichen.java",
+			"id": "hv9s9r",
+			"isGenerated": false
+		},
+		{
+			"name": "Quizfrage",
+			"path": "::dir\\unotempel\\quiz\\Quizfrage.java",
+			"id": "7h87kl",
+			"isGenerated": false
+		},
+		{
+			"name": "Quizfragenpool",
+			"path": "::dir\\unotempel\\quiz\\Quizfragenpool.java",
+			"id": "1rygk7",
+			"isGenerated": false
+		},
+		{
+			"name": "Tempel",
+			"path": "::dir\\unotempel\\Tempel.java",
+			"id": "iggy1o",
+			"isGenerated": false
+		},
+		{
+			"name": "Button",
+			"path": "::dir\\unotempel\\grafikkonsole\\Button.java",
+			"id": "jcf44x",
+			"isGenerated": false
+		},
+		{
+			"name": "Grafik",
+			"path": "::dir\\unotempel\\grafikkonsole\\Grafik.java",
+			"id": "4wwwbn",
+			"isGenerated": false
+		},
+		{
+			"name": "GrafikKonsole",
+			"path": "::dir\\unotempel\\grafikkonsole\\GrafikKonsole.java",
+			"id": "du6adh",
+			"isGenerated": false
+		},
+		{
+			"name": "Kreis",
+			"path": "::dir\\unotempel\\grafikkonsole\\Kreis.java",
+			"id": "1t24kk",
+			"isGenerated": false
+		},
+		{
+			"name": "Linie",
+			"path": "::dir\\unotempel\\grafikkonsole\\Linie.java",
+			"id": "tez7dm",
+			"isGenerated": false
+		},
+		{
+			"name": "Rechteck",
+			"path": "::dir\\unotempel\\grafikkonsole\\Rechteck.java",
+			"id": "it4m3z",
+			"isGenerated": false
+		},
+		{
+			"name": "Text",
+			"path": "::dir\\unotempel\\grafikkonsole\\Text.java",
+			"id": "705soy",
+			"isGenerated": false
+		},
+		{
+			"name": "Konsole",
+			"path": "::dir\\unotempel\\konsole\\Konsole.java",
+			"id": "qzw2mm",
+			"isGenerated": false
+		},
+		{
+			"name": "Quiz",
+			"path": "::dir\\unotempel\\quiz\\Quiz.java",
+			"id": "uzba9l",
+			"isGenerated": false
+		},
+		{
+			"name": "1_Tut_UNO_OOP1",
+			"path": "::dir\\_generated\\exec\\_1_Tut_UNO_OOP1.java",
+			"id": "z4ngsz",
+			"isGenerated": true
+		},
+		{
+			"name": "1_Tut_UNO_OOP2",
+			"path": "::dir\\_generated\\exec\\_1_Tut_UNO_OOP2.java",
+			"id": "jt2mgk",
+			"isGenerated": true
+		},
+		{
+			"name": "2_Tut_Spieler_OOP1",
+			"path": "::dir\\_generated\\exec\\_2_Tut_Spieler_OOP1.java",
+			"id": "d0ta0q",
+			"isGenerated": true
+		},
+		{
+			"name": "2_Tut_Spieler_OOP2",
+			"path": "::dir\\_generated\\exec\\_2_Tut_Spieler_OOP2.java",
+			"id": "mzg9am",
+			"isGenerated": true
+		},
+		{
+			"name": "3_Tut_GUI",
+			"path": "::dir\\_generated\\exec\\_3_Tut_GUI.java",
+			"id": "d4y22u",
+			"isGenerated": true
+		},
+		{
+			"name": "4_Tut_Quiz_OOP1",
+			"path": "::dir\\_generated\\exec\\_4_Tut_Quiz_OOP1.java",
+			"id": "a1kued",
+			"isGenerated": true
+		},
+		{
+			"name": "4_Tut_Quiz_OOP2",
+			"path": "::dir\\_generated\\exec\\_4_Tut_Quiz_OOP2.java",
+			"id": "6etrgi",
+			"isGenerated": true
+		},
+		{
+			"name": "5_Tut_Tempel_OOP1",
+			"path": "::dir\\_generated\\exec\\_5_Tut_Tempel_OOP1.java",
+			"id": "vipb0y",
+			"isGenerated": true
+		},
+		{
+			"name": "5_Tut_Tempel_OOP2",
+			"path": "::dir\\_generated\\exec\\_5_Tut_Tempel_OOP2.java",
+			"id": "1q07k2",
+			"isGenerated": true
+		},
+		{
+			"name": "6_Tut_Spiel_OOP1",
+			"path": "::dir\\_generated\\exec\\_6_Tut_Spiel_OOP1.java",
+			"id": "m60zfn",
+			"isGenerated": true
+		},
+		{
+			"name": "6_Tut_Spiel_OOP2",
+			"path": "::dir\\_generated\\exec\\_6_Tut_Spiel_OOP2.java",
+			"id": "l9nxlc",
+			"isGenerated": true
+		}
+	],
+	"flowMap": [
+		{
+			"name": "1_Tut_UNO_OOP1",
+			"path": "::dir\\1_Tut_UNO_OOP1.flow.html",
+			"id": "hfr0r8"
+		},
+		{
+			"name": "1_Tut_UNO_OOP2",
+			"path": "::dir\\1_Tut_UNO_OOP2.flow.html",
+			"id": "3lsfp1"
+		},
+		{
+			"name": "2_Tut_Spieler_OOP1",
+			"path": "::dir\\2_Tut_Spieler_OOP1.flow.html",
+			"id": "32pv2l"
+		},
+		{
+			"name": "2_Tut_Spieler_OOP2",
+			"path": "::dir\\2_Tut_Spieler_OOP2.flow.html",
+			"id": "zq3z19"
+		},
+		{
+			"name": "3_Tut_GUI",
+			"path": "::dir\\3_Tut_GUI.flow.html",
+			"id": "18nehw"
+		},
+		{
+			"name": "4_Tut_Quiz_OOP1",
+			"path": "::dir\\4_Tut_Quiz_OOP1.flow.html",
+			"id": "2l7vnv"
+		},
+		{
+			"name": "4_Tut_Quiz_OOP2",
+			"path": "::dir\\4_Tut_Quiz_OOP2.flow.html",
+			"id": "h95kgj"
+		},
+		{
+			"name": "5_Tut_Tempel_OOP1",
+			"path": "::dir\\5_Tut_Tempel_OOP1.flow.html",
+			"id": "3p7l2v"
+		},
+		{
+			"name": "5_Tut_Tempel_OOP2",
+			"path": "::dir\\5_Tut_Tempel_OOP2.flow.html",
+			"id": "300geq"
+		},
+		{
+			"name": "6_Tut_Spiel_OOP1",
+			"path": "::dir\\6_Tut_Spiel_OOP1.flow.html",
+			"id": "uzg0qy"
+		},
+		{
+			"name": "6_Tut_Spiel_OOP2",
+			"path": "::dir\\6_Tut_Spiel_OOP2.flow.html",
+			"id": "xxbb7c"
+		}
+	],
+	"activities": "U2FsdGVkX1/NTfi+CKzu+VJRYXGBWVUVNkEalBpYkN4=",
+	"lastSaveDate": "2022-03-17T14:45:28.854Z",
+	"showRulers": false
+}

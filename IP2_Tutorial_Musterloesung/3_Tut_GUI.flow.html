@@ -1,0 +1,232 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="UTF-8" /> 
+	<meta name="headingType" content="1" /> 
+	<meta name="headingStartValue" content="1" /> 
+<title>3_Tut_GUI</title> 
+<style> 
+    body { 
+       font-family: "Segoe UI", Verdana, Geneva, Tahoma, sans-serif; 
+    } 
+    .segment { 
+       font-size: 19px; 
+       line-height: 1.5; 
+    } 
+    .code { 
+       color: #666; 
+       font-family: monospace; 
+       padding: 5px; 
+    } 
+    .task-link { 
+       background-color: hsl(47, 90%, 60%); 
+       border: 2px solid hsl(47, 90%, 40%); 
+       padding: 0 2px; 
+       line-height: 26px; 
+    } 
+    .task-link[data-href] { 
+       cursor: pointer; 
+    } 
+    .task-link::after { 
+       content: "➤"; 
+       margin-left: 3px; 
+       color: hsl(47, 90%, 40%); 
+    } 
+    a { 
+       color: hsl(196, 100%, 47%); 
+    } 
+    .hilitecolor1 { 
+       background-color: hsl(45, 100%, 70%); 
+    } 
+    .hilitecolor2 { 
+       background-color: hsl(218, 100%, 80%); 
+    } 
+    .hilitecolor3 { 
+       background-color: hsl(150, 100%, 70%); 
+    } 
+    .hilitecolor4 { 
+       background-color: hsl(0, 100%, 70%); 
+    } 
+    .hilitesolution { 
+       background-color: hsl(47, 60%, 70%); 
+       font-style: italic; 
+    } 
+    h1, h2, h3 { 
+      color: hsl(209, 60%, 45%); 
+    } 
+    h1[data-number]:before, h2[data-number]:before, h3[data-number]:before { 
+      content: attr(data-number); 
+      margin-right: 10px; 
+    } 
+    .skill { 
+      line-height: initial; 
+      padding: 7px 0px 3px 0px; 
+      border: 1px solid hsl(0,0%,100%); 
+    } 
+    .skill .skill { 
+      display: inline-block; 
+      margin: 0px 5px 2px 5px; 
+      position: relative; 
+    } 
+    .skill .skill .container { 
+      min-height: 27px; 
+      display: table; 
+      border: 2px solid hsl(0,0%,25%); 
+    } 
+    .skill .skill .container .block { 
+      font-size: 14px; 
+      display: table-cell; 
+      min-width: 19px; 
+      text-align: center; 
+      vertical-align: middle; 
+      padding: 0px 6px 0px 4px; 
+    } 
+    .skill .skill .container .content { 
+      padding: 2px 6px; 
+      font-size: 14px; 
+      display: table-cell; 
+      vertical-align: middle; 
+    } 
+    .skill .skill .container .content span { 
+      margin-left: 1px; 
+      margin-right: 1px; 
+    } 
+    .skill .skill .container .content .text { 
+      vertical-align: -1px; 
+    } 
+    .block { 
+      background-color: hsl(0,0%,25%);  
+      color: hsl(196, 100%, 97%);  
+    } 
+    .block { 
+      background-color: hsl(0,0%,25%);  
+      color: hsl(196, 100%, 97%);  
+    } 
+    .skill .skill .container.attr_certificate { 
+      border: 2px solid hsl(0, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_certificate .block { 
+      background-color: hsl(0, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_new { 
+      border: 2px solid hsl(120, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_new .block { 
+      background-color: hsl(120, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_revision { 
+      border: 2px solid hsl(47, 90%, 60%); 
+    } 
+    .skill .skill .container.attr_revision .block { 
+      background-color: hsl(47, 90%, 60%); 
+    } 
+    .hint .hint { 
+      margin-left: 30px; 
+      margin-bottom: 5px; 
+    } 
+    .header .wrap { 
+      padding-right: 10px; 
+      width: fit-content; 
+      cursor: pointer; 
+      border-bottom: 2px solid hsl(214, 38%, 59%); 
+    } 
+    .header .wrap .icon { 
+      vertical-align: -4px; 
+      margin-right: 3px; 
+    } 
+    .header .wrap .icon svg{ 
+      fill: hsl(214, 38%, 59%); 
+    } 
+  </style> 
+  <script> 
+     window.onload = function() { 
+       if (window.location.hash) { 
+         let id = window.location.hash.substr(1); 
+         let anchor = document.getElementsByClassName(id); 
+         if (anchor[0]) { 
+           let top = anchor[0].offsetTop; 
+           window.scrollTo(0, top); 
+         } 
+       } 
+       let links = document.querySelectorAll(".task-link"); 
+       for (let i = 0; i < links.length; i++) { 
+         links[i].onclick = function(event) { 
+           if (event.target.getAttribute("data-href")) { 
+             window.open(event.target.getAttribute("data-href"), "_self"); 
+           } 
+         } 
+       } 
+    } 
+  </script> 
+</head> 
+<body>
+<div class="text segment" id="r2d98m">
+<h1 class="e_e65d4p">1 GUI</h1>
+<p>Die Klasse GUI ermöglichst die Darstellung des gesamten Spiels und ist aus diesem Grund auch essenziell für die Erstellung der anderen Klassen.&nbsp;</p>
+<p>Die Konstanten dieser Klasse haben Sie bereits definiert.&nbsp;</p>
+<h2 class="e_gnyab7">1.2 Spielbrett darstellen</h2>
+<p><span class="task-link s_nre661 action" data-href="#s_nre661">Implementieren Sie</span>:</p>
+<ul>
+<li>eine private Prozedur, die die Lebenspunkte des Spielers darstellt</li>
+<li>eine Prozedur, die die Lebenspunkte des Spielers visuell aktualisiert</li>
+<li>eine Prozedur, die einen leeren Spielbrett mit den Lebenspunkten des Spielers darstellt</li>
+</ul>
+<h2 class="e_08psjh">1.3 Menü darstellen&nbsp;</h2>
+<p>In dem Menü geben Sie dem Spieler die Möglichkeit zwischen OOP1 und OOP2 zu wählen. Dies hat Einfluss auf die Fragen, die der Spieler später beantworten muss.</p>
+<p><span class="task-link s_8kvy7o action" data-href="#s_8kvy7o">Implementieren Sie</span> eine Prozedur:</p>
+<ul>
+<li>zur Darstellung der Option "OOP1"</li>
+<li>zur Darstellung der Option "OOP2"&nbsp;</li>
+<li>zur Darstellung der Option "OOP1", wenn ausgewählt&nbsp;</li>
+<li>zur Darstellung der Option "OOP2", wenn ausgewähl</li>
+<li>für die Erzeugung des "GO"-Buttons</li>
+<li>für die Anzeige des "GO"-Buttons</li>
+<li>für das Anklicken des "GO"-Buttons</li>
+<li>für die Erzeugung des grafischen Menüs</li>
+</ul>
+<p><span class="task-link s_zs5n9a action" data-href="#s_zs5n9a">Implementieren Sie</span> dazu noch eine Funktion zum Darstellen des grafischen Menüs, die die Auswahl des Spielniveaus zurückgibt.&nbsp;</p>
+<p style="margin: 0in; margin-left: .375in; font-family: Calibri; font-size: 11.0pt;">&nbsp;</p>
+</div>
+<div class="hint segment" id="0qfp11" data-title="Hinweis">
+<div class="header"><div class="wrap"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg></span><span>Hinweis</span></div></div>
+<div data-uuid="msecae" data-hint="U2FsdGVkX1/vrtbtCSH6L9uasyEdpzvPYj6RBHUdkysVfRBiNbtyfSgWM9nzsTfbz4MUEz9/QJVS9dn/vRxTKrf1Yh+56n7375OyOqYoy2jU1lUpTxFUrx23ZFUeRjVE38qnhI+ZR5tdcCOaloE7gGd8gr5/mQBZ3iAtfWMgiCPxXGRzoAZWKr6ehh3iErK8C69ltlQ4/w6TnuZRqDfAIgVZX5t8iGSe5ykVGEumokyb/6TCEu8cBOCD0TlPhSUbFCD2HP2+xtlAfbz9Mp9FcA==" class="hint"></div>
+
+</div>
+<div class="text segment" id="dfjcbt">
+<h2 class="e_2oxatb">1.4 Tempel darstellen</h2>
+<p><span class="task-link s_5rl3sx def" data-href="unotempel/GUI.java#e_5rl3sx">Erstellen Sie</span> eine Funktion zur Darstellung der einzelnen Tempel. Durch einen Klick auf das passende Symbol wird der Spieler zu einer Begrüßungsnachricht weitergeleitet. Wenn Sie möchten können sie die <code>waitFor()</code>- Methode benutzen, um den Schein einer Animation zu simuleren.&nbsp;</p>
+<p>Implementieren Sie eine Prozedur zur Darstellung der&nbsp; Begrüßungsnachricht in jedem Tempel. Die Nachrit sollte eine kurze Einführung für die folgende Quizfrage beinhalten.</p>
+</div>
+<div class="hint segment" id="bdwbhz" data-title="Hinweis">
+<div class="header"><div class="wrap"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg></span><span>Hinweis</span></div></div>
+<div data-uuid="woqj5h" data-hint="U2FsdGVkX19EAi+sqVJOFeADwzEfMMlKFZFzaH6TlmFTbtgWkU48hOJfPVfRxJXa8AiTuXs4vg9TyMFIF0F9z6Jk0G3Y9oLHzIvCYuNHj5kPnjWYy0Bay/E6Hh17p5Nmb87fofZWWl2AOT+AI6Azafle2rwEJNThtun7QzjYg1wfVszzVoANvg6R9nV2kX05jzSWclTWmgswjr25BfJACl2+/55evblj/E3Mpg+XNVlqL93xf7kbcVGLsvZgR9YVGi3PkHbi3oufH5lWSzM55A3fWzFbNuSniUNe2J1LkNPn1Q/V+iUa5zSO/Rm1Iqtfp0B7DkW1uMbj/ZJnb/pJCmtu0uP2VY2yPRnm7g1ncxzqrXZwOyA0hk9gg8vLgaIeHeQcOJl3jz2enuAJUSQS47Qf2T934KGzjMENX8y6L9tjVGoZcWq2ZmgI5tq0l34MuC4YRX2af7vHOJs4r9LGTzjZ7eiqK4QkaFmG7/1d2ihV0jWLXoDvvKKEKZRT67a/Ptj4Tz3DLAKllgD6CvhV+kgAtwxS2M3GfNrc6keNmg3u088ctW+yRYom+HGF5q5wkc4TMOJZmkBQrNB6AdFKYvf0F0Mr3PZm20vsLHYyjfWLYl7ZSVaduobLFhMpsQsBgjL/v6Ibp4MG7tocCATDr+gdS2zpzTe4sxotBsFcw7jdwZhnyqNCBoTTAhZMdgRkWOUFYt27NL4hG7tLwePxmhcxXGDHnkMIn8LuNyK7UP/132EUmmkVO8LalTpl+TjrspDBhSLEfLXqIwL2XR9wxOwPeK8XbVkwRe2fUx9OG5xumDxHKD5ToRwCFtNivS8tcQqQh6HAHukPYC0VzxgfpvAHNo0y33xmBv0eHa1QTBnwlMfJK2UZ6SCxF//YplSG" class="hint"></div>
+
+</div>
+<div class="text segment" id="6x1hwf">
+<h2 class="e_gkozxc">1.5 Quizfrage darstellen</h2>
+<p><span class="task-link s_t7ortl def" data-href="unotempel/GUI.java#e_t7ortl">Definieren Sie</span> eine Funktion, die eine Quizfrage darstellt und die ausgewählte Antwort zurückgibt.</p>
+<h2>1.6 Spielfeld darstellen</h2>
+<p>Sie schreiben als erstes einige Methoden die Ihnen später bei der Zusammensetzung des Spielfelds helfen werden.</p>
+<h3>1.6.1 Darstellung der Kartenplätze&nbsp;</h3>
+<p><span class="task-link s_xwjodl def" data-href="unotempel/GUI.java#e_xwjodl">Implementieren Sie</span> eine Prozedur, die&nbsp;einen Hinweis auf den Platz der Kartenposition darstellen soll. Das kann zum Beispiel durch eine kartenförmige Umrandung realisiert werden.</p>
+<h3>1.6.2 Darstellung des Uno-Buttons</h3>
+<p><span class="task-link s_7f4d5f def" data-href="unotempel/GUI.java#e_7f4d5f">Erstellen Sie</span> eine Prozedur, die einen Uno-Button in Abhängigkeit von der Größe des Spielfels darstellt. Der Button hat noch keine Funktion.&nbsp;</p>
+<h3>1.6.3 Darstellung des Links-/Rechtsbuttons</h3>
+<p><span class="task-link s_9erc9t def" data-href="unotempel/GUI.java#e_9erc9t">Definieren Sie</span> eine Prozedur zur Darstellung von zwei Buttons. Die Buttons sind für die Links- und Rechtsverschiebung der Spielerhand zuständig. Die Buttons sollten eine entsprechende Ausgabe auf die Konsole ausgeben. Die Prozedur wird durch Angabe der x- und y-Koordinate aufgerufen.</p>
+<h3 class="e_bftf4z">1.6.4 Darstellung des Kartenstapels</h3>
+<p><span class="task-link s_fvgyco def" data-href="unotempel/GUI.java#e_fvgyco">Definieren Sie</span> eine Prozedur, die den Kartenstapel, von dem der Spieler Karten ziehen kann, darstellt. Die Vorgehensweise ähnelt der der Darstellung der Platzhalterkarten. [Kartengröße z.B. (50,100)]</p>
+<h3 class="e_jcwj7f">1.6.5 Erstellung der Spielfelddarstellung</h3>
+<p><span class="task-link s_am5vmd def" data-href="unotempel/GUI.java#e_am5vmd">Implementieren Sie</span> eine Prozedur zur Darstellung eines leeren Spielfeldes.</p>
+<p>Gehen Sie dabei wie folgt vor:&nbsp;</p>
+<ul>
+<li><strong>Tipp</strong>: Benutzen Sie für das Spielfeld und Hintergrund andere Farben, damit man den Unterschied erkennt. Erstellen Sie dazu noch einen kleinen sichtbaren Rand dazwischen.</li>
+<li>Schaffen Sie Platz für die gespielten Karten und den Kartenstapel, indem Sie die Methode für die Platzhalterdarstellung in passenden Abständen aufrufen.</li>
+<li>Für eine bessere Übersicht sollten Sie nicht alle Karten auf der Hand gleichzeitig anzeigen. (z.B. nur 10 von 20 möglichen Karten auf der Hand)</li>
+<li>Stellen Sie den Kartenstapel dar.&nbsp;</li>
+<li>Stellen Sie alle Buttons dar</li>
+</ul>
+<p>Für eine bessere Übersicht sollten Sie nicht alle Karten auf der Hand gleichzeitig anzeigen. (z.B. nur 10 von 20 möglichen Karten auf der Hand)</p>
+</div>
+
+</body> 
+</html>
