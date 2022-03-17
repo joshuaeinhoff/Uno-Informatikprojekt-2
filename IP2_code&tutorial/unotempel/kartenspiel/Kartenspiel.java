@@ -225,6 +225,9 @@ public class Kartenspiel {
             gui.aktualisiereLebenspunkte(spieler[0]);
             System.out.println("Held hat " + spieler[0].getLebenspunkte() + " Lebenspunkte.");
             System.out.println("Monster hat " + spieler[1].getLebenspunkte() + " Lebenspunkte.");
+            // Spieler müssen ihre Hände entleeren
+            spieler[0].handEntleeren();
+            spieler[1].handEntleeren();
         } 
 
     }
