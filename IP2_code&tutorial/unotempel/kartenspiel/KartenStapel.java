@@ -141,11 +141,11 @@ public class KartenStapel {
 
 
     /**
-     * Prozedur zum Mischen der Karten und wieder als vorhanden setzen
+     * Private Prozedur zum Mischen der Karten und wieder als vorhanden setzen
      * Die aktuelle Karte darf nicht im Stapel gesetzt werden
      * @param aktuelleKarte - Aktuelle Karte im Spiel
      */
-    public void kartenMischen(Karte aktuelleKarte) {
+    private void kartenMischen(Karte aktuelleKarte) {
         // Index der aktuellen Karte im Stapel finden:
         // Index der aktuellen Karten auf einen unmöglichen Wert setzen
         int indexAktuelleKarte = -1;
