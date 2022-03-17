@@ -33,41 +33,42 @@
 			"content": [
 				{
 					"type": "document",
-					"path": "IP2_code&tutorial\\2_Tut_Spieler_OOP1.flow.html",
+					"path": "::dir\\2_Tut_Spieler_OOP1.flow.html",
 					"active": true,
 					"cursor": {
 						"segment": "946hnn",
 						"cursor": {
-							"startOffset": 26,
-							"endOffset": 26,
-							"nodeData": "3.2.6 Neue Farbe auswählen",
-							"nodeHTML": "3.2.6 Neue Farbe auswählen",
-							"nodeTagName": "H3"
+							"startOffset": 51,
+							"endOffset": 51,
+							"nodeData": ", die dem Spieler ermöglicht eine neue Farbe auszuwählen.",
+							"nodeHTML": "<span class=\"task-link s_5faixo def\" data-href=\"unotempel/kartenspiel/KISchlau.java#e_5faixo\">Überschreiben Sie</span> die Funktion <code>neueFarbeAuswaehlen()</code>, die dem Spieler ermöglicht eine neue Farbe auszuwählen.",
+							"nodeTagName": "P"
+						}
+					}
+				}
+			],
+			"type": 1,
+			"active": true
+		},
+		{
+			"content": [
+				{
+					"type": "document",
+					"path": "::dir\\2_Tut_Spieler_OOP2.flow.html",
+					"active": true,
+					"cursor": {
+						"segment": "wsnua6",
+						"cursor": {
+							"startOffset": 1,
+							"endOffset": 1,
+							"nodeHTML": "<h2 class=\"e_mhd5q3\">1.7 Anzahl der Karten in der Hand zurückgeben</h2><p><span class=\"task-link s_corr1u def\" data-href=\"unotempel/kartenspiel/Spieler.java#e_corr1u\">Schreiben Sie </span> eine Funktion, die die Anzahl der Karten in der Hand des Spielers zurückgibt.</p><h2 class=\"e_hmohct\">1.8 Hand des Spielers entleeren</h2><p>Es kann durchaus vorkommen, dass ein Spieler nach einem Spiel noch Karten auf der Hand hat. Aus diesem Grund müssen Sie jetzt eine Methode implementieren, die die Hand des Spielers nach einem Spiel \"entleert\".</p><p>Gehen Sie wie folgt vor:</p><p>1. <span class=\"\" data-href=\"#s_fmh75j\"><span class=\"task-link s_jwc69a def\" data-href=\"unotempel/kartenspiel/Spieler.java#e_jwc69a\">Erstellen Sie</span> eine Hilfsfunktion,</span>&nbsp;die eine in einem gegebenen Index gespeicherten Karte zurückgibt.</p><p>2. <span class=\"\" data-href=\"#s_rqcztl\"><span class=\"task-link s_cg9zz2 def\" data-href=\"unotempel/kartenspiel/Spieler.java#e_cg9zz2\">Schreiben Sie</span> eine Prozedur,</span>&nbsp;die diese Karte auf null setzt.</p><p>Für die eigentliche Methode zum Entleeren der Hand, iterieren Sie nun über die Hand des Spielers. Solange der Spieler noch Karten auf der Hand hat, setzten Sie die Karte am gegebenen Index auf null.</p><p><span class=\"task-link s_zpkrm5 def\" data-href=\"unotempel/kartenspiel/Spieler.java#e_zpkrm5\">Implementieren Sie</span> diese Methode.</p><h2 class=\"e_5k7ye0\">1.9 Schaden zufügen</h2><p>Wenn ein Spieler ein Spiel verliert, werden ihm Schadenspunkte hinzugefügt und somit auch die Lebensenergie reduziert.</p><p><span class=\"task-link s_gro57p def\" data-href=\"unotempel/kartenspiel/Spieler.java#e_gro57p\">Implementieren Sie</span> eine Funktion, die genau das tut.</p><p>Gehen Sie wie folgt vor:</p><p>1. <span class=\"task-link s_f53xhr def\" data-href=\"unotempel/kartenspiel/Spieler.java#e_f53xhr\">Erstellen Sie</span> eine Hilfsfunktion,&nbsp;die die Lebensenergie des Spielers zurückgibt.</p><p>2. <span class=\"task-link s_jtc6md def\" data-href=\"unotempel/kartenspiel/Spieler.java#e_jtc6md\">Schreiben Sie</span> eine Prozedur,&nbsp;die Punkte zu der Lebensergie des Spielers addiert.</p><p>Für die eigentliche Methode zum Reduzieren der Lebensenergie:</p><ul><li>fügen Sie 5 Schadenspunkte hinzu, wenn die Karte eine \"PlusVierWunsch\" Karte ist</li><li>fügen Sie 4 Schadenspunkte hinzu, wenn die Karte eine \"Wunsch\" Karte ist</li><li>fügen sie 2 Schadenspunkte hinzu, wenn es eine andere Art von Karte ist</li></ul><p>Nun müssen Sie den Schaden für das Quiz berechnen:</p><ul><li>wenn der Schaden gleich 0 ist, fügen sie 10 Schadenspunkte hinzu und ziehen diese von der Lebensenergie ab</li><li>achten Sie darauf, dass die Lebensenergie nicht negativ sein darf!</li></ul><h1 class=\"e_z7942w\">2 Held</h1><p>Diese Klasse stellt den menschlichen Spieler dar.</p><p><span class=\"s_w6o4q4 def s_gig383 main task-link s_pyjs8s action\">Erstellen Sie</span> die Klasse <strong>Held</strong>&nbsp;als Subklasse von <strong>Spieler. </strong>Vergessen Sie nicht, die Klasse in dem entsprechenden package zu packen!</p><h2 class=\"e_jb8xrq\">2.1 Daten als Instanz-Variablen definieren&nbsp;</h2><p>Für die Darstellung der Karten des menschlichen Spielers müssen Sie eine Variable <span class=\"task-link s_ifufm1 def\" data-href=\"unotempel/kartenspiel/Held.java#e_ifufm1\">definieren</span>, die den Verschiebungswert einer Karte speichert.&nbsp;</p><h2 class=\"e_ijq6rp\">2.2 Konstruktor definieren</h2><p><span class=\"task-link s_iqwacl def\" data-href=\"unotempel/kartenspiel/Held.java#e_iqwacl\">Definieren Sie</span> einen Konstrukor, der einen menschlichen Spieler mit 100 Punkten Lebensenergie erzeugt und den Verschiebungswert der Karte auf 0 initialisiert.&nbsp;</p><h2 class=\"e_94u0qa\">2.3 Eine Karte ziehen</h2><p><span class=\"task-link s_ga1g0p def\" data-href=\"unotempel/kartenspiel/Held.java#e_ga1g0p\">Überschreiben Sie</span> die Prozedur <code>karteZiehen()</code>, die dafür sorgt, dass der Spieler Karten aus dem Kartenstapel zieht, solange seine Hand noch nicht voll ist.&nbsp;Falls an einer Stelle keine Karte vorhanden ist, muss der Spieler eine Karte ziehen und sie an dieser Stelle hinzufügen. Vergessen Sie nicht danach die Karte auf dem Spielfeld zu aktualisieren!</p><h2 class=\"e_bub02p\">2.4 Karten verschieben</h2><p><span class=\"task-link s_5ehwh2 def\" data-href=\"unotempel/kartenspiel/Held.java#e_5ehwh2\">Implementieren Sie</span> eine Methode, die die Karten in der Hand des Spielers verschiebt, wenn er beispielsweise eine neue Karte zieht oder eine Karte auf dem Ablagestapel legt.</p><ul><li>wenn Sie nach <span class=\"underline\">links</span> verschieben, müssen Sie den <strong><code>kartenVerschiebungswert</code></strong> <span class=\"underline\">dekrementieren&nbsp;</span></li><li>wenn Sie nach <span class=\"underline\">rechts</span> verschieben, müssen Sie den <strong><code>kartenVerschiebungswert</code></strong> <span class=\"underline\">inkrementieren</span></li></ul><h2 class=\"e_p0mlc3\">2.5 Eine Karte spielen</h2><p><span class=\"task-link s_bobk33 def\" data-href=\"unotempel/kartenspiel/Held.java#e_bobk33\">Überschreiben Sie</span> die Funktion <code>karteSpielen() </code>zum Spielen einer Karte.</p><p><code></code>Gehen Sie wie folgt vor:</p><p>1. Definieren Sie eine Variable für den Index der ausgewählten Karte.</p><p>2. Solange noch spielbare Karten in der Hand des Spielers vorhanden sind:</p><ul><li>werden die Karten verschoben&nbsp;</li><li>wird geprüft, ob die ausgewählte Karte gespielt werden kann</li><li>wenn ja: Karte auf der Hand auf null setzen und ausgewählte Karte zurückgeben</li><li>wenn nein: Fehlermeldung auf die Konsole ausgeben</li></ul><p>3. Solange der Spieler noch keine Karte gezogen hat:</p><ul><li>wird geprüft, ob der Spieler auf dem Kartenstapel geklickt hat</li><li>wenn ja: Karte ziehen und versuchen zu spielen</li><li>wenn nein: Fehlermeldung auf die Konsole ausgeben</li></ul><p>4. Falls der Spieler nach dem Ziehen immer noch keine spielbare Karte hat, geben Sie null zurück und eine Meldung auf die Konsole aus.</p><h2 class=\"e_cm90n1\">2.6 Neue Farbe Auswählen</h2><p>Wie Sie bereits wissen, gibt es bei dem Kartenspiel zwei Aktionskarten (WunschKarte und PlusVierWunschKarte), mit denen man die aktuelle Farbe im Spiel wechseln kann.</p><p><span class=\"task-link s_47t81z def\" data-href=\"unotempel/kartenspiel/Held.java#e_47t81z\">Überschreiben Sie</span> die Funktion <code>neueFarbeAuswaehlen()</code>,&nbsp;die dem Spieler ermöglicht eine neue Farbe auszuwählen.&nbsp;</p><h1 class=\"e_03svfp\"><span style=\"color: var(--accent-background2); background-color: var(--background);\" data-mce-style=\"color: var(--accent-background2); background-color: var(--background);\">3 KI&nbsp;</span></h1><p>Für die KI müssen Sie nun zwei Klassen erstellen:</p><ul><li><strong>KIZufall</strong></li><li><strong>KISchlau</strong></li></ul><h2 class=\"e_it74bs\">3.1 KIZufall</h2><p>Diese Klasse stellt einen einfachen KI-Gegner dar, der eher zufällig spielt.</p><p><span class=\"task-link s_mqz0el def\" data-href=\"unotempel/kartenspiel/KIZufall.java#e_mqz0el\">Erstellen Sie</span> die Klasse <strong>KIZufall</strong> als Subklasse von <strong>Spieler</strong>. Vergessen Sie nicht, die Klasse in dem entsprechendne package zu packen!</p><h3 class=\"e_48elsk\">3.1.1 Konstruktor erstellen</h3><p><span class=\"task-link s_nxk0f0 def\" data-href=\"unotempel/kartenspiel/KIZufall.java#e_nxk0f0\">Definieren Sie</span> den Konstruktor dieser Klasse.</p><h3 class=\"e_dil3k6\">3.1.2 Eine Karte ziehen</h3><p>Diese Methode ist identisch mit der aus der Klasse Held. Der einzige Unterschied ist, dass Sie bei dem Aktualisieren der Karte auf dem Spielfeld eine DummyKarte benutzen müssen, da diese Klasse die Karten des Gegeners beschreibt und darstellt.</p><p><span class=\"task-link s_k4zz5m def\" data-href=\"unotempel/kartenspiel/KIZufall.java#e_k4zz5m\">Implementieren Sie</span> die Methode<code> karteZiehen(),</code> wie Sie das für Klasse Held gemacht haben.</p><h3 class=\"e_g4wprk\">3.1.3 Eine Karte spielen</h3><p><span class=\"task-link s_zjdtx3 def\" data-href=\"unotempel/kartenspiel/KIZufall.java#e_zjdtx3\">Überschreiben Sie</span> die Funktion <code>karteSpielen()</code> zum Spielen einer <span class=\"underline\"><strong>zufällig</strong></span> ausgewählten Karte.</p><p>Gehen Sie wie folgt vor:</p><p>1. Solange noch spielbare Karten in der Hand des Spielers vorhanden sind:</p><ul><li>Variable für eine <code><strong>zufallszahl</strong></code> definieren</li><li>prüfen, ob die zufällig ausgewählte Karte gespielt werden kann</li><li>wenn ja: Karte auf der Hand und DummyKarte auf dem Spielfeld auf null setzen und ausgewählte Karte zurückgeben</li></ul><p>2. Solange der Spieler noch keine Karte gezogen hat:</p><ul><li>eine Karte aus dem Kartenstapel ziehen</li><li>versuchen die gezogene Karte zu spielen</li></ul><p>3. Falls der Spieler nach dem Ziehen immer noch keine spielbare Karte hat, geben Sie null zurück und eine Meldung auf die Konsole aus.</p><h3 class=\"e_za53mw\">3.1.4 Neue Farbe auswählen</h3><p><span class=\"task-link s_mmudtr def\" data-href=\"unotempel/kartenspiel/KIZufall.java#e_mmudtr\">Überschreiben Sie</span> die Funktion <code>neueFarbeAuswaehlen()</code>,&nbsp;die dem Spieler ermöglicht eine neue <span class=\"underline\"><strong>zufällige</strong></span> Farbe auszuwählen.&nbsp;</p><h2 class=\"e_qnhz1f\">3.2 KISchlau</h2><p>Diese Klasse stellt einen KI-Gegner dar, der schlauer ist als die KIZufall. Das heißt, dass seine Spielzüge <span class=\"underline\">nicht</span> zufällig sind.</p><p><strong><span class=\"s_wacjla def s_91rv65 main task-link s_es1kwv action\" data-href=\"unotempel/kartenspiel/KISchlau.java#e_wacjla\">Erstellen Sie</span> die Klasse KISchlau</strong>&nbsp;als Subklasse von <strong>Spieler</strong>. Vergessen Sie nicht, die Klasse in dem entsprechenden package zu packen!</p><h3 class=\"e_rkah45\">3.2.1 Konstruktor erstellen</h3><p><span class=\"task-link s_a44cwm def\" data-href=\"unotempel/kartenspiel/KISchlau.java#e_a44cwm\">Definieren Sie</span> den Konstruktor dieser Klasse.</p><h3 class=\"e_lttrbe\">3.2.2 Eine Karte ziehen</h3><p><span class=\"task-link s_8gfoyf def\" data-href=\"unotempel/kartenspiel/KISchlau.java#e_8gfoyf\">Implementieren Sie</span> diese Methode genauso, wie <code>karteZiehen()</code> aus KIZufall.</p><h3 class=\"e_rhrfx2\">3.2.3 Prüfen, ob eine spielbare Karte einer bestimmten Art existiert</h3><p><span class=\"task-link s_wymt41 def\" data-href=\"unotempel/kartenspiel/KISchlau.java#e_wymt41\">Implementieren Sie</span> eine Funktion, die true zurückgibt, wenn eine <span class=\"underline\">spielbare Karte einer bestimmten Art</span> in der Hand des Spielers existiert und false, wenn das nicht der Fall sein sollte.</p><h3 class=\"e_n75gr3\">3.2.4 Eine spielbare Karte einer bestimmten Art finden</h3><p><span class=\"task-link s_h81qqe def\" data-href=\"unotempel/kartenspiel/KISchlau.java#e_h81qqe\">mplementieren Sie</span> eine Funktion,&nbsp;die eine spielbare Karte einer bestimmten Kartenart findet und zurückgibt.&nbsp;</p><h3 class=\"e_a88m9q\">3.2.5 Karte spielen</h3><p><span class=\"task-link s_m4x5oh def\" data-href=\"unotempel/kartenspiel/KISchlau.java#e_m4x5oh\">Überschreiben Sie</span> die Funktion <code>karteSpielen()</code> zum Spielen einer Karte.</p><ul><li>prüfen Sie, ob der Spieler eine Karte einer bestimmten Art hat</li><li>wenn ja: Karte <strong><span class=\"underline\">finden</span></strong> und <strong><span class=\"underline\">zurückgeben</span></strong></li><li>diese Schritte wiederholen Sie für <strong><span class=\"underline\" style=\"background-color: var(--background); color: var(--text);\" data-mce-style=\"background-color: var(--background); color: var(--text);\">alle</span></strong><span style=\"background-color: var(--background); color: var(--text);\" data-mce-style=\"background-color: var(--background); color: var(--text);\"> Kartenarte</span></li></ul><p><strong style=\"background-color: var(--background); color: var(--text);\" data-mce-style=\"background-color: var(--background); color: var(--text);\">Zur Verdeutlichung können Sie sich an der Abbildung unten orientieren.</strong></p><p><strong style=\"background-color: var(--background); color: var(--text);\" data-mce-style=\"background-color: var(--background); color: var(--text);\"><span class=\"underline\"><img src=\"blob:file:///349d6550-399f-47f1-afba-8f612b7cdae7\"></span></strong></p><p><em>Bild: Fallunterscheidung, Darstellung der Funktion karteSpielen()</em></p><h3 class=\"e_52mvoe\">3.2.6 Neue Farbe auswählen</h3><p><code><span class=\"task-link s_5faixo def\" data-href=\"unotempel/kartenspiel/KISchlau.java#e_5faixo\">Überschreiben Sie</span> die Funktion neueFarbeAuswaehlen()</code><code></code><code></code><code></code>, die dem Spieler ermöglicht eine neue Farbe auszuwählen.</p><p>Gehen Sie wie folgt vor:</p><p>1. Definieren Sie einen leeren String für die <code><strong>farbe</strong></code> und einen Array, der vier Integer (für die vier UNO-Farben) speichern kann.</p><p>2. Gehen Sie über die Hand des Spielers und speichern die Farbe der ausgewählten Karte.&nbsp;</p><p>3. Schreiben Sie eine Fallunterscheidung, bei der Sie den Index des Arrays je nach Farbe inkrementieren (Reihenfolge der Farben: blau, gelb, gruen, rot).</p><p>4. Definieren Sie zwei Variablen:</p><ul><li><strong><code>hoechsteAnzahl</code></strong>: für die höchste Anzahl von Karten und</li><li><strong><code>indexAufArray</code></strong>: für den Index der Farben / des Arrays</li></ul><p>und setzen diese auf -1.</p><p>Damit die KISchlau eine Farbe auswählen kann, die Sinn macht und vorteilhaft ist, muss die KISchlau wissen, von welcher Farbe die meisten Karten vorhanden sind:</p><p>5. Iterieren Sie über die Farben und suchen nach dem Index mit der höchsten Anzahl von Karten. Wenn die gespeicherte Zahl am gegebenen Index größer als oder gleich <strong><code>hoechsteAnzahl</code></strong> ist, dann aktaulisieren Sie <strong><code>hoechsteAnzahl</code></strong> und <strong><code>indexAufArray</code></strong>.<strong><code></code></strong></p><p>6. Zum Schluss geben Sie <strong><code>indexAufArray</code></strong> zurück.</p><p><img src=\"blob:file:///57b7a126-a78b-4d9d-98b9-e258abbe09ca\" width=\"1114\" height=\"1245\"></p>",
+							"nodeTagName": "DIV"
 						}
 					}
 				}
 			],
 			"type": 1,
 			"active": false
-		},
-		{
-			"content": [
-				{
-					"type": "document",
-					"path": "IP2_code&tutorial\\unotempel\\Spiel.java",
-					"active": true,
-					"cursor": {
-						"line": 53,
-						"ch": 39
-					}
-				},
-				{
-					"type": "document",
-					"path": "IP2_code&tutorial\\unotempel\\Tempel.java"
-				}
-			],
-			"type": 1,
-			"active": true
 		},
 		{
 			"type": 2
@@ -118,8 +119,8 @@
 		},
 		"split_columns": {
 			"dimension": [
-				46.51116734392788,
-				53.48883265607212
+				54.50855052697155,
+				45.49144947302845
 			]
 		}
 	},
@@ -313,67 +314,67 @@
 		{
 			"name": "1_Tut_UNO_OOP1",
 			"path": "::dir\\_generated\\exec\\_1_Tut_UNO_OOP1.java",
-			"id": "z4ngsz",
+			"id": "xpe2gj",
 			"isGenerated": true
 		},
 		{
 			"name": "1_Tut_UNO_OOP2",
 			"path": "::dir\\_generated\\exec\\_1_Tut_UNO_OOP2.java",
-			"id": "jt2mgk",
+			"id": "zl42x0",
 			"isGenerated": true
 		},
 		{
 			"name": "2_Tut_Spieler_OOP1",
 			"path": "::dir\\_generated\\exec\\_2_Tut_Spieler_OOP1.java",
-			"id": "d0ta0q",
+			"id": "cvgqtx",
 			"isGenerated": true
 		},
 		{
 			"name": "2_Tut_Spieler_OOP2",
 			"path": "::dir\\_generated\\exec\\_2_Tut_Spieler_OOP2.java",
-			"id": "mzg9am",
+			"id": "1eihgx",
 			"isGenerated": true
 		},
 		{
 			"name": "3_Tut_GUI",
 			"path": "::dir\\_generated\\exec\\_3_Tut_GUI.java",
-			"id": "d4y22u",
+			"id": "yqfvxb",
 			"isGenerated": true
 		},
 		{
 			"name": "4_Tut_Quiz_OOP1",
 			"path": "::dir\\_generated\\exec\\_4_Tut_Quiz_OOP1.java",
-			"id": "a1kued",
+			"id": "3wgebh",
 			"isGenerated": true
 		},
 		{
 			"name": "4_Tut_Quiz_OOP2",
 			"path": "::dir\\_generated\\exec\\_4_Tut_Quiz_OOP2.java",
-			"id": "6etrgi",
+			"id": "6hj0yp",
 			"isGenerated": true
 		},
 		{
 			"name": "5_Tut_Tempel_OOP1",
 			"path": "::dir\\_generated\\exec\\_5_Tut_Tempel_OOP1.java",
-			"id": "vipb0y",
+			"id": "6iazwq",
 			"isGenerated": true
 		},
 		{
 			"name": "5_Tut_Tempel_OOP2",
 			"path": "::dir\\_generated\\exec\\_5_Tut_Tempel_OOP2.java",
-			"id": "1q07k2",
+			"id": "1icolq",
 			"isGenerated": true
 		},
 		{
 			"name": "6_Tut_Spiel_OOP1",
 			"path": "::dir\\_generated\\exec\\_6_Tut_Spiel_OOP1.java",
-			"id": "m60zfn",
+			"id": "8swwfa",
 			"isGenerated": true
 		},
 		{
 			"name": "6_Tut_Spiel_OOP2",
 			"path": "::dir\\_generated\\exec\\_6_Tut_Spiel_OOP2.java",
-			"id": "l9nxlc",
+			"id": "0z00sn",
 			"isGenerated": true
 		}
 	],
@@ -434,7 +435,7 @@
 			"id": "xxbb7c"
 		}
 	],
-	"activities": "U2FsdGVkX1/NTfi+CKzu+VJRYXGBWVUVNkEalBpYkN4=",
-	"lastSaveDate": "2022-03-17T14:45:28.854Z",
+	"activities": "U2FsdGVkX1+OnH5YspK28KsQV/bIoAyMeeY09dA66I4=",
+	"lastSaveDate": "2022-03-17T15:29:17.730Z",
 	"showRulers": false
 }
